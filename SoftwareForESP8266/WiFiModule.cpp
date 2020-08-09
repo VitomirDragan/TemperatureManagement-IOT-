@@ -37,15 +37,15 @@ int WiFiModule::readTemperatureFromArduino(int dataPackage){
 }
 
 void WiFiModule::sendHumidityToDatabase(int humidity){
-    Firebase.setInt("HumidityRoom2", humidity);
+    Firebase.setInt("HumidityRoom2/Value", humidity);
 }
 
 void WiFiModule::sendTemperatureToDatabase(int currentTemperature){
-    Firebase.setInt("CurrentTempRoom2", currentTemperature);
+    Firebase.setInt("CurrentTempRoom2/Value", currentTemperature);
 }
 
 int WiFiModule::readDesiredTemperatureFromDatabase(){
-    return Firebase.getInt("DesiredTemperatureRoom2");
+    return Firebase.getInt("DesiredTempRoom2/Value");
 }
 
 void WiFiModule::sendDesiredTemperatureToArduino(int desiredTemperature){
