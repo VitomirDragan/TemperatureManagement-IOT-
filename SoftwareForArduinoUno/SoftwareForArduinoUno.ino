@@ -3,6 +3,7 @@ ArduinoUno arduinoUno;
 
 void setup() {
   Serial.begin(9600);
+  pinMode(7, OUTPUT);
   arduinoUno.initializeSerial();
 }
 

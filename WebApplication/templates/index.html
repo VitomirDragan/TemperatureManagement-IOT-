@@ -7,16 +7,20 @@
 {% block body %}
 <div>
     <form action="/" method="POST">
-        <label for="tempRoom1">Temperature Room1</label>
-        <input type="number" name="tempRoom1" id="tempRoom1" value={{ data1 }}></input>
-        <input type="number" name="content" id="content">
+        <label for="tempRoom1">Temperature Room1</label><br>
+        <input type="number" name="tempRoom1" id="tempRoom1" value={{ tempR1 }}></input><br>
+          <label for="humRoom1">Humidity Room1</label><br>
+        <input type="number" name="tempRoom1" id="humRoom1" value={{ humR1 }}></input><br>
+        <input type="number" name="content" id="content"><br>
         <input type="submit" value="Set temperature">
     </form><br>
 
     <form action="/room2" method="POST">
-        <label for="tempRoom2">Temperature Room2</label>
-        <input type="number" name="tempRoom2" id="tempRoom2" value={{ data2 }}></input>
-        <input type="number" name="content2" id="content2">
+        <label for="tempRoom2">Temperature Room2</label><br>
+        <input type="number" name="tempRoom2" id="tempRoom2" value={{ tempR2 }}></input><br>
+        <label for="humRoom1">Humidity Room2</label><br>
+        <input type="number" name="tempRoom1" id="humRoom2" value={{ humR2 }}></input><br>
+        <input type="number" name="content2" id="content2"><br>
         <input type="submit" value="Set temperature">
     </form>
 </div>

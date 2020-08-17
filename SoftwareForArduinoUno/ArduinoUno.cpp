@@ -40,9 +40,13 @@ int ArduinoUno::readDesiredTemperatureFromESP8266(){
 void ArduinoUno::heatControl(int currentTemperature, int desiredTemperature){
 
    if(desiredTemperature != 0){
-      if(currentTemperature < desiredTemperature)
+      if(currentTemperature < desiredTemperature){
           Serial.println("Centrala pornita");
-      else
+          digitalWrite(7, HIGH);
+      }
+      else{
           Serial.println("Centrala oprita");
+          digitalWrite(7, LOW);
+      }
    }
 }
