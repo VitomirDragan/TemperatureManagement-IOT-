@@ -4,7 +4,7 @@ void WiFiModule::connectToInternet(String ssid, String password){
     WiFi.begin(ssid, password);
     Serial.print("Connecting...");
     while (WiFi.status() != WL_CONNECTED){
-        delay(500);
+        delay(200);
         Serial.print(".");
     }
     Serial.println();
@@ -15,7 +15,7 @@ void WiFiModule::connectToInternet(String ssid, String password){
 int WiFiModule::readDataFromArduino(){
     String dataPackageString = "";
     long int time = millis();
-    while ((time + 20000) > millis()){
+    while ((time + 12000) > millis()){
         while (Serial.available()){
             char character = Serial.read();
             dataPackageString += character;
@@ -37,15 +37,15 @@ int WiFiModule::readTemperatureFromArduino(int dataPackage){
 }
 
 void WiFiModule::sendHumidityToDatabase(int humidity){
-    Firebase.setInt("HumidityRoom2/Value", humidity);
+    Firebase.setInt("HumidityRoom1/Value", humidity);
 }
 
 void WiFiModule::sendTemperatureToDatabase(int currentTemperature){
-    Firebase.setInt("CurrentTempRoom2/Value", currentTemperature);
+    Firebase.setInt("CurrentTempRoom1/Value", currentTemperature);
 }
 
 int WiFiModule::readDesiredTemperatureFromDatabase(){
-    return Firebase.getInt("DesiredTempRoom2/Value");
+    return Firebase.getInt("DesiredTempRoom1/Value");
 }
 
 void WiFiModule::sendDesiredTemperatureToArduino(int desiredTemperature){

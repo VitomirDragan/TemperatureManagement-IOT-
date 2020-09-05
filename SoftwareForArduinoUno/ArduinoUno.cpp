@@ -3,9 +3,25 @@
 dht11 DHT;
 SoftwareSerial serial(2, 3);
 #define DHT11_PIN A1
+#define POT_PIN A2
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+
+LiquidCrystal_I2C lcdInstance(0x27, 16, 2);
+
+int Potentiometer::oldDesiredTemperaturePotentiometer = 0;
+int ArduinoUno::oldDesiredTemperatureESP = 0;
+int ArduinoUno::desiredTemperature = 0;
+
+//Methods for ArduinoUno class
+void ArduinoUno::pinSetup(){
+   pinMode(7, OUTPUT);
+   digitalWrite(7, HIGH);
+}
 
 void ArduinoUno::initializeSerial(){
-    serial.begin(9600);
+   serial.begin(9600);
 }
 
 int ArduinoUno::readTemperatureFromSensor(){
@@ -26,27 +42,99 @@ void ArduinoUno::sendDataToESP8266(int currentTemperature, int humidity){
 }
 
 int ArduinoUno::readDesiredTemperatureFromESP8266(){
-   String desiredTemperature = "";
+   String desiredTemperatureString = "";
    long int time = millis();
-   while ((time + 20000) > millis()){
+   while ((time + 12000) > millis()){
       while (serial.available()){
           char character = serial.read();
-          desiredTemperature += character;
+          desiredTemperatureString += character;
        }
     }
-    return desiredTemperature.toInt();
+    int desiredTemperatureInt = desiredTemperatureString.toInt();
+    Serial.println(desiredTemperatureInt);
+    if(desiredTemperatureInt != 0){
+      return desiredTemperatureInt;
+    }
+    else{
+      return ArduinoUno::oldDesiredTemperatureESP;
+    }
 }
 
-void ArduinoUno::heatControl(int currentTemperature, int desiredTemperature){
+void ArduinoUno::heatControl(int currentTemperature){
 
-   if(desiredTemperature != 0){
-      if(currentTemperature < desiredTemperature){
-          Serial.println("Centrala pornita");
-          digitalWrite(7, HIGH);
-      }
-      else{
-          Serial.println("Centrala oprita");
+   if(ArduinoUno::desiredTemperature != 0){
+      if(currentTemperature < ArduinoUno::desiredTemperature){
           digitalWrite(7, LOW);
       }
+      else{
+          digitalWrite(7, HIGH);
+      }
    }
+}
+
+int ArduinoUno::setDesiredTemperature(int newDesiredTemperatureESP, int newDesiredTemperaturePotentiometer){
+  Serial.println(ArduinoUno::oldDesiredTemperatureESP);
+  Serial.println(newDesiredTemperatureESP);
+  Serial.println(Potentiometer::oldDesiredTemperaturePotentiometer);
+  Serial.println(newDesiredTemperaturePotentiometer);
+  if((ArduinoUno::oldDesiredTemperatureESP != newDesiredTemperatureESP) && (Potentiometer::oldDesiredTemperaturePotentiometer != newDesiredTemperaturePotentiometer)){
+     ArduinoUno::oldDesiredTemperatureESP = newDesiredTemperatureESP;
+     Potentiometer::oldDesiredTemperaturePotentiometer = newDesiredTemperaturePotentiometer;
+     ArduinoUno::desiredTemperature = newDesiredTemperaturePotentiometer;
+     Serial.println("Pot si App");
+  }
+  else
+      if(ArduinoUno::oldDesiredTemperatureESP != newDesiredTemperatureESP){
+        ArduinoUno::oldDesiredTemperatureESP = newDesiredTemperatureESP;
+        ArduinoUno::desiredTemperature = newDesiredTemperatureESP;
+        Serial.println("App");
+      }
+      else
+          if(Potentiometer::oldDesiredTemperaturePotentiometer != newDesiredTemperaturePotentiometer){
+            Potentiometer::oldDesiredTemperaturePotentiometer = newDesiredTemperaturePotentiometer;
+            ArduinoUno::desiredTemperature = newDesiredTemperaturePotentiometer; 
+            Serial.println("Pot");
+          }
+          else
+              Serial.println("Nu se intra in if");
+}
+
+//Methods for LCD class
+void LCD::initializeLCD(){
+   lcdInstance.begin();
+   lcdInstance.backlight();
+}
+
+void LCD::displayCurrentTemperature(int currentTemperature){
+   lcdInstance.setCursor(0,0);
+   lcdInstance.print("Curr. temp: ");
+   lcdInstance.print(currentTemperature);
+}
+
+void LCD::displayDesiredTemperature(){
+   char message[15];
+   lcdInstance.setCursor(0,1);
+   sprintf(message, "Des. temp: %-6d", ArduinoUno::desiredTemperature);
+   lcdInstance.print(message);
+}
+
+//Methods for Potentiometer class
+int Potentiometer::mapDataToTemperature(int data){
+   return map(data, 0, 1023, 15, 32);
+}
+
+int Potentiometer::smoothing(){
+  float total = 0;
+  int samples = 2000;
+  for(int i = 0; i < samples; i++){
+    total += analogRead(POT_PIN);    
+  }
+  return int(floor(total/samples));
+}
+
+int Potentiometer::readDesiredTemperature(){
+  int smth = smoothing();
+  Serial.print("Smoothing: ");
+  Serial.println(smth);
+  return mapDataToTemperature(smth);
 }
