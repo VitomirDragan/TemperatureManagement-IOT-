@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title> Home </title>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <section>
+                <div id="divToBeRefreshed" class="container">
+                    <label for="tempRoom1">Temperature Room1</label><br>
+                    <input type="number" name="tempRoom1" id="tempRoom1" value={{ tempR1 }}></input><br>
+                    <label for="humRoom1">Humidity Room1</label><br>
+                    <input type="number" name="tempRoom1" id="humRoom1" value={{ humR1 }}></input><br>
+
+                    <label for="tempRoom2">Temperature Room2</label><br>
+                    <input type="number" name="tempRoom2" id="tempRoom2" value={{ tempR2 }}></input><br>
+                    <label for="humRoom1">Humidity Room2</label><br>
+                    <input type="number" name="tempRoom1" id="humRoom2" value={{ humR2 }}></input><br>
+                </div>
+
+                <div class="container">
+                    <form action="/" method="POST">
+                        <input type="number" name="content" id="content"><br>
+                        <input type="submit" value="Set temperature">
+                    </form>
+                    <br>
+
+                    <form action="/room2" method="POST">
+                        <input type="number" name="content2" id="content2"><br>
+                        <input type="submit" value="Set temperature">
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}

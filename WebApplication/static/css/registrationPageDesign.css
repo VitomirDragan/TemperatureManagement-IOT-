@@ -1,0 +1,14 @@
+#registerPage.design-form{
+    height: 50vh;
+    top: 20%; /* Distance at the top of the container */
+    padding: 10%;
+    background-color: #e6e6e6;
+    border-style: solid;
+    border-width: medium;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px black;
+    border-color: #a6a6a6;
+    overflow: scroll; /* Make the overflow scrollable */
+    overflow-x: hidden; /* Do not show the overflow on the x axis */
+
+}
