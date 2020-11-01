@@ -1,0 +1,22 @@
+#registerForm-design {
+    padding-top: 5%;
+    padding-bottom: 15%;
+    padding-left: 15%;
+    padding-right: 15%;
+    background-color: whitesmoke;
+}
+
+#explanation {
+    background-color: whitesmoke;
+    padding: 10vh;
+}
+
+.h3-design {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.p-design {
+    text-align: justify;
+    text-indent: 20%;
+}

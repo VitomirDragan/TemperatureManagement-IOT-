@@ -1,0 +1,35 @@
+.designAccountsDiv {
+    padding-top: 5%;
+    padding-left: 50%;
+    padding-right: 50%;
+    padding-bottom: 15%;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    padding-bottom: 5vh;
+    text-decoration: underline;
+}
+
+td {
+    padding-bottom: 2vh;
+}
+
+#success-button {
+    width: 108px;
+}
+
+#danger-button {
+    width: 108px;
+}
+
+.inactive-button {
+    width: 108px;
+    pointer-events: none;
+    opacity: 0.1;
+}

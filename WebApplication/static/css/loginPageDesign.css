@@ -1,5 +1,6 @@
-#registerPage.design-form{
-    height: 50vh;
+.loginForm-design {
+    position: relative;
+    height: 53vh;
     top: 20%; /* Distance at the top of the container */
     padding: 10%;
     background-color: #e6e6e6;
@@ -11,4 +12,16 @@
     overflow: scroll; /* Make the overflow scrollable */
     overflow-x: hidden; /* Do not show the overflow on the x axis */
 
+}
+
+::-webkit-scrollbar {
+    width: 0; /* Hide the scrollbar, but keep the functionality */
+}
+
+#loginContainer-design {
+    background: url('/static/pictures/loginRegisterBackground.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
 }

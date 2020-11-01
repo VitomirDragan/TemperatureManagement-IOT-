@@ -1,0 +1,45 @@
+{% extends 'template.html' %}
+
+{% block head %}
+<title> Accounts </title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/accountsPageDesign.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 designAccountsDiv">
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Admin rights</th>
+                <th>Actions</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.admin_role }}</td>  <!-- {{ url_for('deleteAccount', id=user.id)}} -->
+                <td>
+                    {% if user.id != current_user.id %}
+                    <a href="#deleteModal" class="btn btn-danger" data-toggle="modal">Delete account</a>
+                    {% if user.admin_role %}
+                    <a href="{{ url_for('removeAdminRights', id=user.id)}}" class="btn btn-danger" id="danger-button">Remove
+                        rights</a>
+                    {% else %}
+                    <a href="{{ url_for('giveAdminRights', id=user.id)}}" class="btn btn-success" id="success-button">Give
+                        rights</a>
+                    {% endif %}
+                    {% else %}
+                    <a class="btn btn-danger inactive-button">Delete account</a>
+                    {% if user.admin_role %}
+                    <a class="btn btn-danger inactive-button">Remove rights</a>
+                    {% else %}
+                    <a class="btn btn-success inactive-button">Give rights</a>
+                    {% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

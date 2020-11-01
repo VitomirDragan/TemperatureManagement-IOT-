@@ -1,0 +1,10 @@
+#containerFluid-design {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+#body-design {
+    font-family: "Brush Script MT", Brush Script Std, cursive;
+    font-size: 150%;
+}
