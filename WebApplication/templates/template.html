@@ -59,7 +59,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" id="flashedMessages-design">
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
             {% for category, msg in messages %}
@@ -69,19 +69,6 @@
             {% endfor %}
             {% endif %}
             {% endwith %}
-        </div>
-    </div>
-
-
-    <div class="modal fade" id="deleteModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p>Are you sure that you want to delete this account?</p>
-                    <a href="#" class="btn btn-danger">Delete</a>
-                    <a href="#" class="btn btn-success">Cancel</a>
-                </div>
-            </div>
         </div>
     </div>
 

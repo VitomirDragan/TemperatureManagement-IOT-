@@ -65,11 +65,15 @@ def login():
         username = request.form.get('username')
         password = request.form.get('password')
         user_to_login = Users.query.filter_by(username=username).first()
-        if user_to_login and bcrypt.check_password_hash(user_to_login.password, password):
-            login_user(user_to_login)
-            return redirect(url_for('room1'))
+        if user_to_login:
+            if bcrypt.check_password_hash(user_to_login.password, password):
+                login_user(user_to_login)
+                return redirect(url_for('room1'))
+            else:
+                flash('Wrong credentials!', 'warning')
+                return redirect(url_for('login'))
         else:
-            flash('Wrong credentials!', 'warning')
+            flash('This account does not exist in our database! Please contact the administrator for creating one!', 'warning')
             return redirect(url_for('login'))
     return render_template('loginPage.html')
 
@@ -93,7 +97,7 @@ def register():
                 flash('There was a problem creating this new account!', 'warning')
                 return redirect(url_for('register'))
         else:
-            flash('Please make sure that the password matches!', 'warning')
+            flash('The passwords do not match!', 'warning')
             return redirect(url_for('register'))
     return render_template('registerPage.html')
 
@@ -112,7 +116,7 @@ def deleteAccount(id):
     try:
         db.session.delete(user)
         db.session.commit()
-        flash('You successfully deleted the account with id: ' + id + '!', 'info')
+        flash('The account was successfully deleted!', 'info')
         return redirect(url_for('viewAccounts'))
     except:
         flash('There was a problem deleting the account!', 'warning')

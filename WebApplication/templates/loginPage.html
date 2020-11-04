@@ -20,7 +20,7 @@
 <body id="body-design">
 <div class="container-fluid" id="loginContainer-design">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" id="flashedMessages-design">
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
 
@@ -40,12 +40,12 @@
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" class="form-control" id="username" placeholder="Enter username"
-                           name="username">
+                           name="username" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" class="form-control" id="password" placeholder="Enter password"
-                           name="password">
+                           name="password" required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Log in</button>
             </form>

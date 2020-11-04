@@ -15,17 +15,51 @@
                 <th>Actions</th>
             </tr>
             {% for user in users %}
+            <div class="modal fade" id="deleteAccount{{user.id}}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <p>Are you sure that you want to delete the account for {{user.username}}?</p>
+                            <a href="{{ url_for('deleteAccount', id=user.id)}}" class="btn btn-danger">Yes</a>
+                            <a class="btn btn-success" data-dismiss="modal">No</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="giveRights{{user.id}}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <p>Are you sure that you want to give admin rights to {{user.username}}?</p>
+                            <a href="{{ url_for('giveAdminRights', id=user.id)}}" class="btn btn-danger">Yes</a>
+                            <a class="btn btn-success" data-dismiss="modal">No</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="removeRights{{user.id}}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <p>Are you sure that you want to remove the admin rights for {{user.username}}?</p>
+                            <a href="{{ url_for('removeAdminRights', id=user.id)}}" class="btn btn-danger">Yes</a>
+                            <a class="btn btn-success" data-dismiss="modal">No</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <tr>
                 <td>{{ user.username }}</td>
-                <td>{{ user.admin_role }}</td>  <!-- {{ url_for('deleteAccount', id=user.id)}} -->
+                <td>{{ user.admin_role }}</td>
                 <td>
                     {% if user.id != current_user.id %}
-                    <a href="#deleteModal" class="btn btn-danger" data-toggle="modal">Delete account</a>
+                    <a href="#deleteAccount{{user.id}}" class="btn btn-danger" data-toggle="modal">Delete
+                        account</a>
                     {% if user.admin_role %}
-                    <a href="{{ url_for('removeAdminRights', id=user.id)}}" class="btn btn-danger" id="danger-button">Remove
+                    <a href="#removeRights{{user.id}}" class="btn btn-danger" id="danger-button" data-toggle="modal">Remove
                         rights</a>
                     {% else %}
-                    <a href="{{ url_for('giveAdminRights', id=user.id)}}" class="btn btn-success" id="success-button">Give
+                    <a href="#giveRights{{user.id}}" class="btn btn-success" id="success-button" data-toggle="modal">Give
                         rights</a>
                     {% endif %}
                     {% else %}
