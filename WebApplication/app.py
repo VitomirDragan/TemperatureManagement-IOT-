@@ -73,7 +73,8 @@ def login():
                 flash('Wrong credentials!', 'warning')
                 return redirect(url_for('login'))
         else:
-            flash('This account does not exist in our database! Please contact the administrator for creating one!', 'warning')
+            flash('This account does not exist in our database! Please contact the administrator for creating one!',
+                  'warning')
             return redirect(url_for('login'))
     return render_template('loginPage.html')
 
@@ -150,6 +151,7 @@ def removeAdminRights(id):
         flash('There was a problem updating the admin rights!', 'warning')
         return redirect(url_for('viewAccounts'))
 
+
 @app.route('/changePassword', methods=['GET', 'POST'])
 @login_required
 def changePassword():
@@ -174,6 +176,7 @@ def changePassword():
             flash('Wrong password! Please try again', 'warning')
             return redirect(url_for('changePassword'))
     return render_template('changePasswordPage.html')
+
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required

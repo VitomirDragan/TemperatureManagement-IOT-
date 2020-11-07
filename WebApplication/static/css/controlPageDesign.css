@@ -1,3 +1,26 @@
 .section-design {
     background-color: whitesmoke;
 }
+
+#monitorFirstRoom {
+    padding-top: 8%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+}
+
+#monitorSecondRoom {
+    padding-top: 8%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+}
+
+.h3-design {
+    text-align: center;
+}
+
+.p-design {
+    text-align: center;
+    padding-bottom: 15%;
+}
