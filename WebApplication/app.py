@@ -36,12 +36,16 @@ def room1():
     temp2 = firebase.get('CurrentTempRoom2', 'Value')
     hum1 = firebase.get('HumidityRoom1', 'Value')
     hum2 = firebase.get('HumidityRoom2', 'Value')
+    desiredTemperature1 = firebase.get('DesiredTempRoom1', 'Value')
+    desiredTemperature2 = firebase.get('DesiredTempRoom2', 'Value')
     if request.method == 'POST':
-        variable = request.form['content']
+        variable = request.form.get('outputValue1')
         firebase.put('DesiredTempRoom1', 'Value', int(variable))
-        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2)
+        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
+                               desiredTemperature1=int(variable), desiredTemperature2=desiredTemperature2)
     else:
-        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2)
+        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
+                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2)
 
 
 @app.route('/room2', methods=['POST', 'GET'])
@@ -51,12 +55,16 @@ def room2():
     temp2 = firebase.get('CurrentTempRoom2', 'Value')
     hum1 = firebase.get('HumidityRoom1', 'Value')
     hum2 = firebase.get('HumidityRoom2', 'Value')
+    desiredTemperature1 = firebase.get('DesiredTempRoom1', 'Value')
+    desiredTemperature2 = firebase.get('DesiredTempRoom2', 'Value')
     if request.method == 'POST':
-        variable = request.form['content2']
+        variable = request.form.get('outputValue2')
         firebase.put('DesiredTempRoom2', 'Value', int(variable))
-        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2)
+        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
+                               desiredTemperature1=desiredTemperature1, desiredTemperature2=int(variable))
     else:
-        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2)
+        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
+                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2)
 
 
 @app.route('/', methods=['GET', 'POST'])

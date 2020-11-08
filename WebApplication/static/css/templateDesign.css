@@ -1,6 +1,5 @@
 #flashedMessages-design{
     text-align: center;
-    background-color: whitesmoke;
 }
 
 .h1-design {
@@ -15,4 +14,8 @@
     height: 35vh; /* Set the height of the header */
     margin-bottom: 0;
     border-radius: 0;
+}
+
+#contentRow{
+    background-color: whitesmoke;
 }

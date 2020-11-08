@@ -1,6 +1,6 @@
 .loginForm-design {
     position: relative;
-    height: 53vh;
+    height: 57vh;
     top: 20%; /* Distance at the top of the container */
     padding: 10%;
     background-color: #e6e6e6;
@@ -28,5 +28,4 @@
 
 #flashedMessages-design{
     text-align: center;
-    height: 10vh;
 }

@@ -72,8 +72,10 @@
         </div>
     </div>
 
+    <div class="row" id="contentRow">
+        {% block content %}{% endblock %}
+    </div>
 
-    {% block content %}{% endblock %}
     <div class="row">
         <div class="col-md-12">
             <footer class="py-2 bg-dark text-white-50">

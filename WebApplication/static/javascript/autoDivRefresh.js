@@ -10,6 +10,6 @@ function callRefreshFunction() { //Call the function for div refreshing and givi
 $(document).ready( //Call periodically the function callRefreshFunction. The interval is set to 3 seconds
     setInterval(
         callRefreshFunction,
-        3000,
+        5000,
     )
 )
