@@ -34,10 +34,12 @@ int ArduinoUno::readHumidityFromSensor(){
    return DHT.humidity; // Reading just the humidity
 }
 
-void ArduinoUno::sendDataToESP8266(int currentTemperature, int humidity){
+void ArduinoUno::sendDataToESP8266(int currentTemperature, int humidity, int setTemperature, int flag){
    String currentTemperatureString = String(currentTemperature);
    String humidityString = String(humidity);
-   String data = currentTemperatureString + humidityString + humidityString.length();
+   String data = currentTemperatureString + humidityString + humidityString.length() + String(setTemperature) + String(flag);
+   Serial.print("Data package: ");
+   Serial.println(data);
    serial.println(data);
 }
 
@@ -82,21 +84,26 @@ int ArduinoUno::setDesiredTemperature(int newDesiredTemperatureESP, int newDesir
      Potentiometer::oldDesiredTemperaturePotentiometer = newDesiredTemperaturePotentiometer;
      ArduinoUno::desiredTemperature = newDesiredTemperaturePotentiometer;
      Serial.println("Pot si App");
+     return 1;
   }
   else
       if(ArduinoUno::oldDesiredTemperatureESP != newDesiredTemperatureESP){
         ArduinoUno::oldDesiredTemperatureESP = newDesiredTemperatureESP;
         ArduinoUno::desiredTemperature = newDesiredTemperatureESP;
-        Serial.println("App");
+        Serial.print("App: ");
+        Serial.println(ArduinoUno::oldDesiredTemperatureESP);
+        return 0;
       }
       else
           if(Potentiometer::oldDesiredTemperaturePotentiometer != newDesiredTemperaturePotentiometer){
             Potentiometer::oldDesiredTemperaturePotentiometer = newDesiredTemperaturePotentiometer;
             ArduinoUno::desiredTemperature = newDesiredTemperaturePotentiometer; 
             Serial.println("Pot");
+            return 1;
           }
           else
               Serial.println("Nu se intra in if");
+              return 0;
 }
 
 //Methods for LCD class

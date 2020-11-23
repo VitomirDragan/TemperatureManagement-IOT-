@@ -20,8 +20,10 @@ class WiFiModule{
     int readDataFromArduino();
     int readHumidityFromArduino(int dataPackage);
     int readTemperatureFromArduino(int dataPackage);
+    int readDesiredTemperatureFromArduino(int dataPackage);
     void sendHumidityToDatabase(int humidity);
     void sendTemperatureToDatabase(int currentTemperature);
+    void sendDesiredTemperatureToDatabase(int setTemperature);
     int readDesiredTemperatureFromDatabase();
     void sendDesiredTemperatureToArduino(int desiredTemperature);
 };

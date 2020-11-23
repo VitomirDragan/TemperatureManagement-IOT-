@@ -15,12 +15,13 @@ void loop(){
   lcd.displayCurrentTemperature(currentTemperature);
   
   int humidity = arduinoUno.readHumidityFromSensor();
-  arduinoUno.sendDataToESP8266(currentTemperature, humidity);
-
   
   int newDesiredTemperatureESP = arduinoUno.readDesiredTemperatureFromESP8266();
   int newDesiredTemperaturePotentiometer = potentiometer.readDesiredTemperature();
-  arduinoUno.setDesiredTemperature(newDesiredTemperatureESP, newDesiredTemperaturePotentiometer);
+  int flag = arduinoUno.setDesiredTemperature(newDesiredTemperatureESP, newDesiredTemperaturePotentiometer);
+  Serial.print("Desired temperature: ");
+  Serial.println(ArduinoUno::desiredTemperature);
+  arduinoUno.sendDataToESP8266(currentTemperature, humidity, ArduinoUno::desiredTemperature, flag);
 
   lcd.displayDesiredTemperature();
  // Serial.println(ArduinoUno::desiredTemperature);

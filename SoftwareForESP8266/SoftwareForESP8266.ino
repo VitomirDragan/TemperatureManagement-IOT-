@@ -4,16 +4,16 @@ WiFiModule wifiModule;
 void setup()
 {
   Serial.begin(9600);
-  wifiModule.connectToInternet("DIGI-7395", "XF3U8YMH");
+  wifiModule.connectToInternet("Vitomir", "vitomir10");
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
 }
 
 void loop()
 {  
   int dataPackage = wifiModule.readDataFromArduino();
-  
-  wifiModule.sendHumidityToDatabase( wifiModule.readHumidityFromArduino(dataPackage) );
-  wifiModule.sendTemperatureToDatabase( wifiModule.readTemperatureFromArduino(dataPackage) );
+  if( dataPackage%10 == 1 )
+    wifiModule.sendDesiredTemperatureToDatabase( wifiModule.readDesiredTemperatureFromArduino(dataPackage) );
   wifiModule.sendDesiredTemperatureToArduino( wifiModule.readDesiredTemperatureFromDatabase() );
-
+  wifiModule.sendTemperatureToDatabase( wifiModule.readTemperatureFromArduino(dataPackage) );
+  wifiModule.sendHumidityToDatabase( wifiModule.readHumidityFromArduino(dataPackage) );
 }

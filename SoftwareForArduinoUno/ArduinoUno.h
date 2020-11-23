@@ -13,7 +13,7 @@ public:
     void initializeSerial();
     int readTemperatureFromSensor();
     int readHumidityFromSensor();
-    void sendDataToESP8266(int currentTemperature, int humidity);
+    void sendDataToESP8266(int currentTemperature, int humidity, int setTemperature, int flag);
     int readDesiredTemperatureFromESP8266();
     int setDesiredTemperature(int newDesiredTemperatureESP, int newDesiredTemperaturePotentiometer);
     void heatControl(int currentTemperature);
