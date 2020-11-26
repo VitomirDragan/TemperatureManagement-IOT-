@@ -1,5 +1,18 @@
 #include "WiFiModule.h"
 
+
+FirebaseData firebaseData;
+int WiFiModule::readInt(String fieldName){
+    Firebase.getInt(firebaseData, fieldName);
+    return firebaseData.intData();
+}
+
+String WiFiModule::readStr(String fieldName){
+    Firebase.getString(firebaseData, fieldName);
+    return firebaseData.stringData();
+}
+
+
 void WiFiModule::connectToInternet(String ssid, String password){
     WiFi.begin(ssid, password);
     Serial.print("Connecting...");
@@ -15,7 +28,7 @@ void WiFiModule::connectToInternet(String ssid, String password){
 int WiFiModule::readDataFromArduino(){
     String dataPackageString = "";
     long int time = millis();
-    while ((time + 12000) > millis()){
+    while ((time + 3000) > millis()){
         while (Serial.available()){
             char character = Serial.read();
             dataPackageString += character;
@@ -40,19 +53,19 @@ int WiFiModule::readDesiredTemperatureFromArduino(int dataPackage){
     return (dataPackage/10) % 100;
 }
 void WiFiModule::sendHumidityToDatabase(int humidity){
-    Firebase.setInt("HumidityRoom1/Value", humidity);
+    Firebase.setInt(firebaseData, "HumidityRoom1/Value", humidity);
 }
 
 void WiFiModule::sendTemperatureToDatabase(int currentTemperature){
-    Firebase.setInt("CurrentTempRoom1/Value", currentTemperature);
+    Firebase.setInt(firebaseData, "CurrentTempRoom1/Value", currentTemperature);
 }
 
 void WiFiModule::sendDesiredTemperatureToDatabase(int setTemperature){
-    Firebase.setInt("DesiredTempRoom1/Value", setTemperature);
+    Firebase.setInt(firebaseData, "DesiredTempRoom1/Value", setTemperature);
 }
 
 int WiFiModule::readDesiredTemperatureFromDatabase(){
-    return Firebase.getInt("DesiredTempRoom1/Value");
+    return readInt("DesiredTempRoom1/Value");
 }
 
 void WiFiModule::sendDesiredTemperatureToArduino(int desiredTemperature){

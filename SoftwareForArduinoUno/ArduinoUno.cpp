@@ -38,20 +38,22 @@ void ArduinoUno::sendDataToESP8266(int currentTemperature, int humidity, int set
    String currentTemperatureString = String(currentTemperature);
    String humidityString = String(humidity);
    String data = currentTemperatureString + humidityString + humidityString.length() + String(setTemperature) + String(flag);
-   Serial.print("Data package: ");
-   Serial.println(data);
    serial.println(data);
 }
 
 int ArduinoUno::readDesiredTemperatureFromESP8266(){
    String desiredTemperatureString = "";
    long int time = millis();
-   while ((time + 12000) > millis()){
+   while ((time + 3000) > millis()){
       while (serial.available()){
           char character = serial.read();
           desiredTemperatureString += character;
        }
     }
+    
+    Serial.print("Data package: ");
+    Serial.println(desiredTemperatureString);
+    
     int desiredTemperatureInt = desiredTemperatureString.toInt();
     Serial.println(desiredTemperatureInt);
     if(desiredTemperatureInt != 0){

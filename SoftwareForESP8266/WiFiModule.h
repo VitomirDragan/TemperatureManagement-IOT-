@@ -1,18 +1,31 @@
 #ifndef WIFIMODULE_H
 #define WIFIMODULE_H
 
-#include <Firebase.h>
-#include <FirebaseArduino.h>
-#include <FirebaseCloudMessaging.h>
-#include <FirebaseError.h>
-#include <FirebaseHttpClient.h>
-#include <FirebaseObject.h>
-#include <ArduinoJson.h>
+//#include <Firebase.h>
+//#include <FirebaseArduino.h>
+//#include <FirebaseCloudMessaging.h>
+//#include <FirebaseError.h>
+//#include <FirebaseHttpClient.h>
+//#include <FirebaseObject.h>
+//#include <ArduinoJson.h>
+//#include <ESP8266WiFi.h>
+//#include <String.h>
+//#include <time.h>
+//#include "FirebaseESP8266.h"
+
+#include <FirebaseESP8266.h>
+#include <FirebaseESP8266HTTPClient.h>
+#include <FirebaseJson.h>
+#include <time.h>
+
+
+
 #include <ESP8266WiFi.h>
-#include <String.h>
 
 #define FIREBASE_HOST "temperaturemanagement-iot.firebaseio.com"
 #define FIREBASE_AUTH "S7iqWxfvmFh67MJJBoWKlSBtJ2F1m8tFGv8sBBin"
+
+
 
 class WiFiModule{
   public:
@@ -26,6 +39,8 @@ class WiFiModule{
     void sendDesiredTemperatureToDatabase(int setTemperature);
     int readDesiredTemperatureFromDatabase();
     void sendDesiredTemperatureToArduino(int desiredTemperature);
+    int readInt(String fieldName);
+    String readStr(String fieldName);
 };
 
 #endif
