@@ -3,7 +3,7 @@ from flask_login import UserMixin, LoginManager, login_required, login_user, log
 from firebase import firebase
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from functions.functions import toBoolean
+from functions.functions import toBoolean, getTime, toInt
 
 firebase = firebase.FirebaseApplication('https://temperaturemanagement-iot.firebaseio.com')
 
@@ -38,14 +38,15 @@ def room1():
     hum2 = firebase.get('HumidityRoom2', 'Value')
     desiredTemperature1 = firebase.get('DesiredTempRoom1', 'Value')
     desiredTemperature2 = firebase.get('DesiredTempRoom2', 'Value')
+    status = firebase.get('SwitchIntervalsOn', 'Value')
     if request.method == 'POST':
         variable = request.form.get('outputValue1')
         firebase.put('DesiredTempRoom1', 'Value', int(variable))
         return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=int(variable), desiredTemperature2=desiredTemperature2)
+                               desiredTemperature1=int(variable), desiredTemperature2=desiredTemperature2, status = status)
     else:
         return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2)
+                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2, status = status)
 
 
 @app.route('/room2', methods=['POST', 'GET'])
@@ -57,15 +58,23 @@ def room2():
     hum2 = firebase.get('HumidityRoom2', 'Value')
     desiredTemperature1 = firebase.get('DesiredTempRoom1', 'Value')
     desiredTemperature2 = firebase.get('DesiredTempRoom2', 'Value')
+    status = firebase.get('SwitchIntervalsOn', 'Value')
     if request.method == 'POST':
         variable = request.form.get('outputValue2')
         firebase.put('DesiredTempRoom2', 'Value', int(variable))
         return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=desiredTemperature1, desiredTemperature2=int(variable))
+                               desiredTemperature1=desiredTemperature1, desiredTemperature2=int(variable), status = status)
     else:
         return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2)
+                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2, status = status)
 
+@app.route('/switchIntervalsOn', methods=['GET', 'POST'])
+@login_required
+def switchIntervalsOn():
+    if request.method=='POST':
+        switchIntervalsOn = toInt(request.form.get('switchIntervalsOn'))
+        firebase.put('SwitchIntervalsOn', 'Value', switchIntervalsOn)
+    return redirect(url_for('room1'))
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -185,6 +194,72 @@ def changePassword():
             return redirect(url_for('changePassword'))
     return render_template('changePasswordPage.html')
 
+
+@app.route('/setIntervalsForWorkingDays', methods=['GET', 'POST'])
+@login_required
+def setIntervalsForWorkingDays():
+    if request.method == 'POST':
+        a = request.form.get('firstWorkingDayInterval')
+        b = request.form.get('secondWorkingDayInterval')
+        c = request.form.get('thirdWorkingDayInterval')
+        d = request.form.get('fourthWorkingDayInterval')
+
+        temperatureAB = request.form.get('temperatureFirstWDInterval')
+        temperatureBC = request.form.get('temperatureSecondWDInterval')
+        temperatureCD = request.form.get('temperatureThirdWDInterval')
+        temperatureDA = request.form.get('temperatureFourthWDInterval')
+
+        timeObjectA = getTime(a)
+        timeObjectB = getTime(b)
+        timeObjectC = getTime(c)
+        timeObjectD = getTime(d)
+
+        if timeObjectA < timeObjectB < timeObjectC < timeObjectD:
+            try:
+                firebase.put('WorkingDay', 'A', a)
+                firebase.put('WorkingDay', 'B', b)
+                firebase.put('WorkingDay', 'C', c)
+                firebase.put('WorkingDay', 'D', d)
+
+                firebase.put('WorkingDay', 'TemperatureAB', int(temperatureAB))
+                firebase.put('WorkingDay', 'TemperatureBC', int(temperatureBC))
+                firebase.put('WorkingDay', 'TemperatureCD', int(temperatureCD))
+                firebase.put('WorkingDay', 'TemperatureDA', int(temperatureDA))
+
+                flash('Intervals were set successfully!', 'info')
+            except Exception as err:
+                flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
+        else:
+            flash('A, B, C, D must be set chronologically!', 'warning')
+    return render_template('schedulingPage.html')
+
+@app.route('/setIntervalsForWeekend', methods=['GET', 'POST'])
+@login_required
+def setIntervalsForWeekend():
+    if request.method == 'POST':
+        a = request.form.get('firstWeekendInterval')
+        b = request.form.get('secondWeekendInterval')
+
+        temperatureAB = request.form.get('temperatureFirstWInterval')
+        temperatureBA = request.form.get('temperatureSecondWInterval')
+
+        timeObjectA = getTime(a)
+        timeObjectB = getTime(b)
+
+        if timeObjectA < timeObjectB:
+            try:
+                firebase.put('Weekend', 'A', a)
+                firebase.put('Weekend', 'B', b)
+
+                firebase.put('Weekend', 'TemperatureAB', int(temperatureAB))
+                firebase.put('Weekend', 'TemperatureBA', int(temperatureBA))
+
+                flash('Intervals were set successfully!', 'info')
+            except Exception as err:
+                flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
+        else:
+            flash('A, B must be set chronologically!', 'warning')
+    return render_template('schedulingPage.html')
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required

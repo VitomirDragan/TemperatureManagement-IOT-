@@ -6,6 +6,18 @@
 {% endblock %}
 
 {% block content %}
+  <form method="post" action="/switchIntervalsOn">
+        <input id="switchIntervalsOn" checked data-toggle="toggle" name="switchIntervalsOn" onchange="this.form.submit()" type="checkbox" value="1">
+        {% if status == 1 %}
+        <script>
+            document.getElementById("switchIntervalsOn").checked = true;
+        </script>
+        {% else %}
+        <script>
+            document.getElementById("switchIntervalsOn").checked = false;
+        </script>
+        {% endif %}
+  </form>
 <div class="col-md-6" id="monitorFirstRoom">
     <h3>Temperature in the first room:</h3>
     <p class="p-design">{{ tempR1 }} °C</p>

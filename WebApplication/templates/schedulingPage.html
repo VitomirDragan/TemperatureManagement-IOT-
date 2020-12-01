@@ -1,0 +1,77 @@
+{% extends 'template.html' %}
+{% block head %}
+<title> Schedule </title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/schedulingPageDesign.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="col-md-6">
+    <div class="row">
+        <table>
+            <tr>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+            </tr>
+        </table>
+    </div>
+    <form class="scheduleForm-design" method="post" action="/setIntervalsForWorkingDays">
+        <div class="form-group">
+            <label for="firstWorkingDayInterval">A:</label>
+            <input type="time" class="form-control" name="firstWorkingDayInterval" id="firstWorkingDayInterval"
+                   required>
+        </div>
+        <input type="number" class="form-control" name="temperatureFirstWDInterval" placeholder="Temperature 1"
+               required>
+        <div class="form-group">
+            <label for="secondWorkingDayInterval">B:</label>
+            <input type="time" class="form-control" name="secondWorkingDayInterval" id="secondWorkingDayInterval"
+                   required>
+        </div>
+        <input type="number" class="form-control" name="temperatureSecondWDInterval" placeholder="Temperature 2"
+               required>
+        <div class="form-group">
+            <label for="thirdWorkingDayInterval">C:</label>
+            <input type="time" class="form-control" name="thirdWorkingDayInterval" id="thirdWorkingDayInterval"
+                   required>
+        </div>
+        <input type="number" class="form-control" name="temperatureThirdWDInterval" id="temperatureThirdWDInterval"
+               placeholder="Temperature 3" required>
+        <div class="form-group">
+            <label for="fourthWorkingDayInterval">D:</label>
+            <input type="time" class="form-control" name="fourthWorkingDayInterval" id="fourthWorkingDayInterval"
+                   required>
+        </div>
+        <input type="number" class="form-control" name="temperatureFourthWDInterval" id="temperatureFourthWDInterval"
+               placeholder="Temperature 4" required>
+        <button type="submit" class="btn btn-primary btn-block">Set intervals</button>
+    </form>
+</div>
+<div class="col-md-6">
+    <div class="row">
+        <table>
+            <tr>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+        </table>
+    </div>
+    <form class="scheduleForm-design" method="post" action="/setIntervalsForWeekend">
+        <div class="form-group">
+            <label for="firstWeekendInterval">A:</label>
+            <input type="time" class="form-control" name="firstWeekendInterval" id="firstWeekendInterval" required>
+        </div>
+        <input type="number" class="form-control" name="temperatureFirstWInterval" id="temperatureFirstWInterval"
+               placeholder="Temperature 1" required>
+        <div class="form-group">
+            <label for="secondWeekendInterval">B:</label>
+            <input type="time" class="form-control" name="secondWeekendInterval" id="secondWeekendInterval" required>
+        </div>
+        <input type="number" class="form-control" name="temperatureSecondWInterval" id="temperatureSecondWInterval"
+               placeholder="Temperature 2" required>
+        <button type="submit" class="btn btn-primary btn-block">Set intervals</button>
+    </form>
+</div>
+{% endblock %}
