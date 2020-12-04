@@ -1,10 +1,16 @@
 #monitorFirstRoom {
-    padding: 10%;
+    padding-top: 7%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
     text-align: center;
 }
 
 #monitorSecondRoom {
-    padding: 10%;
+    padding-top: 7%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
     text-align: center;
 }
 
@@ -14,6 +20,10 @@
 
 #submitButtonRoom2{
     margin-top: 3%;
+}
+
+#scheduleRow{
+    padding-top: 5%;
 }
 
 .p-design{

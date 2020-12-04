@@ -6,33 +6,35 @@
 {% endblock %}
 
 {% block content %}
-<div class="col-md-4 col-sm-4 col-12" id="explanation">
-    <h3 class="h3-design">How to create account?</h3>
-    <p class="p-design">As admin, you can create another accounts for your family members. When you create an
-        account, you have the
-        possibility to give to that account administrator privileges. </p>
+<div class="row">
+    <div class="col-md-4 col-sm-4 col-12" id="explanation">
+        <h3 class="h3-design">How to create account?</h3>
+        <p class="p-design">As admin, you can create another accounts for your family members. When you create an
+            account, you have the
+            possibility to give to that account administrator privileges. </p>
+    </div>
+    <form class="col-md-8 col-sm-8 col-12" id="registerForm-design" method="POST" action="/register">
+        <h3 class="h3-design">Give it a try!</h3>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username"
+                   name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password"
+                   name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm password:</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Enter password again"
+                   name="confirmPassword" required>
+        </div>
+        <div>
+            <label for="admin_role"> Give admin privileges? </label>
+            <input type="checkbox" id="admin_role" name="admin_role" value="True">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+    </form>
 </div>
-<form class="col-md-8 col-sm-8 col-12" id="registerForm-design" method="POST" action="/register">
-    <h3 class="h3-design">Give it a try!</h3>
-    <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" id="username" placeholder="Enter username"
-               name="username" required>
-    </div>
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter password"
-               name="password" required>
-    </div>
-    <div class="form-group">
-        <label for="confirmPassword">Confirm password:</label>
-        <input type="password" class="form-control" id="confirmPassword" placeholder="Enter password again"
-               name="confirmPassword" required>
-    </div>
-    <div>
-        <label for="admin_role"> Give admin privileges? </label>
-        <input type="checkbox" id="admin_role" name="admin_role" value="True">
-    </div>
-    <button type="submit" class="btn btn-primary btn-block">Register</button>
-</form>
 {% endblock %}

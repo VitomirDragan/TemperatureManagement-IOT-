@@ -6,42 +6,53 @@
 {% endblock %}
 
 {% block content %}
-  <form method="post" action="/switchIntervalsOn">
-        <input id="switchIntervalsOn" checked data-toggle="toggle" name="switchIntervalsOn" onchange="this.form.submit()" type="checkbox" value="1">
+<div class="row justify-content-center" id="scheduleRow">
+    <form method="post" action="/switchIntervalsOn">
+        <label for="switchIntervalsOn"> Switch intervals on/off: </label>
+        <input id="switchIntervalsOn" checked data-toggle="toggle" name="switchIntervalsOn"
+               onchange="this.form.submit()" type="checkbox" value="1">
         {% if status == 1 %}
         <script>
             document.getElementById("switchIntervalsOn").checked = true;
         </script>
+        <a class="btn btn-primary" id="scheduleButton" href="/setIntervalsForWorkingDays">Schedule</a>
         {% else %}
         <script>
             document.getElementById("switchIntervalsOn").checked = false;
         </script>
         {% endif %}
-  </form>
-<div class="col-md-6" id="monitorFirstRoom">
-    <h3>Temperature in the first room:</h3>
-    <p class="p-design">{{ tempR1 }} °C</p>
-    <h3>Humidity in the first room:</h3>
-    <p class="p-design">{{ humR1 }} %</p>
-    <form action="/room1" method="POST" id="formRoom1-design">
-        <input type="range" name="outputValue1" min="15" max="32" step="1" value="{{desiredTemperature1}}"
-               onchange="rangeValueRoom1.value=this.value">
-        <output name="rangeValueRoom1">{{desiredTemperature1}}</output>
-        <br>
-        <button type="submit" class="btn btn-secondary" id="submitButtonRoom1">Set temperature</button>
     </form>
 </div>
-<div class="col-md-6" id="monitorSecondRoom">
-    <h3>Temperature in the second room:</h3>
-    <p class="p-design">{{ tempR2 }} °C</p>
-    <h3>Humidity in the second room:</h3>
-    <p class="p-design">{{ humR2 }} %</p>
-    <form action="/room2" method="POST" id="formRoom2-design">
-        <input type="range" name="outputValue2" min="15" max="32" step="1" value="{{desiredTemperature2}}"
-               onchange="rangeValueRoom2.value=this.value">
-        <output name="rangeValueRoom2">{{desiredTemperature2}}</output>
-        <br>
-        <button type="submit" class="btn btn-secondary" id="submitButtonRoom2">Set temperature</button>
-    </form>
+<div class="row">
+    <div class="col-md-6" id="monitorFirstRoom">
+        <h3>Temperature in the first room:</h3>
+        <p class="p-design">{{ tempR1 }} °C</p>
+        <h3>Humidity in the first room:</h3>
+        <p class="p-design">{{ humR1 }} %</p>
+        {% if status == 0 %}
+        <form action="/room1" method="POST" id="formRoom1-design">
+            <input type="range" name="outputValue1" min="15" max="32" step="1" value="{{desiredTemperature1}}"
+                   onchange="rangeValueRoom1.value=this.value">
+            <output name="rangeValueRoom1">{{desiredTemperature1}}</output>
+            <br>
+            <button type="submit" class="btn btn-secondary" id="submitButtonRoom1">Set temperature</button>
+        </form>
+        {% endif %}
+    </div>
+    <div class="col-md-6" id="monitorSecondRoom">
+        <h3>Temperature in the second room:</h3>
+        <p class="p-design">{{ tempR2 }} °C</p>
+        <h3>Humidity in the second room:</h3>
+        <p class="p-design">{{ humR2 }} %</p>
+        {% if status == 0 %}
+        <form action="/room2" method="POST" id="formRoom2-design">
+            <input type="range" name="outputValue2" min="15" max="32" step="1" value="{{desiredTemperature2}}"
+                   onchange="rangeValueRoom2.value=this.value">
+            <output name="rangeValueRoom2">{{desiredTemperature2}}</output>
+            <br>
+            <button type="submit" class="btn btn-secondary" id="submitButtonRoom2">Set temperature</button>
+        </form>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

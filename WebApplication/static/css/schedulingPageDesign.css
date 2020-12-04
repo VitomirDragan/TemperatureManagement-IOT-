@@ -1,0 +1,27 @@
+.scheduleWorkingDaysForm-design {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5%;
+    padding-bottom: 20%;
+}
+
+.scheduleWeekendForm-design {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5%;
+    padding-bottom: 20%;
+}
+
+input{
+    margin: 15% !important;
+    width: 100% !important;
+}
+
+.title{
+    margin-top: 15%;
+}
+
+.h3-design {
+    text-align: center;
+    text-decoration: underline;
+}
