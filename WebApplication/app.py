@@ -1,6 +1,8 @@
+import pyrebase
 from flask import Flask, render_template, request, url_for, flash, redirect
 from flask_login import UserMixin, LoginManager, login_required, login_user, logout_user, current_user
 from firebase import firebase
+from firebase.firebase import FirebaseAuthentication
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from functions.functions import toBoolean, getTime, toInt
@@ -16,7 +18,25 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+""" --- """
+# config = {
+#     "apiKey": "AIzaSyChtewPO_zJyGpABQp9IhedRdgLMglVKfg",
+#     "authDomain": "temperaturemanagement-iot.firebaseapp.com",
+#     "databaseURL": "https://temperaturemanagement-iot.firebaseio.com",
+#     "projectId": "temperaturemanagement-iot",
+#     "storageBucket": "temperaturemanagement-iot.appspot.com",
+#     "messagingSenderId": "390182663875",
+#     "appId": "1:390182663875:web:0367ba031cee568e109476",
+#     "measurementId": "G-ZF61CXHKLK"
+# }
+#
+# frb = pyrebase.initialize_app(config)
+# auth = frb.auth()
+# authentication = auth.sign_in_with_email_and_password('vitomir.dragan86@gmail.com', 'webApplication')
+# print(authentication)
 
+# print(authentication.extra)
+""" --- """
 class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
@@ -36,12 +56,12 @@ def room1():
     temp2 = firebase.get('CurrentTempRoom2', 'Value')
     hum1 = firebase.get('HumidityRoom1', 'Value')
     hum2 = firebase.get('HumidityRoom2', 'Value')
-    desiredTemperature1 = firebase.get('DesiredTempRoom1', 'Value')
-    desiredTemperature2 = firebase.get('DesiredTempRoom2', 'Value')
+    desiredTemperature1 = firebase.get('DesiredTempRoom1/Zapier', 'Value')
+    desiredTemperature2 = firebase.get('DesiredTempRoom2/Zapier', 'Value')
     status = firebase.get('SwitchIntervalsOn', 'Value')
     if request.method == 'POST':
         variable = request.form.get('outputValue1')
-        firebase.put('DesiredTempRoom1', 'Value', int(variable))
+        firebase.put('DesiredTempRoom1/Zapier', 'Value', int(variable))
         return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
                                desiredTemperature1=int(variable), desiredTemperature2=desiredTemperature2, status = status)
     else:
@@ -56,12 +76,12 @@ def room2():
     temp2 = firebase.get('CurrentTempRoom2', 'Value')
     hum1 = firebase.get('HumidityRoom1', 'Value')
     hum2 = firebase.get('HumidityRoom2', 'Value')
-    desiredTemperature1 = firebase.get('DesiredTempRoom1', 'Value')
-    desiredTemperature2 = firebase.get('DesiredTempRoom2', 'Value')
+    desiredTemperature1 = firebase.get('DesiredTempRoom1/Zapier', 'Value')
+    desiredTemperature2 = firebase.get('DesiredTempRoom2/Zapier', 'Value')
     status = firebase.get('SwitchIntervalsOn', 'Value')
     if request.method == 'POST':
         variable = request.form.get('outputValue2')
-        firebase.put('DesiredTempRoom2', 'Value', int(variable))
+        firebase.put('DesiredTempRoom2/Zapier', 'Value', int(variable))
         return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
                                desiredTemperature1=desiredTemperature1, desiredTemperature2=int(variable), status = status)
     else:
@@ -78,6 +98,10 @@ def switchIntervalsOn():
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
+    authentication = FirebaseAuthentication('S7iqWxfvmFh67MJJBoWKlSBtJ2F1m8tFGv8sBBin', 'vitomir.dragan86@gmail.com',
+                                            False, False, extra={'uid': 'VdJOlGxu8OXxz28STIRZEZN6TB32'})
+    firebase.authentication = authentication
+    print(authentication.get_user().firebase_auth_token)
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')

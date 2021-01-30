@@ -1,46 +1,74 @@
 #ifndef WIFIMODULE_H
 #define WIFIMODULE_H
 
-//#include <Firebase.h>
-//#include <FirebaseArduino.h>
-//#include <FirebaseCloudMessaging.h>
-//#include <FirebaseError.h>
-//#include <FirebaseHttpClient.h>
-//#include <FirebaseObject.h>
-//#include <ArduinoJson.h>
-//#include <ESP8266WiFi.h>
-//#include <String.h>
-//#include <time.h>
-//#include "FirebaseESP8266.h"
-
+#include <stdlib.h>
 #include <FirebaseESP8266.h>
+#include <ESP8266WiFi.h>
 #include <FirebaseESP8266HTTPClient.h>
 #include <FirebaseJson.h>
 #include <time.h>
-
-
-
-#include <ESP8266WiFi.h>
+#include <dht11.h>
+#include <LiquidCrystal_I2C.h>
+#include <String.h>
+#include <RH_ASK.h>
+#include <SPI.h>
 
 #define FIREBASE_HOST "temperaturemanagement-iot.firebaseio.com"
 #define FIREBASE_AUTH "S7iqWxfvmFh67MJJBoWKlSBtJ2F1m8tFGv8sBBin"
+#define RELAY_PIN D3
+#define DHT11_PIN D0
+#define INCREASE_TEMPERATURE_PIN D5
+#define DECREASE_TEMPERATURE_PIN D6
+#define TIME_TO_CONNECT 15000
+#define MAX_TEMP 32
+#define MIN_TEMP 15
+#define ON 1
+#define OFF 0
+#define HYSTERESIS 1
 
+extern volatile int desiredTemperature;
+extern volatile boolean modifiedDesiredTemperature;
+extern volatile boolean increaseDesiredTemperature;
+extern volatile boolean decreaseDesiredTemperature; 
 
+class TimeManager{
+  public:
+    void timeManagerConfig();
+    tm *getPointerToTMStruct();
+    int getWeekDay();
+    int getCurrentHour();
+    int getCurrentMinute();
+    int getCurrentSecond();
+    int getHourFromTimeFormat(String timeFormat);
+    int getMinuteFromTimeFormat(String timeFormat);
+};
 
 class WiFiModule{
   public:
+    void pinSetup();
     void connectToInternet(String ssid, String password);
-    int readDataFromArduino();
-    int readHumidityFromArduino(int dataPackage);
-    int readTemperatureFromArduino(int dataPackage);
-    int readDesiredTemperatureFromArduino(int dataPackage);
+    int readHumidityFromSensor();
+    int readTemperatureFromSensor();
     void sendHumidityToDatabase(int humidity);
-    void sendTemperatureToDatabase(int currentTemperature);
-    void sendDesiredTemperatureToDatabase(int setTemperature);
-    int readDesiredTemperatureFromDatabase();
-    void sendDesiredTemperatureToArduino(int desiredTemperature);
+    void sendCurrentTemperatureToDatabase(int currentTemperature);
+    void sendDesiredTemperatureToDatabase(String databaseField);
+    void readDesiredTemperatureFromDatabase(String databaseField);
+    void heatControl(int currentTemperature);
     int readInt(String fieldName);
     String readStr(String fieldName);
+    void initializeRFTransmitter();
+    void sendCommandToController(int command);
+    void statusIndicator();
+    void defineInterrupts();
 };
+
+class LCD{
+  public:
+    void initializeLCD();
+    void displayMessage(String message);
+    void displayCurrentTemperature(int currentTemperature);
+    void displayDesiredTemperature();
+};
+
 
 #endif

@@ -17,7 +17,7 @@ int ArduinoUno::desiredTemperature = 0;
 //Methods for ArduinoUno class
 void ArduinoUno::pinSetup(){
    pinMode(7, OUTPUT);
-   digitalWrite(7, HIGH);
+
 }
 
 void ArduinoUno::initializeSerial(){
