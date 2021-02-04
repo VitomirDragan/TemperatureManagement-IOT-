@@ -7,7 +7,7 @@ function callRefreshFunction() { //Call the function for div refreshing and givi
     refresh("#monitorSecondRoom")
 }
 
-$(document).ready( //Call periodically the function callRefreshFunction. The interval is set to 3 seconds
+$(document).ready( //Call periodically the function callRefreshFunction. The interval is set to 5 seconds
     setInterval(
         callRefreshFunction,
         5000,

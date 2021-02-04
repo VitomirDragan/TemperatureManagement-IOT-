@@ -1,4 +1,3 @@
-import pyrebase
 from flask import Flask, render_template, request, url_for, flash, redirect
 from flask_login import UserMixin, LoginManager, login_required, login_user, logout_user, current_user
 from firebase import firebase
@@ -6,37 +5,22 @@ from firebase.firebase import FirebaseAuthentication
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from functions.functions import toBoolean, getTime, toInt
+from flask_wtf.csrf import CSRFProtect
+import os
 
-firebase = firebase.FirebaseApplication('https://temperaturemanagement-iot.firebaseio.com')
+firebase = firebase.FirebaseApplication(str(os.environ.get('FIREBASE_URL')))
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = '\xcf\x89\xe9v\x81Xf\xa5\x17\x17\x118\xad\xf3V\xce\x06\xb4\xc1\xa5\xce\x15\x9f1'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SECRET_KEY'] = str(os.environ.get('FLASK_SECRET_KEY'))
+app.config['SQLALCHEMY_DATABASE_URI'] = str(os.environ.get('SQLITE_URL'))
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
+csrf = CSRFProtect(app)
 
-""" --- """
-# config = {
-#     "apiKey": "AIzaSyChtewPO_zJyGpABQp9IhedRdgLMglVKfg",
-#     "authDomain": "temperaturemanagement-iot.firebaseapp.com",
-#     "databaseURL": "https://temperaturemanagement-iot.firebaseio.com",
-#     "projectId": "temperaturemanagement-iot",
-#     "storageBucket": "temperaturemanagement-iot.appspot.com",
-#     "messagingSenderId": "390182663875",
-#     "appId": "1:390182663875:web:0367ba031cee568e109476",
-#     "measurementId": "G-ZF61CXHKLK"
-# }
-#
-# frb = pyrebase.initialize_app(config)
-# auth = frb.auth()
-# authentication = auth.sign_in_with_email_and_password('vitomir.dragan86@gmail.com', 'webApplication')
-# print(authentication)
 
-# print(authentication.extra)
-""" --- """
 class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
@@ -63,10 +47,12 @@ def room1():
         variable = request.form.get('outputValue1')
         firebase.put('DesiredTempRoom1/Zapier', 'Value', int(variable))
         return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=int(variable), desiredTemperature2=desiredTemperature2, status = status)
+                               desiredTemperature1=int(variable), desiredTemperature2=desiredTemperature2,
+                               status=status)
     else:
         return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2, status = status)
+                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2,
+                               status=status)
 
 
 @app.route('/room2', methods=['POST', 'GET'])
@@ -83,30 +69,34 @@ def room2():
         variable = request.form.get('outputValue2')
         firebase.put('DesiredTempRoom2/Zapier', 'Value', int(variable))
         return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=desiredTemperature1, desiredTemperature2=int(variable), status = status)
+                               desiredTemperature1=desiredTemperature1, desiredTemperature2=int(variable),
+                               status=status)
     else:
         return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2, status = status)
+                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2,
+                               status=status)
+
 
 @app.route('/switchIntervalsOn', methods=['GET', 'POST'])
 @login_required
 def switchIntervalsOn():
-    if request.method=='POST':
+    if request.method == 'POST':
         switchIntervalsOn = toInt(request.form.get('switchIntervalsOn'))
         firebase.put('SwitchIntervalsOn', 'Value', switchIntervalsOn)
     return redirect(url_for('room1'))
 
+
 @app.route('/', methods=['GET', 'POST'])
 def login():
-    authentication = FirebaseAuthentication('S7iqWxfvmFh67MJJBoWKlSBtJ2F1m8tFGv8sBBin', 'vitomir.dragan86@gmail.com',
-                                            False, False, extra={'uid': 'VdJOlGxu8OXxz28STIRZEZN6TB32'})
-    firebase.authentication = authentication
-    print(authentication.get_user().firebase_auth_token)
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
         user_to_login = Users.query.filter_by(username=username).first()
         if user_to_login:
+            authentication = FirebaseAuthentication(str(os.environ.get('DATABASE_SECRET')),
+                                                    str(os.environ.get('APP_ACCOUNT')),
+                                                    extra={'uid': str(os.environ.get('USER_ID'))})
+            firebase.authentication = authentication
             if bcrypt.check_password_hash(user_to_login.password, password):
                 login_user(user_to_login)
                 return redirect(url_for('room1'))
@@ -254,8 +244,9 @@ def setIntervalsForWorkingDays():
             except Exception as err:
                 flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
         else:
-            flash('A, B, C, D must be set chronologically!', 'warning')
+            flash('Time intervals must be set chronologically!', 'warning')
     return render_template('schedulingPage.html')
+
 
 @app.route('/setIntervalsForWeekend', methods=['GET', 'POST'])
 @login_required
@@ -282,8 +273,9 @@ def setIntervalsForWeekend():
             except Exception as err:
                 flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
         else:
-            flash('A, B must be set chronologically!', 'warning')
+            flash('Time intervals must be set chronologically!', 'warning')
     return render_template('schedulingPage.html')
+
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required

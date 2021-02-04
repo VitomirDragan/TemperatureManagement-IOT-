@@ -37,6 +37,7 @@
     <div class="row justify-content-center"> <!-- Here I am positioning the form at the center of the screen -->
         <div class="col-md-4 col-sm-6 col-8"> <!-- Setting sizes for different types of screens -->
             <form class="loginForm-design" method="POST" action="/">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" class="form-control" id="username" placeholder="Enter username"

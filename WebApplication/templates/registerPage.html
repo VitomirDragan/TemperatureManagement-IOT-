@@ -14,6 +14,7 @@
             possibility to give to that account administrator privileges. </p>
     </div>
     <form class="col-md-8 col-sm-8 col-12" id="registerForm-design" method="POST" action="/register">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <h3 class="h3-design">Give it a try!</h3>
         <div class="form-group">
             <label for="username">Username:</label>

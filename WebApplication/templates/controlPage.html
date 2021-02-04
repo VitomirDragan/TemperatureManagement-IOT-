@@ -8,6 +8,7 @@
 {% block content %}
 <div class="row justify-content-center" id="scheduleRow">
     <form method="post" action="/switchIntervalsOn">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <label for="switchIntervalsOn"> Switch intervals on/off: </label>
         <input id="switchIntervalsOn" checked data-toggle="toggle" name="switchIntervalsOn"
                onchange="this.form.submit()" type="checkbox" value="1">
@@ -31,6 +32,7 @@
         <p class="p-design">{{ humR1 }} %</p>
         {% if status == 0 %}
         <form action="/room1" method="POST" id="formRoom1-design">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <input type="range" name="outputValue1" min="15" max="32" step="1" value="{{desiredTemperature1}}"
                    onchange="rangeValueRoom1.value=this.value">
             <output name="rangeValueRoom1">{{desiredTemperature1}}</output>
@@ -46,6 +48,7 @@
         <p class="p-design">{{ humR2 }} %</p>
         {% if status == 0 %}
         <form action="/room2" method="POST" id="formRoom2-design">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <input type="range" name="outputValue2" min="15" max="32" step="1" value="{{desiredTemperature2}}"
                    onchange="rangeValueRoom2.value=this.value">
             <output name="rangeValueRoom2">{{desiredTemperature2}}</output>

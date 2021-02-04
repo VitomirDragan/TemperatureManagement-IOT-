@@ -11,6 +11,7 @@
             <h3 class="h3-design">Working days</h3>
         </div>
         <form class="scheduleWorkingDaysForm-design" method="post" action="/setIntervalsForWorkingDays">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <div class="form-inline">
                 <div class="form-group">
                     <input type="time" class="form-control" name="firstWorkingDayInterval" id="firstWorkingDayInterval"
@@ -67,6 +68,7 @@
             <h3 class="h3-design">Weekend</h3>
         </div>
         <form class="scheduleWeekendForm-design" method="post" action="/setIntervalsForWeekend">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <div class="form-inline">
                 <div class="form-group">
                     <input type="time" class="form-control" name="firstWeekendInterval" id="firstWeekendInterval"
