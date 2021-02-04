@@ -63,7 +63,7 @@
 #             self.assertFalse(current_user.is_active)
 #
 #     def test_the_login_is_required(self):
-#         response = self.client.get('/room1', follow_redirects=True)
+#         response = self.client.get('/room', follow_redirects=True)
 #         self.assertTrue(b'Unauthorized' in response.data)
 #
 #     def test_password_hashing(self):

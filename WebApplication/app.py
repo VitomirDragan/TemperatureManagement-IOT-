@@ -9,6 +9,11 @@ from flask_wtf.csrf import CSRFProtect
 import os
 
 firebase = firebase.FirebaseApplication(str(os.environ.get('FIREBASE_URL')))
+authentication = FirebaseAuthentication(str(os.environ.get('DATABASE_SECRET')),
+                                        str(os.environ.get('APP_ACCOUNT')),
+                                        extra={'uid': str(os.environ.get('USER_ID'))})
+firebase.authentication = authentication
+
 
 app = Flask(__name__)
 
@@ -33,9 +38,9 @@ def load_user(id):
     return Users.query.get(int(id))
 
 
-@app.route('/room1', methods=['POST', 'GET'])
+@app.route('/room', methods=['POST', 'GET'])
 @login_required
-def room1():
+def room():
     temp1 = firebase.get('CurrentTempRoom1', 'Value')
     temp2 = firebase.get('CurrentTempRoom2', 'Value')
     hum1 = firebase.get('HumidityRoom1', 'Value')
@@ -45,36 +50,20 @@ def room1():
     status = firebase.get('SwitchIntervalsOn', 'Value')
     if request.method == 'POST':
         variable = request.form.get('outputValue1')
-        firebase.put('DesiredTempRoom1/Zapier', 'Value', int(variable))
-        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=int(variable), desiredTemperature2=desiredTemperature2,
-                               status=status)
-    else:
-        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2,
-                               status=status)
-
-
-@app.route('/room2', methods=['POST', 'GET'])
-@login_required
-def room2():
-    temp1 = firebase.get('CurrentTempRoom1', 'Value')
-    temp2 = firebase.get('CurrentTempRoom2', 'Value')
-    hum1 = firebase.get('HumidityRoom1', 'Value')
-    hum2 = firebase.get('HumidityRoom2', 'Value')
-    desiredTemperature1 = firebase.get('DesiredTempRoom1/Zapier', 'Value')
-    desiredTemperature2 = firebase.get('DesiredTempRoom2/Zapier', 'Value')
-    status = firebase.get('SwitchIntervalsOn', 'Value')
-    if request.method == 'POST':
-        variable = request.form.get('outputValue2')
-        firebase.put('DesiredTempRoom2/Zapier', 'Value', int(variable))
-        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=desiredTemperature1, desiredTemperature2=int(variable),
-                               status=status)
-    else:
-        return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                               desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2,
-                               status=status)
+        if variable is not None:
+            firebase.put('DesiredTempRoom1/Zapier', 'Value', int(variable))
+            return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
+                                   desiredTemperature1=int(variable), desiredTemperature2=desiredTemperature2,
+                                   status=status)
+        else:
+            variable = request.form.get('outputValue2')
+            firebase.put('DesiredTempRoom2/Zapier', 'Value', int(variable))
+            return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
+                                   desiredTemperature1=desiredTemperature1, desiredTemperature2=int(variable),
+                                   status=status)
+    return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
+                           desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2,
+                           status=status)
 
 
 @app.route('/switchIntervalsOn', methods=['GET', 'POST'])
@@ -83,7 +72,7 @@ def switchIntervalsOn():
     if request.method == 'POST':
         switchIntervalsOn = toInt(request.form.get('switchIntervalsOn'))
         firebase.put('SwitchIntervalsOn', 'Value', switchIntervalsOn)
-    return redirect(url_for('room1'))
+    return redirect(url_for('room'))
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -93,13 +82,9 @@ def login():
         password = request.form.get('password')
         user_to_login = Users.query.filter_by(username=username).first()
         if user_to_login:
-            authentication = FirebaseAuthentication(str(os.environ.get('DATABASE_SECRET')),
-                                                    str(os.environ.get('APP_ACCOUNT')),
-                                                    extra={'uid': str(os.environ.get('USER_ID'))})
-            firebase.authentication = authentication
             if bcrypt.check_password_hash(user_to_login.password, password):
                 login_user(user_to_login)
-                return redirect(url_for('room1'))
+                return redirect(url_for('room'))
             else:
                 flash('Wrong credentials!', 'warning')
                 return redirect(url_for('login'))
