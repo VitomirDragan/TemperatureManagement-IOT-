@@ -1,19 +1,20 @@
-from flask import Flask, render_template, request, url_for, flash, redirect
-from flask_login import UserMixin, LoginManager, login_required, login_user, logout_user, current_user
+import os
 from firebase import firebase
 from firebase.firebase import FirebaseAuthentication
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from functions.functions import toBoolean, getTime, toInt
 from flask_wtf.csrf import CSRFProtect
-import os
+from functions.wrappers import admin_required
+from functions.convert import toBoolean, toInt
+from functions.time import getTime
+from flask import Flask, render_template, request, url_for, flash, redirect
+from flask_login import UserMixin, LoginManager, login_required, login_user, logout_user, current_user
 
 firebase = firebase.FirebaseApplication(str(os.environ.get('FIREBASE_URL')))
 authentication = FirebaseAuthentication(str(os.environ.get('DATABASE_SECRET')),
                                         str(os.environ.get('APP_ACCOUNT')),
                                         extra={'uid': str(os.environ.get('USER_ID'))})
 firebase.authentication = authentication
-
 
 app = Flask(__name__)
 
@@ -97,6 +98,7 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def register():
     if request.method == 'POST':
         username = request.form.get('username')
@@ -121,6 +123,7 @@ def register():
 
 @app.route('/viewAccounts', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def viewAccounts():
     users = Users.query.all()
     return render_template('accountsPage.html', users=users)
@@ -128,6 +131,7 @@ def viewAccounts():
 
 @app.route('/deleteAccount/<id>', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def deleteAccount(id):
     user = Users.query.filter_by(id=id).first()
     try:
@@ -142,6 +146,7 @@ def deleteAccount(id):
 
 @app.route('/giveAdminRights/<id>', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def giveAdminRights(id):
     user = Users.query.filter_by(id=id).first()
     try:
@@ -156,6 +161,7 @@ def giveAdminRights(id):
 
 @app.route('/removeAdminRights/<id>', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def removeAdminRights(id):
     user = Users.query.filter_by(id=id).first()
     try:
