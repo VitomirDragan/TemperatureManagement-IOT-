@@ -7,17 +7,17 @@ from flask_wtf.csrf import CSRFProtect
 from functions.wrappers import admin_required
 from functions.convert import toBoolean, toInt
 from functions.time import getTime
+from functions.passwordValidation import validate
 from flask import Flask, render_template, request, url_for, flash, redirect
 from flask_login import UserMixin, LoginManager, login_required, login_user, logout_user, current_user
+
+app = Flask(__name__)
 
 firebase = firebase.FirebaseApplication(str(os.environ.get('FIREBASE_URL')))
 authentication = FirebaseAuthentication(str(os.environ.get('DATABASE_SECRET')),
                                         str(os.environ.get('APP_ACCOUNT')),
                                         extra={'uid': str(os.environ.get('USER_ID'))})
 firebase.authentication = authentication
-
-app = Flask(__name__)
-
 app.config['SECRET_KEY'] = str(os.environ.get('FLASK_SECRET_KEY'))
 app.config['SQLALCHEMY_DATABASE_URI'] = str(os.environ.get('SQLITE_URL'))
 db = SQLAlchemy(app)
@@ -39,9 +39,9 @@ def load_user(id):
     return Users.query.get(int(id))
 
 
-@app.route('/room', methods=['POST', 'GET'])
+@app.route('/home', methods=['POST', 'GET'])
 @login_required
-def room():
+def home():
     temp1 = firebase.get('CurrentTempRoom1', 'Value')
     temp2 = firebase.get('CurrentTempRoom2', 'Value')
     hum1 = firebase.get('HumidityRoom1', 'Value')
@@ -73,7 +73,7 @@ def switchIntervalsOn():
     if request.method == 'POST':
         switchIntervalsOn = toInt(request.form.get('switchIntervalsOn'))
         firebase.put('SwitchIntervalsOn', 'Value', switchIntervalsOn)
-    return redirect(url_for('room'))
+    return redirect(url_for('home'))
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -85,7 +85,7 @@ def login():
         if user_to_login:
             if bcrypt.check_password_hash(user_to_login.password, password):
                 login_user(user_to_login)
-                return redirect(url_for('room'))
+                return redirect(url_for('home'))
             else:
                 flash('Wrong credentials!', 'warning')
                 return redirect(url_for('login'))
@@ -106,15 +106,19 @@ def register():
         confirm_password = request.form.get('confirmPassword')
         admin_role = toBoolean(request.form.get('admin_role'))
         if bcrypt.check_password_hash(password, confirm_password):
-            user = Users(username=username, password=password, admin_role=admin_role)
-            try:
-                db.session.add(user)
-                db.session.commit()
-                flash('You successfully created a new account!', 'info')
-                return redirect(url_for('register'))
-            except:
-                flash('There was a problem creating this new account!', 'warning')
-                return redirect(url_for('register'))
+            errorMessage, validationStatus = validate(confirm_password)
+            if (validationStatus):
+                user = Users(username=username, password=password, admin_role=admin_role)
+                try:
+                    db.session.add(user)
+                    db.session.commit()
+                    flash('You successfully created a new account!', 'info')
+                    return redirect(url_for('register'))
+                except:
+                    flash('There was a problem creating this new account!', 'warning')
+                    return redirect(url_for('register'))
+            else:
+                flash(errorMessage, 'warning')
         else:
             flash('The passwords do not match!', 'warning')
             return redirect(url_for('register'))
@@ -186,7 +190,7 @@ def changePassword():
                 try:
                     current_user.password = bcrypt.generate_password_hash(newPassword).decode('utf-8')
                     db.session.commit()
-                    flash('Successfully changed password!', 'info')
+                    flash('Password changed successfully!', 'info')
                     return redirect(url_for('changePassword'))
                 except:
                     flash('There was a problem changing the password!', 'warning')
@@ -195,7 +199,7 @@ def changePassword():
                 flash('The passwords do not match!', 'warning')
                 return redirect(url_for('changePassword'))
         else:
-            flash('Wrong password! Please try again', 'warning')
+            flash('Wrong password! Please try again!', 'warning')
             return redirect(url_for('changePassword'))
     return render_template('changePasswordPage.html')
 

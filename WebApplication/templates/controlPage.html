@@ -30,7 +30,7 @@
         <p class="p-design">{{ tempR1 }} °C</p>
         <h3>Humidity in the first room:</h3>
         <p class="p-design">{{ humR1 }} %</p>
-        <form action="/room" method="POST" id="formRoom1-design">
+        <form action="/home" method="POST" id="formRoom1-design">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             {% if status == 0 %}
             <input type="range" name="outputValue1" min="15" max="32" step="1" value="{{desiredTemperature1}}"
@@ -46,7 +46,7 @@
         <p class="p-design">{{ tempR2 }} °C</p>
         <h3>Humidity in the second room:</h3>
         <p class="p-design">{{ humR2 }} %</p>
-        <form action="/room" method="POST" id="formRoom2-design">
+        <form action="/home" method="POST" id="formRoom2-design">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             {% if status == 0 %}
             <input type="range" name="outputValue2" min="15" max="32" step="1" value="{{desiredTemperature2}}"

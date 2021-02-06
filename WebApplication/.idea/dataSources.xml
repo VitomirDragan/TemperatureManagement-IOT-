@@ -7,5 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:D:\IOTProject_Firebase\WebApplication\users.db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="" uuid="81540cf2-cae3-47fc-b9a9-5799775e780c">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\IOTProject_Firebase\WebApplication\.coverage</jdbc-url>
+    </data-source>
   </component>
 </project>
