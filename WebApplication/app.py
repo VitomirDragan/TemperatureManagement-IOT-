@@ -187,14 +187,18 @@ def changePassword():
         confirmNewPassword = request.form.get('confirmNewPassword')
         if bcrypt.check_password_hash(current_user.password, currentPassword):
             if newPassword == confirmNewPassword:
-                try:
-                    current_user.password = bcrypt.generate_password_hash(newPassword).decode('utf-8')
-                    db.session.commit()
-                    flash('Password changed successfully!', 'info')
-                    return redirect(url_for('changePassword'))
-                except:
-                    flash('There was a problem changing the password!', 'warning')
-                    return redirect(url_for('changePassword'))
+                errorMessage, validationStatus = validate(confirmNewPassword)
+                if (validationStatus):
+                    try:
+                        current_user.password = bcrypt.generate_password_hash(newPassword).decode('utf-8')
+                        db.session.commit()
+                        flash('Password changed successfully!', 'info')
+                        return redirect(url_for('changePassword'))
+                    except:
+                        flash('There was a problem changing the password!', 'warning')
+                        return redirect(url_for('changePassword'))
+                else:
+                    flash(errorMessage, 'warning')
             else:
                 flash('The passwords do not match!', 'warning')
                 return redirect(url_for('changePassword'))

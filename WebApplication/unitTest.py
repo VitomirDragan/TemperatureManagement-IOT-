@@ -33,25 +33,61 @@ class BaseTestCase(TestCase):
         db.drop_all()
 
 
-class UserNotAdminTestCase(BaseTestCase):
-    def test_login_notAdmin(self):
-        with self.client:
-            resp = self.client.post('/',
-                                    data=dict(username='userNotAdmin', password='userNotAdmin'),
-                                    follow_redirects=True
-                                    )
-            self.assertIn(b'Switch intervals on/off', resp.data)
-            self.assertTrue(current_user.username == 'userNotAdmin')
-            self.assertTrue(current_user.is_authenticated)
+class CommonTestCase(BaseTestCase):
+    def test_loginIsRequired_home(self):
+        resp = self.client.get('/home', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! Home page can be accessed by users that are not logged in.')
 
-    def test_incorrectLogin_notAdmin(self):
-        with self.client:
-            resp = self.client.post('/',
-                                    data=dict(username='userNotAdmin', password='incorrectPassword'),
-                                    follow_redirects=True
-                                    )
-            self.assertIn(b'Username', resp.data)
-            self.assertFalse(current_user.is_authenticated)
+    def test_loginIsRequired_register(self):
+        resp = self.client.get('/register', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! Register page can be accessed by users that are not logged in.')
+
+    def test_loginIsRequired_viewAccounts(self):
+        resp = self.client.get('/viewAccounts', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! View accounts page can be accessed by users that are not logged in.')
+
+    def test_loginIsRequired_delteAccount(self):
+        resp = self.client.get('/deleteAccount/1', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! Accounts can be deleted by users which are not logged in.')
+
+    def test_loginIsRequired_giveAdminRights(self):
+        resp = self.client.get('/giveAdminRights/1', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! An user which is not logged in can give admin rights to other accounts.')
+
+    def test_loginIsRequired_removeAdminRights(self):
+        resp = self.client.get('/removeAdminRights/1', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! An user which is not logged in can remove admin rights from other accounts')
+
+    def test_loginIsRequired_changePassword(self):
+        resp = self.client.get('/changePassword', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! Change password page can be accessed by users that are not logged in.')
+
+    def test_loginIsRequired_switchIntervalsOn(self):
+        resp = self.client.get('/switchIntervalsOn', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! Intervals can be switched on or off by users which are not logged in.')
+
+    def test_loginIsRequired_setIntervalsForWorkingDays(self):
+        resp = self.client.get('/setIntervalsForWorkingDays', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! Intervals for working days can be set by users which are not logged in.')
+
+    def test_loginIsRequired_setIntervalsForWeekend(self):
+        resp = self.client.get('/setIntervalsForWeekend', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! Intervals for weekend can be set by users which are not logged in.')
+
+    def test_loginIsRequired_logOut(self):
+        resp = self.client.get('/logout', follow_redirects=True)
+        self.assert_status(resp, 401,
+                           'Security error! An user can logout without being logged in.')
 
     def test_notExistentAccount(self):
         with self.client:
@@ -64,7 +100,38 @@ class UserNotAdminTestCase(BaseTestCase):
                 resp.data)
             self.assertFalse(current_user.is_authenticated)
 
-    def test_logOut_notAdmin(self):
+    def test_passwordEncryption(self):
+        with self.client:
+            self.client.post(
+                '/',
+                data=dict(username="userAdmin", password="userAdmin"),
+                follow_redirects=True
+            )
+            self.assertTrue(bcrypt.check_password_hash(current_user.password, 'userAdmin'))
+            self.assertFalse(bcrypt.check_password_hash(current_user.password, 'wrongPassword'))
+
+            # -----------#
+
+    def test_login(self):
+        with self.client:
+            resp = self.client.post('/',
+                                    data=dict(username='userNotAdmin', password='userNotAdmin'),
+                                    follow_redirects=True
+                                    )
+            self.assertIn(b'Switch intervals on/off', resp.data)
+            self.assertTrue(current_user.username == 'userNotAdmin')
+            self.assertTrue(current_user.is_authenticated)
+
+    def test_incorrectLogin(self):
+        with self.client:
+            resp = self.client.post('/',
+                                    data=dict(username='userNotAdmin', password='incorrectPassword'),
+                                    follow_redirects=True
+                                    )
+            self.assertIn(b'Username', resp.data)
+            self.assertFalse(current_user.is_authenticated)
+
+    def test_logOut(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -74,7 +141,7 @@ class UserNotAdminTestCase(BaseTestCase):
             self.assertIn(b'Username', resp.data)
             self.assertFalse(current_user.is_authenticated)
 
-    def test_swithIntervalsOn_notAdmin(self):
+    def test_swithIntervalsOn(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -85,7 +152,7 @@ class UserNotAdminTestCase(BaseTestCase):
                                     follow_redirects=True)
             self.assertTrue(b'Schedule' in resp.data)
 
-    def test_swithIntervalsOff_notAdmin(self):
+    def test_swithIntervalsOff(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -96,7 +163,7 @@ class UserNotAdminTestCase(BaseTestCase):
                                     follow_redirects=True)
             self.assertFalse(b'Schedule' in resp.data)
 
-    def test_setIntervalsWorkingDay_notAdmin(self):
+    def test_setIntervalsWorkingDay(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -117,7 +184,7 @@ class UserNotAdminTestCase(BaseTestCase):
                                     follow_redirects=True)
             self.assertIn(b'Intervals were set successfully!', resp.data)
 
-    def test_setIntervalsWorkingDayNotChronologically_notAdmin(self):
+    def test_setIntervalsWorkingDayNotChronologically(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -138,7 +205,7 @@ class UserNotAdminTestCase(BaseTestCase):
                                     follow_redirects=True)
             self.assertIn(b'Time intervals must be set chronologically!', resp.data)
 
-    def test_setIntervalsWeekend_notAdmin(self):
+    def test_setIntervalsWeekend(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -156,7 +223,7 @@ class UserNotAdminTestCase(BaseTestCase):
                                     follow_redirects=True)
             self.assertIn(b'Intervals were set successfully!', resp.data)
 
-    def test_setIntervalsWeekendNotChronologically_notAdmin(self):
+    def test_setIntervalsWeekendNotChronologically(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -174,7 +241,7 @@ class UserNotAdminTestCase(BaseTestCase):
                                     follow_redirects=True)
             self.assertIn(b'Time intervals must be set chronologically!', resp.data)
 
-    def test_changePassword_notAdmin(self):
+    def test_changePassword(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -182,14 +249,14 @@ class UserNotAdminTestCase(BaseTestCase):
                              )
             resp = self.client.post('/changePassword',
                                     data=dict(currentPassword='userNotAdmin',
-                                              newPassword='newPassword',
-                                              confirmNewPassword='newPassword'),
+                                              newPassword='newPassword1',
+                                              confirmNewPassword='newPassword1'),
                                     follow_redirects=True
                                     )
             self.assertIn(b'Password changed successfully!', resp.data)
-            self.assertTrue(bcrypt.check_password_hash(current_user.password, 'newPassword'))
+            self.assertTrue(bcrypt.check_password_hash(current_user.password, 'newPassword1'))
 
-    def test_changePasswordWrongCurrentPassword_notAdmin(self):
+    def test_changePasswordWrongCurrentPassword(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -197,8 +264,8 @@ class UserNotAdminTestCase(BaseTestCase):
                              )
             resp = self.client.post('/changePassword',
                                     data=dict(currentPassword='wrongCurrentPassword',
-                                              newPassword='newPassword',
-                                              confirmNewPassword='newPassword'),
+                                              newPassword='newPassword1',
+                                              confirmNewPassword='newPassword1'),
                                     follow_redirects=True
                                     )
             self.assertIn(b'Wrong password! Please try again!', resp.data)
@@ -212,12 +279,63 @@ class UserNotAdminTestCase(BaseTestCase):
                              )
             resp = self.client.post('/changePassword',
                                     data=dict(currentPassword='userNotAdmin',
-                                              newPassword='nePassword',
-                                              confirmNewPassword='newPassword'),
+                                              newPassword='nePassword1',
+                                              confirmNewPassword='newPassword1'),
                                     follow_redirects=True
                                     )
             self.assertIn(b'The passwords do not match!', resp.data)
             self.assertTrue(bcrypt.check_password_hash(current_user.password, 'userNotAdmin'))
+
+    def test_changePasswordTooShort(self):
+        with self.client:
+            self.client.post(
+                '/',
+                data=dict(username="userNotAdmin", password="userNotAdmin"),
+                follow_redirects=True
+            )
+            resp = self.client.post('/changePassword',
+                                    data=dict(currentPassword='userNotAdmin',
+                                              newPassword='Shor1',
+                                              confirmNewPassword='Shor1',
+                                              ),
+                                    follow_redirects=True
+                                    )
+            self.assertIn(b'Password must have at least 6 characters!', resp.data)
+            self.assert_status(resp, 200, 'Error occured during creating new account!')
+
+    def test_changePasswordMissingUpperCaseLetter(self):
+        with self.client:
+            self.client.post(
+                '/',
+                data=dict(username="userNotAdmin", password="userNotAdmin"),
+                follow_redirects=True
+            )
+            resp = self.client.post('/changePassword',
+                                    data=dict(currentPassword='userNotAdmin',
+                                              newPassword='newuser1',
+                                              confirmNewPassword='newuser1',
+                                              ),
+                                    follow_redirects=True
+                                    )
+            self.assertIn(b'The password must contain at least one upper case letter!', resp.data)
+            self.assert_status(resp, 200, 'Error occured during creating new account!')
+
+    def test_changePasswordMissingDigit(self):
+        with self.client:
+            self.client.post(
+                '/',
+                data=dict(username="userNotAdmin", password="userNotAdmin"),
+                follow_redirects=True
+            )
+            resp = self.client.post('/changePassword',
+                                    data=dict(currentPassword='userNotAdmin',
+                                              newPassword='newUser',
+                                              confirmNewPassword='newUser',
+                                              ),
+                                    follow_redirects=True
+                                    )
+            self.assertIn(b'The password must contain at least one digit!', resp.data)
+            self.assert_status(resp, 200, 'Error occured during creating new account!')
 
     def test_setTemperatureRoom1(self):
         with self.client:
@@ -243,6 +361,10 @@ class UserNotAdminTestCase(BaseTestCase):
                                     )
             self.assert_status(resp, 200, 'Failed to set temperature!')
 
+            # -----------#
+
+
+class UserNotAdminTestCase(BaseTestCase):
     def test_notAuthorizedForRegister(self):
         with self.client:
             self.client.post('/',
@@ -251,6 +373,7 @@ class UserNotAdminTestCase(BaseTestCase):
                              )
             resp = self.client.get('/register', follow_redirects=True)
             self.assert_status(resp, 401, 'Security error! User without admin rights can access registration page.')
+
 
     def test_notAuthorizedForViewAccounts(self):
         with self.client:
@@ -261,6 +384,7 @@ class UserNotAdminTestCase(BaseTestCase):
             resp = self.client.get('/viewAccounts', follow_redirects=True)
             self.assert_status(resp, 401, 'Security error! User without admin rights can access view accounts page.')
 
+
     def test_notAuthorizedForDeleteAccount(self):
         with self.client:
             self.client.post('/',
@@ -269,6 +393,7 @@ class UserNotAdminTestCase(BaseTestCase):
                              )
             resp = self.client.get('/deleteAccount/1', follow_redirects=True)
             self.assert_status(resp, 401, 'Security error! User without admin rights can delete accounts.')
+
 
     def test_notAuthorizedForGiveAdminRights(self):
         with self.client:
@@ -279,6 +404,7 @@ class UserNotAdminTestCase(BaseTestCase):
             resp = self.client.get('/giveAdminRights/1', follow_redirects=True)
             self.assert_status(resp, 401,
                                'Security error! User which is not admin can give admin rights to other users.')
+
 
     def test_notAuthorizedForRemoveAdminRights(self):
         with self.client:
@@ -291,37 +417,7 @@ class UserNotAdminTestCase(BaseTestCase):
                                'Security error! User which is not admin can remove admin rights from other users.')
 
 
-class FlaskTestCase(BaseTestCase):
-    def test_loginIsRequired_home(self):
-        resp = self.client.get('/home', follow_redirects=True)
-        self.assert_status(resp, 401,
-                           'Security error! Home page can be accessed by users that are not logged in.')
-
-    def test_loginIsRequired_register(self):
-        resp = self.client.get('/register', follow_redirects=True)
-        self.assert_status(resp, 401,
-                           'Security error! Register page can be accessed by users that are not logged in.')
-
-    def test_loginIsRequired_viewAccounts(self):
-        resp = self.client.get('/viewAccounts', follow_redirects=True)
-        self.assert_status(resp, 401,
-                           'Security error! View accounts page can be accessed by users that are not logged in.')
-
-    def test_loginIsRequired_changePassword(self):
-        resp = self.client.get('/changePassword', follow_redirects=True)
-        self.assert_status(resp, 401,
-                           'Security error! Change password page can be accessed by users that are not logged in.')
-
-    def test_passwordEncryption(self):
-        with self.client:
-            self.client.post(
-                '/',
-                data=dict(username="userAdmin", password="userAdmin"),
-                follow_redirects=True
-            )
-            self.assertTrue(bcrypt.check_password_hash(current_user.password, 'userAdmin'))
-            self.assertFalse(bcrypt.check_password_hash(current_user.password, 'wrongPassword'))
-
+class UserAdminTestCase(BaseTestCase):
     def test_registration(self):
         with self.client:
             self.client.post(
