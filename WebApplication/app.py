@@ -42,29 +42,17 @@ def load_user(id):
 @app.route('/home', methods=['POST', 'GET'])
 @login_required
 def home():
-    temp1 = firebase.get('CurrentTempRoom1', 'Value')
-    temp2 = firebase.get('CurrentTempRoom2', 'Value')
-    hum1 = firebase.get('HumidityRoom1', 'Value')
-    hum2 = firebase.get('HumidityRoom2', 'Value')
-    desiredTemperature1 = firebase.get('DesiredTempRoom1/Zapier', 'Value')
-    desiredTemperature2 = firebase.get('DesiredTempRoom2/Zapier', 'Value')
     status = firebase.get('SwitchIntervalsOn', 'Value')
     if request.method == 'POST':
         variable = request.form.get('outputValue1')
         if variable is not None:
             firebase.put('DesiredTempRoom1/Zapier', 'Value', int(variable))
-            return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                                   desiredTemperature1=int(variable), desiredTemperature2=desiredTemperature2,
-                                   status=status)
+            return render_template('controlPage.html', desiredTemperature1=int(variable), status=status)
         else:
             variable = request.form.get('outputValue2')
             firebase.put('DesiredTempRoom2/Zapier', 'Value', int(variable))
-            return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                                   desiredTemperature1=desiredTemperature1, desiredTemperature2=int(variable),
-                                   status=status)
-    return render_template('controlPage.html', tempR1=temp1, tempR2=temp2, humR1=hum1, humR2=hum2,
-                           desiredTemperature1=desiredTemperature1, desiredTemperature2=desiredTemperature2,
-                           status=status)
+            return render_template('controlPage.html', desiredTemperature2=int(variable), status=status)
+    return render_template('controlPage.html', status=status)
 
 
 @app.route('/switchIntervalsOn', methods=['GET', 'POST'])

@@ -3,6 +3,9 @@
 {% block head %}
 <title> Home </title>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/controlPageDesign.css') }}">
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -27,15 +30,15 @@
 <div class="row">
     <div class="col-md-6" id="monitorFirstRoom">
         <h3>Temperature in the first room:</h3>
-        <p class="p-design">{{ tempR1 }} °C</p>
+        <output id="temperatureRoom1" class="p-design"></output>
         <h3>Humidity in the first room:</h3>
-        <p class="p-design">{{ humR1 }} %</p>
+        <output id="humidityRoom1" class="p-design"></output>
         <form action="/home" method="POST" id="formRoom1-design">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             {% if status == 0 %}
-            <input type="range" name="outputValue1" min="15" max="32" step="1" value="{{desiredTemperature1}}"
+            <input type="range" id="outputValue1" name="outputValue1" min="15" max="32" step="1"
                    onchange="rangeValueRoom1.value=this.value">
-            <output name="rangeValueRoom1">{{desiredTemperature1}}</output>
+            <output id="rangeValueRoom1" name="rangeValueRoom1"></output>
             <br>
             <button type="submit" class="btn btn-secondary" id="submitButtonRoom1">Set temperature</button>
             {% endif %}
@@ -43,19 +46,20 @@
     </div>
     <div class="col-md-6" id="monitorSecondRoom">
         <h3>Temperature in the second room:</h3>
-        <p class="p-design">{{ tempR2 }} °C</p>
+        <output id="temperatureRoom2" class="p-design"></output>
         <h3>Humidity in the second room:</h3>
-        <p class="p-design">{{ humR2 }} %</p>
+        <output id="humidityRoom2" class="p-design"></output>
         <form action="/home" method="POST" id="formRoom2-design">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             {% if status == 0 %}
-            <input type="range" name="outputValue2" min="15" max="32" step="1" value="{{desiredTemperature2}}"
+            <input id="outputValue2" type="range" name="outputValue2" min="15" max="32" step="1"
                    onchange="rangeValueRoom2.value=this.value">
-            <output name="rangeValueRoom2">{{desiredTemperature2}}</output>
+            <output id="rangeValueRoom2" name="rangeValueRoom2"></output>
             <br>
             <button type="submit" class="btn btn-secondary" id="submitButtonRoom2">Set temperature</button>
             {% endif %}
         </form>
+        <script src="../static/javascript/autoDivRefresh.js"></script>
     </div>
 </div>
 {% endblock %}
