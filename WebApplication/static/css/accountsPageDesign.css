@@ -3,6 +3,7 @@
     padding-left: 50%;
     padding-right: 50%;
     padding-bottom: 15%;
+    height: 80vh;
     text-align: center;
 }
 
@@ -19,16 +20,24 @@ td {
     padding-bottom: 2vh;
 }
 
-#success-button {
-    width: 108px;
+#delete-button {
+    width: 130px;
+    font-size: small;
 }
 
-#danger-button {
-    width: 108px;
+#giveRights-button {
+    width: 130px;
+    font-size: small;
+}
+
+#removeRights-button {
+    width: 130px;
+    font-size: small;
 }
 
 .inactive-button {
-    width: 108px;
+    width: 130px;
+    font-size: small;
     pointer-events: none;
     opacity: 0.1;
 }

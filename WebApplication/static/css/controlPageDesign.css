@@ -29,3 +29,9 @@
 .p-design{
     margin-bottom: 10%;
 }
+
+.dataToDisplay{
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: 500;
+}

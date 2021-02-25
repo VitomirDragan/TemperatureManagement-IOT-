@@ -4,11 +4,13 @@ WiFiModule wifiModule;
 LCD lcd;
 TimeManager timeManager;
 
+FirebaseData streamDesiredTemperature;
+FirebaseData streamSwitchIntervalsOn;
 
 
 void updateTemperatureValue(String fieldName){  
     //wifiModule.sendDesiredTemperatureToDatabase(fieldName);
-    wifiModule.readDesiredTemperatureFromDatabase(fieldName);
+
 }
 
 void setup() {
@@ -19,6 +21,8 @@ void setup() {
     timeManager.timeManagerConfig();
     Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
     wifiModule.defineInterrupts();
+    wifiModule.stream(streamDesiredTemperature,"/DesiredTempRoom2/Zapier/Value");
+    wifiModule.stream(streamSwitchIntervalsOn, "/SwitchIntervalsOn/Value");  
 }
 
 
@@ -29,14 +33,20 @@ void loop() {
       if(desiredTemperature < MAX_TEMP){
           desiredTemperature++;
           lcd.displayDesiredTemperature();
-          wifiModule.sendDesiredTemperatureToDatabase("DesiredTempRoom1/Zapier/Value");
+          if (WiFi.status() == WL_CONNECTED)
+          {
+              wifiModule.sendDesiredTemperatureToDatabase("DesiredTempRoom2/Zapier/Value");
+          }
       }
       increaseDesiredTemperature = false;
     }else{
         if(desiredTemperature > MIN_TEMP){
           desiredTemperature--;
           lcd.displayDesiredTemperature();
-          wifiModule.sendDesiredTemperatureToDatabase("DesiredTempRoom1/Zapier/Value");
+          if (WiFi.status() == WL_CONNECTED)
+          {
+              wifiModule.sendDesiredTemperatureToDatabase("DesiredTempRoom2/Zapier/Value");
+          }
         }
       decreaseDesiredTemperature = false;
     }
@@ -46,7 +56,9 @@ void loop() {
 
 
     if (WiFi.status() == WL_CONNECTED) {
-        int switchIntervalsOn = wifiModule.readInt("SwitchIntervalsOn/Value");
+        wifiModule.sendCurrentTemperatureToDatabase(currentTemperature);
+        wifiModule.sendHumidityToDatabase(humidity);
+        wifiModule.checkForUpdate(switchIntervalsOn, streamSwitchIntervalsOn, "SwitchIntervalsOn/Value");
         //Serial.print("temp online:");
         //Serial.println(desiredTemperature);
         if (switchIntervalsOn) {
@@ -66,14 +78,14 @@ void loop() {
                 if ((hourA < currentHour && currentHour < hourB) ||
                     (hourA == currentHour && currentMinute >= minuteA) ||
                     (hourB == currentHour && currentMinute < minuteB)) {
-                   updateTemperatureValue("Weekend/TemperatureAB");
-                   wifiModule.heatControl(currentTemperature);
+                      wifiModule.readDesiredTemperatureFromDatabase("Weekend/TemperatureAB");
+//                      wifiModule.heatControl(currentTemperature);
                 } else {
-                   updateTemperatureValue("Weekend/TemperatureBA");
-                    wifiModule.heatControl(currentTemperature);
+                    wifiModule.readDesiredTemperatureFromDatabase("Weekend/TemperatureBA");
+//                    wifiModule.heatControl(currentTemperature);
                  
                 }
-
+              wifiModule.heatControl(currentTemperature); 
             } else {
                 String A = wifiModule.readStr("WorkingDay/A");
                 String B = wifiModule.readStr("WorkingDay/B");
@@ -92,35 +104,39 @@ void loop() {
                 if ((hourA < currentHour && currentHour < hourB) ||
                     (hourA == currentHour && currentMinute >= minuteA) ||
                     (hourB == currentHour && currentMinute < minuteB)) {
-                    updateTemperatureValue("WorkingDay/TemperatureAB");
-                    wifiModule.heatControl(currentTemperature);
+                        wifiModule.readDesiredTemperatureFromDatabase("WorkingDay/TemperatureAB");
+//                        wifiModule.heatControl(currentTemperature);
 
                 } else if ((hourB < currentHour && currentHour < hourC) ||
                            (hourB == currentHour && currentMinute >= minuteB) ||
                            (hourC == currentHour && currentMinute < minuteC)) {
-                    updateTemperatureValue("WorkingDay/TemperatureBC");
-                    wifiModule.heatControl(currentTemperature);
-           
+                              wifiModule.readDesiredTemperatureFromDatabase("WorkingDay/TemperatureBC");
+//                              wifiModule.heatControl(currentTemperature);
                 } else if ((hourC < currentHour && currentHour < hourD) ||
                            (hourC == currentHour && currentMinute >= minuteC) ||
                            (hourD == currentHour && currentMinute < minuteD)) {
-                    updateTemperatureValue("WorkingDay/TemperatureCD");
-                    wifiModule.heatControl(currentTemperature);
+                              wifiModule.readDesiredTemperatureFromDatabase("WorkingDay/TemperatureCD");
+//                              wifiModule.heatControl(currentTemperature);
                 } else {
-                    updateTemperatureValue("WorkingDay/TemperatureDA");
-                    wifiModule.heatControl(currentTemperature);
+                    wifiModule.readDesiredTemperatureFromDatabase("WorkingDay/TemperatureDA");
+//                    wifiModule.heatControl(currentTemperature);
                 }
+                 wifiModule.heatControl(currentTemperature);
             }
+            operatingModeChanged = true;
         } else {
-            updateTemperatureValue("DesiredTempRoom1/Zapier/Value");
+            wifiModule.checkForUpdate(desiredTemperature, streamDesiredTemperature,"/DesiredTempRoom2/Zapier/Value");
+            if(operatingModeChanged){
+               wifiModule.readDesiredTemperatureFromDatabase("DesiredTempRoom2/Zapier/Value");
+               operatingModeChanged = false;
+            }
             wifiModule.heatControl(currentTemperature);
         }
-        wifiModule.sendCurrentTemperatureToDatabase(currentTemperature);
-        wifiModule.sendHumidityToDatabase(humidity);
     } else {
         //Serial.print("Temp, offline:");
         //Serial.println(desiredTemperature);
         wifiModule.heatControl(currentTemperature);
+        operatingModeChanged = true;
     }
      wifiModule.statusIndicator();
      //detachInterrupt(digitalPinToInterrupt(INCREASE_TEMPERATURE_PIN));

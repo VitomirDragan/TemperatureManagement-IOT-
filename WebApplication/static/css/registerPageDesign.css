@@ -6,6 +6,9 @@
 }
 
 #explanation {
+    /*font-family: "Brush Script MT", Brush Script Std, cursive;*/
+    font-family: Papyrus, serif;
+    /*font-size: 125%;*/
     padding: 10vh;
 }
 

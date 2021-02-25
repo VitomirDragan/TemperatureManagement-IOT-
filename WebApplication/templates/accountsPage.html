@@ -52,13 +52,13 @@
             <td>{{ user.admin_role }}</td>
             <td>
                 {% if user.id != current_user.id %}
-                <a href="#deleteAccount{{user.id}}" class="btn btn-danger" data-toggle="modal">Delete
+                <a href="#deleteAccount{{user.id}}" class="btn btn-danger" id="delete-button" data-toggle="modal">Delete
                     account</a>
                 {% if user.admin_role %}
-                <a href="#removeRights{{user.id}}" class="btn btn-danger" id="danger-button" data-toggle="modal">Remove
+                <a href="#removeRights{{user.id}}" class="btn btn-danger" id="removeRights-button" data-toggle="modal">Remove
                     rights</a>
                 {% else %}
-                <a href="#giveRights{{user.id}}" class="btn btn-success" id="success-button" data-toggle="modal">Give
+                <a href="#giveRights{{user.id}}" class="btn btn-success" id="giveRights-button" data-toggle="modal">Give
                     rights</a>
                 {% endif %}
                 {% else %}

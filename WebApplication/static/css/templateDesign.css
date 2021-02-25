@@ -1,4 +1,4 @@
-#flashedMessages-design{
+#flashedMessages-design {
     text-align: center;
     background-color: whitesmoke;
 }
@@ -15,8 +15,9 @@
     height: 35vh; /* Set the height of the header */
     margin-bottom: 0;
     border-radius: 0;
+    font-family: Papyrus, serif;
 }
 
-.content{
+.content {
     background-color: whitesmoke;
 }

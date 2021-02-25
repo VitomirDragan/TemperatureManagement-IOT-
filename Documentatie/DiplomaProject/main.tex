@@ -1,0 +1,50 @@
+\documentclass[a4paper,12pt,oneside,openright]{book}
+
+\usepackage[utf8x]{inputenc}
+\PrerenderUnicode{ăîșțâĂÎÂȘȚ„”}
+ 
+\usepackage{bookman}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{fancyhdr} 
+\usepackage{color}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{geometry}
+\usepackage{indentfirst}
+\usepackage{mathptmx}
+\graphicspath{ {./fig/} }
+
+\pagestyle{fancy}
+\fancyhead[RE]{\footnotesize{\leftmark}}
+\fancyhead[RO]{\footnotesize{\thepage}}
+\fancyhead[LO]{\footnotesize{\rightmark}}
+\fancyhead[LE]{\footnotesize{\thepage}}
+\fancyfoot{}
+
+\renewcommand{\chaptername}{Capitolul}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabelul}
+\renewcommand\listtablename{Lista tabelelor}
+\renewcommand\listfigurename{Lista figurilor}
+\renewcommand\contentsname{Cuprins}
+\renewcommand\bibname{Bibliografie}
+ 
+\begin{document}
+
+\input{titlepage.tex}
+
+\setcounter{page}{1}
+\tableofcontents
+\input{introduction.tex}
+\input{state of the art.tex}
+
+\listoffigures
+
+\listoftables
+
+\bibliographystyle{plain} 
+\bibliography{bibfile.bib}
+
+\end{document}

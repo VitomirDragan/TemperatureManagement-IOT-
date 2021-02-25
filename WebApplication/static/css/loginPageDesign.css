@@ -1,16 +1,19 @@
 .loginForm-design {
     position: relative;
-    height: 57vh;
+    height: 58vh;
     top: 20%; /* Distance at the top of the container */
-    padding: 10%;
+    padding-top: 10vh;
+    padding-left: 10%;
+    padding-right: 10%;
     background-color: #e6e6e6;
     border-style: solid;
     border-width: medium;
     border-radius: 15px;
-    box-shadow: 0px 0px 30px black;
+    box-shadow: 0 0 30px black;
     border-color: #a6a6a6;
     overflow: scroll; /* Make the overflow scrollable */
     overflow-x: hidden; /* Do not show the overflow on the x axis */
+    align-content: center;
 
 }
 

@@ -7,13 +7,13 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-md-4 col-sm-4 col-12" id="explanation">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="explanation">
         <h3 class="h3-design">How to create account?</h3>
         <p class="p-design">As admin, you can create another accounts for your family members. When you create an
             account, you have the
-            possibility to give to that account administrator privileges. </p>
+            possibility to give, to newly created account, administrator rights.</p>
     </div>
-    <form class="col-md-8 col-sm-8 col-12" id="registerForm-design" method="POST" action="/register">
+    <form class="col-xs-12 col-sm-12 col-md-8 col-lg-8" id="registerForm-design" method="POST" action="/register">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <h3 class="h3-design">Give it a try!</h3>
         <div class="form-group">

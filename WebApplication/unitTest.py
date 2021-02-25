@@ -343,9 +343,8 @@ class CommonTestCase(BaseTestCase):
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
                              )
-            resp = self.client.post('/home',
-                                    data=dict(outputValue1='21'),
-                                    follow_redirects=True
+            resp = self.client.get('http://127.0.0.1:5000/home?outputValue1=30',
+                         follow_redirects=True
                                     )
             self.assert_status(resp, 200, 'Failed to set temperature!')
 
@@ -355,7 +354,7 @@ class CommonTestCase(BaseTestCase):
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
                              )
-            resp = self.client.post('/home',
+            resp = self.client.get('/home',
                                     data=dict(outputValue2='22'),
                                     follow_redirects=True
                                     )

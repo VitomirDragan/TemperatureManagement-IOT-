@@ -12,14 +12,13 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 from flask_login import UserMixin, LoginManager, login_required, login_user, logout_user, current_user
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = str(os.environ.get('FLASK_SECRET_KEY'))
+app.config['SQLALCHEMY_DATABASE_URI'] = str(os.environ.get('SQLITE_URL'))
 firebase = firebase.FirebaseApplication(str(os.environ.get('FIREBASE_URL')))
 authentication = FirebaseAuthentication(str(os.environ.get('DATABASE_SECRET')),
                                         str(os.environ.get('APP_ACCOUNT')),
                                         extra={'uid': str(os.environ.get('USER_ID'))})
 firebase.authentication = authentication
-app.config['SECRET_KEY'] = str(os.environ.get('FLASK_SECRET_KEY'))
-app.config['SQLALCHEMY_DATABASE_URI'] = str(os.environ.get('SQLITE_URL'))
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager()
@@ -44,14 +43,7 @@ def load_user(id):
 def home():
     status = firebase.get('SwitchIntervalsOn', 'Value')
     if request.method == 'POST':
-        variable = request.form.get('outputValue1')
-        if variable is not None:
-            firebase.put('DesiredTempRoom1/Zapier', 'Value', int(variable))
-            return render_template('controlPage.html', desiredTemperature1=int(variable), status=status)
-        else:
-            variable = request.form.get('outputValue2')
-            firebase.put('DesiredTempRoom2/Zapier', 'Value', int(variable))
-            return render_template('controlPage.html', desiredTemperature2=int(variable), status=status)
+        return render_template('controlPage.html', status=status)
     return render_template('controlPage.html', status=status)
 
 
@@ -81,7 +73,8 @@ def login():
             flash('This account does not exist in our database! Please contact the administrator for creating one!',
                   'warning')
             return redirect(url_for('login'))
-    return render_template('loginPage.html')
+    return render_template('loginPage.html', username=os.environ.get('APP_ACCOUNT'),
+                           password=os.environ.get('APP_PASSWORD'))
 
 
 @app.route('/register', methods=['GET', 'POST'])

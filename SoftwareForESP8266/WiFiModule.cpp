@@ -6,8 +6,13 @@ FirebaseData firebaseData;
 RH_ASK driver(2000, D8, D7, D8);
 
 volatile int desiredTemperature = 21;
+volatile int lastHumidityValue = 0;
+volatile int lastTemperatureValue = 0;
+volatile int lastDesiredTemperature = 0;
+volatile int switchIntervalsOn = 0;
 volatile boolean increaseDesiredTemperature = false;
 volatile boolean decreaseDesiredTemperature = false;
+volatile boolean operatingModeChanged = false;
 
 ICACHE_RAM_ATTR void increaseTemperature() {
     Serial.println("intrerupere");
@@ -62,13 +67,13 @@ void WiFiModule::defineInterrupts(){
 }
 
 int WiFiModule::readInt(String fieldName){
-      Firebase.getInt(firebaseData, fieldName);
-      return firebaseData.intData();
+        Firebase.getInt(firebaseData, fieldName);
+        return firebaseData.intData();
 }
 
 String WiFiModule::readStr(String fieldName){
-    Firebase.getString(firebaseData, fieldName);
-    return firebaseData.stringData();
+       Firebase.getString(firebaseData, fieldName);
+       return firebaseData.stringData();
 }
 
 void WiFiModule::pinSetup(){
@@ -107,31 +112,80 @@ int WiFiModule::readTemperatureFromSensor(){
 
 
 void WiFiModule::sendHumidityToDatabase(int humidity){
-    Firebase.setInt(firebaseData, "HumidityRoom1/Value", humidity);
+  if(lastHumidityValue != humidity)
+  {
+    if(Firebase.setInt(firebaseData, "HumidityRoom2/Value", humidity)==false)
+    {
+      return;
+    }
+    lastHumidityValue = humidity;
+  }
 }
 
 
 void WiFiModule::sendCurrentTemperatureToDatabase(int currentTemperature){
-    Firebase.setInt(firebaseData, "CurrentTempRoom1/Value", currentTemperature);
+  if(lastTemperatureValue != currentTemperature)
+  {
+    if(Firebase.setInt(firebaseData, "CurrentTempRoom2/Value", currentTemperature)==false)
+    {
+      return;
+    }
+  }
 }
 
 
 void WiFiModule::sendDesiredTemperatureToDatabase(String databaseField){
-    Firebase.setInt(firebaseData, databaseField, desiredTemperature);
+    if(Firebase.setInt(firebaseData, databaseField, desiredTemperature)==false)
+    {
+      return;
+    }
 }
-
 
 void WiFiModule::readDesiredTemperatureFromDatabase(String databaseField){
 //    detachInterrupt(digitalPinToInterrupt(INCREASE_TEMPERATURE_PIN));
 //    detachInterrupt(digitalPinToInterrupt(DECREASE_TEMPERATURE_PIN));
-    desiredTemperature = readInt(databaseField);
 //    attachInterrupt(digitalPinToInterrupt(INCREASE_TEMPERATURE_PIN), increaseTemperature, RISING);
 //    attachInterrupt(digitalPinToInterrupt(DECREASE_TEMPERATURE_PIN), decreaseTemperature, RISING);
-    Serial.print("Db value: ");
-    Serial.println(desiredTemperature);
+      int value = readInt(databaseField);
+      Serial.println("readInt(databaseField)");
+      Serial.println(value);
+      if(value>=15 && value<=32){
+         desiredTemperature = readInt(databaseField);
+      }
+         Serial.print("Read desired temperature: ");
+         Serial.println(desiredTemperature);
 }
 
+
+void WiFiModule::checkForUpdate(volatile int &variable, FirebaseData &instance, String databaseField){
+ if(Firebase.readStream(instance)==false){
+    Serial.println("readStream failed");
+    return;
+  }
+ if(instance.streamTimeout()==true){
+    Serial.println("Timeout check");
+    stream(instance, databaseField);
+    return;
+  }
+  if(instance.streamAvailable()){
+    Serial.print("Check for update: ");
+    Serial.println(instance.intData());
+    variable = instance.intData();
+  }
+}
+
+void WiFiModule::stream(FirebaseData &instance, String path)
+{
+    if(Firebase.beginStream(instance, path) == false)
+    {
+      return; 
+    }
+}
+
+
 void WiFiModule::heatControl(int currentTemperature){
+  if((lastDesiredTemperature != desiredTemperature) || (lastTemperatureValue != currentTemperature))
+  {
      if(currentTemperature <= (desiredTemperature - HYSTERESIS)){
          digitalWrite(RELAY_PIN, LOW);
          sendCommandToController(ON);
@@ -140,6 +194,9 @@ void WiFiModule::heatControl(int currentTemperature){
          sendCommandToController(OFF);
          digitalWrite(RELAY_PIN, HIGH);
      }
+     lastTemperatureValue = currentTemperature;
+     lastDesiredTemperature = desiredTemperature;
+  }
 }
 
 
@@ -156,13 +213,13 @@ void WiFiModule::initializeRFTransmitter(){
 }
 
 void WiFiModule::sendCommandToController(int command){
-      TimeManager timeManager;
-      while(timeManager.getCurrentSecond()%2!=0){
-        delay(5);
-      }//wait while second is odd
+//      TimeManager timeManager;
+//      while(timeManager.getCurrentSecond()%2!=0){
+//        delay(5);
+//      }//wait while second is odd
 
       char message[2];
-      itoa(10 + command, message, 10);
+      itoa(20 + command, message, 10);
       driver.send(((unsigned char *) message), strlen(message));
       driver.waitPacketSent();
 }
