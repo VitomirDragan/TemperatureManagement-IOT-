@@ -10,9 +10,12 @@ volatile int lastHumidityValue = 0;
 volatile int lastTemperatureValue = 0;
 volatile int lastDesiredTemperature = 0;
 volatile int switchIntervalsOn = 0;
+volatile int endHour = 0;
+volatile int endMinute = 0;
 volatile boolean increaseDesiredTemperature = false;
 volatile boolean decreaseDesiredTemperature = false;
-volatile boolean operatingModeChanged = false;
+volatile boolean timeIntervalsOperatingMode = false;
+volatile boolean normalOperatingMode = false;
 
 ICACHE_RAM_ATTR void increaseTemperature() {
     Serial.println("intrerupere");
@@ -157,18 +160,22 @@ void WiFiModule::readDesiredTemperatureFromDatabase(String databaseField){
 }
 
 
-void WiFiModule::checkForUpdate(volatile int &variable, FirebaseData &instance, String databaseField){
+int WiFiModule::checkForUpdate(FirebaseData &instance, String databaseField){
  if(Firebase.readStream(instance)==false){
     Serial.println("readStream failed");
-    return;
   }
  if(instance.streamTimeout()==true){
     Serial.println("Timeout check");
     stream(instance, databaseField);
-    return;
   }
   if(instance.streamAvailable()){
-    Serial.print("Check for update: ");
+    return 1;    
+  }
+  return 0;
+}
+
+void WiFiModule::readStreamValue(volatile int &variable, FirebaseData &instance, String databaseField){
+  if(checkForUpdate(instance, databaseField)){
     Serial.println(instance.intData());
     variable = instance.intData();
   }
@@ -213,13 +220,13 @@ void WiFiModule::initializeRFTransmitter(){
 }
 
 void WiFiModule::sendCommandToController(int command){
-//      TimeManager timeManager;
-//      while(timeManager.getCurrentSecond()%2!=0){
-//        delay(5);
-//      }//wait while second is odd
+      TimeManager timeManager;
+      while(timeManager.getCurrentSecond()%2==0){
+        delay(5);
+      }//wait while second is odd
 
       char message[2];
-      itoa(20 + command, message, 10);
+      itoa(10 + command, message, 10);
       driver.send(((unsigned char *) message), strlen(message));
       driver.waitPacketSent();
 }

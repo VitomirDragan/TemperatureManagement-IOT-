@@ -31,9 +31,12 @@ extern volatile int lastHumidityValue;
 extern volatile int lastTemperatureValue;
 extern volatile int lastDesiredTemperature;
 extern volatile int switchIntervalsOn;
+extern volatile int endHour;
+extern volatile int endMinute;
 extern volatile boolean increaseDesiredTemperature;
 extern volatile boolean decreaseDesiredTemperature; 
-extern volatile boolean operatingModeChanged;
+extern volatile boolean timeIntervalsOperatingMode;
+extern volatile boolean normalOperatingMode;
   
 
 class TimeManager{
@@ -59,7 +62,8 @@ class WiFiModule{
     void sendDesiredTemperatureToDatabase(String databaseField);
     void readDesiredTemperatureFromDatabase(String databaseField);
     void stream(FirebaseData &instance, String path);
-    void checkForUpdate(volatile int & variable, FirebaseData &instance, String databaseField);
+    void readStreamValue(volatile int & variable, FirebaseData &instance, String databaseField);
+    int checkForUpdate(FirebaseData &instance, String databaseField);
     void heatControl(int currentTemperature);
     int readInt(String fieldName);
     String readStr(String fieldName);

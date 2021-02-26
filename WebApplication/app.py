@@ -210,15 +210,15 @@ def setIntervalsForWorkingDays():
 
         if timeObjectA < timeObjectB < timeObjectC < timeObjectD:
             try:
-                firebase.put('WorkingDay', 'A', a)
-                firebase.put('WorkingDay', 'B', b)
-                firebase.put('WorkingDay', 'C', c)
-                firebase.put('WorkingDay', 'D', d)
+                firebase.put('Intervals/WorkingDay', 'A', a)
+                firebase.put('Intervals/WorkingDay', 'B', b)
+                firebase.put('Intervals/WorkingDay', 'C', c)
+                firebase.put('Intervals/WorkingDay', 'D', d)
 
-                firebase.put('WorkingDay', 'TemperatureAB', int(temperatureAB))
-                firebase.put('WorkingDay', 'TemperatureBC', int(temperatureBC))
-                firebase.put('WorkingDay', 'TemperatureCD', int(temperatureCD))
-                firebase.put('WorkingDay', 'TemperatureDA', int(temperatureDA))
+                firebase.put('Intervals/WorkingDay', 'TemperatureAB', int(temperatureAB))
+                firebase.put('Intervals/WorkingDay', 'TemperatureBC', int(temperatureBC))
+                firebase.put('Intervals/WorkingDay', 'TemperatureCD', int(temperatureCD))
+                firebase.put('Intervals/WorkingDay', 'TemperatureDA', int(temperatureDA))
 
                 flash('Intervals were set successfully!', 'info')
             except Exception as err:
@@ -243,11 +243,11 @@ def setIntervalsForWeekend():
 
         if timeObjectA < timeObjectB:
             try:
-                firebase.put('Weekend', 'A', a)
-                firebase.put('Weekend', 'B', b)
+                firebase.put('Intervals/Weekend', 'A', a)
+                firebase.put('Intervals/Weekend', 'B', b)
 
-                firebase.put('Weekend', 'TemperatureAB', int(temperatureAB))
-                firebase.put('Weekend', 'TemperatureBA', int(temperatureBA))
+                firebase.put('Intervals/Weekend', 'TemperatureAB', int(temperatureAB))
+                firebase.put('Intervals/Weekend', 'TemperatureBA', int(temperatureBA))
 
                 flash('Intervals were set successfully!', 'info')
             except Exception as err:
