@@ -35,12 +35,13 @@
         <p class="dataToDisplay">Humidity in the first room:</p>
         <output id="humidityRoom1" class="p-design"></output>
         <i>%</i>
-        <form id="formRoom1-design">
+        <form action="/home" method="POST" id="formRoom1-design">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             {% if status == 0 %}
             <input type="range" id="outputValue1" name="outputValue1" min="15" max="32" step="1"
                    onchange="rangeValueRoom1.value=this.value">
-            <output id="rangeValueRoom1" name="rangeValueRoom1"></output>
+            <output id="rangeValueRoom1" name="rangeValueRoom1"></output><br>
+            <button type="submit" class="btn btn-secondary" id="submitButtonRoom1">Set temperature</button>
             {% endif %}
         </form>
     </div>
@@ -54,12 +55,13 @@
         <form action="/home" method="POST" id="formRoom2-design">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             {% if status == 0 %}
-            <input id="outputValue2" type="range" name="outputValue2" min="15" max="32" step="1"
+            <input type="range" id="outputValue2" name="outputValue2" min="15" max="32" step="1"
                    onchange="rangeValueRoom2.value=this.value">
-            <output id="rangeValueRoom2" name="rangeValueRoom2"></output>
+            <output id="rangeValueRoom2" name="rangeValueRoom2"></output><br>
+            <button type="submit" class="btn btn-secondary" id="submitButtonRoom2">Set temperature</button>
             {% endif %}
         </form>
-        <script src="../static/javascript/databaseListeners.js"></script>
     </div>
+    <script src="../static/javascript/databaseListeners.js"></script>
 </div>
 {% endblock %}

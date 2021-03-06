@@ -343,8 +343,9 @@ class CommonTestCase(BaseTestCase):
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
                              )
-            resp = self.client.get('http://127.0.0.1:5000/home?outputValue1=30',
-                         follow_redirects=True
+            resp = self.client.post('/home',
+                                    data=dict(outputValue1='21'),
+                                    follow_redirects=True
                                     )
             self.assert_status(resp, 200, 'Failed to set temperature!')
 
@@ -354,7 +355,7 @@ class CommonTestCase(BaseTestCase):
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
                              )
-            resp = self.client.get('/home',
+            resp = self.client.post('/home',
                                     data=dict(outputValue2='22'),
                                     follow_redirects=True
                                     )
@@ -373,7 +374,6 @@ class UserNotAdminTestCase(BaseTestCase):
             resp = self.client.get('/register', follow_redirects=True)
             self.assert_status(resp, 401, 'Security error! User without admin rights can access registration page.')
 
-
     def test_notAuthorizedForViewAccounts(self):
         with self.client:
             self.client.post('/',
@@ -382,7 +382,6 @@ class UserNotAdminTestCase(BaseTestCase):
                              )
             resp = self.client.get('/viewAccounts', follow_redirects=True)
             self.assert_status(resp, 401, 'Security error! User without admin rights can access view accounts page.')
-
 
     def test_notAuthorizedForDeleteAccount(self):
         with self.client:
@@ -393,7 +392,6 @@ class UserNotAdminTestCase(BaseTestCase):
             resp = self.client.get('/deleteAccount/1', follow_redirects=True)
             self.assert_status(resp, 401, 'Security error! User without admin rights can delete accounts.')
 
-
     def test_notAuthorizedForGiveAdminRights(self):
         with self.client:
             self.client.post('/',
@@ -403,7 +401,6 @@ class UserNotAdminTestCase(BaseTestCase):
             resp = self.client.get('/giveAdminRights/1', follow_redirects=True)
             self.assert_status(resp, 401,
                                'Security error! User which is not admin can give admin rights to other users.')
-
 
     def test_notAuthorizedForRemoveAdminRights(self):
         with self.client:

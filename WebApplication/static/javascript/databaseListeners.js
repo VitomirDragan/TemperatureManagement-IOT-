@@ -31,23 +31,23 @@ if (window.location.pathname === '/home') {
         document.getElementById('humidityRoom2').value = snapshot.val().Value;
     });
 
-    document.getElementById('outputValue1').addEventListener('change', (e) => {
-        e.preventDefault();
-        const temperatureSetR1 = document.getElementById("outputValue1").value;
-        firebase.database().ref('DesiredTempRoom1/Zapier').set(
-            {
-                Value: parseInt(temperatureSetR1)
-            });
-    });
+    // document.getElementById('outputValue1').addEventListener('change', (e) => {
+    //     // e.preventDefault();
+    //     const temperatureSetR1 = document.getElementById("outputValue1").value;
+    //     firebase.database().ref('DesiredTempRoom1/Zapier').set(
+    //         {
+    //             Value: parseInt(temperatureSetR1)
+    //         });
+    // });
 
-    document.getElementById('outputValue2').addEventListener('change', (e) => {
-        e.preventDefault();
-        const temperatureSetR2 = document.getElementById("outputValue2").value;
-        firebase.database().ref('DesiredTempRoom2/Zapier').set(
-            {
-                Value: parseInt(temperatureSetR2)
-            });
-    });
+    // document.getElementById('outputValue2').addEventListener('change', (e) => {
+    //     e.preventDefault();
+    //     const temperatureSetR2 = document.getElementById("outputValue2").value;
+    //     firebase.database().ref('DesiredTempRoom2/Zapier').set(
+    //         {
+    //             Value: parseInt(temperatureSetR2)
+    //         });
+    // });
 
     firebase.database().ref('DesiredTempRoom1/Zapier').on('value', function (snapshot) {
         document.getElementById('outputValue1').value = snapshot.val().Value;

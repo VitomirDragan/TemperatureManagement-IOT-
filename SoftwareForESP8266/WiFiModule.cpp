@@ -191,8 +191,6 @@ void WiFiModule::stream(FirebaseData &instance, String path)
 
 
 void WiFiModule::heatControl(int currentTemperature){
-  if((lastDesiredTemperature != desiredTemperature) || (lastTemperatureValue != currentTemperature))
-  {
      if(currentTemperature <= (desiredTemperature - HYSTERESIS)){
          digitalWrite(RELAY_PIN, LOW);
          sendCommandToController(ON);
@@ -201,9 +199,6 @@ void WiFiModule::heatControl(int currentTemperature){
          sendCommandToController(OFF);
          digitalWrite(RELAY_PIN, HIGH);
      }
-     lastTemperatureValue = currentTemperature;
-     lastDesiredTemperature = desiredTemperature;
-  }
 }
 
 
@@ -226,7 +221,7 @@ void WiFiModule::sendCommandToController(int command){
       }//wait while second is odd
 
       char message[2];
-      itoa(10 + command, message, 10);
+      itoa(20 + command, message, 10);
       driver.send(((unsigned char *) message), strlen(message));
       driver.waitPacketSent();
 }

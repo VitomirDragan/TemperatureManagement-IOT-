@@ -10,16 +10,17 @@ FirebaseData streamIntervals;
 
 
 void setup() {
+    timeManager.timeManagerConfig();
     lcd.initializeLCD();
     wifiModule.pinSetup();
     wifiModule.connectToInternet("Asus", "vitomir10");
     wifiModule.initializeRFTransmitter();
-    timeManager.timeManagerConfig();
     Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
     wifiModule.defineInterrupts();
     wifiModule.stream(streamDesiredTemperature,"/DesiredTempRoom2/Zapier/Value");
     wifiModule.stream(streamSwitchIntervalsOn, "/SwitchIntervalsOn/Value");  
     wifiModule.stream(streamIntervals, "/Intervals");
+    delay(500);
 }
 
 
@@ -128,7 +129,6 @@ void loop() {
                  timeIntervalsOperatingMode = true;
                  normalOperatingMode = false;
             }
-            wifiModule.heatControl(currentTemperature); 
             if(endHour == currentHour && endMinute == currentMinute){
               timeIntervalsOperatingMode = false;
             }
@@ -139,13 +139,12 @@ void loop() {
                normalOperatingMode = true;
                timeIntervalsOperatingMode = false;
             }
-            wifiModule.heatControl(currentTemperature);
         }
     } else {
-        wifiModule.heatControl(currentTemperature);
         timeIntervalsOperatingMode = false;
         normalOperatingMode = false;
     }
+     wifiModule.heatControl(currentTemperature); 
      wifiModule.statusIndicator();
      lcd.displayDesiredTemperature();
      lcd.displayCurrentTemperature(currentTemperature);

@@ -43,7 +43,12 @@ def load_user(id):
 def home():
     status = firebase.get('SwitchIntervalsOn', 'Value')
     if request.method == 'POST':
-        return render_template('controlPage.html', status=status)
+        variable = request.form.get('outputValue1')
+        if variable is not None:
+            firebase.put('DesiredTempRoom1/Zapier', 'Value', int(variable))
+        else:
+            variable = request.form.get('outputValue2')
+            firebase.put('DesiredTempRoom2/Zapier', 'Value', int(variable))
     return render_template('controlPage.html', status=status)
 
 

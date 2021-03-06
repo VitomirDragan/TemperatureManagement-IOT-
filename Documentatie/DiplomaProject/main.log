@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  14 FEB 2021 12:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  5 MAR 2021 23:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -211,57 +211,68 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
 LaTeX Info: Redefining \hbar on input line 50.
 )
+(c:/texlive/2020/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+(c:/texlive/2020/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen153
+\WF@size=\dimen154
+\c@WF@wrappedlines=\count199
+\WF@box=\box51
+\WF@everypar=\toks25
+Package: wrapfig 2003/01/31  v 3.6
+)
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 20.
+less on input line 22.
 
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 23.
+less on input line 25.
 
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 34
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 36
 .
 (c:/texlive/2020/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-02-06 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count199
-\l__pdf_internal_box=\box51
+\l__color_backend_stack_int=\count266
+\l__pdf_internal_box=\box52
 )
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
  (c:/texlive/2020/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 (c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count266
-\scratchdimen=\dimen153
-\scratchbox=\box52
-\nofMPsegments=\count267
-\nofMParguments=\count268
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count269
-\MPscratchDim=\dimen154
-\MPnumerator=\count270
-\makeMPintoPDFobject=\count271
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count267
+\scratchdimen=\dimen155
+\scratchbox=\box53
+\nofMPsegments=\count268
+\nofMParguments=\count269
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count270
+\MPscratchDim=\dimen156
+\MPnumerator=\count271
+\makeMPintoPDFobject=\count272
+\everyMPtoPDFconversion=\toks27
 ) (c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -271,7 +282,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count272
+\c@lstlisting=\count273
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -307,7 +318,7 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\big@size=\dimen155
+\big@size=\dimen157
 (./titlepage.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
@@ -452,46 +463,100 @@ LaTeX Warning: Reference `sec:listing' on page 4 undefined on input line 48.
 
 ) (./state of the art.tex [4]
 Capitolul 2.
-) [5
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 9
+.
+(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+<./fig//Torelectric.png, id=35, 197.23688pt x 198.24063pt>
+File: ./fig//Torelectric.png Graphic file (type png)
+<use ./fig//Torelectric.png>
+Package pdftex.def Info: ./fig//Torelectric.png  used on input line 17.
+(pdftex.def)             Requested size: 167.2989pt x 168.15141pt.
+ [5
 
-] (./main.lof)
+ <./fig//Torelectric.png>]
+<./fig//Honeywell.png, id=40, 492.33937pt x 364.36125pt>
+File: ./fig//Honeywell.png Graphic file (type png)
+<use ./fig//Honeywell.png>
+Package pdftex.def Info: ./fig//Honeywell.png  used on input line 32.
+(pdftex.def)             Requested size: 167.2989pt x 123.8089pt.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
+.
+
+
+Overfull \hbox (8.32779pt too wide) in paragraph at lines 35--36
+[][]\T1/ptm/m/n/12 Termostatul pro-dus de Hon-ey-well se diferen[]iaz 
+ []
+
+
+Underfull \hbox (badness 3690) in paragraph at lines 38--39
+\T1/ptm/m/n/12 prezen[]a sau absen[]a unor per-soane în
+ []
+
+
+Overfull \hbox (4.53778pt too wide) in paragraph at lines 39--40
+[]\T1/ptm/m/n/12 Programarea tem-per-a-turilor pen-tru []apte
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 40--41
+[]\T1/ptm/m/n/12 Controlul de la distan[] , oferit de
+ []
+
+[6 <./fig//Honeywell.png>]
+<./fig//Nest.png, id=46, 289.08pt x 224.84pt>
+File: ./fig//Nest.png Graphic file (type png)
+<use ./fig//Nest.png>
+Package pdftex.def Info: ./fig//Nest.png  used on input line 78.
+(pdftex.def)             Requested size: 125.47737pt x 97.59189pt.
+
+Overfull \hbox (0.94632pt too wide) in paragraph at lines 93--94
+[]\T1/ptm/m/n/12 Acesta im-ple-menteaz  un al-go-ritm ce per-mite con-trolul te
+m-per-a-turii in di-verse locuri
+ []
+
+[7 <./fig//Nest.png>]) [8] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
- [6
+ [9
 
 ] (./main.lot)
 \tf@lot=\write5
 \openout5 = `main.lot'.
 
+ (./main.bbl [10
 
-No file main.bbl.
-[7
+]
+
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
+
+) [11
 
 ] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 5903 strings out of 479302
- 78799 string characters out of 5871205
- 373842 words of memory out of 5000000
- 22988 multiletter control sequences out of 15000+600000
- 471244 words of font info for 109 fonts, out of 8000000 for 9000
+ 6038 strings out of 479302
+ 80754 string characters out of 5871205
+ 375913 words of memory out of 5000000
+ 23103 multiletter control sequences out of 15000+600000
+ 472610 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,74p,1501b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,12n,74p,1501b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texm
-f-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/typ
-e1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8
-a.pfb>
-Output written on main.pdf (10 pages, 202494 bytes).
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fo
+nts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/ti
+mes/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on main.pdf (14 pages, 861259 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 35 compressed objects within 1 object stream
+ 80 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
