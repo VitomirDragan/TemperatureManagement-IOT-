@@ -1,3 +1,4 @@
+\babel@toc {romanian}{}
 \contentsline {chapter}{\numberline {1}Introducere}{2}{}%
 \contentsline {section}{\numberline {1.1}Internet of things}{2}{}%
 \contentsline {section}{\numberline {1.2}Contextul de realizare}{4}{}%
@@ -7,3 +8,5 @@
 \contentsline {section}{\numberline {2.2}Honeywell}{6}{}%
 \contentsline {section}{\numberline {2.3}Nest}{7}{}%
 \contentsline {section}{\numberline {2.4}Ecobee}{7}{}%
+\contentsline {section}{\numberline {2.5}Abordare comparativ\IeC {\u a} a sistemelor prezentate}{8}{}%
+\contentsline {section}{\numberline {2.6}Compara\IeC {{\textcommabelow t}}ie cu sistemul prezentat \IeC {\^\i }n aceast\IeC {\u a} lucrare}{9}{}%

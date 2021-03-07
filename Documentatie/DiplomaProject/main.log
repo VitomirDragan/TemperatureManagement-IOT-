@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  5 MAR 2021 23:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  7 MAR 2021 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -222,67 +222,114 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 \WF@everypar=\toks25
 Package: wrapfig 2003/01/31  v 3.6
 )
+(c:/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2021/01/26 3.53 The Babel package
+
+(c:/texlive/2020/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2021/01/26 3.53 Babel common definitions
+\babel@savecnt=\count266
+\U@D=\dimen155
+\l@babelnohyphens=\language86
+
+(c:/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+)
+\bbl@dirlevel=\count267
+
+(c:/texlive/2020/texmf-dist/tex/generic/babel-romanian/romanian.ldf
+Language: romanian 2005/03/31 v1.2l Romanian support from the babel system
+))
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 22.
+less on input line 23.
 
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 25.
+less on input line 26.
 
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 36
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 37
 .
 (c:/texlive/2020/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-02-06 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count266
+\l__color_backend_stack_int=\count268
 \l__pdf_internal_box=\box52
 )
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
  (c:/texlive/2020/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 (c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count267
-\scratchdimen=\dimen155
+\scratchcounter=\count269
+\scratchdimen=\dimen156
 \scratchbox=\box53
-\nofMPsegments=\count268
-\nofMParguments=\count269
+\nofMPsegments=\count270
+\nofMParguments=\count271
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count270
-\MPscratchDim=\dimen156
-\MPnumerator=\count271
-\makeMPintoPDFobject=\count272
+\MPscratchCnt=\count272
+\MPscratchDim=\dimen157
+\MPnumerator=\count273
+\makeMPintoPDFobject=\count274
 \everyMPtoPDFconversion=\toks27
 ) (c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(c:/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(c:/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(c:/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+
+(c:/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+(c:/texlive/2020/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (c:/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count273
+\c@lstlisting=\count275
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -318,7 +365,7 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\big@size=\dimen157
+\big@size=\dimen158
 (./titlepage.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
@@ -438,8 +485,8 @@ Capitolul 1.
 
 ]
 Overfull \hbox (0.1902pt too wide) in paragraph at lines 20--21
-[]\T1/ptm/m/n/12 Faptul c  dome-niul IoT prez-int  o util-i-tate care nu poate 
-fi negli-jat , ex-plic  cre[]terea
+[]\T1/ptm/m/n/12 Faptul c  do-me-niul IoT pre-zint  o uti-li-tate care nu poate
+ fi ne-gli-jat , ex-plic  cre[]terea
  []
 
 <./fig//Statistica-IoT.png, id=25, 1003.75pt x 745.78625pt>
@@ -463,78 +510,99 @@ LaTeX Warning: Reference `sec:listing' on page 4 undefined on input line 48.
 
 ) (./state of the art.tex [4]
 Capitolul 2.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 9
-.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
+0.
 (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 <./fig//Torelectric.png, id=35, 197.23688pt x 198.24063pt>
 File: ./fig//Torelectric.png Graphic file (type png)
 <use ./fig//Torelectric.png>
-Package pdftex.def Info: ./fig//Torelectric.png  used on input line 17.
-(pdftex.def)             Requested size: 167.2989pt x 168.15141pt.
+Package pdftex.def Info: ./fig//Torelectric.png  used on input line 18.
+(pdftex.def)             Requested size: 125.47737pt x 126.11432pt.
  [5
 
  <./fig//Torelectric.png>]
 <./fig//Honeywell.png, id=40, 492.33937pt x 364.36125pt>
 File: ./fig//Honeywell.png Graphic file (type png)
 <use ./fig//Honeywell.png>
-Package pdftex.def Info: ./fig//Honeywell.png  used on input line 32.
+Package pdftex.def Info: ./fig//Honeywell.png  used on input line 35.
 (pdftex.def)             Requested size: 167.2989pt x 123.8089pt.
 
-
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 34
-.
-
-
-Overfull \hbox (8.32779pt too wide) in paragraph at lines 35--36
-[][]\T1/ptm/m/n/12 Termostatul pro-dus de Hon-ey-well se diferen[]iaz 
+Overfull \hbox (8.32779pt too wide) in paragraph at lines 37--38
+[][]\T1/ptm/m/n/12 Termostatul pro-dus de Ho-neywell se diferen[]iaz 
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 38--39
+Underfull \hbox (badness 3690) in paragraph at lines 41--42
 \T1/ptm/m/n/12 prezen[]a sau absen[]a unor per-soane în
  []
 
 
-Overfull \hbox (4.53778pt too wide) in paragraph at lines 39--40
-[]\T1/ptm/m/n/12 Programarea tem-per-a-turilor pen-tru []apte
+Overfull \hbox (4.53778pt too wide) in paragraph at lines 42--43
+[]\T1/ptm/m/n/12 Programarea tem-pe-ra-tu-ri-lor pen-tru []apte
  []
 
 
-Underfull \hbox (badness 2865) in paragraph at lines 40--41
-[]\T1/ptm/m/n/12 Controlul de la distan[] , oferit de
+Underfull \hbox (badness 2865) in paragraph at lines 43--44
+[]\T1/ptm/m/n/12 Controlul de la distan[] , ofe-rit de
  []
 
 [6 <./fig//Honeywell.png>]
 <./fig//Nest.png, id=46, 289.08pt x 224.84pt>
 File: ./fig//Nest.png Graphic file (type png)
 <use ./fig//Nest.png>
-Package pdftex.def Info: ./fig//Nest.png  used on input line 78.
-(pdftex.def)             Requested size: 125.47737pt x 97.59189pt.
+Package pdftex.def Info: ./fig//Nest.png  used on input line 85.
+(pdftex.def)             Requested size: 167.2989pt x 130.1191pt.
+ [7 <./fig//Nest.png>]
+<./fig//Ecobee.png, id=51, 292.59312pt x 211.79124pt>
+File: ./fig//Ecobee.png Graphic file (type png)
+<use ./fig//Ecobee.png>
+Package pdftex.def Info: ./fig//Ecobee.png  used on input line 119.
+(pdftex.def)             Requested size: 167.2989pt x 121.10359pt.
 
-Overfull \hbox (0.94632pt too wide) in paragraph at lines 93--94
-[]\T1/ptm/m/n/12 Acesta im-ple-menteaz  un al-go-ritm ce per-mite con-trolul te
-m-per-a-turii in di-verse locuri
- []
 
-[7 <./fig//Nest.png>]) [8] (./main.lof)
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.58502pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.58502pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.58502pt}.
+
+[8 <./fig//Ecobee.png>]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 149.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 149.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.58502pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.58502pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-0.58502pt}.
+
+[9] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
- [9
+ [10
 
 ] (./main.lot)
 \tf@lot=\write5
 \openout5 = `main.lot'.
 
- (./main.bbl [10
+ (./main.bbl [11
 
 ]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [11
+) [12
 
 ] (./main.aux)
 
@@ -542,21 +610,21 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6038 strings out of 479302
- 80754 string characters out of 5871205
- 375913 words of memory out of 5000000
- 23103 multiletter control sequences out of 15000+600000
- 472610 words of font info for 114 fonts, out of 8000000 for 9000
+ 7267 strings out of 479302
+ 99626 string characters out of 5871205
+ 415965 words of memory out of 5000000
+ 24280 multiletter control sequences out of 15000+600000
+ 483543 words of font info for 134 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,12n,74p,1501b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,19n,78p,1501b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fo
 nts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/ti
 mes/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (14 pages, 861259 bytes).
+Output written on main.pdf (15 pages, 938508 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 85 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
