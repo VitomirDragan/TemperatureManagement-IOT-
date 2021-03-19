@@ -1,3 +1,48 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{torelectric}
+***.
+\newblock
+  https://www.emag.ro/termostat-inteligent-universal-pentru-centrala-gaz-wifi-comandat-de-pe-smartphone-internet-compatibil-google-home-si-alexa-tor2000gclw/pd/D0BN1LBBM/.
+\newblock [Data accesării: 03.03.2021].
+
+\bibitem{honeywell}
+***.
+\newblock
+  https://www.emag.ro/termostat-smart-honeywell-lyric-t6r-wireless-amplasat-pe-masa-comandat-de-pe-smartphone-y6h910rw4055/pd/DP2V6SBBM/.
+\newblock [Data accesării: 03.03.2021].
+
+\bibitem{nest}
+***.
+\newblock
+  https://www.amazon.com/Nest-T3007ES-Thermostat-Temperature-Generation/dp/B0131RG6VK/.
+\newblock [Data accesării: 03.03.2021].
+
+\bibitem{ecobee}
+***.
+\newblock
+  https://www.amazon.com/ecobee3-lite-Smart-Thermostat-Black/dp/B06W56TBLN/.
+\newblock [Data accesării: 03.03.2021].
+
+\bibitem{ecobeeVSnest}
+Eric Blank.
+\newblock https://thesmartcave.com/ecobee-vs-nest/.
+\newblock [Data accesării: 03.03.2021].
+
+\bibitem{flask}
+Miguel Grinberg.
+\newblock {\em Flask Web Development}.
+\newblock O'Reilly Media, 2018.
+
+\bibitem{python}
+G.~Van. Rossum.
+\newblock
+  \urlstyle{same}\url{https://courses.minia.edu.eg/Attach/16028python_lecture1.pdf}.
+\newblock [Data accesării: 15.03.2021].
+
+\bibitem{c++}
+Bjarne Stroustrup.
+\newblock {\em The C++ programming language}.
+\newblock Pearson Education India, 2000.
 
 \end{thebibliography}

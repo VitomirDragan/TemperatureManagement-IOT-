@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  7 MAR 2021 12:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  19 MAR 2021 20:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -211,6 +211,10 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
 LaTeX Info: Redefining \hbar on input line 50.
 )
+(c:/texlive/2020/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
 (c:/texlive/2020/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
@@ -241,13 +245,13 @@ Language: romanian 2005/03/31 v1.2l Romanian support from the babel system
 ))
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 23.
+less on input line 24.
 
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 26.
+less on input line 27.
 
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 37
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 38
 .
 (c:/texlive/2020/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -260,20 +264,20 @@ File: l3backend-pdftex.def 2021-02-06 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
  (c:/texlive/2020/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
@@ -558,7 +562,7 @@ Package pdftex.def Info: ./fig//Nest.png  used on input line 85.
 <./fig//Ecobee.png, id=51, 292.59312pt x 211.79124pt>
 File: ./fig//Ecobee.png Graphic file (type png)
 <use ./fig//Ecobee.png>
-Package pdftex.def Info: ./fig//Ecobee.png  used on input line 119.
+Package pdftex.def Info: ./fig//Ecobee.png  used on input line 121.
 (pdftex.def)             Requested size: 167.2989pt x 121.10359pt.
 
 
@@ -571,12 +575,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8 <./fig//Ecobee.png>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 149.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 149.
-)
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+) (./fundamente teoretice.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -586,23 +590,71 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.58502pt}.
 
-[9] (./main.lof)
+[9]
+Capitolul 3.
+[10
+
+]
+
+LaTeX Warning: Citation `arduinoIDE' on page 11 undefined on input line 41.
+
+
+LaTeX Warning: Citation `arduinoIDE' on page 11 undefined on input line 44.
+
+)
+Overfull \hbox (1.1556pt too wide) in paragraph at lines 48--47
+\T1/ptm/m/n/12 d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-ddd 
+dd-da-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-
+ []
+
+[11] [12] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
- [10
+ [13
 
 ] (./main.lot)
 \tf@lot=\write5
 \openout5 = `main.lot'.
 
- (./main.bbl [11
+ (./main.bbl [14
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
+[]\T1/ptm/m/n/12 ***.  https://www.emag.ro/termostat-inteligent-universal-pentr
+u-centrala-gaz-
+ []
 
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [12
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
+\T1/ptm/m/n/12 wifi-comandat-de-pe-smartphone-internet-compatibil-google-home-s
+i-alexa-
+ []
+
+
+Underfull \hbox (badness 1810) in paragraph at lines 10--14
+\T1/ptm/m/n/12 pe-masa-comandat-de-pe-smartphone-y6h910rw4055/pd/DP2V6SBBM/.  [
+Data
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--20
+[]\T1/ptm/m/n/12 ***.  https://www.amazon.com/Nest-T3007ES-Thermostat-Temperatu
+re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--26
+[]\T1/ptm/m/n/12 ***.  https://www.amazon.com/ecobee3-lite-Smart-Thermostat-
+ []
+
+
+Underfull \hbox (badness 6001) in paragraph at lines 28--31
+[]\T1/ptm/m/n/12 Eric Blank.  https://thesmartcave.com/ecobee-vs-nest/.  [Data 
+ac-ce-s -rii:
+ []
+
+) [15
 
 ] (./main.aux)
 
@@ -610,21 +662,22 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 7267 strings out of 479302
- 99626 string characters out of 5871205
- 415965 words of memory out of 5000000
- 24280 multiletter control sequences out of 15000+600000
- 483543 words of font info for 134 fonts, out of 8000000 for 9000
+ 7361 strings out of 479302
+ 100800 string characters out of 5871205
+ 417159 words of memory out of 5000000
+ 24365 multiletter control sequences out of 15000+600000
+ 486391 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,19n,78p,1501b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fo
 nts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/ti
-mes/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (15 pages, 938508 bytes).
+mes/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:
+/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (18 pages, 954697 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

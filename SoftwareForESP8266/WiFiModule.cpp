@@ -216,7 +216,7 @@ void WiFiModule::initializeRFTransmitter(){
 
 void WiFiModule::sendCommandToController(int command){
       TimeManager timeManager;
-      while(timeManager.getCurrentSecond()%2==0){
+      while(timeManager.getCurrentSecond()%2 == 0){
         delay(5);
       }//wait while second is odd
 

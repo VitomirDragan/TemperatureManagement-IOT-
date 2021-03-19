@@ -10,3 +10,9 @@
 \contentsline {section}{\numberline {2.4}Ecobee}{7}{}%
 \contentsline {section}{\numberline {2.5}Abordare comparativ\IeC {\u a} a sistemelor prezentate}{8}{}%
 \contentsline {section}{\numberline {2.6}Compara\IeC {{\textcommabelow t}}ie cu sistemul prezentat \IeC {\^\i }n aceast\IeC {\u a} lucrare}{9}{}%
+\contentsline {chapter}{\numberline {3}Fundamente teoretice}{10}{}%
+\contentsline {section}{\numberline {3.1}Python}{10}{}%
+\contentsline {section}{\numberline {3.2}Flask}{10}{}%
+\contentsline {section}{\numberline {3.3}C++}{11}{}%
+\contentsline {section}{\numberline {3.4}Arduino IDE}{11}{}%
+\contentsline {section}{\numberline {3.5}Componente utilizate}{11}{}%

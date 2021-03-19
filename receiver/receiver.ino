@@ -1,10 +1,13 @@
 #include <RH_ASK.h>
 #include <SPI.h> 
+#define TIMEOUT 5
 
 RH_ASK driver(2000, 4);
 
 int commandModule1 = 0;
 int commandModule2 = 0;
+int timeFirstModuleSent = 0;
+int timeSecondModuleSent = 0;
 
 void setup()
 {
@@ -33,9 +36,11 @@ void loop()
 
         if((dataPackageInt/10) == 1){
             commandModule1 = dataPackageInt%10;
+            timeFirstModuleSent = millis()/1000;
         }
         else{
             commandModule2 = dataPackageInt%10;
+            timeSecondModuleSent = millis()/1000;
         }
         
         Serial.print("Module1:");
@@ -49,5 +54,20 @@ void loop()
           digitalWrite(7, HIGH);
           Serial.println("Off");
         }
+    }
+    if((((millis()/1000) - timeFirstModuleSent) >= TIMEOUT && ((millis()/1000) - timeSecondModuleSent) >= TIMEOUT))
+    {
+          digitalWrite(7, HIGH);
+          commandModule1 = 0;
+          commandModule2 = 0;
+    }
+    else if(((millis()/1000) - timeFirstModuleSent) >= TIMEOUT && commandModule2 == 0)
+    {
+          digitalWrite(7, HIGH);
+          commandModule1 = 0;
+    }
+     else if(((millis()/1000) - timeSecondModuleSent) >= TIMEOUT && commandModule1 == 0) {
+          digitalWrite(7, HIGH);
+          commandModule2 = 0;
     }
 }
