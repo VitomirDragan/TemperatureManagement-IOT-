@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{torelectric}
 ***.
@@ -29,10 +29,33 @@ Eric Blank.
 \newblock https://thesmartcave.com/ecobee-vs-nest/.
 \newblock [Data accesării: 03.03.2021].
 
+\bibitem{buttonDebouncing}
+Jack~G. Ganssle.
+\newblock
+  \urlstyle{same}\url{http://www.mantech.co.za/Datasheets/Products/433Mhz_RF-TX&RX.pdf}.
+\newblock [Data accesării: 22.03.2021].
+
 \bibitem{flask}
 Miguel Grinberg.
 \newblock {\em Flask Web Development}.
 \newblock O'Reilly Media, 2018.
+
+\bibitem{rfModule}
+Mantech.
+\newblock
+  \urlstyle{same}\url{http://www.mantech.co.za/Datasheets/Products/433Mhz_RF-TX&RX.pdf}.
+\newblock [Data accesării: 21.03.2021].
+
+\bibitem{arduinoIDE}
+Fezari Mohamed and Dahoud~Ali Al.
+\newblock
+  \urlstyle{same}\url{https://www.researchgate.net/profile/Mohamed-Fezari-2/publication/328615543_Integrated_Development_Environment_IDE_For_Arduino/links/5bd8c6d24585150b2b9206df/Integrated-Development-Environment-IDE-For-Arduino.pdf}.
+\newblock [Data accesării: 20.03.2021].
+
+\bibitem{arduino}
+Mircea Popa.
+\newblock Sisteme Încorporate.
+\newblock Curs Anul 3 CTI, Curs 9.
 
 \bibitem{python}
 G.~Van. Rossum.
@@ -44,5 +67,17 @@ G.~Van. Rossum.
 Bjarne Stroustrup.
 \newblock {\em The C++ programming language}.
 \newblock Pearson Education India, 2000.
+
+\bibitem{esp8266}
+Espressif Systems.
+\newblock
+  \urlstyle{same}\url{https://components101.com/asset/sites/default/files/component_datasheet/ESP8266-NodeMCU-Datasheet.pdf}.
+\newblock [Data accesării: 21.03.2021].
+
+\bibitem{lcd}
+Handson Technology.
+\newblock
+  \urlstyle{same}\url{http://www.handsontec.com/dataspecs/module/I2C_1602_LCD.pdf}.
+\newblock [Data accesării: 20.03.2021].
 
 \end{thebibliography}

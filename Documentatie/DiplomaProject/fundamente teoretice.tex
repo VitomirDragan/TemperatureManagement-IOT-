@@ -41,6 +41,128 @@
 			\item Arduino Micro \cite{arduinoIDE}
 		\end{itemize} 
 
-	Arduino IDE îndeplinește atât rolul de editor de text, cât și rolul de compilator. Editorul de text reprezintă un suport pentru redactarea codului, iar compilatorul este responsabil de transformarea codului sursă în cod obiect și încărcarea acestuia pe microcontroler \cite{arduinoIDE}. Meniul este unul simplu, fapt ce face acest program ușor de utilizat
+	Arduino IDE îndeplinește atât rolul de editor de text, cât și rolul de compilator. Editorul de text reprezintă un suport pentru redactarea codului, iar compilatorul este responsabil de transformarea codului sursă în cod obiect și încărcarea acestuia pe microcontroler \cite{arduinoIDE}.
 
 \section{Componente utilizate}
+
+\subsection{ESP8266}
+
+	NodeMCU ESP8266 este o placă ce se poate conecta prin WiFi la o rețea de internet. Prezintă o antenă esp8266 ce acceptă standardele 802.11b/g/n și protocolul de securitate WPA/WPA2 \cite{esp8266}. Integrează un modul ADC pe 10 biți, microcontroler pe 32 de biți, ce are un consum redus de energie, și se bazează pe protocolul TCP/IP pentru a face transferul de date \cite{esp8266}.
+
+\subsection{Placă de bază pentru NodeMCU}
+
+	Are rolul de a alimenta modulul wireless ESP8266 și de a oferi o extensie pentru pinii pe care acesta îi pune la dispoziție. In ceea ce privește alimentarea, se face printr-un conector de tip jack și acceptă valori între 6 și 24 de volți. De asemenea, placa de bază integrează un regulator de tensiune ce convertește valoarea tensiunii de intrare la 5 volți.
+
+\subsection{Arduino Uno}
+
+	"Arduino este un sistem cu microcontroler(ATmega), simplu, extensibil și open-source
+
+\vspace{1em}		
+
+	Arduino înseamnă:
+			\begin{itemize}
+			\setlength{\itemindent}{2em}
+			\itemsep0em
+			\item Plăci de bază și plăci pentru o gamă largă de aplicații
+			\item O bibliotecă bogată" \cite{arduino}
+		\end{itemize}
+
+	Programarea plăcuței se face prin intermediul conectorului USB. Aceasta prezintă și un conector separat pentru alimentare care suportă tensiuni în intervalul 7 - 12 volți \cite{arduino}, tensiuni ce vor trece prin regulatorul de tensiune integrat în plăcuță.
+
+	În ceea ce privește pinii prezenți pe placa Arduino Uno, există 6 intrări analogice \cite{arduino}, 14 terminale care pot fi configurate fie ca intrări, fie ca ieșiri \cite{arduino} și o serie de pini ce furnizează tensiune, 3.3 sau 5 volți.
+
+\subsection{LCD 1602}
+
+	Oferă posibilitatea de a afișa text pe două rânduri, fiecare rând conținând 16 caractere. Transferul de date se face prin protocolul $I^2C$, fapt ce reduce considerabil numărul de pini necesari pentru a conecta LCD-ul la Arduino \cite{lcd}.
+
+\vspace{1em}
+
+	Printre caracteristici se remarcă:
+ 		\begin{itemize}
+			\setlength{\itemindent}{2em}
+			\itemsep0em
+			\item Tensiune de alimentare: 5 volți \cite{lcd}
+			\item Luminozitatea ecranului se poate regla printr-un potențiometru integrat \cite{lcd}
+		\end{itemize} 
+	
+\subsection{Senzor DHT11}
+
+	Prezintă două părți componente. Prima componentă are rolul de a citi umiditatea ambientală. Este alcatuită din doi electrozi, care se suprapun peste un substrat. În momentul în care umiditatea substratului se modifică, determina o modificare a rezistenței dintre cei doi electrozi, iar microcontrolerul detectează, și interpretează această valoare. Componenta termică, este formată dintr-un termistor. Termistorul este un rezistor a cărui rezistența este invers proporțională cu variația temperaturii. Pe baza valorii rezistenței date de termistor, se vor face prelucrări ajungându-se la o valoare validă a temperaturii.
+
+\subsection{Modul radio frecvență}
+
+	Pereche formată dintr-un transmițător și receptor. Construite pentru a facilita transferul de date prin radio frecvență. Acestea funcționează la o frecvență de 433Mhz \cite{rfModule}, iar distanța de transmisie diferă în funcție de tensiunea de alimentare a transmițătorului și de calitatea antenelor.
+
+	Conform \cite{rfModule}, se pot evidenția următoarele caracteristici:
+ 		\begin{itemize}
+			\setlength{\itemindent}{2em}
+			\itemsep0em
+			\item Distanța de transfer: 20 - 200 metri
+			\item Tensiune de alimentare transmițător: 3.5 - 12 volți
+			\item Rată de transfer: 4 KB/S
+			\item Tensiune de alimentare a receptorului: 5 volți
+		\end{itemize} 
+
+\subsection{Releu}
+
+	Funcționează ca un întrerupător într-un circuit electric. Principiul de bază al unui releu constă în alăturarea unui solenoid și a unor contacte metalice. În momentul în care solenoidul este alimentat, acesta produce un câmp electromagnetic ce va acționa contactele metalice, deschizând sau închizând circuitul. Releele pe care le utilizez funcționează la 5 volți și au o structură puțin mai complexă, structură pe care intenționez să o detaliez. Prezintă trei intrări: VCC, GND și IN, unde pinii de VCC si GND sunt alimentați permanent, iar IN este pinul de semnal. Acesta este legat la baza unui tranzistor, iar în funcție de tensiunea pe care o furnizează, tranzistorul trece în regim saturat sau blocat, funcționând ca un întrerupător pentru solenoid. De asemenea, în paralel cu bobina este montată o diodă ce are ca și scop protejarea tranzistorului de șocurile de tensiune ce pot apărea la deconectarea alimentării bobinei. Este necesară utilizarea releului pentru a putea controla, prin semnale de putere mică, dispozitive ce funcționează la tensiuni și curenți mari. 
+
+\subsection{Electrovalvă}
+
+	Este un mecanism ce are ca rol deschiderea circuitului de apă în momentul în care este conectat la o sursă de tensiune. Acesta este format dintr-un solenoid și un obturator. Electrovalvele pe care le folosesc sunt de tip normal închis, ceea ce înseamnă că atunci când solenoidul nu este alimentat, obturatorul stă în poziție închis, iar circuitul de apă prin electrovalvă este blocat. În momentul alimentării solenoidului, câmpul magnetic produs de acesta va acționa obturatorul, făcând posibilă trecerea apei prin electrovalvă.
+
+\subsection{Pompă de apă}
+
+	Este alcătuită dintr-un motor electric ce funcționează la 12 volți, curent continuu și acționează o paletă ce pune în mișcare apa din circuit.   
+
+\subsection{Push buton}
+
+	Este un intrerupător, fără reținere, ce are rolul de a trimite semnale către microcontroler. Prezintă două contacte metalice care închid circuitul în momentul în care se ating. 
+
+\subsection{Condensator}
+
+	Este o componentă electrică pasivă ce are rolul de a înmagazina tensiune. Acesta se utilizează în circuitele electrice pentru a reduce fluctuațiile de tensiune ce pot apărea.
+
+\subsection{Rezistență}
+
+	Asemenea condensatorului, rezistența se încadrează în categoria componentelor electrice pasive. Aceasta are rolul de a se opune trecerii curentului electric. 
+
+\subsection{Invertor Schmitt-Trigger}
+
+	Acesta este utilizat pentru a inversa logica semnalului. Dacă se aplică la intrare un semnal cu nivel logic 1, la ieșirea din invertor va avea nivelul logic 0.
+
+\subsection{Diodă}
+
+	Limitează trecerea curentului electric într-un singur sens, de la anod la catod. Prezintă multe utiliăți în circuitele electrice, un exemplu practic fiind conversia curentului alternativ în curent continuu. 
+
+\section{Filtrarea semnalelor}
+
+	Butoanele pe care le-am folosit, pentru setarea temperaturii dorite, sunt formate din contacte metalice. În momentul în care acestea se ating, produc o vibrație pe care microcontrolerul o percepe ca o apăsare multiplă a butonului. Pentru a rezolva aceasta problemă este necesară crearea unor filtre trece jos \cite{buttonDebouncing} pentru fiecare buton în parte. Rolul acestor filtre este de a permite trecerea semnalelor cu frecvență mică si de a opri semnalele cu frecvențe mari. Pentru aceasta am utilizat circuite RC serie, iar valorile rezistenței si condesatorului au fost calculate utilizând ecuația de descărcare a condensatorului \cite{buttonDebouncing}.
+
+\begin{equation}
+V_{cap} = V_{initial}(e^{\frac{-t}{RC}})                 
+\end{equation}
+
+	În continuare, pentru a putea aplica formula, este necesară aflarea timpului cât durează oscilația semnalului. Pentru aceasta, am utilizat un osciloscop, care permite analiza semnalului provenit de la buton.
+
+\begin{figure}[H]
+	\centering
+    	\includegraphics[width=0.7\textwidth]{InainteDeFiltru.jpg}
+	\caption{Semnal înainte de filtrul trece jos}
+\end{figure}
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=0.7\textwidth]{DupaFiltru.jpg}
+	\caption{Semnal după filtrul trece jos}
+\end{figure}
+	
+	De asemenea, pentru a obține o filtrare cât mai bună, am utilizat un invertor Schmitt-Trigger. Caracteristica datorită căreia acesta îmbunătățește filtrarea semnalului este histereza pe care o are între pragul superior, declanșează trecerea pe nivel logic 0, și pragul inferior, declanșează trecerea pe nivel logic 1.  
+	
+\section{Histereza}
+
+	Pentru a evita crearea unui lanț de porniri si opriri repetate, pe perioade scurte de timp, cauzate de fluctuațiile rapide de temperatură, este necesară implementarea conceptului de histereză. Acesta constă în stabilirea unei valori de toleranță la temperatura setată, astfel încât diferența de temperatură din momentul în care se trimite comandă pentru oprirea sistemului de încălzire, până la următoarea pornire a acestuia, să fie egală cu dublul valorii histerezei. Cu alte cuvinte, comanda de pornire a încalzirii se va da când temperatura în cameră ajunge să fie mai mică sau egală cu valoare temperaturii setate, din care se sustrage valoarea histerezei, iar comanda de oprire va fi declanșată când temperatura ambientală este mai mare sau egală cu valoarea temperaturii setate, la care se adaugă valoare histerezei. În acest fel, timpul între comenzi este mai mare și numărul de cicluri pornit/oprit este mai mic, măsură ce este menită să protejeze sistemele de încălzire.
+
+
+	 
+ 

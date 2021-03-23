@@ -1,18 +1,34 @@
 \babel@toc {romanian}{}
-\contentsline {chapter}{\numberline {1}Introducere}{2}{}%
-\contentsline {section}{\numberline {1.1}Internet of things}{2}{}%
-\contentsline {section}{\numberline {1.2}Contextul de realizare}{4}{}%
-\contentsline {subsection}{\numberline {1.2.1}Referire la un capitol / sec\IeC {{\textcommabelow t}}iune}{4}{}%
-\contentsline {chapter}{\numberline {2}Prezentarea sistemelor similare}{5}{}%
-\contentsline {section}{\numberline {2.1}Torelectric}{5}{}%
-\contentsline {section}{\numberline {2.2}Honeywell}{6}{}%
-\contentsline {section}{\numberline {2.3}Nest}{7}{}%
-\contentsline {section}{\numberline {2.4}Ecobee}{7}{}%
-\contentsline {section}{\numberline {2.5}Abordare comparativ\IeC {\u a} a sistemelor prezentate}{8}{}%
-\contentsline {section}{\numberline {2.6}Compara\IeC {{\textcommabelow t}}ie cu sistemul prezentat \IeC {\^\i }n aceast\IeC {\u a} lucrare}{9}{}%
-\contentsline {chapter}{\numberline {3}Fundamente teoretice}{10}{}%
-\contentsline {section}{\numberline {3.1}Python}{10}{}%
-\contentsline {section}{\numberline {3.2}Flask}{10}{}%
-\contentsline {section}{\numberline {3.3}C++}{11}{}%
-\contentsline {section}{\numberline {3.4}Arduino IDE}{11}{}%
-\contentsline {section}{\numberline {3.5}Componente utilizate}{11}{}%
+\contentsline {chapter}{\numberline {1}Introducere}{3}{}%
+\contentsline {section}{\numberline {1.1}Internet of things}{3}{}%
+\contentsline {section}{\numberline {1.2}Contextul de realizare}{5}{}%
+\contentsline {subsection}{\numberline {1.2.1}Referire la un capitol / sec\IeC {{\textcommabelow t}}iune}{5}{}%
+\contentsline {chapter}{\numberline {2}Prezentarea sistemelor similare}{6}{}%
+\contentsline {section}{\numberline {2.1}Torelectric}{6}{}%
+\contentsline {section}{\numberline {2.2}Honeywell}{7}{}%
+\contentsline {section}{\numberline {2.3}Nest}{8}{}%
+\contentsline {section}{\numberline {2.4}Ecobee}{8}{}%
+\contentsline {section}{\numberline {2.5}Abordare comparativ\IeC {\u a} a sistemelor prezentate}{9}{}%
+\contentsline {section}{\numberline {2.6}Compara\IeC {{\textcommabelow t}}ie cu sistemul prezentat \IeC {\^\i }n aceast\IeC {\u a} lucrare}{10}{}%
+\contentsline {chapter}{\numberline {3}Fundamente teoretice}{11}{}%
+\contentsline {section}{\numberline {3.1}Python}{11}{}%
+\contentsline {section}{\numberline {3.2}Flask}{11}{}%
+\contentsline {section}{\numberline {3.3}C++}{12}{}%
+\contentsline {section}{\numberline {3.4}Arduino IDE}{12}{}%
+\contentsline {section}{\numberline {3.5}Componente utilizate}{13}{}%
+\contentsline {subsection}{\numberline {3.5.1}ESP8266}{13}{}%
+\contentsline {subsection}{\numberline {3.5.2}Plac\IeC {\u a} de baz\IeC {\u a} pentru NodeMCU}{13}{}%
+\contentsline {subsection}{\numberline {3.5.3}Arduino Uno}{13}{}%
+\contentsline {subsection}{\numberline {3.5.4}LCD 1602}{13}{}%
+\contentsline {subsection}{\numberline {3.5.5}Senzor DHT11}{14}{}%
+\contentsline {subsection}{\numberline {3.5.6}Modul radio frecven\IeC {{\textcommabelow t}}\IeC {\u a}}{14}{}%
+\contentsline {subsection}{\numberline {3.5.7}Releu}{14}{}%
+\contentsline {subsection}{\numberline {3.5.8}Electrovalv\IeC {\u a}}{15}{}%
+\contentsline {subsection}{\numberline {3.5.9}Pomp\IeC {\u a} de ap\IeC {\u a}}{15}{}%
+\contentsline {subsection}{\numberline {3.5.10}Push buton}{15}{}%
+\contentsline {subsection}{\numberline {3.5.11}Condensator}{15}{}%
+\contentsline {subsection}{\numberline {3.5.12}Rezisten\IeC {{\textcommabelow t}}\IeC {\u a}}{15}{}%
+\contentsline {subsection}{\numberline {3.5.13}Invertor Schmitt-Trigger}{15}{}%
+\contentsline {subsection}{\numberline {3.5.14}Diod\IeC {\u a}}{16}{}%
+\contentsline {section}{\numberline {3.6}Filtrarea semnalelor}{16}{}%
+\contentsline {section}{\numberline {3.7}Histereza}{17}{}%
