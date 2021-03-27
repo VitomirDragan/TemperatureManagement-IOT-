@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  23 MAR 2021 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  27 MAR 2021 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -215,13 +215,137 @@ LaTeX Info: Redefining \hbar on input line 50.
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
+(c:/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2021-02-07 v7.00h Hypertext links for LaTeX
+
+(c:/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(c:/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(c:/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+)
+\@linkdim=\dimen153
+\Hy@linkcounter=\count199
+\Hy@pagecounter=\count266
+
+(c:/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2021-02-07 v7.00h Hyperref: PDFDocEncoding definition (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-02-07 v7.00h Hyperref: patches for babel la
+nguages
+)
+(c:/texlive/2020/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count267
+
+(c:/texlive/2020/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2021-02-07 v7.00h Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 4178.
+Package hyperref Info: Link nesting OFF on input line 4183.
+Package hyperref Info: Hyper index ON on input line 4186.
+Package hyperref Info: Plain pages OFF on input line 4193.
+Package hyperref Info: Backreferencing OFF on input line 4198.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4431.
+\c@Hy@tempcnt=\count268
+LaTeX Info: Redefining \url on input line 4790.
+\XeTeXLinkMargin=\dimen154
+
+(c:/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(c:/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count269
+\Field@Width=\dimen155
+\Fld@charsize=\dimen156
+Package hyperref Info: Hyper figures OFF on input line 6061.
+Package hyperref Info: Link nesting OFF on input line 6066.
+Package hyperref Info: Hyper index ON on input line 6069.
+Package hyperref Info: backreferencing OFF on input line 6076.
+Package hyperref Info: Link coloring OFF on input line 6081.
+Package hyperref Info: Link coloring with OCG OFF on input line 6086.
+Package hyperref Info: PDF/A mode OFF on input line 6091.
+LaTeX Info: Redefining \ref on input line 6131.
+LaTeX Info: Redefining \pageref on input line 6135.
+
+(c:/texlive/2020/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
+ge
+with kernel methods
+)
+\Hy@abspage=\count270
+\c@Item=\count271
+\c@Hfootnote=\count272
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(c:/texlive/2020/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2021-02-07 v7.00h Hyperref driver for pdfTeX
+
+(c:/texlive/2020/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
+e
+with kernel methods
+)
+\Fld@listcount=\count273
+\c@bookmark@seq@number=\count274
+
+(c:/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(c:/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip58
+)
 (c:/texlive/2020/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 (c:/texlive/2020/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen153
-\WF@size=\dimen154
-\c@WF@wrappedlines=\count199
+\wrapoverhang=\dimen157
+\WF@size=\dimen158
+\c@WF@wrappedlines=\count275
 \WF@box=\box51
 \WF@everypar=\toks25
 Package: wrapfig 2003/01/31  v 3.6
@@ -231,96 +355,78 @@ Package: babel 2021/01/26 3.53 The Babel package
 
 (c:/texlive/2020/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2021/01/26 3.53 Babel common definitions
-\babel@savecnt=\count266
-\U@D=\dimen155
+\babel@savecnt=\count276
+\U@D=\dimen159
 \l@babelnohyphens=\language86
 
 (c:/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count267
+\bbl@dirlevel=\count277
 
 (c:/texlive/2020/texmf-dist/tex/generic/babel-romanian/romanian.ldf
 Language: romanian 2005/03/31 v1.2l Romanian support from the babel system
 ))
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 24.
+less on input line 25.
 
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 27.
+less on input line 28.
 
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 38
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 39
 .
 (c:/texlive/2020/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-02-06 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count268
+\l__color_backend_stack_int=\count278
 \l__pdf_internal_box=\box52
 )
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
  (c:/texlive/2020/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 (c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count269
-\scratchdimen=\dimen156
+\scratchcounter=\count279
+\scratchdimen=\dimen160
 \scratchbox=\box53
-\nofMPsegments=\count270
-\nofMParguments=\count271
+\nofMPsegments=\count280
+\nofMParguments=\count281
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count272
-\MPscratchDim=\dimen157
-\MPnumerator=\count273
-\makeMPintoPDFobject=\count274
+\MPscratchCnt=\count282
+\MPscratchDim=\dimen161
+\MPnumerator=\count283
+\makeMPintoPDFobject=\count284
 \everyMPtoPDFconversion=\toks27
 ) (c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 
-(c:/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-)
 (c:/texlive/2020/texmf-dist/tex/latex/grfext/grfext.sty
 Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-
-(c:/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-))
-(c:/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
-
-(c:/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
-(c:/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-))
-(c:/texlive/2020/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
@@ -333,7 +439,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count275
+\c@lstlisting=\count285
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -369,8 +475,28 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\big@size=\dimen158
-(./titlepage.tex
+\big@size=\dimen162
+Package hyperref Info: Link coloring OFF on input line 39.
+(c:/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+
+(c:/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(c:/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count286
+)
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \nameref on input line 39.
+
+(./main.out) (./main.out)
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+ (./titlepage.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -405,19 +531,20 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<fig/ACLogo.jpg, id=1, 180.675pt x 157.58875pt>
+<fig/ACLogo.jpg, id=132, 180.675pt x 157.58875pt>
 File: fig/ACLogo.jpg Graphic file (type jpg)
 <use fig/ACLogo.jpg>
 Package pdftex.def Info: fig/ACLogo.jpg  used on input line 5.
 (pdftex.def)             Requested size: 180.67455pt x 157.58835pt.
-<fig/DCTILogo.png, id=2, 220.9053pt x 144.2991pt>
+<fig/DCTILogo.png, id=133, 220.9053pt x 144.2991pt>
 File: fig/DCTILogo.png Graphic file (type png)
 <use fig/DCTILogo.png>
 Package pdftex.def Info: fig/DCTILogo.png  used on input line 6.
 (pdftex.def)             Requested size: 220.90475pt x 144.29874pt.
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
  7.
- (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+
+(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
@@ -456,7 +583,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
-<fig/UPTLogo.jpg, id=4, 409.0482pt x 139.9629pt>
+<fig/UPTLogo.jpg, id=135, 409.0482pt x 139.9629pt>
 File: fig/UPTLogo.jpg Graphic file (type jpg)
 <use fig/UPTLogo.jpg>
 Package pdftex.def Info: fig/UPTLogo.jpg  used on input line 17.
@@ -466,8 +593,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
 [1
@@ -475,15 +606,26 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 
 
 {c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fig/ACLogo.jp
-g> <./fig/DCTILogo.png> <./fig/UPTLogo.jpg>] [2] [1]) (./main.toc [1
+g> <./fig/DCTILogo.png> <./fig/UPTLogo.jpg>]pdfTeX warning (ext4): destination 
+with the same identifier (name{page.1}) has been already used, duplicate ignore
+d
+<to be read again> 
+                   \relax 
+l.41 \shipout\null
+                   [1]) (./main.tocpdfTeX warning (ext4): destination with the 
+same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.32 ...3.6}Filtrarea semnalelor}{16}{section.3.6}
+                                                  % [1
 
 
 ])
-\tf@toc=\write3
-\openout3 = `main.toc'.
+\tf@toc=\write4
+\openout4 = `main.toc'.
 
-
-(./introduction.tex [2]
+ (./introduction.tex
+[2]
 Capitolul 1.
 [3
 
@@ -493,33 +635,19 @@ Overfull \hbox (0.1902pt too wide) in paragraph at lines 20--21
  fi ne-gli-jat , ex-plic  cre[]terea
  []
 
-<./fig//Statistica-IoT.png, id=28, 1003.75pt x 745.78625pt>
+<./fig//Statistica-IoT.png, id=202, 1003.75pt x 745.78625pt>
 File: ./fig//Statistica-IoT.png Graphic file (type png)
 <use ./fig//Statistica-IoT.png>
-Package pdftex.def Info: ./fig//Statistica-IoT.png  used on input line 24.
-(pdftex.def)             Requested size: 301.12732pt x 223.7376pt.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 27
-.
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Overfull \hbox (79.74632pt too wide) in paragraph at lines 29--29
-[]       \T1/pcr/m/n/10 https://www.statista.com/statistics/1183457/iot-connect
-ed-devices-worldwide/[] 
- []
-
-[4 <./fig//Statistica-IoT.png>]
-
-LaTeX Warning: Reference `sec:listing' on page 5 undefined on input line 48.
-
-) (./state of the art.tex [5]
+Package pdftex.def Info: ./fig//Statistica-IoT.png  used on input line 26.
+(pdftex.def)             Requested size: 334.60422pt x 248.61377pt.
+[4 <./fig//Statistica-IoT.png>]) (./state of the art.tex [5]
 Capitolul 2.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 0.
 (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<./fig//Torelectric.png, id=38, 197.23688pt x 198.24063pt>
+<./fig//Torelectric.png, id=219, 197.23688pt x 198.24063pt>
 File: ./fig//Torelectric.png Graphic file (type png)
 <use ./fig//Torelectric.png>
 Package pdftex.def Info: ./fig//Torelectric.png  used on input line 18.
@@ -527,7 +655,7 @@ Package pdftex.def Info: ./fig//Torelectric.png  used on input line 18.
  [6
 
  <./fig//Torelectric.png>]
-<./fig//Honeywell.png, id=43, 492.33937pt x 364.36125pt>
+<./fig//Honeywell.png, id=227, 492.33937pt x 364.36125pt>
 File: ./fig//Honeywell.png Graphic file (type png)
 <use ./fig//Honeywell.png>
 Package pdftex.def Info: ./fig//Honeywell.png  used on input line 35.
@@ -553,16 +681,16 @@ Underfull \hbox (badness 2865) in paragraph at lines 43--44
  []
 
 [7 <./fig//Honeywell.png>]
-<./fig//Nest.png, id=49, 289.08pt x 224.84pt>
+<./fig//Nest.png, id=240, 289.08pt x 224.84pt>
 File: ./fig//Nest.png Graphic file (type png)
 <use ./fig//Nest.png>
 Package pdftex.def Info: ./fig//Nest.png  used on input line 85.
 (pdftex.def)             Requested size: 167.2989pt x 130.1191pt.
  [8 <./fig//Nest.png>]
-<./fig//Ecobee.png, id=54, 292.59312pt x 211.79124pt>
+<./fig//Ecobee.png, id=251, 292.59312pt x 211.79124pt>
 File: ./fig//Ecobee.png Graphic file (type png)
 <use ./fig//Ecobee.png>
-Package pdftex.def Info: ./fig//Ecobee.png  used on input line 121.
+Package pdftex.def Info: ./fig//Ecobee.png  used on input line 120.
 (pdftex.def)             Requested size: 167.2989pt x 121.10359pt.
 
 
@@ -574,10 +702,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.58502pt}.
 
 [9 <./fig//Ecobee.png>]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
 ) (./fundamente teoretice.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
@@ -595,141 +721,112 @@ Capitolul 3.
 [11
 
 ] [12] [13] [14]
-Overfull \hbox (3.10678pt too wide) in paragraph at lines 128--129
+Overfull \hbox (3.10678pt too wide) in paragraph at lines 115--116
 []\T1/ptm/m/n/12 Asemenea con-den-sa-to-ru-lui, rezisten[]a se în-ca-dreaz  în 
 ca-te-go-ria com-po-nen-te-lor elec-
  []
 
 [15]
-<./fig//InainteDeFiltru.jpg, id=79, 803.0pt x 602.25pt>
+<./fig//InainteDeFiltru.jpg, id=316, 803.0pt x 602.25pt>
 File: ./fig//InainteDeFiltru.jpg Graphic file (type jpg)
 <use ./fig//InainteDeFiltru.jpg>
-Package pdftex.def Info: ./fig//InainteDeFiltru.jpg  used on input line 150.
-(pdftex.def)             Requested size: 292.77629pt x 219.58508pt.
-<./fig//DupaFiltru.jpg, id=80, 803.0pt x 602.25pt>
+Package pdftex.def Info: ./fig//InainteDeFiltru.jpg  used on input line 137.
+(pdftex.def)             Requested size: 418.25368pt x 313.6956pt.
+<./fig//DupaFiltru.jpg, id=317, 803.0pt x 602.25pt>
 File: ./fig//DupaFiltru.jpg Graphic file (type jpg)
 <use ./fig//DupaFiltru.jpg>
-Package pdftex.def Info: ./fig//DupaFiltru.jpg  used on input line 156.
-(pdftex.def)             Requested size: 292.77629pt x 219.58508pt.
- [16 <./fig//InainteDeFiltru.jpg>]) [17 <./fig//DupaFiltru.jpg>]
+Package pdftex.def Info: ./fig//DupaFiltru.jpg  used on input line 143.
+(pdftex.def)             Requested size: 418.25368pt x 313.6956pt.
+ [16 <./fig//InainteDeFiltru.jpg>] [17 <./fig//DupaFiltru.jpg>]) [18]
 (./main.lof)
-\tf@lof=\write4
-\openout4 = `main.lof'.
+\tf@lof=\write5
+\openout5 = `main.lof'.
 
- [18
+ [19
 
 ] (./main.lot)
-\tf@lot=\write5
-\openout5 = `main.lot'.
+\tf@lot=\write6
+\openout6 = `main.lot'.
 
- (./main.bbl [19
-
-]
-Underfull \hbox (badness 4479) in paragraph at lines 4--8
-[]\T1/ptm/m/n/12 ***.  https://www.emag.ro/termostat-inteligent-universal-pentr
-u-centrala-gaz-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--8
-\T1/ptm/m/n/12 wifi-comandat-de-pe-smartphone-internet-compatibil-google-home-s
-i-alexa-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--14
-[]\T1/ptm/m/n/12 ***.  https://www.emag.ro/termostat-smart-honeywell-lyric-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--14
-\T1/ptm/m/n/12 t6r-wireless-amplasat-pe-masa-comandat-de-pe-smartphone-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--20
-[]\T1/ptm/m/n/12 ***.  https://www.amazon.com/Nest-T3007ES-Thermostat-Temperatu
-re-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--26
-[]\T1/ptm/m/n/12 ***.  https://www.amazon.com/ecobee3-lite-Smart-Thermostat-
- []
-
-
-Underfull \hbox (badness 4353) in paragraph at lines 28--31
-[]\T1/ptm/m/n/12 Eric Blank.  https://thesmartcave.com/ecobee-vs-nest/.  [Data 
-ac-ce-s -rii:
- []
-
-
-Underfull \hbox (badness 4205) in paragraph at lines 33--37
-[]\T1/ptm/m/n/12 Jack G. Gans-sle.  $http : / / www . mantech . co . za / Datas
-heets / Products / 433Mhz _
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--54
-[]\T1/ptm/m/n/12 Fezari Moha-med and Da-houd Ali Al.  $https : / / www . resear
-chgate . net /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--54
-\T1/ptm/m/n/12 pro^^\le / Mohamed-[]Fezari-[]2 / publication / 328615543 _ Inte
-grated _ Development _
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--54
-\T1/ptm/m/n/12 Environment _ IDE _ For _ Arduino / links / 5bd8c6d24585150b2b92
-06df /
- []
-
-
-Underfull \hbox (badness 4846) in paragraph at lines 50--54
-\T1/ptm/m/n/12 Integrated-[]Development-[]Environment-[]IDE-[]For-[]Arduino . p
-df$.  [Data ac-ce-s -
- []
-
-[20
+ (./main.bbl [20
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 72--76
-[]\T1/ptm/m/n/12 Espressif Sys-tems.  $https : / / components101 . com / asset 
-/ sites / default / ^^\les /
+Underfull \hbox (badness 10000) in paragraph at lines 42--46
+\T1/ptm/m/n/12 wi^^\ -[] comandat -[] de -[] pe -[] smartphone -[] internet -[]
+ compatibil -[] google -[] home -[] si -[] alexa -[]
  []
 
 
-Underfull \hbox (badness 5924) in paragraph at lines 72--76
-\T1/ptm/m/n/12 component _ datasheet / ESP8266-[]NodeMCU-[]Datasheet . pdf$.  [
-Data ac-ce-s -rii:
+Underfull \hbox (badness 10000) in paragraph at lines 48--52
+[]\T1/ptm/m/n/12 Emag.  []$https : / / www . emag . ro / termostat -[] smart -[
+] honeywell -[] lyric -[] t6r -[]
  []
 
-) [21] (./main.aux)
 
-LaTeX Warning: There were undefined references.
+Underfull \hbox (badness 10000) in paragraph at lines 48--52
+\T1/ptm/m/n/12 wireless -[] amplasat -[] pe -[] masa -[] comandat -[] de -[] pe
+ -[] smartphone -[] y6h910rw4055 / pd /
+ []
 
+
+Underfull \hbox (badness 3088) in paragraph at lines 54--58
+[]\T1/ptm/m/n/12 Amazon.  []$https : / / www . amazon . com / Nest -[] T3007ES 
+-[] Thermostat -[] Temperature -[]
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 60--64
+[]\T1/ptm/m/n/12 Amazon.  []$https : / / www . amazon . com / ecobee3 -[] lite 
+-[] Smart -[] Thermostat -[] Black / dp /
+ []
+
+
+Underfull \hbox (badness 4120) in paragraph at lines 66--69
+[]\T1/ptm/m/n/12 Eric Blank.  []$https : / / thesmartcave . com / ecobee -[] vs
+ -[] nest/$[].  [Data ac-ce-s -rii:
+ []
+
+[21
+
+]
+Underfull \hbox (badness 2426) in paragraph at lines 71--77
+[]\T1/ptm/m/n/12 Guido Van Ro-s-sum et al.  Py-thon.  []$https : / / courses . 
+minia . edu . eg / Attach /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--98
+[]\T1/ptm/m/n/12 Espressif Sys-tems.  []$https : / / components101 . com / asse
+t / sites / default / ^^\les /
+ []
+
+
+Underfull \hbox (badness 5924) in paragraph at lines 94--98
+\T1/ptm/m/n/12 component _ datasheet / ESP8266 -[] NodeMCU -[] Datasheet . pdf$
+[].  [Data ac-ce-s -rii:
+ []
+
+) [22] (./main.aux)
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 85E154391628A3127F5127F2563C27D0;4347.
  ) 
 Here is how much of TeX's memory you used:
- 7394 strings out of 479302
- 101262 string characters out of 5871205
- 419188 words of memory out of 5000000
- 24382 multiletter control sequences out of 15000+600000
- 493307 words of font info for 150 fonts, out of 8000000 for 9000
+ 13349 strings out of 479302
+ 188739 string characters out of 5871205
+ 518450 words of memory out of 5000000
+ 30181 multiletter control sequences out of 15000+600000
+ 500684 words of font info for 156 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,19n,78p,1501b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,19n,74p,1501b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/
-urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a
-.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2
-020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (24 pages, 1271109 bytes).
+urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.p
+fb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (24 pages, 1275289 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 420 PDF objects out of 1000 (max. 8388607)
+ 369 compressed objects within 4 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 307 words of extra memory for PDF output out of 10000 (max. 10000000)
 

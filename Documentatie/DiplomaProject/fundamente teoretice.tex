@@ -3,14 +3,13 @@
 	În acest capitol voi prezenta principalele concepte teoretice utilizate în realizarea proiectului, împreună cu limbajele de programare și framework-urile folosite. 
 
 \section{Python}
-
-	"Python este un limbaj de programare popular. Acesta a fost creat în anul 1991 de către Guido van Rossum." \cite{python}. Se bucură de o evoluție fulminantă, ajungând să fie unul din cele mai utilizate limbaje de programare în anul 2020. Creșterea numărului de programatori care aleg să folosească Python, este datorată  caracteristicilor precum: 
+	Python este un limbaj de programare ce a apărut în anul 1991, fiind realizat de către Guido van Rossum \cite{python}. Se bucură de o evoluție fulminantă, ajungând să fie unul din cele mai utilizate limbaje de programare în anul 2020. Creșterea numărului de programatori care aleg să folosească Python, este datorată  caracteristicilor precum \cite{python}: 
 	\begin{itemize}
 	\setlength{\itemindent}{2em}
 	\itemsep0em
-	\item Flexibilitatea, poate fi utilizat într-un număr vast de domenii, de la programare web, până la programare pe plăcuțe. Funcționează pe o multitudine de platforme, printre care se enumeră: Windows, Mac, Linux și Raspberry Pi \cite{python}. 
-	\item În ceea ce privește sintaxa acestui limbaj de programare, este una simplă, care permite scrierea de programe utilizând un număr mai mic de linii de cod \cite{python}. 
-	\item Poate fi folosit atât pentru programare procedurală, funcțională, dar și orientată pe obiecte \cite{python}.
+	\item Flexibilitatea, poate fi utilizat într-un număr vast de domenii, de la programare web, până la programare pe plăcuțe. Funcționează pe o multitudine de platforme, printre care se enumeră: Windows, Mac, Linux și Raspberry Pi. 
+	\item În ceea ce privește sintaxa acestui limbaj de programare, este una simplă, care permite scrierea de programe utilizând un număr mai mic de linii de cod. 
+	\item Poate fi folosit atât pentru programare procedurală, funcțională, dar și orientată pe obiecte.
 	\end{itemize}
 
 \section{Flask}
@@ -27,18 +26,16 @@
 
 \section{Arduino IDE}
 
-	
+	Pentru programarea plăcuțelor Arduino, se folosește un mediu de dezvoltare numit Arduino Integrated Development Environment. Acesta suportă limbajele de programare C si C++ \cite{arduinoIDE}. 
 
-	Pentru programarea plăcuțelor Arduino, se folosește un mediu de dezvoltare numit Arduino Integrated Development Environment. Acesta suportă limbajele de programare C si C++. 
-
-	Poate rula pe mai multe platforme precum: Windows, Linux, MAC și Java. De asemenea, este important de menționat faptul că este compatibil cu o serie largă de modele de plăcuțe, câteva exemple fiind:
+	Poate rula pe mai multe platforme precum: Windows, Linux, MAC și Java \cite{arduinoIDE}. De asemenea, este important de menționat faptul că este compatibil cu o serie largă de modele de plăcuțe, câteva exemple fiind \cite{arduinoIDE}:
 		\begin{itemize}
 			\setlength{\itemindent}{2em}
 			\itemsep0em
 			\item Arduino Uno
 			\item Arduino Mega
 			\item Arduino Leonardo
-			\item Arduino Micro \cite{arduinoIDE}
+			\item Arduino Micro
 		\end{itemize} 
 
 	Arduino IDE îndeplinește atât rolul de editor de text, cât și rolul de compilator. Editorul de text reprezintă un suport pentru redactarea codului, iar compilatorul este responsabil de transformarea codului sursă în cod obiect și încărcarea acestuia pe microcontroler \cite{arduinoIDE}.
@@ -55,17 +52,7 @@
 
 \subsection{Arduino Uno}
 
-	"Arduino este un sistem cu microcontroler(ATmega), simplu, extensibil și open-source
-
-\vspace{1em}		
-
-	Arduino înseamnă:
-			\begin{itemize}
-			\setlength{\itemindent}{2em}
-			\itemsep0em
-			\item Plăci de bază și plăci pentru o gamă largă de aplicații
-			\item O bibliotecă bogată" \cite{arduino}
-		\end{itemize}
+	Arduino aduce pe piață o serie de plăcuțe cu microcontroler, ce pot fi programate pentru diverse aplicații. De asemenea, bibliotecile puse la dispoziție pentru acest tip de sisteme sunt menite să faciliteze procesul de programare al acestora \cite{arduino}.
 
 	Programarea plăcuței se face prin intermediul conectorului USB. Aceasta prezintă și un conector separat pentru alimentare care suportă tensiuni în intervalul 7 - 12 volți \cite{arduino}, tensiuni ce vor trece prin regulatorul de tensiune integrat în plăcuță.
 
@@ -77,12 +64,12 @@
 
 \vspace{1em}
 
-	Printre caracteristici se remarcă:
+	Printre caracteristici se remarcă \cite{lcd}:
  		\begin{itemize}
 			\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item Tensiune de alimentare: 5 volți \cite{lcd}
-			\item Luminozitatea ecranului se poate regla printr-un potențiometru integrat \cite{lcd}
+			\item Tensiune de alimentare: 5 volți 
+			\item Luminozitatea ecranului se poate regla printr-un potențiometru integrat
 		\end{itemize} 
 	
 \subsection{Senzor DHT11}
@@ -147,13 +134,13 @@ V_{cap} = V_{initial}(e^{\frac{-t}{RC}})
 
 \begin{figure}[H]
 	\centering
-    	\includegraphics[width=0.7\textwidth]{InainteDeFiltru.jpg}
+    	\includegraphics[width=1\textwidth]{InainteDeFiltru.jpg}
 	\caption{Semnal înainte de filtrul trece jos}
 \end{figure}
 
 \begin{figure}[H]
    	\centering
-    	\includegraphics[width=0.7\textwidth]{DupaFiltru.jpg}
+    	\includegraphics[width=1\textwidth]{DupaFiltru.jpg}
 	\caption{Semnal după filtrul trece jos}
 \end{figure}
 	
