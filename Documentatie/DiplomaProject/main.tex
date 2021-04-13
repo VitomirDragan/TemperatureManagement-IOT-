@@ -6,6 +6,7 @@
 \usepackage{bookman}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{color}
 \usepackage{fancyhdr} 
 \usepackage{color}
 \usepackage[T1]{fontenc}
@@ -20,6 +21,27 @@
 \usepackage{wrapfig}
 \usepackage[romanian]{babel}
 \graphicspath{ {./fig/} }
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 
 \pagestyle{fancy}
 \fancyhead[RE]{\footnotesize{\leftmark}}
@@ -45,7 +67,7 @@
 \input{introduction.tex}
 \input{state of the art.tex} 
 \input{fundamente teoretice.tex}
-%\input{dezvoltarea solutiei}
+\input{dezvoltarea solutiei}
 
 \listoffigures
 

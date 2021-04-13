@@ -18,12 +18,10 @@ volatile boolean timeIntervalsOperatingMode = false;
 volatile boolean normalOperatingMode = false;
 
 ICACHE_RAM_ATTR void increaseTemperature() {
-    Serial.println("intrerupere");
     increaseDesiredTemperature = true;
 }
 
 ICACHE_RAM_ATTR void decreaseTemperature() {
-    Serial.println("intrerupere");
     decreaseDesiredTemperature = true;
 }
 
@@ -84,7 +82,6 @@ void WiFiModule::pinSetup(){
      pinMode(INCREASE_TEMPERATURE_PIN, INPUT);
      pinMode(DECREASE_TEMPERATURE_PIN, INPUT);
      pinMode(LED_BUILTIN, OUTPUT);
-     digitalWrite(RELAY_PIN, HIGH);
 }
 
 void WiFiModule::connectToInternet(String ssid, String password){
@@ -102,13 +99,13 @@ void WiFiModule::connectToInternet(String ssid, String password){
 }
 
 
-int WiFiModule::readHumidityFromSensor(){
+int DHTSensor::readHumidity(){
    DHT.read(DHT11_PIN); // Reading data received from DHT11 sensor
    return DHT.humidity; // Reading just the humidity
 }
 
 
-int WiFiModule::readTemperatureFromSensor(){
+int DHTSensor::readTemp(){
    DHT.read(DHT11_PIN); // Reading data received from DHT11 sensor
    return DHT.temperature; // Reading just the temperature
 }
@@ -145,14 +142,10 @@ void WiFiModule::sendDesiredTemperatureToDatabase(String databaseField){
 }
 
 void WiFiModule::readDesiredTemperatureFromDatabase(String databaseField){
-//    detachInterrupt(digitalPinToInterrupt(INCREASE_TEMPERATURE_PIN));
-//    detachInterrupt(digitalPinToInterrupt(DECREASE_TEMPERATURE_PIN));
-//    attachInterrupt(digitalPinToInterrupt(INCREASE_TEMPERATURE_PIN), increaseTemperature, RISING);
-//    attachInterrupt(digitalPinToInterrupt(DECREASE_TEMPERATURE_PIN), decreaseTemperature, RISING);
       int value = readInt(databaseField);
       Serial.println("readInt(databaseField)");
       Serial.println(value);
-      if(value>=15 && value<=32){
+      if(value>=MIN_TEMP && value<=MAX_TEMP){
          desiredTemperature = readInt(databaseField);
       }
          Serial.print("Read desired temperature: ");
@@ -189,41 +182,15 @@ void WiFiModule::stream(FirebaseData &instance, String path)
     }
 }
 
-
 void WiFiModule::heatControl(int currentTemperature){
      if(currentTemperature <= (desiredTemperature - HYSTERESIS)){
          digitalWrite(RELAY_PIN, LOW);
-         sendCommandToController(ON);
+         transmitter.sendCommandToController(ON);
      }
      else if(currentTemperature >= (desiredTemperature + HYSTERESIS)){
-         sendCommandToController(OFF);
+         transmitter.sendCommandToController(OFF);
          digitalWrite(RELAY_PIN, HIGH);
      }
-}
-
-
-void WiFiModule::initializeRFTransmitter(){
-  #ifdef RH_HAVE_SERIAL
-    Serial.begin(9600);    // Debugging only
-#endif
-    if (!driver.init())
-#ifdef RH_HAVE_SERIAL
-         Serial.println("init failed");
-#else
-  ;
-#endif
-}
-
-void WiFiModule::sendCommandToController(int command){
-      TimeManager timeManager;
-      while(timeManager.getCurrentSecond()%2 == 0){
-        delay(5);
-      }//wait while second is odd
-
-      char message[2];
-      itoa(20 + command, message, 10);
-      driver.send(((unsigned char *) message), strlen(message));
-      driver.waitPacketSent();
 }
 
 void WiFiModule::statusIndicator(){
@@ -231,6 +198,29 @@ void WiFiModule::statusIndicator(){
          digitalWrite(LED_BUILTIN, LOW);
       else
          digitalWrite(LED_BUILTIN, HIGH);
+}
+
+void RFTransmitter::initializeRFTransmitter(){
+#ifdef RH_HAVE_SERIAL
+    Serial.begin(9600);
+#endif
+    if (!driver.init())
+#ifdef RH_HAVE_SERIAL
+         Serial.println("Initialization failed!");
+#else
+  ;
+#endif
+}
+
+void RFTransmitter::sendCommandToController(int command){
+      while(timer.getCurrentSecond()%2 == 0){
+        delay(5);
+      }//wait while second is odd
+
+      char message[2];
+      itoa(20 + command, message, 10);
+      driver.send(((unsigned char *) message), strlen(message));
+      driver.waitPacketSent();
 }
 
 //Methods for LCD class

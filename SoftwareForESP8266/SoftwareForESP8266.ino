@@ -3,6 +3,8 @@
 WiFiModule wifiModule;
 LCD lcd;
 TimeManager timeManager;
+RFTransmitter rfTransmitter;
+DHTSensor dhtSensor;
 
 FirebaseData streamDesiredTemperature;
 FirebaseData streamSwitchIntervalsOn;
@@ -12,9 +14,10 @@ FirebaseData streamIntervals;
 void setup() {
     timeManager.timeManagerConfig();
     lcd.initializeLCD();
+    rfTransmitter.initializeRFTransmitter();
     wifiModule.pinSetup();
+    digitalWrite(RELAY_PIN, HIGH);
     wifiModule.connectToInternet("Asus", "vitomir10");
-    wifiModule.initializeRFTransmitter();
     Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
     wifiModule.defineInterrupts();
     wifiModule.stream(streamDesiredTemperature,"/DesiredTempRoom2/Zapier/Value");
@@ -25,7 +28,6 @@ void setup() {
 
 
 void loop() {
-  Serial.println("loop");
   if(increaseDesiredTemperature || decreaseDesiredTemperature){
     if(increaseDesiredTemperature){
       if(desiredTemperature < MAX_TEMP){
@@ -49,8 +51,8 @@ void loop() {
       decreaseDesiredTemperature = false;
     }
   }else{
-    int currentTemperature = wifiModule.readTemperatureFromSensor();
-    int humidity = wifiModule.readHumidityFromSensor();
+    int currentTemperature = dhtSensor.readTemp();
+    int humidity = dhtSensor.readHumidity();
 
 
     if (WiFi.status() == WL_CONNECTED) {

@@ -26,7 +26,7 @@
 \begin{figure}[H]
    	\centering
     	\includegraphics[width=1\textwidth]{ModulSenzor.png}
-	\caption{Arhitectura sistemului}
+	\caption{Arhitectura modulului senzor}
 \end{figure}	
 
 	Este format din următoarele componente:
@@ -67,7 +67,7 @@
 
 \vspace{1em}
 
-	Senzorul de temperatură și umiditate se ...protocol de comunicație
+	Senzorul de temperatură și umiditate pe care îl utilizez prezintă 3 pini. Doi sunt utilizati pentru alimentare, VCCC și GND, iar cel de-al treilea este pinul de date, utilizat pentru transferul de informații între senzor și plăcuța cu microcontroler la care este conectat.
 
 \vspace{1em}
 
@@ -83,10 +83,293 @@
 
 \vspace{1em}
 
-	Electrovlava se montează pe returul caloriferelor și este responsabilă cu închiderea sau deschiderea circuitului de apă din calorifer. Releul este cel care întrerupe, sau nu, alimentarea electrică a electrovalvei
+	Electrovlava se montează pe returul caloriferelor și este responsabilă cu închiderea sau deschiderea circuitului de apă din calorifer. Releul este cel care întrerupe, sau nu, alimentarea electrică a electrovalvei.
 
 \vspace{1em}
 
 	Invertorul de semnal, rezistența și condensatorul sunt componente electrice pe care le-am utilizat pentru a filtra semnalul provenit de la buton.  
 
 \subsection{Modulul de control}
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=1\textwidth]{ModululDeControl.png}
+	\caption{Arhitectura modulului de control}
+\end{figure}
+
+	Acesta nu prezintă conexiune la internet. Modulul wireless este înlocuit cu o plăcuță Arduino Uno, care se ocupă de partea de procesare a datelor primite de la modulele din camere. Prezintă o serie de intrări și ieșiri analogice, dar si digitale. 
+
+	Pinul digital 4 se conectează la pinul de date al receptorului, făcând posibil transferul de informații între acestea.
+	
+	Pinul digital 7 se conectează la pinul IN al releului și transmite comanda de închidere sau deschidere a acestuia.
+
+\vspace{1em}
+
+	Releul se alimentează la o tensiune de 5 volți, tensiune provenită de la Arduino. În momentul în care releul este pe poziție închis, centrala termică va porni.
+
+\vspace{1em}
+
+	Receptorul, asemenea releului, se alimentează cu 5 volti de la plăcuța Arduino și are rolul de a prelua datele de la transmițătoarele din camere.
+
+\section{Proiectare detaliată}
+
+	...
+
+\section{Implementarea soluției}
+
+	În acest subcapitol voi prezenta secvențe de cod folosite pentru programarea părții hardware, dar și cod aferent aplicației web.
+
+\subsection{Programare modul ESP8266}
+
+\subsubsection{Inițializări}
+
+	Modulul prezintă o serie vastă de funcționalități și se conectează cu mai multe componente auxiliare. Pentru programarea acestuia am utilizat ArduinoIDE, iar ca și limbaj de programare C++. 
+
+	Codul este împărțit în trei fișiere cu estensii diferite: .ino, .cpp și .h. În fișierul cu extensia .h se află prototipurile claselor și al metodelor, iar fișierul .cpp conține implementările acestor metode. Fișierul .ino este alcătuit din două funcții: \textit{setup} și \textit{loop}. Prima este utilizată pentru inițializări și se execută o singură dată, la pornirea modulului. În ceea ce privește cea de-a doua funcție, se execută în mod repetitiv până la oprirea alimentării plăcuței WiFi.
+
+\vspace{1em}
+
+	În continuare, voi prezenta funcția \textit{setup} din fișierul .ino și voi explica rolul apelurilor din cadrul acesteia.
+
+\vspace{2em}
+
+\begin{lstlisting}
+#include "WiFiModule.h"
+
+WiFiModule wifiModule;
+LCD lcd;
+TimeManager timeManager;
+RFTransmitter rfTransmitter;
+DHTSensor dhtSensor;
+
+FirebaseData streamDesiredTemperature;
+FirebaseData streamSwitchIntervalsOn;
+FirebaseData streamIntervals;
+
+
+void setup() {
+    timeManager.timeManagerConfig();
+    lcd.initializeLCD();
+    rfTransmitter.initializeRFTransmitter();
+    wifiModule.pinSetup();
+    wifiModule.connectToInternet("Asus", "vitomir10");
+    Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
+    wifiModule.defineInterrupts();
+    wifiModule.stream(streamDesiredTemperature, "/DesiredTempRoom2/Zapier/Value");
+    wifiModule.stream(streamSwitchIntervalsOn, "/SwitchIntervalsOn/Value");  
+    wifiModule.stream(streamIntervals, "/Intervals");
+    delay(500);
+}
+\end{lstlisting}
+
+\vspace{2em}
+
+	Pentru început, se creează instanțe pentru clasele ale căror funcționalități urmează să fie utilizate, iar în corpul funcției \textit{setup} se vor apela funcții ce țin de inițializare.
+
+	Din clasa \textit{TimeManager} se apelează metoda \textit{timeManagerConfig}, fiind responsabilă de setarea fusului orar pentru a ști în mod exact data și timpul curent. Acestea sunt necesare în modul de funcționare automat, mod în care se ține cont de temperaturile setate de utilizator pe anumite intervale orare. 
+
+	Până se execută toate funcțiile de inițializare, LCD-ul va fi pornit și va afișa mesajul \textit{"Initializing..."}. Pentru ca acest comportament să fie posibil, este necesar apelul metodei \textit{lcd.initializeLCD()}. 	
+
+	Apelarea metodei \textit{initializeRFTransmitter} din cadrul clasei \textit{RFTransmitter} are ca și scop declanșarea procesului de inițializare al transmițătorului. Acesta reprezintă o precondiție pentru transferul de date între modulele senzor și modulul de control.
+
+	Pinii disponibili pe această componentă electronică pot funcționa fie ca intrări, fie ca ieșiri, insă este responsabilitatea programatorului să seteze modul de funcționare a fiecărui pin în parte. Toate aceste configurații le-am grupat în metoda \textit{pinSetup}, al cărei cod îl voi face disponibil.
+
+\vspace{1em}
+
+\begin{lstlisting}
+void WiFiModule::pinSetup(){
+     pinMode(RELAY_PIN, OUTPUT);
+     pinMode(INCREASE_TEMPERATURE_PIN, INPUT);
+     pinMode(DECREASE_TEMPERATURE_PIN, INPUT);
+     pinMode(LED_BUILTIN, OUTPUT);
+}
+\end{lstlisting}
+
+\vspace{2em}	
+
+	Pentru identificarea pinilor am definit macrouri, cu nume sugestive, iar cuvintele cheie \textit{INPUT} și \textit{OUTPUT} au fost predefinite în bibliotecile utilizate.
+
+	Majoritatea funcționalităților îndeplinite de acest modul necesită o conexiune validă la internet. Primul pas în acest sens se face prin apelul metodei \textit{connectToInternet}. În cadrul funcției \textit{WiFi.begin()} trebuie menționat numele rețelei la care se conectează și parola. Modulul este programat în așa fel încât timpul alocat conectării la internet să fie de maximum 15 secunde. Dacă acesta este depășit, este posibil să fie o problemă în ceea ce privește conexiunea la internet, iar modulul va funcționa deconectat de la baza de date.
+ 
+	După ce plăcuța WiFi a reușit să se conecteze la internet, următorul pas este identificarea bazei de date. Apelul metodei \textit{Firebase.begin} necesită doi parametri, și anume: adresa bazei de date și cheia secretă. Aceștia sunt utilizați pentru a localiza baza de date, respectiv pentru a oferi acces la aceasta.
+
+	Setarea temperaturii se realizează prin întreruperi. Trebuie definit pinul și frontul semnalului pe care se declanșează întreruperea, dar și numele rutinei de tratare. Toate acestea se realizează în metoda \textit{defineInterrupts}.
+
+	Ultimele apeluri din funcția \textit{setup}, \textit{stream(instance, path)}, au rolul de a seta instanța și câmpul din baza de date pentru care se vor monitoriza schimbările de valoare. Modulul face citiri din baza de date doar când sunt date actualizate, astfel reușind să economisească din resursele disponibile.
+
+\subsubsection{Întreruperile și tratarea acestora}
+
+	În continuare, voi prezenta rutinele de tratare a întreruperilor. Acestea sunt simple, nu consumă multe resurse și, ceea ce este esențial în crearea unor astfel de rutine, execuția lor nu durează mult. De asemenea, utilizez două variabile globale, \textit{increaseDesiredTemperature} și \textit{decreaseDesiredTemperature}, pentru a marca faptul că o procedura de tratare a întreruperii a fost accesată.
+
+\vspace{1em}
+
+\begin{lstlisting}
+ICACHE_RAM_ATTR void increaseTemperature() {
+    increaseDesiredTemperature = true;
+}
+
+ICACHE_RAM_ATTR void decreaseTemperature() {
+    decreaseDesiredTemperature = true;
+}  
+\end{lstlisting}
+
+\vspace{2em}	
+
+	În momentul în care este acționat unul din cele două butoane responsabile cu modificarea temperaturii setate, se declansează execuția unei serii de instrucțiuni. Acestea sunt consumatoare de resurse, motiv pentru care, se execută în interiorul funcției \textit{loop}. 
+
+
+\vspace{1em}
+
+\begin{lstlisting}
+ if(increaseDesiredTemperature || decreaseDesiredTemperature){
+    if(increaseDesiredTemperature){
+      if(desiredTemperature < MAX_TEMP){
+          desiredTemperature++;
+          lcd.displayDesiredTemperature();
+          if (WiFi.status() == WL_CONNECTED && (!switchIntervalsOn))
+          {
+              wifiModule.sendDesiredTemperatureToDatabase ("DesiredTempRoom2/Zapier/Value");
+          }
+      }
+      increaseDesiredTemperature = false;
+    }else{
+        if(desiredTemperature > MIN_TEMP){
+          desiredTemperature--;
+          lcd.displayDesiredTemperature();
+          if (WiFi.status() == WL_CONNECTED && (!switchIntervalsOn))
+          {
+              wifiModule.sendDesiredTemperatureToDatabase ("DesiredTempRoom2/Zapier/Value");
+          }
+        }
+      decreaseDesiredTemperature = false;
+    }
+  }
+\end{lstlisting}
+
+\vspace{2em}	
+
+	Pentru început, se verifică dacă de la ultima iterație a fost modificată variabila \textit{increaseDesiredTemperature} sau \textit{decreaseDesiredTemperature}. În caz afirmativ, se face o incrementare sau decrementare a valorii temperaturii setate. Pentru ca rezultatul să se afișeze pe LCD cât mai repede, după ajustarea valorii, se face apelul funcției \textit{displayDesiredTemperature}, din cadrul clasei LCD. Astfel, se obține un timp mic de actualizare și o experiență mai bună cu utilizatorul. De asemenea, se examinează modul de funcționare a modulului wireless, conectat sau deconectat la o rețea de internet. In cazul în care există o conexiune validă, valoarea actualizată a temperaturii va fi trimisă în baza de date. O altă condiție necesară ca modul de funcționare pe intervale orare să fie dezactivat  \textit{!switchIntervalsOn}.
+
+\subsubsection{Mod de operare presetat de utilizator}
+
+	Sistemul este setat asfel încât să ofere posibilitatea utilizatorului de a alege patru intervale orare, cu temperaturi diferite, în timpul zilelor lucrătoare. În ceea ce privește ultimele zile ale săptămânii, sâmbătă și duminică, se pot seta doar două intervale orare pe zi, cu temperaturi diferite.
+
+
+\vspace{1em}
+
+\begin{lstlisting}
+if (WiFi.status() == WL_CONNECTED) {
+   wifiModule.sendCurrentTemperatureToDatabase(currentTemperature);
+   wifiModule.sendHumidityToDatabase(humidity);
+   wifiModule.readStreamValue(switchIntervalsOn, streamSwitchIntervalsOn, "SwitchIntervalsOn/Value");
+   if (switchIntervalsOn) {
+        int weekDay = timeManager.getWeekDay();
+        int currentHour = timeManager.getCurrentHour();
+        int currentMinute = timeManager.getCurrentMinute();
+        if(wifiModule.checkForUpdate(streamIntervals, "/Intervals") || (!timeIntervalsOperatingMode))
+        {
+         if (weekDay == 6 || weekDay == 0) {
+             String A = wifiModule.readStr("Intervals/Weekend/A");
+             String B = wifiModule.readStr("Intervals/Weekend/B");
+
+             int hourA = timeManager.getHourFromTimeFormat(A);
+             int minuteA = timeManager.getMinuteFromTimeFormat(A);
+             int hourB = timeManager.getHourFromTimeFormat(B);
+             int minuteB = timeManager.getMinuteFromTimeFormat(B);
+
+             if ((hourA < currentHour && currentHour < hourB) ||
+                 (hourA == currentHour && currentMinute >= minuteA) ||
+                 (hourB == currentHour && currentMinute < minuteB)) {
+                   wifiModule.readDesiredTemperatureFromDatabase ("Intervals/Weekend/TemperatureAB");
+                   endHour = hourB;
+                   endMinute = minuteB;
+             } else {
+                 wifiModule.readDesiredTemperatureFromDatabase ("Intervals/Weekend/TemperatureBA");
+                 endHour = hourA;
+                 endMinute = minuteA;       
+   }
+} 
+\end{lstlisting}
+
+\vspace{2em}	
+
+	Primele două instrucțiuni au rolul de a încărca în baza de date valoarea temperaturii si a umiditătii. Modul de funcționare a sistemului este salvat într-un câmp al bazei de date, numit \textit{SwitchIntervalsOn/Value}. Acesta este monitorizat prin instalarea unui observator pe câmpul bazei de date. 
+
+	Instrucțiunile ce urmează au rolul de a încadra sistemul în ora, minutul și ziua curentă, iar cu ajutorul acestora, sistemul poate urmări programul de temperaturi setat de către utilizator. Secvența de cod prezentată anterior este utilizată pentru încadrarea zilelor de la sfârșitul săptămânii, sâmbătă si duminică. In cazul în care nu se respectă condițita, se execută secvențele condiționale următoare, împreună cu citirile capetelor intervalelor și valorile temperaturilor corespunzătoare.
+
+\vspace{1em}
+	
+\begin{lstlisting}
+ {
+                String A = wifiModule.readStr("Intervals/WorkingDay/A");
+                String B = wifiModule.readStr("Intervals/WorkingDay/B");
+                String C = wifiModule.readStr("Intervals/WorkingDay/C");
+                String D = wifiModule.readStr("Intervals/WorkingDay/D");
+
+                int hourA = timeManager.getHourFromTimeFormat(A);
+                int minuteA = timeManager.getMinuteFromTimeFormat(A);
+                int hourB = timeManager.getHourFromTimeFormat(B);
+                int minuteB = timeManager.getMinuteFromTimeFormat(B);
+                int hourC = timeManager.getHourFromTimeFormat(C);
+                int minuteC = timeManager.getMinuteFromTimeFormat(C);
+                int hourD = timeManager.getHourFromTimeFormat(D);
+                int minuteD = timeManager.getMinuteFromTimeFormat(D);
+
+
+                if ((hourA < currentHour && currentHour < hourB) || 
+                     (hourA == hourB && currentHour == hourA && currentMinute >= minuteA && currentMinute < minuteB)||
+                    (hourA == currentHour && hourB != currentHour && currentMinute >= minuteA) ||
+                    (hourA != currentHour && hourB == currentHour && currentMinute < minuteB)) {
+                        wifiModule.readDesiredTemperatureFromDatabase
+									("Intervals/WorkingDay/TemperatureAB");
+                        endHour = hourB;
+                        endMinute = minuteB;
+                } else if ((hourB < currentHour && currentHour < hourC) || 
+                     (hourB == hourC && currentHour == hourB && currentMinute >= minuteB && currentMinute < minuteC)||
+                    (hourB == currentHour && hourC != currentHour && currentMinute >= minuteB) ||
+                    (hourB != currentHour && hourC == currentHour && currentMinute < minuteC)){
+                              wifiModule.readDesiredTemperatureFromDatabase
+									("Intervals/WorkingDay/TemperatureBC");
+                              endHour = hourC;
+                              endMinute = minuteC;
+                } else if ((hourC < currentHour && currentHour < hourD) || 
+                     (hourC == hourD && currentHour == hourC && currentMinute >= minuteC && currentMinute < minuteD)||
+                    (hourC == currentHour && hourD != currentHour && currentMinute >= minuteC) ||
+                    (hourC != currentHour && hourD == currentHour && currentMinute < minuteD)) {
+                              wifiModule.readDesiredTemperatureFromDatabase
+									("Intervals/WorkingDay/TemperatureCD");
+                              endHour = hourD;
+                              endMinute = minuteD;
+                } else {
+                    wifiModule.readDesiredTemperatureFromDatabase
+									("Intervals/WorkingDay/TemperatureDA");
+                    endHour = hourA;
+                    endMinute = minuteA;
+                }
+            }
+\end{lstlisting}
+\vspace{2em}
+
+\subsubsection{Mod clasic de operare}
+
+	Pe lângă modul automat de funcționare, sistemul este proiectat să poată rula și în mod manual. Acesta presupune menținerea unei temperaturi constante, setate de utilizator, prin butoane, comenzi vocale sau prin intermediul aplicației web. Este important de menționat faptul că acesta consumă mai puține resurse comparativ cu modul de funcționare pe intervale, însă nu oferă același grad de confort. În continuare, voi prezenta o serie de instrucțiuni de cod specifice implementării modului manual.
+
+\vspace{1em}
+\begin{lstlisting}
+int currentTemperature = dhtSensor.readTemp();
+int humidity = dhtSensor.readHumidity();
+\end{lstlisting}
+\vspace{2em}	
+
+	Prima etapă ce se execută în acest mod este citirea umidității și a temperaturii de la senzorul DHT11. Iar funcțiile responsabile pentru aceste funcționalități sunt apelate la începutul funcției \textit{loop}.
+
+\vspace{1em}
+\begin{lstlisting}
+     wifiModule.heatControl(currentTemperature); 
+     wifiModule.statusIndicator();
+     lcd.displayDesiredTemperature();
+     lcd.displayCurrentTemperature(currentTemperature);
+\end{lstlisting}
+\vspace{2em}	
+
+	Pentru a face posibilă conectarea/deconectarea sistemului de încălzire, este necesar apelul funcției \textit{heatControl}. Acesta trimite comandă atât la electrovalva montată pe calorifer, cât și la centrala termică. De asemenea, este necesar apelul \textit{displayDesiredTemperature} și \textit{displayCurrentTemperature} pentru a afișa temperatura setată și temperatura dorită din cameră. Scopul final este de a permite monitorizarea temperaturii ambientale.

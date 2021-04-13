@@ -31,3 +31,15 @@
 \contentsline {subsection}{\numberline {3.5.14}Diod\IeC {\u a}}{15}{subsection.3.5.14}%
 \contentsline {section}{\numberline {3.6}Filtrarea semnalelor}{16}{section.3.6}%
 \contentsline {section}{\numberline {3.7}Histereza}{17}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Dezvoltarea solu\IeC {{\textcommabelow t}}iei}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Specificarea cerin\IeC {{\textcommabelow t}}elor}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Arhitectura sistemului}{20}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Modulul senzor}{21}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Modulul de control}{23}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Proiectare detaliat\IeC {\u a}}{24}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Implementarea solu\IeC {{\textcommabelow t}}iei}{24}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Programare modul ESP8266}{24}{subsection.4.4.1}%
+\contentsline {subsubsection}{Ini\IeC {{\textcommabelow t}}ializ\IeC {\u a}ri}{24}{section*.2}%
+\contentsline {subsubsection}{\IeC {\^I}ntreruperile \IeC {{\textcommabelow s}}i tratarea acestora}{26}{section*.3}%
+\contentsline {subsubsection}{Mod de operare presetat de utilizator}{28}{section*.4}%
+\contentsline {subsubsection}{Mod clasic de operare}{31}{section*.5}%

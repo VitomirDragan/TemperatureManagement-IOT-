@@ -51,12 +51,26 @@ class TimeManager{
     int getMinuteFromTimeFormat(String timeFormat);
 };
 
+class RFTransmitter{
+  private:
+    TimeManager timer;
+  public:
+    void initializeRFTransmitter();
+    void sendCommandToController(int command);
+};
+
+class DHTSensor{
+  public:
+    int readHumidity();
+    int readTemp(); 
+};
+
 class WiFiModule{
+  private:
+    RFTransmitter transmitter;
   public:
     void pinSetup();
     void connectToInternet(String ssid, String password);
-    int readHumidityFromSensor();
-    int readTemperatureFromSensor();
     void sendHumidityToDatabase(int humidity);
     void sendCurrentTemperatureToDatabase(int currentTemperature);
     void sendDesiredTemperatureToDatabase(String databaseField);
@@ -67,8 +81,6 @@ class WiFiModule{
     void heatControl(int currentTemperature);
     int readInt(String fieldName);
     String readStr(String fieldName);
-    void initializeRFTransmitter();
-    void sendCommandToController(int command);
     void statusIndicator();
     void defineInterrupts();
 };
