@@ -373,3 +373,123 @@ int humidity = dhtSensor.readHumidity();
 \vspace{2em}	
 
 	Pentru a face posibilă conectarea/deconectarea sistemului de încălzire, este necesar apelul funcției \textit{heatControl}. Acesta trimite comandă atât la electrovalva montată pe calorifer, cât și la centrala termică. De asemenea, este necesar apelul \textit{displayDesiredTemperature} și \textit{displayCurrentTemperature} pentru a afișa temperatura setată și temperatura dorită din cameră. Scopul final este de a permite monitorizarea temperaturii ambientale.
+
+\subsection{Programare plăcuță Arduino}
+
+	Este montată în modulul de control și se conectează la componente auxiliare precum: receptor RF și releu, iar prin intermediul acestora face posibil controlul centralei termice. Codul sursă care face posibil tot acest comportament se află pe plăcuța Arduino. 
+
+\vspace{1em}
+	
+\begin{lstlisting}
+unsigned char dataPackage[3];
+uint8_t dataPackageLength = sizeof(dataPackage);
+if (driver.recv(dataPackage, &dataPackageLength))
+{
+    dataPackage[2] = '\0';
+    Serial.println((char *) dataPackage);
+    int dataPackageInt = atoi((char *) dataPackage);
+
+    if((dataPackageInt/10) == 1){
+           commandModule1 = dataPackageInt%10;
+           timeFirstModuleSent = millis()/1000;
+    }
+     else{
+            commandModule2 = dataPackageInt%10;
+            timeSecondModuleSent = millis()/1000;
+        }
+        
+        Serial.print("Module1:");
+        Serial.println(commandModule1);
+        Serial.print("Module2:");
+        Serial.println(commandModule2);
+        if(commandModule1 || commandModule2){
+          digitalWrite(7, LOW);
+          Serial.println("On");
+        }else{
+          digitalWrite(7, HIGH);
+          Serial.println("Off");
+        }
+  }
+  if((((millis()/1000) - timeFirstModuleSent) >= TIMEOUT && ((millis()/1000) - timeSecondModuleSent) >= TIMEOUT))
+  {
+          digitalWrite(7, HIGH);
+          commandModule1 = 0;
+          commandModule2 = 0;
+   }
+   else if(((millis()/1000) - timeFirstModuleSent) >= TIMEOUT && commandModule2 == 0)
+   {
+          digitalWrite(7, HIGH);
+          commandModule1 = 0;
+    }
+    else if(((millis()/1000) - timeSecondModuleSent) >= TIMEOUT && commandModule1 == 0) {
+          digitalWrite(7, HIGH);
+          commandModule2 = 0;
+}
+\end{lstlisting}
+\vspace{2em} 
+
+	Mesajul pe care modulul receptor îl interceptează este format din doi octeți, din care octetul cel mai semnificativ conține numărul de identificare al modulului, iar octetul cel mai puțin semnificativ deține informații legate de natura comenzii. Mesajul recepționat este convertit în întreg, datorită faptului că se poate prelucra mai ușor, aplicând operații precum: modulo și div.
+
+	Întotdeauna se salvează momentul în care s-au recepționat informații de la fiecare modul în parte. Este importantă menținerea evidenței pentru a evita situațiile în care apar întreruperi de transfer prin radio - frecvență. Ca și o măsură de prevenție, dacă modulul de control nu primește comenzi de la modulele senzor timp mai mare sau egal cu 5 secunde, centrala termică va fi oprită.
+
+	După ce au fost primite comenzi de la ambele module senzor, se execută operație logică de tip SAU, iar în funcție de rezultatul acesteia, va cupla sau decupla releul, ce in continuare controlează centrala termică. Un octet cu valoarea 1 indică pornirea, iar un octet cu valoarea 0 indică oprirea centralei din imobil. De asemenea, ultimele instrucțiuni condiționale din secvența de cod afișată anterior, au rolul de a implementa oprirea de siguranță a sistemului de încălzire. 
+
+	Inițial, se verifică dacă ambele module senzor nu au trimis comenzi de mai mult de 5 secunde. Dacă nu se respectă prima condiție, se examinează cazul în care primul modul are conexiunea întreruptă, iar cel de-al doilea trimite comandă de oprire a sistemului de încălzire. Iar ultima situație care poate apărea este cea în care conexiunea prin radio frecvență la al doilea modul este inactivă de peste 5 secunde, iar primul modul trimite comandă de întrerupere a funcționării centralei. Toate aceste situații apar în cazuri de avarie, iar principala cauză este comunicația precară între modulele senzor și modulul de control. Pentru a preveni defectarea centralei termice, este concepută o măsură de siguranță ce constă în oprirea acesteia.  
+
+\subsection{Realizarea aplicației web}
+
+	Aplicația web face transferul de date cu partea electronică prin intermediul bazei de date \textit{Firebase}. Citirile valorilor umidității și a temperaturii se actualizează în aplicația web doar atunci când apar modificări in baza de date. Astfel, se evită citirile repetate și consumatoare de resurse.
+	
+	În ceea ce privește partea de acces a aplicației, aceasta este găzduită pe un server, la distanță, prin intermediul platformei \textit{Keroku}. Oricine deține adresa aplicației o poate accesa, însă prima pagină care apare la accesare este cea de conectare, iar navigarea poate fi continuată doar în cazul în care utilizatorul deține un cont valid. 
+	
+\vspace{1em}
+	Printre funcționalitățile esențiale pe care le deține aplicația sunt:
+
+\begin{itemize}
+\setlength{\itemindent}{2em}
+	\itemsep0em
+	\item pagina principală, ce apare imediat după o conectare cu succes, prezintă rolurile cele mai importante, si anume: posibilitatea de monitorizare a temperaturii și umidității ambientale, dar și reglarea temperaturii dorite. Este construită pentru două camere, dar poate fi extinsă pentru mai multe.
+	\item pagina de programare a intervalelor orare si temperaturile corespunzătoare acestora este, de asemenea, o funcționalitate utilă pentru utilizatori și pentru partea de control al modului de funcționare al sistemului.
+	\item pentru a permite accesul si altor persoane la aplicație, pagina de creare cont oferă posibilitatea de adăugare a noi intrări în baza de date. Astfel, un administrator poate oferi dreptul de acces și altor utilizatori. 
+	\item un administrator are dreptul de a analiza lista persoanelor care dețin un cont și de a adăuga sau retrage anumite drepturi de acces.
+	\item o funcționalitate utilă pentru persoanele care primesc conturile cu credențialele setate de către un administrator, este posibilitatea de schimbare a parolei vechi. Astfel, parolele rămân confidențiale fiecărui utilizator în parte.
+\end{itemize}
+	
+\subsubsection{Secvențe de cod esențiale din cadrul implementării aplicației web}
+
+	Prin intermediul paginii \textit{home} din cadrul aplicației web, utilizatorul are posibilitatea să salveze în baza de date diverse valori ale temperaturilor ce urmează a fi menținute în imobil. În continuare, voi prezenta funcția care se apelează în această situație. Este implementată în \textit{flask} și se execută în momentul în care se ajunge la calea \textit{/home}. 
+
+\vspace{1em}
+\begin{lstlisting}
+@app.route('/home', methods=['POST', 'GET'])
+@login_required
+def home():
+    status = firebase.get('SwitchIntervalsOn', 'Value')
+    if request.method == 'POST':
+        variable = request.form.get('outputValue1')
+        if variable is not None:
+            firebase.put('DesiredTempRoom1/Zapier', 'Value', int(variable))
+        else:
+            variable = request.form.get('outputValue2')
+            firebase.put('DesiredTempRoom2/Zapier', 'Value', int(variable))
+    return render_template('controlPage.html', status=status)
+\end{lstlisting}
+\vspace{2em} 
+
+
+	 Se utilizează la setarea temperaturii în baza de date, dar și la citirea câmpului \textit{SwitchInvtervalsOn/Value}, ce conține informații referitoare la modul de programare al temperaturilor dorite. 
+
+	Reprezintă o legătură între partea de interfață și logica din spatele aplicației web. Cu alte cuvinte, valoarea introdusă de către utilizator prin intermediul elementelor de intrare din \textit{html}, este transferată în partea responsabilă cu procesarea informațiilor. Prin intermediul funcțiilor puse la dispoziție de un modul implementat în \textit{python}, valorile introduse se transmit mai departe în baza de date.
+
+	Apelul \textit{\texttt{render\_template}} este util pentru a prelucra paginile \textit{html}. Acestea pot conține diverse variabile trimise ca si parametri și pot executa structuri de control, toate acestea pentru a facilita felul în care se construiește interfața cu utilizatorul. Variabila \textit{status} este transmisă mai departe paginii intitulate \textit{controlPage} și este utilizată pentru a seta poziția butonului ce indică modul de funcționare al sistemului.
+
+
+
+
+\vspace{1em}	
+\begin{lstlisting}
+	
+\end{lstlisting}
+\vspace{2em} 	
+
+	
