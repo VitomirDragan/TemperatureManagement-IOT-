@@ -457,6 +457,25 @@ if (driver.recv(dataPackage, &dataPackageLength))
 	
 \subsubsection{Secvențe de cod esențiale din cadrul implementării aplicației web}
 
+	Pentru a asigura accesul la aplicație doar a persoanelor privilegiate, trebuie creată o pagină de conectare ce să permită verificarea corespondenței credențialelor introduse în formular cu cele salvate în baza de date. În cazul unei potriviri, utilizatorul este redirecționat la calea \textit{/home}, aceasta aparținând paginii principale și permite monitorizarea parametrilor ambientali și setarea  temperaturii dorite. Situația în care se introduc credențiale greșite, este tratată printr-un mesaj de avertizare, iar utilizatorului i se oferă posibilitatea reintroducerii datelor de conectare.
+
+	Inițial, se preiau informațiile din interfață și se verifică existența utilizatorului cu numele introdus, instrucțiunea ce realizează acest aspect este: \textit{\texttt{user\_to\_login = Users.query.filter\_by(username=username).first()}}. Dacă numele utilizatorului a fost găsit, următorul pas ce trebuie inspectat este potrivirea parolei introduse cu cea salvată în baza de date. Este esențial de luat în considerare faptul că parolele sunt salvate criptate în baza de date, iar înainte de a face comparația cu parola introdusă, este obligatorie și criptarea parolei tastate de utilizator în formularul de conectare. 
+
+	Logica din spatele criptării și verificării ulterioare a parolei o voi prezenta în rândurile ce urmează.
+
+\vspace{1em}	
+\begin{lstlisting}	
+        if user_to_login:
+            if bcrypt.check_password_hash(user_to_login.password, password):
+                login_user(user_to_login)
+                return redirect(url_for('home'))
+\end{lstlisting}
+\vspace{1em} 	
+
+	Funcția \textit{\texttt{bcrypt.check\_password\_hash}} criptează parola din formular și face si o comparație cu parola din baza de date. În cazul în care corespondența este verificată, utilizatorul devine înregistrat în aplicația web și dobândește drepturi de acces.
+  
+\vspace{2em}
+
 	Prin intermediul paginii \textit{home} din cadrul aplicației web, utilizatorul are posibilitatea să salveze în baza de date diverse valori ale temperaturilor ce urmează a fi menținute în imobil. În continuare, voi prezenta funcția care se apelează în această situație. Este implementată în \textit{flask} și se execută în momentul în care se ajunge la calea \textit{/home}. 
 
 \vspace{1em}
@@ -483,13 +502,100 @@ def home():
 
 	Apelul \textit{\texttt{render\_template}} este util pentru a prelucra paginile \textit{html}. Acestea pot conține diverse variabile trimise ca si parametri și pot executa structuri de control, toate acestea pentru a facilita felul în care se construiește interfața cu utilizatorul. Variabila \textit{status} este transmisă mai departe paginii intitulate \textit{controlPage} și este utilizată pentru a seta poziția butonului ce indică modul de funcționare al sistemului.
 
+\vspace{2em}
 
+	În cele ce urmează, voi ilustra modul în care se face o programare a temperaturilor pentru mai multe zile. Voi prezenta traseul pe care informațiile il parcurg, de la introducerea acestora de către utilizator, până la prelucrarea și salvarea lor în baza de date.
 
+	Voi începe prin a expune codul ce face posibilă crearea formularelor utilizate pentru introducerea valorilor temperaturilor și a intervalelor orare. Acestea sunt esențiale pentru interacțiunea între sistem și utilizator.  
 
-\vspace{1em}	
+\vspace{1em}
 \begin{lstlisting}
-	
+<div class="form-group">
+      <input type="time" class="form-control" name="firstWorkingDayInterval" id="firstWorkingDayInterval" required>
+</div>
+<div class="form-group">
+      <input type="number" class="form-control" name="temperatureFirstWDInterval"
+               id="temperatureFirstWDInterval"
+               placeholder="Temperature 1" required>
+</div>
 \end{lstlisting}
-\vspace{2em} 	
+\vspace{2em} 
+
+	Primul tip de intrare \textit{html} utilizat este cel pentru formatul timp. Este un câmp predefinit, împărțit în două secțiuni, una pentru alegerea orei, iar cealaltă pentru selectarea minutului.
+	
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=0.4\textwidth]{IntrareDeTipTimp.png}
+	\caption{Intrare HTML pentru formatul timp}
+\end{figure}
+
+	Cel de-al doilea tip de intrare prezentat, cel de tip numeric, este utilizat pentru setarea valorii temperaturii. Formatul intrarii este creat în așa natură încât să permită un reglaj al valorii, la nivel de unitate.
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=0.4\textwidth]{IntrareDeTipNumeric.png}
+	\caption{Intrare HTML pentru formatul numeric}
+\end{figure}
+
+	După ce utilizatorul completează toate câmpurile, este necesar ca aceste valori să fie transmise mai departe parții, din cadrul aplicației web, responsabile cu procesarea informațiilor. Transferul datelor se face prin intermediul unui buton, iar aspectul acestuia este creat în \textit{Bootstrap}.
+\vspace{1em}
+\begin{lstlisting}
+	<button type="submit" class="btn btn-primary btn-block">Set intervals</button>
+\end{lstlisting}
+\vspace{2em} 
+
+	Înainte de salvarea valorilor în baza de date, este necesară o verificare a acestora. Condiția primordială care trebuie respectată este ca intervalele orare să fie setate in ordine cronologică. În caz contrar, utilizatorul trebuie avertizat printr-un mesaj și i se oferă posibilitatea reintroducerii datelor.
+
+\vspace{1em}
+\begin{lstlisting}
+timeObjectA = getTime(a)
+timeObjectB = getTime(b)
+timeObjectC = getTime(c)
+timeObjectD = getTime(d)
+
+if timeObjectA < timeObjectB < timeObjectC < timeObjectD:
+       try:
+              firebase.put('Intervals/WorkingDay', 'A', a)
+              firebase.put('Intervals/WorkingDay', 'B', b)
+              firebase.put('Intervals/WorkingDay', 'C', c)
+              firebase.put('Intervals/WorkingDay', 'D', d)
+
+              firebase.put('Intervals/WorkingDay', 'TemperatureAB', int(temperatureAB))
+              firebase.put('Intervals/WorkingDay', 'TemperatureBC', int(temperatureBC))
+              firebase.put('Intervals/WorkingDay', 'TemperatureCD', int(temperatureCD))
+              firebase.put('Intervals/WorkingDay', 'TemperatureDA', int(temperatureDA))
+       except Exception as err:
+                flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
+else:
+    	 return render_template('schedulingPage.html')
+\end{lstlisting}
+\vspace{2em} 
+
+	Pentru a putea stabili dacă există o ordine cronologică, se apelează funcția \textit{getTime} cu datele pe care le citim de la intrarea pentru formatul de tip timp. Se creează obiecte ce conțin data, ora și minutul curent pentru fiecare interval în parte. Datorită faptului că aceste obiecte sunt predefinite in \textit{python}, se pot aplica operații de comparație asupra lor. 
+
+	Implementarea funcției de încapsulare a valorilor intervalelor o voi prezenta în rândurile ce urmează, împreună cu explicațiile de cod aferente. 
+
+\vspace{1em}
+\begin{lstlisting}
+def getTime(timeFormat):
+    hour = getHourFromTimeFormat(timeFormat)
+    minute = getMinuteFromTimeFormat(timeFormat)
+
+    now = datetime.now(pytz.timezone('Europe/Bucharest'))
+    dateTimeObject = datetime(now.year, now.month, now.day, hour, minute)
+
+    return dateTimeObject
+\end{lstlisting}
+\vspace{2em} 
+
+	Apelul \textit{getHourFromTimeFormat} și \textit{getMinuteFromTimeFormat} sunt utilizate pentru a despărți șirul de caractere ce conține ora și minutul setat de către utilizator. Obiectele predefinite în \textit{python} pentru stocarea datei și timpului prezintă ca și câmpuri obligatorii: anul, luna, ziua, ora și minutul. Ca și intrare de la utilizator primim doar ora și minutul, iar pentru crearea obiectului, restul valorilor ne sunt puse la dispoziție prin intermediul unui modul, ce are setat fusul orar actual. 
+
+	Intr-un final, după ce datele au fost validate, urmează salvarea acestora în baza de date. Pentru a implementa acest aspect, se utilizează suita de apeluri \textit{firebase.put} care primesc ca și parametrii: câmpul din baza de date unde se vor stoca datele și valorile acestora.
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=0.8\textwidth]{IntervalsWorkingDays.png}
+	\caption{Stocare program intervale orare}
+\end{figure}
 
 	
