@@ -1,0 +1,122 @@
+\begin{thebibliography}{10}
+
+\bibitem{cokeMachine}
+Stephen Ornes.
+\newblock Core concept: The internet of things and the explosion of
+  interconnectivity.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  113(40):11059--11060, 2016.
+
+\bibitem{simoniot}
+simoniot.
+\newblock \urlstyle{same}\url{https://www.simoniot.com/history-of-iot/}.
+\newblock [Data accesării: 01.03.2021].
+
+\bibitem{medical}
+Cristiano~André {da Costa}, Cristian~F. Pasluosta, Björn Eskofier,
+  Denise~Bandeira {da Silva}, and Rodrigo {da Rosa Righi}.
+\newblock Internet of health things: Toward intelligent vital signs monitoring
+  in hospital wards.
+\newblock {\em Artificial Intelligence in Medicine}, 89:61--69, 2018.
+
+\bibitem{army}
+L.~{Yushi}, J.~{Fei}, and Y.~{Hui}.
+\newblock Study on application modes of military internet of things (miot).
+\newblock In {\em 2012 IEEE International Conference on Computer Science and
+  Automation Engineering (CSAE)}, volume~3, pages 630--634, 2012.
+
+\bibitem{V2X}
+K.~{Abboud}, H.~A. {Omar}, and W.~{Zhuang}.
+\newblock Interworking of dsrc and cellular network technologies for v2x
+  communications: A survey.
+\newblock {\em IEEE Transactions on Vehicular Technology}, 65(12):9457--9470,
+  2016.
+
+\bibitem{increaseOfIot}
+Arne Holst.
+\newblock
+  \urlstyle{same}\url{https://www.statista.com/statistics/1183457/iot-connected-devices-worldwide/}.
+\newblock [Data accesării: 01.03.2021].
+
+\bibitem{torelectric}
+Emag.
+\newblock
+  \urlstyle{same}\url{https://www.emag.ro/termostat-inteligent-universal-pentru-centrala-gaz-wifi-comandat-de-pe-smartphone-internet-compatibil-google-home-si-alexa-tor2000gclw/pd/D0BN1LBBM/}.
+\newblock [Data accesării: 03.03.2021].
+
+\bibitem{honeywell}
+Emag.
+\newblock
+  \urlstyle{same}\url{https://www.emag.ro/termostat-smart-honeywell-lyric-t6r-wireless-amplasat-pe-masa-comandat-de-pe-smartphone-y6h910rw4055/pd/DP2V6SBBM/}.
+\newblock [Data accesării: 03.03.2021].
+
+\bibitem{nest}
+Amazon.
+\newblock
+  \urlstyle{same}\url{https://www.amazon.com/Nest-T3007ES-Thermostat-Temperature-Generation/dp/B0131RG6VK/}.
+\newblock [Data accesării: 03.03.2021].
+
+\bibitem{ecobee}
+Amazon.
+\newblock
+  \urlstyle{same}\url{https://www.amazon.com/ecobee3-lite-Smart-Thermostat-Black/dp/B06W56TBLN/}.
+\newblock [Data accesării: 03.03.2021].
+
+\bibitem{ecobeeVSnest}
+Eric Blank.
+\newblock \urlstyle{same}\url{https://thesmartcave.com/ecobee-vs-nest/}.
+\newblock [Data accesării: 03.03.2021].
+
+\bibitem{python}
+Guido Van~Rossum et~al.
+\newblock Python.
+\newblock
+  \urlstyle{same}\url{https://courses.minia.edu.eg/Attach/16028python_lecture1.pdf},
+  1991.
+\newblock [Data accesării: 15.03.2021].
+
+\bibitem{flask}
+Miguel Grinberg.
+\newblock {\em Flask web development: developing web applications with python}.
+\newblock " O'Reilly Media, Inc.", 2018.
+
+\bibitem{c++}
+Bjarne Stroustrup.
+\newblock {\em The C++ programming language}.
+\newblock Pearson Education India, 2000.
+
+\bibitem{arduinoIDE}
+Mohamed Fezari and Ali Al~Dahoud.
+\newblock Integrated development environment “ide” for arduino.
+\newblock {\em WSN applications}, pages 1--12, 2018.
+
+\bibitem{esp8266}
+Espressif Systems.
+\newblock
+  \urlstyle{same}\url{https://components101.com/asset/sites/default/files/component_datasheet/ESP8266-NodeMCU-Datasheet.pdf}.
+\newblock [Data accesării: 21.03.2021].
+
+\bibitem{arduino}
+Mircea Popa.
+\newblock Sisteme Încorporate.
+\newblock Curs Anul 3 CTI, Curs 9.
+
+\bibitem{lcd}
+Handson Technology.
+\newblock
+  \urlstyle{same}\url{http://www.handsontec.com/dataspecs/module/I2C_1602_LCD.pdf}.
+\newblock [Data accesării: 20.03.2021].
+
+\bibitem{rfModule}
+Mantech.
+\newblock
+  \urlstyle{same}\url{http://www.mantech.co.za/Datasheets/Products/433Mhz_RF-TX&RX.pdf}.
+\newblock [Data accesării: 21.03.2021].
+
+\bibitem{buttonDebouncing}
+Jack~G Ganssle.
+\newblock A guide to debouncing.
+\newblock {\em Guide to Debouncing, Ganssle Group, Baltimore, MD, US}, pages
+  1--22, 2004.
+
+\end{thebibliography}

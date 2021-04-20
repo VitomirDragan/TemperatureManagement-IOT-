@@ -46,3 +46,8 @@
 \contentsline {subsection}{\numberline {4.4.2}Programare pl\IeC {\u a}cu\IeC {{\textcommabelow t}}\IeC {\u a} Arduino}{32}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Realizarea aplica\IeC {{\textcommabelow t}}iei web}{34}{subsection.4.4.3}%
 \contentsline {subsubsection}{Secven\IeC {{\textcommabelow t}}e de cod esen\IeC {{\textcommabelow t}}iale din cadrul implement\IeC {\u a}rii aplica\IeC {{\textcommabelow t}}iei web}{34}{section*.6}%
+\contentsline {subsection}{\numberline {4.4.4}Probleme \IeC {\^\i }nt\IeC {\^a}mpinate \IeC {\^\i }n timpul realiz\IeC {\u a}rii proiectului}{41}{subsection.4.4.4}%
+\contentsline {subsubsection}{For\IeC {{\textcommabelow t}}a contraelectromotoare a bobinei}{41}{section*.7}%
+\contentsline {subsubsection}{Vibra\IeC {{\textcommabelow t}}iile contactelor metalice ale \IeC {\^\i }ntrerup\IeC {\u a}toarelor}{41}{section*.8}%
+\contentsline {subsubsection}{Amorsarea instala\IeC {{\textcommabelow t}}iei cu ap\IeC {\u a}}{41}{section*.9}%
+\contentsline {subsubsection}{Conflict de date ap\IeC {\u a}rut la transferul simultan al transmi\IeC {{\textcommabelow t}}\IeC {\u a}toarelor prin radio-frecven\IeC {{\textcommabelow t}}\IeC {\u a}}{42}{section*.10}%

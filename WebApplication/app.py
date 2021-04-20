@@ -197,6 +197,8 @@ def changePassword():
 @app.route('/setIntervalsForWorkingDays', methods=['GET', 'POST'])
 @login_required
 def setIntervalsForWorkingDays():
+    MIN = 15
+    MAX = 32
     if request.method == 'POST':
         a = request.form.get('firstWorkingDayInterval')
         b = request.form.get('secondWorkingDayInterval')
@@ -213,29 +215,34 @@ def setIntervalsForWorkingDays():
         timeObjectC = getTime(c)
         timeObjectD = getTime(d)
 
-        if timeObjectA < timeObjectB < timeObjectC < timeObjectD:
-            try:
-                firebase.put('Intervals/WorkingDay', 'A', a)
-                firebase.put('Intervals/WorkingDay', 'B', b)
-                firebase.put('Intervals/WorkingDay', 'C', c)
-                firebase.put('Intervals/WorkingDay', 'D', d)
-
-                firebase.put('Intervals/WorkingDay', 'TemperatureAB', int(temperatureAB))
-                firebase.put('Intervals/WorkingDay', 'TemperatureBC', int(temperatureBC))
-                firebase.put('Intervals/WorkingDay', 'TemperatureCD', int(temperatureCD))
-                firebase.put('Intervals/WorkingDay', 'TemperatureDA', int(temperatureDA))
-
-                flash('Intervals were set successfully!', 'info')
-            except Exception as err:
-                flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
+        if int(temperatureAB) < MIN or int(temperatureAB) > MAX or int(temperatureBC) < MIN or int(temperatureBC) > MAX or int(temperatureCD) < MIN or int(temperatureCD) > MAX or int(temperatureDA) < MIN or int(temperatureDA) > MAX:
+            flash('The values of temperatures should be between 15 and 32 degrees!', 'warning')
         else:
-            flash('Time intervals must be set chronologically!', 'warning')
+            if timeObjectA < timeObjectB < timeObjectC < timeObjectD:
+                try:
+                    firebase.put('Intervals/WorkingDay', 'A', a)
+                    firebase.put('Intervals/WorkingDay', 'B', b)
+                    firebase.put('Intervals/WorkingDay', 'C', c)
+                    firebase.put('Intervals/WorkingDay', 'D', d)
+
+                    firebase.put('Intervals/WorkingDay', 'TemperatureAB', int(temperatureAB))
+                    firebase.put('Intervals/WorkingDay', 'TemperatureBC', int(temperatureBC))
+                    firebase.put('Intervals/WorkingDay', 'TemperatureCD', int(temperatureCD))
+                    firebase.put('Intervals/WorkingDay', 'TemperatureDA', int(temperatureDA))
+
+                    flash('Intervals were set successfully!', 'info')
+                except Exception as err:
+                    flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
+            else:
+                flash('Time intervals must be set chronologically!', 'warning')
     return render_template('schedulingPage.html')
 
 
 @app.route('/setIntervalsForWeekend', methods=['GET', 'POST'])
 @login_required
 def setIntervalsForWeekend():
+    MIN = 15
+    MAX = 32
     if request.method == 'POST':
         a = request.form.get('firstWeekendInterval')
         b = request.form.get('secondWeekendInterval')
@@ -246,19 +253,23 @@ def setIntervalsForWeekend():
         timeObjectA = getTime(a)
         timeObjectB = getTime(b)
 
-        if timeObjectA < timeObjectB:
-            try:
-                firebase.put('Intervals/Weekend', 'A', a)
-                firebase.put('Intervals/Weekend', 'B', b)
-
-                firebase.put('Intervals/Weekend', 'TemperatureAB', int(temperatureAB))
-                firebase.put('Intervals/Weekend', 'TemperatureBA', int(temperatureBA))
-
-                flash('Intervals were set successfully!', 'info')
-            except Exception as err:
-                flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
+        if int(temperatureAB) < MIN or int(temperatureAB) > MAX or int(temperatureBA) < MIN or int(
+                temperatureBA) > MAX:
+            flash('The values of temperatures should be between 15 and 32 degrees!', 'warning')
         else:
-            flash('Time intervals must be set chronologically!', 'warning')
+            if timeObjectA < timeObjectB:
+                try:
+                    firebase.put('Intervals/Weekend', 'A', a)
+                    firebase.put('Intervals/Weekend', 'B', b)
+
+                    firebase.put('Intervals/Weekend', 'TemperatureAB', int(temperatureAB))
+                    firebase.put('Intervals/Weekend', 'TemperatureBA', int(temperatureBA))
+
+                    flash('Intervals were set successfully!', 'info')
+                except Exception as err:
+                    flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
+            else:
+                flash('Time intervals must be set chronologically!', 'warning')
     return render_template('schedulingPage.html')
 
 

@@ -537,41 +537,51 @@ def home():
 	\caption{Intrare HTML pentru formatul numeric}
 \end{figure}
 
-	După ce utilizatorul completează toate câmpurile, este necesar ca aceste valori să fie transmise mai departe parții, din cadrul aplicației web, responsabile cu procesarea informațiilor. Transferul datelor se face prin intermediul unui buton, iar aspectul acestuia este creat în \textit{Bootstrap}.
+	După ce utilizatorul completează toate câmpurile, aceste valori urmează să fie transmise mai departe parții, din cadrul aplicației web, responsabile cu procesarea informațiilor. Transferul datelor se face la acționarea unui buton, iar aspectul acestuia este creat în \textit{Bootstrap}.
 \vspace{1em}
 \begin{lstlisting}
 	<button type="submit" class="btn btn-primary btn-block">Set intervals</button>
 \end{lstlisting}
 \vspace{2em} 
 
-	Înainte de salvarea valorilor în baza de date, este necesară o verificare a acestora. Condiția primordială care trebuie respectată este ca intervalele orare să fie setate in ordine cronologică. În caz contrar, utilizatorul trebuie avertizat printr-un mesaj și i se oferă posibilitatea reintroducerii datelor.
+	Înainte de salvarea informațiilor în baza de date, este necesară o verificare a acestora. Valorile temperaturilor trebuie să se încadreze în intervalul 15 °C și 32 °C, iar orice depășire a acestor limite nu poate fi stocată. De asemenea, ordinea intervalelor orare trebuie să fie setată într-un mod cronologic. În cazul în care aceste condiții nu sunt respectate, se va afișa un mesaj de eroare adaptat contextului, iar utilizatorului i se oferă posibilitatea reintroducerii datelor.
+
 
 \vspace{1em}
 \begin{lstlisting}
+MIN = 15
+MAX = 32
+
 timeObjectA = getTime(a)
 timeObjectB = getTime(b)
 timeObjectC = getTime(c)
 timeObjectD = getTime(d)
 
-if timeObjectA < timeObjectB < timeObjectC < timeObjectD:
-       try:
-              firebase.put('Intervals/WorkingDay', 'A', a)
-              firebase.put('Intervals/WorkingDay', 'B', b)
-              firebase.put('Intervals/WorkingDay', 'C', c)
-              firebase.put('Intervals/WorkingDay', 'D', d)
-
-              firebase.put('Intervals/WorkingDay', 'TemperatureAB', int(temperatureAB))
-              firebase.put('Intervals/WorkingDay', 'TemperatureBC', int(temperatureBC))
-              firebase.put('Intervals/WorkingDay', 'TemperatureCD', int(temperatureCD))
-              firebase.put('Intervals/WorkingDay', 'TemperatureDA', int(temperatureDA))
-       except Exception as err:
-                flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
+if int(temperatureAB) < MIN or int(temperatureAB) > MAX or int(temperatureBC) < MIN or int(temperatureBC) > MAX or     			int(temperatureCD) < MIN or int(temperatureCD) > MAX or int(temperatureDA) < MIN or int(temperatureDA) > MAX:
+            flash('The values of temperatures should be between 15 and 32 degrees!', 'warning')
 else:
-    	 return render_template('schedulingPage.html')
+	if timeObjectA < timeObjectB < timeObjectC < timeObjectD:
+      		try:
+              	firebase.put('Intervals/WorkingDay', 'A', a)
+              	firebase.put('Intervals/WorkingDay', 'B', b)
+              	firebase.put('Intervals/WorkingDay', 'C', c)
+              	firebase.put('Intervals/WorkingDay', 'D', d)
+
+              	firebase.put('Intervals/WorkingDay', 'TemperatureAB', int(temperatureAB))
+              	firebase.put('Intervals/WorkingDay', 'TemperatureBC', int(temperatureBC))
+              	firebase.put('Intervals/WorkingDay', 'TemperatureCD', int(temperatureCD))
+              	firebase.put('Intervals/WorkingDay', 'TemperatureDA', int(temperatureDA))
+       	except Exception as err:
+                	flash('An error ocurred while setting intervals: {0}'.format(err), 'warning')
+	else:
+		flash('Time intervals must be set chronologically!', 'warning')
+return render_template('schedulingPage.html')
 \end{lstlisting}
 \vspace{2em} 
 
-	Pentru a putea stabili dacă există o ordine cronologică, se apelează funcția \textit{getTime} cu datele pe care le citim de la intrarea pentru formatul de tip timp. Se creează obiecte ce conțin data, ora și minutul curent pentru fiecare interval în parte. Datorită faptului că aceste obiecte sunt predefinite in \textit{python}, se pot aplica operații de comparație asupra lor. 
+	Prima instrucțiune condițională utilizată în codul prezentat anterior, are rolul de a determina dacă valorile temperaturilor introduse se încadrează în intervalul acceptat de sistem și de aplicația web.  
+
+	Pe de altă parte, pentru a putea stabili dacă există o ordine cronologică, se apelează funcția \textit{getTime} cu datele pe care le citim de la intrarea pentru formatul de tip timp. Se creează obiecte ce conțin data, ora și minutul curent pentru fiecare interval în parte. Datorită faptului că aceste obiecte sunt predefinite in \textit{python}, se pot aplica operații de comparație asupra lor. 
 
 	Implementarea funcției de încapsulare a valorilor intervalelor o voi prezenta în rândurile ce urmează, împreună cu explicațiile de cod aferente. 
 
@@ -590,12 +600,33 @@ def getTime(timeFormat):
 
 	Apelul \textit{getHourFromTimeFormat} și \textit{getMinuteFromTimeFormat} sunt utilizate pentru a despărți șirul de caractere ce conține ora și minutul setat de către utilizator. Obiectele predefinite în \textit{python} pentru stocarea datei și timpului prezintă ca și câmpuri obligatorii: anul, luna, ziua, ora și minutul. Ca și intrare de la utilizator primim doar ora și minutul, iar pentru crearea obiectului, restul valorilor ne sunt puse la dispoziție prin intermediul unui modul, ce are setat fusul orar actual. 
 
-	Intr-un final, după ce datele au fost validate, urmează salvarea acestora în baza de date. Pentru a implementa acest aspect, se utilizează suita de apeluri \textit{firebase.put} care primesc ca și parametrii: câmpul din baza de date unde se vor stoca datele și valorile acestora.
+	Intr-un final, după ce datele au fost validate, urmează salvarea acestora în baza de date. Pentru a implementa acest aspect, se utilizează suita de apeluri \textit{firebase.put}, care primesc ca și parametrii: numele câmpului unde urmează să se facă stocarea, împreună cu informațiile aferente.
+
 
 \begin{figure}[H]
    	\centering
     	\includegraphics[width=0.8\textwidth]{IntervalsWorkingDays.png}
 	\caption{Stocare program intervale orare}
 \end{figure}
+
+\subsection{Probleme întâmpinate în timpul realizării proiectului}
+
+\subsubsection{Forța contraelectromotoare a bobinei}
+
+	Electrovalvele sunt formate dintr-un solenoid. Aplicarea tensiunii la bornele acestuia duce la generarea unui câmp electromagnetic, care la rândul său acționează un obturator. Astfel, se realizează închiderea/deschiderea circuitului de apă. Este important de menționat faptul că solenoidul înmagazinează curent, iar întreruperea alimentarii electrice a acestuia produce o descărcare, ce se manifestă prin apariția unor fluctuații de tensiune în circuit. Prezența acestor fluctuații poate duce la arderea celorlalte componente electronice, dar și la o uzură accentuată a releelor de comandă. De asemenea, descărcarea solenoidului produce apariția unor scântei între contactele releului, determinând perturbații în intreg sistemul. Un exemplu de disfuncționalitate cu care m-am confruntat din aceasă cauză, a fost dereglarea temperaturii setate, în momentul în care modulul ESP8266 trimitea comandă de inchidere a elevtrovalvei.   
+
+\subsubsection{Vibrațiile contactelor metalice ale întrerupătoarelor}
+
+	Pentru a putea modifica valoarea temperaturii setate a fi menținute în imobil, se utilizează butoane fizice, legate prin conductori eletrici la modulele WiFi. Din punct de vedere funcțional, acestea pot avea comportament neașteptat, cauzat de vibrațiile fine care se produc între contactele metalice ale întrerupătorului. Frecvența cu care microcontrolerul citește semnalul provenit de la buton este suficient de mare, astfel încât, să poată sesiza inclusiv o vibrație ca fiind o apăsare distinctă. Prin urmare, se întâmpla ocazional ca intenția utilizatorului de a incrementa sau decrementa cu o unitate temperatura setată, să se traducă în modificarea acesteia cu mai multe unități. Soluția pe care am implementat-o în această situație, a fost realizarea și montarea unor filtre trece-jos pentru fiecare buton în parte. Rolul acestora este de a permite trecerea doar a semnalelor cu frecvențe mici, iar cele de frecvențe mari, perturbațiile, fiind oprite. Capturile de ecran din cadrul capitolului 3, prezintă semnalul înainte de filtrare \ref{fig:InainteDeFiltru}, dar și după aceasta \ref{fig:DupaFiltru}.
+
+\subsubsection{Amorsarea instalației cu apă}
+
+	Pompa de apă pe care am utilizat-o în circuit, nu prezintă funcționalitate de autoamorsare. Prin urmare, prima tentativă de umplere a circuitului cu apă, a constat în desfacerea unei îmbinări a circuitului și introducerea apei cu o seringă prin aceasta. Din cauza faptului că instalația prezintă multe coturi, iar introducerea apei nu o faceam din punctul cel mai înalt, procentajul de umplere al circuitului nu era satisfăcător. Ca și disfuncționalitate, se manifesta prin faptul că pompa de apă de dezamorsa în timpul funcționării. Într-un final, am decis să montez un aerisitor în punctul cel mai înalt al instalației, iar introducerea apei să se facă prin acesta. Astfel, volumul de aer din circuit a fost redus considerabil, ducând la eliminarea situațiilor de dezamorsare a pompei.
+
+\subsubsection{Conflict de date apărut la transferul simultan al transmițătoarelor prin radio-frecvență}
+
+	Ambele transmițătoare utilizate în cadrul machetei funcționează la aceeași frecvență, 433 Mhz. Transferul datelor se face către un singur receptor, montat pe modulul de comandă al centralei termice. Din punct de vedere funcțional, apăreau probleme în momentul în care ambele transmițătoare făceau transfer simultan. Datele nu mai ajungeau să fie recepționate de către receptor, ajungând la pierderea comenzilor. Modulele wireless sunt conectate la un server prin intermediul căruia citesc data și ora curentă. Utilizând acest aspect, am programat modulele astfel încât să facă transferul de date concurent. Un modul va transfera la secundă pară, pe când celălalt la secundă impară. 
+
+
 
 	

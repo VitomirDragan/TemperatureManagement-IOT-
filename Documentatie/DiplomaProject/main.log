@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  17 APR 2021 20:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  20 APR 2021 22:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -540,12 +540,12 @@ LaTeX Info: Redefining \nameref on input line 61.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<fig/ACLogo.jpg, id=172, 180.675pt x 157.58875pt>
+<fig/ACLogo.jpg, id=176, 180.675pt x 157.58875pt>
 File: fig/ACLogo.jpg Graphic file (type jpg)
 <use fig/ACLogo.jpg>
 Package pdftex.def Info: fig/ACLogo.jpg  used on input line 5.
 (pdftex.def)             Requested size: 180.67455pt x 157.58835pt.
-<fig/DCTILogo.png, id=173, 220.9053pt x 144.2991pt>
+<fig/DCTILogo.png, id=177, 220.9053pt x 144.2991pt>
 File: fig/DCTILogo.png Graphic file (type png)
 <use fig/DCTILogo.png>
 Package pdftex.def Info: fig/DCTILogo.png  used on input line 6.
@@ -592,7 +592,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
-<fig/UPTLogo.jpg, id=175, 409.0482pt x 139.9629pt>
+<fig/UPTLogo.jpg, id=179, 409.0482pt x 139.9629pt>
 File: fig/UPTLogo.jpg Graphic file (type jpg)
 <use fig/UPTLogo.jpg>
 Package pdftex.def Info: fig/UPTLogo.jpg  used on input line 17.
@@ -636,72 +636,39 @@ l.32 ...3.6}Filtrarea semnalelor}{16}{section.3.6}
  (./introduction.tex
 [2]
 Capitolul 1.
-
-LaTeX Warning: Citation `cokeMachine' on page 3 undefined on input line 8.
-
-
-LaTeX Warning: Citation `simoniot' on page 3 undefined on input line 8.
-
-
-LaTeX Warning: Citation `simoniot' on page 3 undefined on input line 8.
-
-
-LaTeX Warning: Citation `medical' on page 3 undefined on input line 12.
-
-
-LaTeX Warning: Citation `army' on page 3 undefined on input line 14.
-
 [3
 
 ]
-
-LaTeX Warning: Citation `V2X' on page 4 undefined on input line 16.
-
-
-LaTeX Warning: Citation `increaseOfIot' on page 4 undefined on input line 20.
-
-
 Overfull \hbox (0.1902pt too wide) in paragraph at lines 20--21
 []\T1/ptm/m/n/12 Faptul c  do-me-niul IoT pre-zint  o uti-li-tate care nu poate
  fi ne-gli-jat , ex-plic  cre[]terea
  []
 
-<./fig//Statistica-IoT.png, id=242, 1003.75pt x 745.78625pt>
+<./fig//Statistica-IoT.png, id=257, 1003.75pt x 745.78625pt>
 File: ./fig//Statistica-IoT.png Graphic file (type png)
 <use ./fig//Statistica-IoT.png>
 Package pdftex.def Info: ./fig//Statistica-IoT.png  used on input line 26.
 (pdftex.def)             Requested size: 334.60422pt x 248.61377pt.
 [4 <./fig//Statistica-IoT.png>]) (./state of the art.tex [5]
 Capitolul 2.
-
-LaTeX Warning: Citation `torelectric' on page 6 undefined on input line 6.
-
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 0.
 (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<./fig//Torelectric.png, id=255, 197.23688pt x 198.24063pt>
+<./fig//Torelectric.png, id=274, 197.23688pt x 198.24063pt>
 File: ./fig//Torelectric.png Graphic file (type png)
 <use ./fig//Torelectric.png>
 Package pdftex.def Info: ./fig//Torelectric.png  used on input line 18.
 (pdftex.def)             Requested size: 125.47737pt x 126.11432pt.
-
-
-LaTeX Warning: Citation `torelectric' on page 6 undefined on input line 21.
-
-[6
+ [6
 
  <./fig//Torelectric.png>]
-<./fig//Honeywell.png, id=261, 492.33937pt x 364.36125pt>
+<./fig//Honeywell.png, id=282, 492.33937pt x 364.36125pt>
 File: ./fig//Honeywell.png Graphic file (type png)
 <use ./fig//Honeywell.png>
 Package pdftex.def Info: ./fig//Honeywell.png  used on input line 35.
 (pdftex.def)             Requested size: 167.2989pt x 123.8089pt.
-
-
-LaTeX Warning: Citation `honeywell' on page 7 undefined on input line 37.
-
 
 Overfull \hbox (8.32779pt too wide) in paragraph at lines 37--38
 [][]\T1/ptm/m/n/12 Termostatul pro-dus de Ho-neywell se diferen[]iaz 
@@ -722,45 +689,18 @@ Underfull \hbox (badness 2865) in paragraph at lines 43--44
 []\T1/ptm/m/n/12 Controlul de la distan[] , ofe-rit de
  []
 
-
-LaTeX Warning: Citation `honeywell' on page 7 undefined on input line 47.
-
-
-LaTeX Warning: Citation `honeywell' on page 7 undefined on input line 48.
-
-
-LaTeX Warning: Citation `honeywell' on page 7 undefined on input line 50.
-
 [7 <./fig//Honeywell.png>]
-
-LaTeX Warning: Citation `nest' on page 8 undefined on input line 69.
-
-<./fig//Nest.png, id=268, 289.08pt x 224.84pt>
+<./fig//Nest.png, id=295, 289.08pt x 224.84pt>
 File: ./fig//Nest.png Graphic file (type png)
 <use ./fig//Nest.png>
 Package pdftex.def Info: ./fig//Nest.png  used on input line 85.
 (pdftex.def)             Requested size: 167.2989pt x 130.1191pt.
-
-LaTeX Warning: Citation `nest' on page 8 undefined on input line 88.
-
-
-LaTeX Warning: Citation `ecobee' on page 8 undefined on input line 102.
-
-
-LaTeX Warning: Citation `ecobee' on page 8 undefined on input line 106.
-
-[8 <./fig//Nest.png>]
-<./fig//Ecobee.png, id=274, 292.59312pt x 211.79124pt>
+ [8 <./fig//Nest.png>]
+<./fig//Ecobee.png, id=306, 292.59312pt x 211.79124pt>
 File: ./fig//Ecobee.png Graphic file (type png)
 <use ./fig//Ecobee.png>
 Package pdftex.def Info: ./fig//Ecobee.png  used on input line 120.
 (pdftex.def)             Requested size: 167.2989pt x 121.10359pt.
-
-
-LaTeX Warning: Citation `ecobee' on page 9 undefined on input line 122.
-
-
-LaTeX Warning: Citation `ecobeeVSnest' on page 9 undefined on input line 138.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -787,97 +727,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [10]
 Capitolul 3.
-
-LaTeX Warning: Citation `python' on page 11 undefined on input line 6.
-
-
-LaTeX Warning: Citation `python' on page 11 undefined on input line 6.
-
-
-LaTeX Warning: Citation `flask' on page 11 undefined on input line 17.
-
 [11
 
-]
-
-LaTeX Warning: Citation `c++' on page 12 undefined on input line 23.
-
-
-LaTeX Warning: Citation `c++' on page 12 undefined on input line 25.
-
-
-LaTeX Warning: Citation `arduinoIDE' on page 12 undefined on input line 29.
-
-
-LaTeX Warning: Citation `arduinoIDE' on page 12 undefined on input line 31.
-
-
-LaTeX Warning: Citation `arduinoIDE' on page 12 undefined on input line 31.
-
-
-LaTeX Warning: Citation `arduinoIDE' on page 12 undefined on input line 41.
-
-
-LaTeX Warning: Citation `esp8266' on page 12 undefined on input line 47.
-
-
-LaTeX Warning: Citation `esp8266' on page 12 undefined on input line 47.
-
-[12]
-
-LaTeX Warning: Citation `arduino' on page 13 undefined on input line 55.
-
-
-LaTeX Warning: Citation `arduino' on page 13 undefined on input line 57.
-
-
-LaTeX Warning: Citation `arduino' on page 13 undefined on input line 59.
-
-
-LaTeX Warning: Citation `arduino' on page 13 undefined on input line 59.
-
-
-LaTeX Warning: Citation `lcd' on page 13 undefined on input line 63.
-
-
-LaTeX Warning: Citation `lcd' on page 13 undefined on input line 67.
-
-[13]
-
-LaTeX Warning: Citation `rfModule' on page 14 undefined on input line 81.
-
-
-LaTeX Warning: Citation `rfModule' on page 14 undefined on input line 83.
-
-[14]
+] [12] [13] [14]
 Overfull \hbox (3.10678pt too wide) in paragraph at lines 115--116
 []\T1/ptm/m/n/12 Asemenea con-den-sa-to-ru-lui, rezisten[]a se în-ca-dreaz  în 
 ca-te-go-ria com-po-nen-te-lor elec-
  []
 
-
-LaTeX Warning: Citation `buttonDebouncing' on page 15 undefined on input line 1
-27.
-
-
-LaTeX Warning: Citation `buttonDebouncing' on page 15 undefined on input line 1
-27.
-
 [15]
-<./fig//InainteDeFiltru.jpg, id=307, 803.0pt x 602.25pt>
+<./fig//InainteDeFiltru.jpg, id=371, 803.0pt x 602.25pt>
 File: ./fig//InainteDeFiltru.jpg Graphic file (type jpg)
 <use ./fig//InainteDeFiltru.jpg>
 Package pdftex.def Info: ./fig//InainteDeFiltru.jpg  used on input line 137.
 (pdftex.def)             Requested size: 418.25368pt x 313.6956pt.
-<./fig//DupaFiltru.jpg, id=308, 803.0pt x 602.25pt>
+<./fig//DupaFiltru.jpg, id=372, 803.0pt x 602.25pt>
 File: ./fig//DupaFiltru.jpg Graphic file (type jpg)
 <use ./fig//DupaFiltru.jpg>
-Package pdftex.def Info: ./fig//DupaFiltru.jpg  used on input line 143.
+Package pdftex.def Info: ./fig//DupaFiltru.jpg  used on input line 144.
 (pdftex.def)             Requested size: 418.25368pt x 313.6956pt.
  [16 <./fig//InainteDeFiltru.jpg>] [17 <./fig//DupaFiltru.jpg>])
 (./dezvoltarea solutiei.tex [18]
 Capitolul 4.
-<./fig//ArhitecturaSistemului.jpg, id=326, 2220.295pt x 1434.961pt>
+<./fig//ArhitecturaSistemului.jpg, id=391, 2220.295pt x 1434.961pt>
 File: ./fig//ArhitecturaSistemului.jpg Graphic file (type jpg)
 <use ./fig//ArhitecturaSistemului.jpg>
 Package pdftex.def Info: ./fig//ArhitecturaSistemului.jpg  used on input line 1
@@ -886,7 +758,7 @@ Package pdftex.def Info: ./fig//ArhitecturaSistemului.jpg  used on input line 1
 [19
 
 ] [20 <./fig//ArhitecturaSistemului.jpg>]
-<./fig//ModulSenzor.png, id=336, 482.30188pt x 348.30125pt>
+<./fig//ModulSenzor.png, id=401, 482.30188pt x 348.30125pt>
 File: ./fig//ModulSenzor.png Graphic file (type png)
 <use ./fig//ModulSenzor.png>
 Package pdftex.def Info: ./fig//ModulSenzor.png  used on input line 28.
@@ -898,7 +770,7 @@ Overfull \hbox (2.42229pt too wide) in paragraph at lines 66--67
  []
 
 [22]
-<./fig//ModululDeControl.png, id=347, 679.03688pt x 329.73187pt>
+<./fig//ModululDeControl.png, id=412, 679.03688pt x 329.73187pt>
 File: ./fig//ModululDeControl.png Graphic file (type png)
 <use ./fig//ModululDeControl.png>
 Package pdftex.def Info: ./fig//ModululDeControl.png  used on input line 96.
@@ -943,51 +815,107 @@ n-tu-rile cu creden[]ialele
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <12> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 462.
  [35] [36]
-<./fig//IntrareDeTipTimp.png, id=644, 91.84312pt x 228.35312pt>
+<./fig//IntrareDeTipTimp.png, id=709, 91.84312pt x 228.35312pt>
 File: ./fig//IntrareDeTipTimp.png Graphic file (type png)
 <use ./fig//IntrareDeTipTimp.png>
 Package pdftex.def Info: ./fig//IntrareDeTipTimp.png  used on input line 528.
 (pdftex.def)             Requested size: 167.2989pt x 416.02841pt.
-<./fig//IntrareDeTipNumeric.png, id=645, 125.97063pt x 50.1875pt>
+<./fig//IntrareDeTipNumeric.png, id=710, 125.97063pt x 50.1875pt>
 File: ./fig//IntrareDeTipNumeric.png Graphic file (type png)
 <use ./fig//IntrareDeTipNumeric.png>
 Package pdftex.def Info: ./fig//IntrareDeTipNumeric.png  used on input line 536
 .
 (pdftex.def)             Requested size: 167.2989pt x 66.65355pt.
- [37 <./fig//IntrareDeTipTimp.png>] [38 <./fig//IntrareDeTipNumeric.png>]
-<./fig//IntervalsWorkingDays.png, id=675, 274.02374pt x 283.0575pt>
+ [37 <./fig//IntrareDeTipTimp.png>]
+Overfull \hbox (10.02127pt too wide) in paragraph at lines 540--542
+\T1/ptm/m/n/12 mise mai de-parte par[]ii, din ca-drul aplica[]iei web, res-pon-
+sa-bile cu pro-ce-sa-rea informa[]iilor.
+ []
+
+[38 <./fig//IntrareDeTipNumeric.png>] [39]
+<./fig//IntervalsWorkingDays.png, id=764, 274.02374pt x 283.0575pt>
 File: ./fig//IntervalsWorkingDays.png Graphic file (type png)
 <use ./fig//IntervalsWorkingDays.png>
-Package pdftex.def Info: ./fig//IntervalsWorkingDays.png  used on input line 59
-7.
+Package pdftex.def Info: ./fig//IntervalsWorkingDays.png  used on input line 60
+8.
 (pdftex.def)             Requested size: 334.60422pt x 345.6622pt.
- [39]) [40 <./fig//IntervalsWorkingDays.png>] (./main.lof)
+ [40 <./fig//IntervalsWorkingDays.png>] [41]) [42] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [41
+ [43
 
-]
-(./main.lot)
+] (./main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
+ (./main.bbl [44
 
-No file main.bbl.
-[42
+]
+Underfull \hbox (badness 10000) in paragraph at lines 42--46
+\T1/ptm/m/n/12 wi^^\ -[] comandat -[] de -[] pe -[] smartphone -[] internet -[]
+ compatibil -[] google -[] home -[] si -[] alexa -[]
+ []
 
-] (./main.aux)
 
-LaTeX Warning: There were undefined references.
+Underfull \hbox (badness 10000) in paragraph at lines 48--52
+[]\T1/ptm/m/n/12 Emag.  []$https : / / www . emag . ro / termostat -[] smart -[
+] honeywell -[] lyric -[] t6r -[]
+ []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--52
+\T1/ptm/m/n/12 wireless -[] amplasat -[] pe -[] masa -[] comandat -[] de -[] pe
+ -[] smartphone -[] y6h910rw4055 / pd /
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 54--58
+[]\T1/ptm/m/n/12 Amazon.  []$https : / / www . amazon . com / Nest -[] T3007ES 
+-[] Thermostat -[] Temperature -[]
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 60--64
+[]\T1/ptm/m/n/12 Amazon.  []$https : / / www . amazon . com / ecobee3 -[] lite 
+-[] Smart -[] Thermostat -[] Black / dp /
+ []
+
+
+Underfull \hbox (badness 4120) in paragraph at lines 66--69
+[]\T1/ptm/m/n/12 Eric Blank.  []$https : / / thesmartcave . com / ecobee -[] vs
+ -[] nest/$[].  [Data ac-ce-s -rii:
+ []
+
+[45
+
+]
+Underfull \hbox (badness 2426) in paragraph at lines 71--77
+[]\T1/ptm/m/n/12 Guido Van Ro-s-sum et al.  Py-thon.  []$https : / / courses . 
+minia . edu . eg / Attach /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--98
+[]\T1/ptm/m/n/12 Espressif Sys-tems.  []$https : / / components101 . com / asse
+t / sites / default / ^^\les /
+ []
+
+
+Underfull \hbox (badness 5924) in paragraph at lines 94--98
+\T1/ptm/m/n/12 component _ datasheet / ESP8266 -[] NodeMCU -[] Datasheet . pdf$
+[].  [Data ac-ce-s -rii:
+ []
+
+) [46] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 45B7CEAFFE35ACC55B82A9A0D9106B2D;6057.
+(rerunfilecheck)             Checksum: 24768850BC5C63E4B2EA7F026DEE7A38;6411.
  ) 
 Here is how much of TeX's memory you used:
- 14441 strings out of 479302
- 203382 string characters out of 5871205
+ 14512 strings out of 479302
+ 204196 string characters out of 5871205
  770149 words of memory out of 5000000
- 30972 multiletter control sequences out of 15000+600000
+ 31004 multiletter control sequences out of 15000+600000
  504845 words of font info for 162 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,20n,74p,1501b,1946s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -998,10 +926,10 @@ urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr
 o8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texliv
 e/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/
 fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (44 pages, 4471609 bytes).
+Output written on main.pdf (48 pages, 4487088 bytes).
 PDF statistics:
- 825 PDF objects out of 1000 (max. 8388607)
- 740 compressed objects within 8 object streams
- 361 named destinations out of 1000 (max. 500000)
- 417 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 950 PDF objects out of 1000 (max. 8388607)
+ 860 compressed objects within 9 object streams
+ 398 named destinations out of 1000 (max. 500000)
+ 425 words of extra memory for PDF output out of 10000 (max. 10000000)
 

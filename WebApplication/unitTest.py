@@ -141,7 +141,7 @@ class CommonTestCase(BaseTestCase):
             self.assertIn(b'Username', resp.data)
             self.assertFalse(current_user.is_authenticated)
 
-    def test_swithIntervalsOn(self):
+    def test_switchIntervalsOn(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -152,7 +152,7 @@ class CommonTestCase(BaseTestCase):
                                     follow_redirects=True)
             self.assertTrue(b'Schedule' in resp.data)
 
-    def test_swithIntervalsOff(self):
+    def test_switchIntervalsOff(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
@@ -205,6 +205,48 @@ class CommonTestCase(BaseTestCase):
                                     follow_redirects=True)
             self.assertIn(b'Time intervals must be set chronologically!', resp.data)
 
+    def test_setIntervalsWorkingDayTooHighTemperatureValue(self):
+        with self.client:
+            self.client.post('/',
+                             data=dict(username='userNotAdmin', password='userNotAdmin'),
+                             follow_redirects=True
+                             )
+            self.client.post('/switchIntervalsOn',
+                             data=dict(switchIntervalsOn='1'),
+                             follow_redirects=True)
+            resp = self.client.post('/setIntervalsForWorkingDays',
+                                    data=dict(firstWorkingDayInterval='06:00',
+                                              secondWorkingDayInterval='08:00',
+                                              thirdWorkingDayInterval='16:00',
+                                              fourthWorkingDayInterval='22:00',
+                                              temperatureFirstWDInterval='34',
+                                              temperatureSecondWDInterval='21',
+                                              temperatureThirdWDInterval='22',
+                                              temperatureFourthWDInterval='20'),
+                                    follow_redirects=True)
+            self.assertIn(b'The values of temperatures should be between 15 and 32 degrees!', resp.data)
+
+    def test_setIntervalsWorkingDayTooLowTemperatureValue(self):
+        with self.client:
+            self.client.post('/',
+                             data=dict(username='userNotAdmin', password='userNotAdmin'),
+                             follow_redirects=True
+                             )
+            self.client.post('/switchIntervalsOn',
+                             data=dict(switchIntervalsOn='1'),
+                             follow_redirects=True)
+            resp = self.client.post('/setIntervalsForWorkingDays',
+                                    data=dict(firstWorkingDayInterval='06:00',
+                                              secondWorkingDayInterval='08:00',
+                                              thirdWorkingDayInterval='16:00',
+                                              fourthWorkingDayInterval='22:00',
+                                              temperatureFirstWDInterval='22',
+                                              temperatureSecondWDInterval='21',
+                                              temperatureThirdWDInterval='14',
+                                              temperatureFourthWDInterval='20'),
+                                    follow_redirects=True)
+            self.assertIn(b'The values of temperatures should be between 15 and 32 degrees!', resp.data)
+
     def test_setIntervalsWeekend(self):
         with self.client:
             self.client.post('/',
@@ -223,6 +265,7 @@ class CommonTestCase(BaseTestCase):
                                     follow_redirects=True)
             self.assertIn(b'Intervals were set successfully!', resp.data)
 
+
     def test_setIntervalsWeekendNotChronologically(self):
         with self.client:
             self.client.post('/',
@@ -240,6 +283,42 @@ class CommonTestCase(BaseTestCase):
                                               ),
                                     follow_redirects=True)
             self.assertIn(b'Time intervals must be set chronologically!', resp.data)
+
+    def test_setIntervalsWeekendTooHighTemperature(self):
+        with self.client:
+            self.client.post('/',
+                             data=dict(username='userNotAdmin', password='userNotAdmin'),
+                             follow_redirects=True
+                             )
+            self.client.post('/switchIntervalsOn',
+                             data=dict(switchIntervalsOn='1'),
+                             follow_redirects=True)
+            resp = self.client.post('/setIntervalsForWeekend',
+                                    data=dict(firstWeekendInterval='08:00',
+                                              secondWeekendInterval='23:00',
+                                              temperatureFirstWInterval='33',
+                                              temperatureSecondWInterval='20'
+                                              ),
+                                    follow_redirects=True)
+            self.assertIn(b'The values of temperatures should be between 15 and 32 degrees!', resp.data)
+
+    def test_setIntervalsWeekendTooLowTemperature(self):
+        with self.client:
+            self.client.post('/',
+                             data=dict(username='userNotAdmin', password='userNotAdmin'),
+                             follow_redirects=True
+                             )
+            self.client.post('/switchIntervalsOn',
+                             data=dict(switchIntervalsOn='1'),
+                             follow_redirects=True)
+            resp = self.client.post('/setIntervalsForWeekend',
+                                    data=dict(firstWeekendInterval='08:00',
+                                              secondWeekendInterval='23:00',
+                                              temperatureFirstWInterval='22',
+                                              temperatureSecondWInterval='14'
+                                              ),
+                                    follow_redirects=True)
+            self.assertIn(b'The values of temperatures should be between 15 and 32 degrees!', resp.data)
 
     def test_changePassword(self):
         with self.client:
