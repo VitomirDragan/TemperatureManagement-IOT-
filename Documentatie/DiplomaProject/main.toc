@@ -50,4 +50,5 @@
 \contentsline {subsubsection}{For\IeC {{\textcommabelow t}}a contraelectromotoare a bobinei}{41}{section*.7}%
 \contentsline {subsubsection}{Vibra\IeC {{\textcommabelow t}}iile contactelor metalice ale \IeC {\^\i }ntrerup\IeC {\u a}toarelor}{41}{section*.8}%
 \contentsline {subsubsection}{Amorsarea instala\IeC {{\textcommabelow t}}iei cu ap\IeC {\u a}}{41}{section*.9}%
-\contentsline {subsubsection}{Conflict de date ap\IeC {\u a}rut la transferul simultan al transmi\IeC {{\textcommabelow t}}\IeC {\u a}toarelor prin radio-frecven\IeC {{\textcommabelow t}}\IeC {\u a}}{42}{section*.10}%
+\contentsline {subsubsection}{Conflict de date ap\IeC {\u a}rut la transferul prin radio-frecven\IeC {{\textcommabelow t}}\IeC {\u a}}{42}{section*.10}%
+\contentsline {section}{\numberline {4.5}Testarea solu\IeC {{\textcommabelow t}}iei}{42}{section.4.5}%

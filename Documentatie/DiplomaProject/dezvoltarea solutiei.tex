@@ -623,10 +623,60 @@ def getTime(timeFormat):
 
 	Pompa de apă pe care am utilizat-o în circuit, nu prezintă funcționalitate de autoamorsare. Prin urmare, prima tentativă de umplere a circuitului cu apă, a constat în desfacerea unei îmbinări a circuitului și introducerea apei cu o seringă prin aceasta. Din cauza faptului că instalația prezintă multe coturi, iar introducerea apei nu o faceam din punctul cel mai înalt, procentajul de umplere al circuitului nu era satisfăcător. Ca și disfuncționalitate, se manifesta prin faptul că pompa de apă de dezamorsa în timpul funcționării. Într-un final, am decis să montez un aerisitor în punctul cel mai înalt al instalației, iar introducerea apei să se facă prin acesta. Astfel, volumul de aer din circuit a fost redus considerabil, ducând la eliminarea situațiilor de dezamorsare a pompei.
 
-\subsubsection{Conflict de date apărut la transferul simultan al transmițătoarelor prin radio-frecvență}
+\subsubsection{Conflict de date apărut la transferul prin radio-frecvență}
 
 	Ambele transmițătoare utilizate în cadrul machetei funcționează la aceeași frecvență, 433 Mhz. Transferul datelor se face către un singur receptor, montat pe modulul de comandă al centralei termice. Din punct de vedere funcțional, apăreau probleme în momentul în care ambele transmițătoare făceau transfer simultan. Datele nu mai ajungeau să fie recepționate de către receptor, ajungând la pierderea comenzilor. Modulele wireless sunt conectate la un server prin intermediul căruia citesc data și ora curentă. Utilizând acest aspect, am programat modulele astfel încât să facă transferul de date concurent. Un modul va transfera la secundă pară, pe când celălalt la secundă impară. 
 
+\section{Testarea soluției}
+
+	În orice proces ce implică dezvoltare de proiecte de o complexitate mai mare, etapa de testare este una esențială. Aceasta presupune identificarea erorilor sistemului, înainte de a fi pus în producție. Cazurile de test trebuie proiectate astfel încât să cuprindă toate situațiile care pot produce abateri de la comportamentul standard. 
+
+	În ceea ce privește proiectul prezentat, testarea a vizat două mari componente: aplicația web și instalația pentru circuitul de apă. \textit{Flask} oferă posibilitatea de creare de teste unitare pentru proiectele realizate prin intermediul lui. Pe lângă aceasta, permite și analiza procentului de acoperire al întregii aplicații prin testele scrise.
+
+	Voi începe prin a prezenta partea de validare a aplicației web. Am realizat o suită de 50 de teste, pe care am împărțit-o în 3 mari categorii. Prima categorie conține cazurile de test comune pentru toți utilizatorii, funcționalități care sunt valabile indiferent de rolul persoanei autentificate aplicației. Am încercat să abordez o manieră exhaustivă, prin simularea tuturor situațiilor de eroare, dar și de reușită. Printre cazurile mai importante de test care se încadrează în această categorie sunt:
+
+	\begin{itemize}
+			\setlength{\itemindent}{2em}
+			\itemsep0em
+			\item Verificarea faptului că pentru a putea realiza orice funcționalitate din aplicația web, trebuie să existe un utilizator conectat. Altfel, accesul este obligatoriu să fie interzis.
+			\item Încercarea de conectare utilizând un cont inexistent, trebuie interzisă și avertizată printr-un mesaj de eroare.
+			\item Verificarea funcției de criptare a parolei utilizatorului.
+			\item Verificarea posibilității de conectare la aplicația web.
+			\item Introducerea parolei greșite în momentul conectării.
+			\item Testarea funcționalității de deconectare.
+			\item Acitvare/Dezactivare mod de lucru cu intervale orare
+			\item Controlul posibilității de setare a intervalelor pentru zile lucrătoare, dar si pentru cele de la sfârșitul săptămânii. De asemenea, cazurile acestea de test se împart în mai multe. Situația în care acestea nu sunt setate în ordine cronologică și situația în care vreo valoare a temperaturii nu se încadrează în intervalul 15 °C - 32 °C.
+			\item Funcția de schimbare a parolei, implică verificarea situațiilor în care: parola curentă nu este validă, parolele introduse nu se potrivesc, noua parolă este prea scurtă, noua parolă nu conține majusculă și situația în care noua parolă nu conține cifră.
+			\item Verificarea funcției de setare a temperaturii pentru ambele camere.
+	\end{itemize} 
+
+	Cea de-a doua categorie este dedicată testelor unitare pentru utilizatorii care nu au drepturi de administrator. În principiu, aici se verifică faptul că doar aministratorii au acces la funcționalitățile privilegiate. Sunt validate cazurile de test precum:
+ 
+	\begin{itemize}
+			\setlength{\itemindent}{2em}
+			\itemsep0em
+			\item Un cont fără drept de aministrator nu este autorizat pentru crearea de alte conturi.
+			\item Nu este permis accesul pentru a vedea lista de conturi, a șterge un cont, a oferi drepturi de administrator sau a șterge drepturi de aministrator.
+	\end{itemize} 
+
+	În cele din urmă, ultima categorie cuprinde testarea doar a funcționalităților dedicate administratorilor. Se verifică:
+
+	\begin{itemize}
+			\setlength{\itemindent}{2em}
+			\itemsep0em
+			\item Posibilitatea de creare de conturi noi.
+			\item Interzicerea accesului de a crea un cont nou dacă: parolele nu se potrivesc, parola introdusă este prea scurtă, nu conține majusculă sau nu conține cel puțin o cifră.
+			\item Ștergerea unui cont.
+			\item Incercarea de ștergere a unui cont inexistent.
+			\item Acordarea drepturilor de administrator unui anumit cont.
+			\item Acordarea drepturilor de administrator unui cont inexistent.
+			\item Retragerea drepturilor de administrator.
+			\item Retragerea drepturilor de administrator pentru un cont inexistent.
+	\end{itemize} 
+
+Coverage.... rezultate experimentale....
+
+	Partea de verificare a instalației de apă a fost una mai simplă. După finalizarea lipiturilor conductelor de cupru și montarea garniturilor la fiecare îmbinare, a fost necesară o verificare a faptului că etanșeitatea este asigurată. Procesul a constat în introducerea unei presiuni de 2 bari, pe care am menținut-o în circuit un timp de 10 minute. În toată această perioadă, am monitorizat, cu ajutorul manometrului pompei de aer, faptul că presiunea rămâne constantă. Pentru a mă asigura că pompa de apă și electrovalvele funcționează corespunzător, am folosit o sursă de tensiune de 12 volți și am alimentat fiecare componentă electrică în parte. 
 
 
 	
