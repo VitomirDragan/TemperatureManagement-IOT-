@@ -1,14 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.9)  21 APR 2021 23:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.4.22)  28 APR 2021 22:48
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
-**main.tex
-(./main.tex
+**./main.tex
+(main.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-06>
-(c:/texlive/2020/texmf-dist/tex/latex/base/book.cls
+L3 programming layer <2021-01-09> xparse <2020-03-03>
+("D:\New folder\tex/latex/base\book.cls"
 Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
-(c:/texlive/2020/texmf-dist/tex/latex/base/bk12.clo
+("D:\New folder\tex/latex/base\bk12.clo"
 File: bk12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
 \c@part=\count177
@@ -24,18 +22,16 @@ File: bk12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
 )
-(c:/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
+("D:\New folder\tex/latex/base\inputenc.sty"
 Package: inputenc 2020/08/01 v1.3d Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-(c:/texlive/2020/texmf-dist/tex/latex/ucs/utf8x.def
+("D:\New folder\tex/latex/ucs\utf8x.def"
 File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
-))
-(c:/texlive/2020/texmf-dist/tex/latex/ucs/ucs.sty
+)) ("D:\New folder\tex/latex/ucs\ucs.sty"
 Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
-
-(c:/texlive/2020/texmf-dist/tex/latex/ucs/data/uni-global.def
+ ("D:\New folder\tex/latex/ucs\uni-global.def"
 File: uni-global.def 2013/05/13 UCS: Unicode global data
 )
 \uc@secondtry=\count186
@@ -43,46 +39,46 @@ File: uni-global.def 2013/05/13 UCS: Unicode global data
 \uc@combtoksb=\toks18
 \uc@temptokena=\toks19
 )
-(c:/texlive/2020/texmf-dist/tex/latex/ucs/data/uni-1.def
+("D:\New folder\tex/latex/ucs\uni-1.def"
 File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
 )
-(c:/texlive/2020/texmf-dist/tex/latex/ucs/data/uni-0.def
+("D:\New folder\tex/latex/ucs\uni-0.def"
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-(c:/texlive/2020/texmf-dist/tex/latex/ucs/data/uni-2.def
+("D:\New folder\tex/latex/ucs\uni-2.def"
 File: uni-2.def 2013/05/13 UCS: Unicode data U+0200..U+02FF
 )
-(c:/texlive/2020/texmf-dist/tex/latex/ucs/data/uni-32.def
+("D:\New folder\tex/latex/ucs\uni-32.def"
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/bookman.sty
+("D:\New folder\tex/latex/psnfss\bookman.sty"
 Package: bookman 2020/03/25 PSNFSS-v9.3 (SPQR) 
 )
-(c:/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+("D:\New folder\tex/latex/graphics\graphicx.sty"
 Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
 
-(c:/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+("D:\New folder\tex/latex/graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks20
 )
-(c:/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+("D:\New folder\tex/latex/graphics\graphics.sty"
 Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
 
-(c:/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+("D:\New folder\tex/latex/graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+("D:\New folder\tex/latex/graphics-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 
-(c:/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+("D:\New folder\tex/latex/graphics-def\pdftex.def"
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen139
 \Gin@req@width=\dimen140
 )
-(c:/texlive/2020/texmf-dist/tex/latex/listings/listings.sty
+("D:\New folder\tex/latex/listings\listings.sty"
 \lst@mode=\count187
 \lst@gtempboxa=\box47
 \lst@token=\toks21
@@ -96,26 +92,26 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 \lst@lineno=\count192
 \lst@maxwidth=\dimen144
 
-(c:/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
+("D:\New folder\tex/latex/listings\lstmisc.sty"
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count193
 \lst@skipnumbers=\count194
 \lst@framebox=\box48
 )
-(c:/texlive/2020/texmf-dist/tex/latex/listings/listings.cfg
+("D:\New folder\tex/latex/listings\listings.cfg"
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
-(c:/texlive/2020/texmf-dist/tex/latex/graphics/color.sty
+("D:\New folder\tex/latex/graphics\color.sty"
 Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
 
-(c:/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+("D:\New folder\tex/latex/graphics-cfg\color.cfg"
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-(c:/texlive/2020/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+("D:\New folder\tex/latex/fancyhdr\fancyhdr.sty"
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
 rs
 \f@nch@headwidth=\skip49
@@ -128,18 +124,18 @@ rs
 \f@nch@O@olf=\skip56
 \f@nch@O@orf=\skip57
 )
-(c:/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
+("D:\New folder\tex/latex/base\fontenc.sty"
 Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+pbk on input line 11
 2.
 
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/t1pbk.fd
+("D:\New folder\tex/latex/psnfss\t1pbk.fd"
 File: t1pbk.fd 2001/06/04 font definitions for T1/pbk.
 )
 LaTeX Font Info:    Font shape `T1/pbk/m/n' in size <12> not available
 (Font)              Font shape `T1/pbk/l/n' tried instead on input line 112.
 )
-(c:/texlive/2020/texmf-dist/tex/latex/float/float.sty
+("D:\New folder\tex/latex/float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count195
 \float@exts=\toks22
@@ -147,16 +143,16 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks23
 \@floatcapt=\box50
 )
-(c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+("D:\New folder\tex/latex/base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+("D:\New folder\tex/latex/geometry\geometry.sty"
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(c:/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+("D:\New folder\tex/generic/iftex\ifvtex.sty"
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(c:/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+("D:\New folder\tex/generic/iftex\iftex.sty"
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
 \Gm@cnth=\count196
@@ -171,11 +167,12 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@layouthoffset=\dimen151
 \Gm@layoutvoffset=\dimen152
 \Gm@dimlist=\toks24
-)
-(c:/texlive/2020/texmf-dist/tex/latex/tools/indentfirst.sty
+
+("D:\New folder\tex/latex/geometry\geometry.cfg"))
+("D:\New folder\tex/latex/latex-tools\indentfirst.sty"
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/mathptmx.sty
+("D:\New folder\tex/latex/psnfss\mathptmx.sty"
 Package: mathptmx 2020/03/25 PSNFSS-v9.3 Times w/ Math, improved (SPQR, WaS) 
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -211,102 +208,94 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
 LaTeX Info: Redefining \hbar on input line 50.
 )
-(c:/texlive/2020/texmf-dist/tex/latex/url/url.sty
+("D:\New folder\tex/latex/url\url.sty"
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2021-02-07 v7.00h Hypertext links for LaTeX
+("D:\New folder\tex/latex/hyperref\hyperref.sty"
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
 
-(c:/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+("D:\New folder\tex/generic/ltxcmds\ltxcmds.sty"
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+("D:\New folder\tex/generic/pdftexcmds\pdftexcmds.sty"
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(c:/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+("D:\New folder\tex/generic/infwarerr\infwarerr.sty"
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(c:/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+("D:\New folder\tex/generic/kvsetkeys\kvsetkeys.sty"
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+("D:\New folder\tex/generic/kvdefinekeys\kvdefinekeys.sty"
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+("D:\New folder\tex/generic/pdfescape\pdfescape.sty"
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/hycolor/hycolor.sty
+("D:\New folder\tex/latex/hycolor\hycolor.sty"
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+("D:\New folder\tex/latex/letltxmacro\letltxmacro.sty"
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/auxhook/auxhook.sty
+("D:\New folder\tex/latex/auxhook\auxhook.sty"
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+("D:\New folder\tex/latex/kvoptions\kvoptions.sty"
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
 \@linkdim=\dimen153
 \Hy@linkcounter=\count199
 \Hy@pagecounter=\count266
 
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2021-02-07 v7.00h Hyperref: PDFDocEncoding definition (HO)
+("D:\New folder\tex/latex/hyperref\pd1enc.def"
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
-File: hyperref-langpatches.def 2021-02-07 v7.00h Hyperref: patches for babel la
-nguages
-)
-(c:/texlive/2020/texmf-dist/tex/generic/intcalc/intcalc.sty
+("D:\New folder\tex/generic/intcalc\intcalc.sty"
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+("D:\New folder\tex/generic/etexcmds\etexcmds.sty"
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count267
-
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2021-02-07 v7.00h Hyperref: PDF Unicode definition (HO)
-)
-Package hyperref Info: Hyper figures OFF on input line 4178.
-Package hyperref Info: Link nesting OFF on input line 4183.
-Package hyperref Info: Hyper index ON on input line 4186.
-Package hyperref Info: Plain pages OFF on input line 4193.
-Package hyperref Info: Backreferencing OFF on input line 4198.
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4431.
+Package hyperref Info: Bookmarks ON on input line 4717.
 \c@Hy@tempcnt=\count268
-LaTeX Info: Redefining \url on input line 4790.
+LaTeX Info: Redefining \url on input line 5076.
 \XeTeXLinkMargin=\dimen154
 
-(c:/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
+("D:\New folder\tex/generic/bitset\bitset.sty"
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-(c:/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+("D:\New folder\tex/generic/bigintcalc\bigintcalc.sty"
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count269
 \Field@Width=\dimen155
 \Fld@charsize=\dimen156
-Package hyperref Info: Hyper figures OFF on input line 6061.
-Package hyperref Info: Link nesting OFF on input line 6066.
-Package hyperref Info: Hyper index ON on input line 6069.
-Package hyperref Info: backreferencing OFF on input line 6076.
-Package hyperref Info: Link coloring OFF on input line 6081.
-Package hyperref Info: Link coloring with OCG OFF on input line 6086.
-Package hyperref Info: PDF/A mode OFF on input line 6091.
-LaTeX Info: Redefining \ref on input line 6131.
-LaTeX Info: Redefining \pageref on input line 6135.
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
 
-(c:/texlive/2020/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+("D:\New folder\tex/latex/base\atbegshi-ltx.sty"
 Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
@@ -317,10 +306,10 @@ with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2021-02-07 v7.00h Hyperref driver for pdfTeX
+("D:\New folder\tex/latex/hyperref\hpdftex.def"
+File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
 
-(c:/texlive/2020/texmf-dist/tex/latex/base/atveryend-ltx.sty
+("D:\New folder\tex/latex/base\atveryend-ltx.sty"
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
@@ -328,10 +317,10 @@ with kernel methods
 \Fld@listcount=\count273
 \c@bookmark@seq@number=\count274
 
-(c:/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+("D:\New folder\tex/latex/rerunfilecheck\rerunfilecheck.sty"
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
 
-(c:/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+("D:\New folder\tex/generic/uniquecounter\uniquecounter.sty"
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
@@ -339,10 +328,10 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip58
 )
-(c:/texlive/2020/texmf-dist/tex/latex/base/textcomp.sty
+("D:\New folder\tex/latex/base\textcomp.sty"
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
-(c:/texlive/2020/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+("D:\New folder\tex/latex/wrapfig\wrapfig.sty"
 \wrapoverhang=\dimen157
 \WF@size=\dimen158
 \c@WF@wrappedlines=\count275
@@ -350,105 +339,178 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 \WF@everypar=\toks25
 Package: wrapfig 2003/01/31  v 3.6
 )
-(c:/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2021/01/26 3.53 The Babel package
+("D:\New folder\tex/generic/babel\babel.sty"
+Package: babel 2020/12/16 3.52 The Babel package
 
-(c:/texlive/2020/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2021/01/26 3.53 Babel common definitions
+("D:\New folder\tex/generic/babel\babel.def"
+File: babel.def 2020/12/16 3.52 Babel common definitions
 \babel@savecnt=\count276
 \U@D=\dimen159
-\l@babelnohyphens=\language86
+\l@babelnohyphens=\language79
 
-(c:/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
+("D:\New folder\tex/generic/babel\txtbabel.def")
 \bbl@readstream=\read2
 )
 \bbl@dirlevel=\count277
 
-(c:/texlive/2020/texmf-dist/tex/generic/babel-romanian/romanian.ldf
-Language: romanian 2005/03/31 v1.2l Romanian support from the babel system
+*************************************
+* Local config file bblopts.cfg used
+*
+("D:\New folder\tex/latex/arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("D:\New folder\tex/latex/babel-romanian\romanian.ldf"
+Language: romanian 2021/04/04 v1.2m Romanian support from the babel system
 ))
-(c:/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
+("D:\New folder\tex/latex/amsmath\amsmath.sty"
+Package: amsmath 2020/09/23 v2.17i AMS math features
+\@mathmargin=\skip59
+
+For additional information on amsmath, use the `?' option.
+("D:\New folder\tex/latex/amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("D:\New folder\tex/latex/amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks26
+\ex@=\dimen160
+))
+("D:\New folder\tex/latex/amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen161
+)
+("D:\New folder\tex/latex/amsmath\amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count278
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count279
+\leftroot@=\count280
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count281
+\DOTSCASE@=\count282
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+\big@size=\dimen162
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count283
+\c@MaxMatrixCols=\count284
+\dotsspace@=\muskip17
+\c@parentequation=\count285
+\dspbrk@lvl=\count286
+\tag@help=\toks27
+\row@=\count287
+\column@=\count288
+\maxfields@=\count289
+\andhelp@=\toks28
+\eqnshift@=\dimen163
+\alignsep@=\dimen164
+\tagshift@=\dimen165
+\tagwidth@=\dimen166
+\totwidth@=\dimen167
+\lineht@=\dimen168
+\@envbody=\toks29
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks30
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+)
+("D:\New folder\tex/latex/amscls\amsthm.sty"
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks31
+\thm@bodyfont=\toks32
+\thm@headfont=\toks33
+\thm@notefont=\toks34
+\thm@headpunct=\toks35
+\thm@preskip=\skip62
+\thm@postskip=\skip63
+\thm@headsep=\skip64
+\dth@everypar=\toks36
+)
+("D:\New folder\tex/latex/amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("D:\New folder\tex/latex/amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup6
+\symAMSb=\mathgroup7
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("D:\New folder\tex/latex/listings\lstlang1.sty"
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-(c:/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
+("D:\New folder\tex/latex/listings\lstlang1.sty"
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-(c:/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
+("D:\New folder\tex/latex/listings\lstmisc.sty"
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 47.
+less on input line 48.
 
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 50.
+less on input line 51.
 
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 61
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 62
 .
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/t1ptm.fd
+("D:\New folder\tex/latex/psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-(c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2021-02-06 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count278
-\l__pdf_internal_box=\box52
-)
-(./main.aux)
+("D:\New folder\tex/latex/l3backend\l3backend-pdftex.def"
+File: l3backend-pdftex.def 2021-01-09 L3 backend support: PDF output (pdfTeX)
+\l__kernel_color_stack_int=\count290
+\l__pdf_internal_box=\box54
+) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
- (c:/texlive/2020/texmf-dist/tex/latex/ucs/ucsencs.def
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+
+("D:\New folder\tex/latex/ucs\ucsencs.def"
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-(c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+("D:\New folder\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count279
-\scratchdimen=\dimen160
-\scratchbox=\box53
-\nofMPsegments=\count280
-\nofMParguments=\count281
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count282
-\MPscratchDim=\dimen161
-\MPnumerator=\count283
-\makeMPintoPDFobject=\count284
-\everyMPtoPDFconversion=\toks27
-) (c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+\scratchcounter=\count291
+\scratchdimen=\dimen169
+\scratchbox=\box55
+\nofMPsegments=\count292
+\nofMParguments=\count293
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count294
+\MPscratchDim=\dimen170
+\MPnumerator=\count295
+\makeMPintoPDFobject=\count296
+\everyMPtoPDFconversion=\toks38
+) ("D:\New folder\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-(c:/texlive/2020/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
-
-(c:/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-\c@lstlisting=\count285
+)
+\c@lstlisting=\count297
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -484,28 +546,27 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\big@size=\dimen162
-Package hyperref Info: Link coloring OFF on input line 61.
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+Package hyperref Info: Link coloring OFF on input line 62.
+("D:\New folder\tex/latex/hyperref\nameref.sty"
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
-(c:/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
+("D:\New folder\tex/latex/refcount\refcount.sty"
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+("D:\New folder\tex/generic/gettitlestring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count286
+\c@section@level=\count298
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
-
-(./main.out) (./main.out)
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
+ (main.out)
+(main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
- (./titlepage.tex
+ (titlepage.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -540,44 +601,43 @@ LaTeX Info: Redefining \nameref on input line 61.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<fig/ACLogo.jpg, id=180, 180.675pt x 157.58875pt>
+<fig/ACLogo.jpg, id=183, 180.675pt x 157.58875pt>
 File: fig/ACLogo.jpg Graphic file (type jpg)
 <use fig/ACLogo.jpg>
 Package pdftex.def Info: fig/ACLogo.jpg  used on input line 5.
 (pdftex.def)             Requested size: 180.67455pt x 157.58835pt.
-<fig/DCTILogo.png, id=181, 220.9053pt x 144.2991pt>
+<fig/DCTILogo.png, id=184, 220.9053pt x 144.2991pt>
 File: fig/DCTILogo.png Graphic file (type png)
 <use fig/DCTILogo.png>
 Package pdftex.def Info: fig/DCTILogo.png  used on input line 6.
 (pdftex.def)             Requested size: 220.90475pt x 144.29874pt.
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
  7.
-
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+ ("D:\New folder\tex/latex/psnfss\ot1ztmcm.fd"
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
  7.
 
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/omlztmcm.fd
+("D:\New folder\tex/latex/psnfss\omlztmcm.fd"
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
  7.
 
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/omsztmcm.fd
+("D:\New folder\tex/latex/psnfss\omsztmcm.fd"
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
  7.
 
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/omxztmcm.fd
+("D:\New folder\tex/latex/psnfss\omxztmcm.fd"
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 7
 .
 
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+("D:\New folder\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
@@ -592,7 +652,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
-<fig/UPTLogo.jpg, id=183, 409.0482pt x 139.9629pt>
+<fig/UPTLogo.jpg, id=186, 409.0482pt x 139.9629pt>
 File: fig/UPTLogo.jpg Graphic file (type jpg)
 <use fig/UPTLogo.jpg>
 Package pdftex.def Info: fig/UPTLogo.jpg  used on input line 17.
@@ -614,15 +674,15 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 
 
 
-{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fig/ACLogo.jp
-g> <./fig/DCTILogo.png> <./fig/UPTLogo.jpg>]pdfTeX warning (ext4): destination 
-with the same identifier (name{page.1}) has been already used, duplicate ignore
-d
+{C:/Users/Dragan/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./fig/ACLogo.j
+pg> <./fig/DCTILogo.png> <./fig/UPTLogo.jpg>]pdfTeX warning (ext4): destination
+ with the same identifier (name{page.1}) has been already used, duplicate ignor
+ed
 <to be read again> 
                    \relax 
 l.41 \shipout\null
-                   [1]) (./main.tocpdfTeX warning (ext4): destination with the 
-same identifier (name{page.1}) has been already used, duplicate ignored
+                   [1]) (main.tocpdfTeX warning (ext4): destination with the sa
+me identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.32 ...3.6}Filtrarea semnalelor}{16}{section.3.6}
@@ -633,7 +693,7 @@ l.32 ...3.6}Filtrarea semnalelor}{16}{section.3.6}
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- (./introduction.tex
+ (introduction.tex
 [2]
 Capitolul 1.
 [3
@@ -644,19 +704,19 @@ Overfull \hbox (0.1902pt too wide) in paragraph at lines 20--21
  fi ne-gli-jat , ex-plic  cre[]terea
  []
 
-<./fig//Statistica-IoT.png, id=262, 1003.75pt x 745.78625pt>
+<./fig//Statistica-IoT.png, id=264, 1003.75pt x 745.78625pt>
 File: ./fig//Statistica-IoT.png Graphic file (type png)
 <use ./fig//Statistica-IoT.png>
 Package pdftex.def Info: ./fig//Statistica-IoT.png  used on input line 26.
 (pdftex.def)             Requested size: 334.60422pt x 248.61377pt.
-[4 <./fig//Statistica-IoT.png>]) (./state of the art.tex [5]
+[4 <./fig//Statistica-IoT.png>]) ("state of the art.tex" [5]
 Capitolul 2.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 0.
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+("D:\New folder\tex/latex/psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<./fig//Torelectric.png, id=279, 197.23688pt x 198.24063pt>
+<./fig//Torelectric.png, id=282, 197.23688pt x 198.24063pt>
 File: ./fig//Torelectric.png Graphic file (type png)
 <use ./fig//Torelectric.png>
 Package pdftex.def Info: ./fig//Torelectric.png  used on input line 18.
@@ -664,7 +724,7 @@ Package pdftex.def Info: ./fig//Torelectric.png  used on input line 18.
  [6
 
  <./fig//Torelectric.png>]
-<./fig//Honeywell.png, id=287, 492.33937pt x 364.36125pt>
+<./fig//Honeywell.png, id=290, 492.33937pt x 364.36125pt>
 File: ./fig//Honeywell.png Graphic file (type png)
 <use ./fig//Honeywell.png>
 Package pdftex.def Info: ./fig//Honeywell.png  used on input line 35.
@@ -690,17 +750,21 @@ Underfull \hbox (badness 2865) in paragraph at lines 43--44
  []
 
 [7 <./fig//Honeywell.png>]
-<./fig//Nest.png, id=300, 289.08pt x 224.84pt>
+<./fig//Nest.png, id=303, 289.08pt x 224.84pt>
 File: ./fig//Nest.png Graphic file (type png)
 <use ./fig//Nest.png>
 Package pdftex.def Info: ./fig//Nest.png  used on input line 85.
 (pdftex.def)             Requested size: 167.2989pt x 130.1191pt.
  [8 <./fig//Nest.png>]
-<./fig//Ecobee.png, id=311, 292.59312pt x 211.79124pt>
+<./fig//Ecobee.png, id=314, 292.59312pt x 211.79124pt>
 File: ./fig//Ecobee.png Graphic file (type png)
 <use ./fig//Ecobee.png>
 Package pdftex.def Info: ./fig//Ecobee.png  used on input line 120.
 (pdftex.def)             Requested size: 167.2989pt x 121.10359pt.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 133.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -713,7 +777,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [9 <./fig//Ecobee.png>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
-) (./fundamente teoretice.tex
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 150.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 150.
+
+) ("fundamente teoretice.tex"
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 
@@ -729,57 +802,125 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Capitolul 3.
 [11
 
-] [12] [13] [14]
+] [12]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 49.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 49.
+
+[13]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 79.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 79.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 97.
+
+[14]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 101.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 101.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 113.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 113.
+
+
 Overfull \hbox (3.10678pt too wide) in paragraph at lines 115--116
 []\T1/ptm/m/n/12 Asemenea con-den-sa-to-ru-lui, rezisten[]a se în-ca-dreaz  în 
 ca-te-go-ria com-po-nen-te-lor elec-
  []
 
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 121.
+
 [15]
-<./fig//InainteDeFiltru.jpg, id=376, 803.0pt x 602.25pt>
+Underfull \hbox (badness 10000) in paragraph at lines 139--150
+
+ []
+
+<./fig//InainteDeFiltru.jpg, id=379, 803.0pt x 602.25pt>
 File: ./fig//InainteDeFiltru.jpg Graphic file (type jpg)
 <use ./fig//InainteDeFiltru.jpg>
-Package pdftex.def Info: ./fig//InainteDeFiltru.jpg  used on input line 137.
-(pdftex.def)             Requested size: 418.25368pt x 313.6956pt.
-<./fig//DupaFiltru.jpg, id=377, 803.0pt x 602.25pt>
+Package pdftex.def Info: ./fig//InainteDeFiltru.jpg  used on input line 156.
+(pdftex.def)             Requested size: 334.60422pt x 250.95831pt.
+[16]
+<./fig//DupaFiltru.jpg, id=388, 803.0pt x 602.25pt>
 File: ./fig//DupaFiltru.jpg Graphic file (type jpg)
 <use ./fig//DupaFiltru.jpg>
-Package pdftex.def Info: ./fig//DupaFiltru.jpg  used on input line 144.
-(pdftex.def)             Requested size: 418.25368pt x 313.6956pt.
- [16 <./fig//InainteDeFiltru.jpg>] [17 <./fig//DupaFiltru.jpg>])
-(./dezvoltarea solutiei.tex [18]
+Package pdftex.def Info: ./fig//DupaFiltru.jpg  used on input line 163.
+(pdftex.def)             Requested size: 334.60422pt x 250.95831pt.
+ [17 <./fig//InainteDeFiltru.jpg> <./fig//DupaFiltru.jpg>]
+<./fig//CircuitRC.png, id=396, 362.35374pt x 205.76875pt>
+File: ./fig//CircuitRC.png Graphic file (type png)
+<use ./fig//CircuitRC.png>
+Package pdftex.def Info: ./fig//CircuitRC.png  used on input line 176.
+(pdftex.def)             Requested size: 334.60422pt x 190.01285pt.
+ [18 <./fig//CircuitRC.png>]) ("dezvoltarea solutiei.tex" [19]
 Capitolul 4.
-<./fig//ArhitecturaSistemului.jpg, id=396, 2220.295pt x 1434.961pt>
-File: ./fig//ArhitecturaSistemului.jpg Graphic file (type jpg)
-<use ./fig//ArhitecturaSistemului.jpg>
-Package pdftex.def Info: ./fig//ArhitecturaSistemului.jpg  used on input line 1
-2.
-(pdftex.def)             Requested size: 418.25368pt x 270.30258pt.
-[19
 
-] [20 <./fig//ArhitecturaSistemului.jpg>]
-<./fig//ModulSenzor.png, id=406, 482.30188pt x 348.30125pt>
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 1.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 5.
+
+<./fig//ArhitecturaSistemului.png, id=411, 834.86906pt x 518.6878pt>
+File: ./fig//ArhitecturaSistemului.png Graphic file (type png)
+<use ./fig//ArhitecturaSistemului.png>
+Package pdftex.def Info: ./fig//ArhitecturaSistemului.png  used on input line 1
+2.
+(pdftex.def)             Requested size: 418.25368pt x 259.85771pt.
+[20
+
+] [21 <./fig//ArhitecturaSistemului.png>]
+<./fig//ModulSenzor.png, id=422, 963.6pt x 542.025pt>
 File: ./fig//ModulSenzor.png Graphic file (type png)
 <use ./fig//ModulSenzor.png>
 Package pdftex.def Info: ./fig//ModulSenzor.png  used on input line 28.
-(pdftex.def)             Requested size: 418.25368pt x 302.0577pt.
- [21 <./fig//ModulSenzor.png>]
+(pdftex.def)             Requested size: 418.25368pt x 235.26619pt.
+ [22 <./fig//ModulSenzor.png>]
 Overfull \hbox (2.42229pt too wide) in paragraph at lines 66--67
 []\T1/ptm/m/n/12 Pentru a pu-tea afi[]a tem-pe-ra-tura cu-rent  din ca-mer  []i
  tem-pe-ra-tura se-tat , se folose[]te
  []
 
-[22]
-<./fig//ModululDeControl.png, id=417, 679.03688pt x 329.73187pt>
+[23]
+<./fig//ModululDeControl.png, id=433, 963.6pt x 542.025pt>
 File: ./fig//ModululDeControl.png Graphic file (type png)
 <use ./fig//ModululDeControl.png>
 Package pdftex.def Info: ./fig//ModululDeControl.png  used on input line 96.
-(pdftex.def)             Requested size: 418.25368pt x 203.09834pt.
- [23 <./fig//ModululDeControl.png>]
+(pdftex.def)             Requested size: 418.25368pt x 235.26619pt.
+ [24 <./fig//ModululDeControl.png>]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 114.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 118.
+
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 13
 6.
-
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/t1pcr.fd
+("D:\New folder\tex/latex/psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 
@@ -790,83 +931,120 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.58502pt}.
 
-[24] [25] [26] [27]
+[25] [26] [27] [28]
 Overfull \hbox (17.0082pt too wide) in paragraph at lines 262--263
 [][][][][][][][][][][]  
  []
 
-[28] [29]
-Overfull \hbox (25.21976pt too wide) in paragraph at lines 331--332
-[][][][][][][]  
- []
+[29] [30] [31]
 
-[30]
-Overfull \hbox (25.21976pt too wide) in paragraph at lines 339--340
-[][][][][][][]  
- []
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 368.
 
-[31] [32] [33]
-Overfull \hbox (7.5365pt too wide) in paragraph at lines 455--456
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 368.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 368.
+
+[32] [33]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 430.
+
+[34]
+Overfull \hbox (7.5365pt too wide) in paragraph at lines 446--447
 []\T1/ptm/m/n/12 o func[]ionalitate util  pen-tru per-soa-nele care pri-mesc co
 n-tu-rile cu creden[]ialele
  []
 
-[34]
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <12> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 462.
- [35] [36]
-<./fig//IntrareDeTipTimp.png, id=714, 91.84312pt x 228.35312pt>
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 453.
+[35] [36]
+<./fig//IntrareDeTipTimp.png, id=704, 91.84312pt x 228.35312pt>
 File: ./fig//IntrareDeTipTimp.png Graphic file (type png)
 <use ./fig//IntrareDeTipTimp.png>
-Package pdftex.def Info: ./fig//IntrareDeTipTimp.png  used on input line 528.
+Package pdftex.def Info: ./fig//IntrareDeTipTimp.png  used on input line 519.
 (pdftex.def)             Requested size: 167.2989pt x 416.02841pt.
-<./fig//IntrareDeTipNumeric.png, id=715, 125.97063pt x 50.1875pt>
+ [37]
+<./fig//IntrareDeTipNumeric.png, id=718, 125.97063pt x 50.1875pt>
 File: ./fig//IntrareDeTipNumeric.png Graphic file (type png)
 <use ./fig//IntrareDeTipNumeric.png>
-Package pdftex.def Info: ./fig//IntrareDeTipNumeric.png  used on input line 536
+Package pdftex.def Info: ./fig//IntrareDeTipNumeric.png  used on input line 527
 .
-(pdftex.def)             Requested size: 167.2989pt x 66.65355pt.
- [37 <./fig//IntrareDeTipTimp.png>]
-Overfull \hbox (10.02127pt too wide) in paragraph at lines 540--542
+(pdftex.def)             Requested size: 125.47737pt x 49.99132pt.
+
+Overfull \hbox (10.02127pt too wide) in paragraph at lines 531--533
 \T1/ptm/m/n/12 mise mai de-parte par[]ii, din ca-drul aplica[]iei web, res-pon-
 sa-bile cu pro-ce-sa-rea informa[]iilor.
  []
 
-[38 <./fig//IntrareDeTipNumeric.png>] [39]
-<./fig//IntervalsWorkingDays.png, id=769, 274.02374pt x 283.0575pt>
+[38 <./fig//IntrareDeTipTimp.png> <./fig//IntrareDeTipNumeric.png>] [39]
+[40]
+<./fig//IntervalsWorkingDays.png, id=772, 274.02374pt x 283.0575pt>
 File: ./fig//IntervalsWorkingDays.png Graphic file (type png)
 <use ./fig//IntervalsWorkingDays.png>
-Package pdftex.def Info: ./fig//IntervalsWorkingDays.png  used on input line 60
-8.
+Package pdftex.def Info: ./fig//IntervalsWorkingDays.png  used on input line 59
+9.
 (pdftex.def)             Requested size: 334.60422pt x 345.6622pt.
- [40 <./fig//IntervalsWorkingDays.png>] [41]
-Overfull \hbox (10.34238pt too wide) in paragraph at lines 634--635
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 603.
+
+[41 <./fig//IntervalsWorkingDays.png>] [42]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 621.
+
+
+Overfull \hbox (10.34238pt too wide) in paragraph at lines 625--626
 []\T1/ptm/m/n/12 În ceea ce prive[]te pro-iec-tul pre-zen-tat, tes-ta-rea a vi-
 zat dou  mari com-po-nente: aplica[]ia
  []
 
 
-Overfull \hbox (1.02052pt too wide) in paragraph at lines 641--642
+Overfull \hbox (1.02052pt too wide) in paragraph at lines 632--633
 []\T1/ptm/m/n/12 Verificarea fap-tu-lui c  pen-tru a pu-tea re-a-liza orice fun
 c[]ionalitate din aplica[]ia
  []
 
-[42] [43]) [44] (./main.lof)
+[43] [44]
+<./fig//CoverageReport.png, id=798, 963.6pt x 232.36812pt>
+File: ./fig//CoverageReport.png Graphic file (type png)
+<use ./fig//CoverageReport.png>
+Package pdftex.def Info: ./fig//CoverageReport.png  used on input line 676.
+(pdftex.def)             Requested size: 418.251pt x 128.0404pt.
+) (concluzii.tex [45 <./fig//CoverageReport.png>]
+Capitolul 5.
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 1.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 1.
+
+) [46
+
+] (main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [45
+ [47
 
-] (./main.lot)
+] (main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- (./main.bbl [46
+ (main.bbl [48
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 42--46
-\T1/ptm/m/n/12 wi^^\ -[] comandat -[] de -[] pe -[] smartphone -[] internet -[]
- compatibil -[] google -[] home -[] si -[] alexa -[]
+\T1/ptm/m/n/12 wi -[] comandat -[] de -[] pe -[] smartphone -[] internet -[] c
+ompatibil -[] google -[] home -[] si -[] alexa -[]
  []
 
 
@@ -899,7 +1077,7 @@ Underfull \hbox (badness 4120) in paragraph at lines 66--69
  -[] nest/$[].  [Data ac-ce-s -rii:
  []
 
-[47
+[49
 
 ]
 Underfull \hbox (badness 2426) in paragraph at lines 71--77
@@ -910,7 +1088,7 @@ minia . edu . eg / Attach /
 
 Underfull \hbox (badness 10000) in paragraph at lines 94--98
 []\T1/ptm/m/n/12 Espressif Sys-tems.  []$https : / / components101 . com / asse
-t / sites / default / ^^\les /
+t / sites / default / les /
  []
 
 
@@ -919,29 +1097,29 @@ Underfull \hbox (badness 5924) in paragraph at lines 94--98
 [].  [Data ac-ce-s -rii:
  []
 
-) [48] (./main.aux)
+) [50] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3A6DBF13FC151B42A6BADE32A7E190DD;6557.
+(rerunfilecheck)             Checksum: 504A79F122777B9F86D71F90D8FB574C;3012.
  ) 
 Here is how much of TeX's memory you used:
- 14516 strings out of 479302
- 204234 string characters out of 5871205
- 770149 words of memory out of 5000000
- 31005 multiletter control sequences out of 15000+600000
- 504845 words of font info for 162 fonts, out of 8000000 for 9000
+ 13116 strings out of 479618
+ 180398 string characters out of 2879619
+ 758779 words of memory out of 3000000
+ 29559 multiletter control sequences out of 15000+200000
+ 510163 words of font info for 188 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,20n,74p,1501b,1946s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/
-urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr
-o8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texliv
-e/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/
-fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (50 pages, 4492553 bytes).
+ 71i,19n,74p,1503b,1984s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/New folder/fonts/enc/dvips/base/8r.enc}<D:/New folder/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb><D:/New folder/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+<D:/New folder/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/New folder/fonts/t
+ype1/urw/courier/ucrr8a.pfb><D:/New folder/fonts/type1/urw/courier/ucrro8a.pfb>
+<D:/New folder/fonts/type1/urw/symbol/usyr.pfb><D:/New folder/fonts/type1/urw/s
+ymbol/usyr.pfb><D:/New folder/fonts/type1/urw/times/utmb8a.pfb><D:/New folder/f
+onts/type1/urw/times/utmr8a.pfb><D:/New folder/fonts/type1/urw/times/utmri8a.pf
+b>
+Output written on main.pdf (52 pages, 2444380 bytes).
 PDF statistics:
- 964 PDF objects out of 1000 (max. 8388607)
- 872 compressed objects within 9 object streams
- 401 named destinations out of 1000 (max. 500000)
- 433 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 983 PDF objects out of 1000 (max. 8388607)
+ 398 named destinations out of 1000 (max. 500000)
+ 451 words of extra memory for PDF output out of 10000 (max. 10000000)
 

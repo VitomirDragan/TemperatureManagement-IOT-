@@ -1,0 +1,21 @@
+\chapter{Concluzii și direcții de dezvoltare}\label{ch:5concluzii}
+
+	Intenția pe care am avut-o în momentul în care am început să lucrez la acest proiect, a fost să creez un sistem IoT, care să eficientizeze felul în care energia termică poate fi gestionată în cadrul imobilului. Funcționalitatea de bază a sistemului este aceea de a permite setarea temperaturilor diferite pentru fiecare cameră în parte. Comparativ cu celelalte sisteme existente pe piață, acest aspect reprezintă un plus. De asemenea, sunt puse la dispoziție o serie de modalități prin care se pot seta temperaturile din cadrul imobilului:
+	\begin{itemize}
+  	\setlength{\itemindent}{2em}
+		\itemsep0em
+		\item Metoda standard, prin intermediul butoanelor fizice atașate de modulul WiFi.
+		\item Prin utilizarea aplicației web.
+		\item Utilizând comenzi vocale, interpretate de Google Assistant. 
+	\end{itemize} 
+
+\vspace{2em}
+
+	În ceea ce privește partea de dezvoltare ulterioară a proiectului, țin să menționez că sunt o serie de aspecte a căror implementare poate crește gradul de utilitate și eficiența sistemului.
+
+	În varianta actuală, întarzierea între momentul în care se trimite o comandă vocală și momentul în care se primește un răspuns, ajunge să fie de aproximativ un minut. Acest timp poate fi redus dacă se utilizează servicii puse la dispoziție de Google, contracost, ce interpretează comenzile primite de Google Assistant și trimite informațiile interpretate în Firebase. 
+
+	Pentru a putea modifica datele de conectare la rețea ale modulului wireless, trebuie să se modifice credențialele în codul sursă. O imbunătățire ar consta în adăugarea unei tastaturi și posibilitatea de a modifica credențialele prin intermediul acesteia. 
+
+	O altă funcționalitate ce poate fi adăugată este posibilitatea detectării telefoanelor mobile ale locatarilor, iar temperatura din imobil să se adapteze în funcție de prezența sau absența acestora.
+	  

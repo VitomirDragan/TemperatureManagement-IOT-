@@ -1,6 +1,6 @@
 \chapter{Dezvoltarea soluției}\label{ch:4dezvoltareaSolutiei}
 
-	Acest capitol conține o prezentarea detaliată a modului în care a fost implementat proiectul. Voi face referiri atât la partea harware, cât și la partea software. 
+	Acest capitol conține o prezentarea detaliată a modului în care a fost implementat proiectul. Voi face referiri atât la partea hardware, cât și la partea software. 
 
 \section{Specificarea cerințelor}
 	...
@@ -9,15 +9,15 @@
 
 \begin{figure}[H]
    	\centering
-    	\includegraphics[width=1\textwidth]{ArhitecturaSistemului.jpg}
+    	\includegraphics[width=1\textwidth]{ArhitecturaSistemului.png}
 	\caption{Arhitectura sistemului}
 \end{figure}
 
 	Sistemul a fost conceput pentru un apartament cu două camere, însă poate fi extins pentru un număr mai mare de încăperi. La nivel macro, este format din trei module, câte un modul senzor pentru fiecare cameră și un modul de control, montat în apropierea centralei termice.
 
-	Modulul senzor prezintă o complexitate mai mare, este alcătuit din mai multe componente și îndeplinește o serie de funcționalități. Preia informații precum: temperatura și umiditatea și le trimite în baza de date. În continuare, aceste valori sunt afișate utilizând aplicația web, făcând posibilă monitorizarea parametrilor ambientali. De asemenea, are acces la temperatura setată, iar in funcție de aceasta și de temperatura curentă din cameră controlează electrovalva și trimite comandă de oprire sau pornire a centralei. Un alt rol esențial pe care îl îndeplinește modulul, este de a face posibilă setarea unei valori a temperaturii ce urmează să fie menținută în cameră.
+	Modulul senzor prezintă o complexitate mai mare, este alcătuit din mai multe componente și îndeplinește o serie de funcționalități. Preia informații precum: temperatura și umiditatea și le trimite în baza de date. În continuare, aceste valori sunt afișate utilizând aplicația web, făcând posibilă monitorizarea parametrilor ambientali. De asemenea, are acces la temperatura setată, iar in funcție de aceasta, dar și de temperatura curentă din cameră, controlează electrovalva și trimite comandă de oprire sau pornire a centralei. Un alt rol esențial pe care îl îndeplinește modulul, este de a face posibilă setarea unei valori a temperaturii ce urmează să fie menținută în cameră.
 
-	Modulul de control este de o complexitate redusă. Primește comenzi de la modulele senzor, iar în funcție de acestea controlează centrala. Modulul se folosește de logică de tip "SAU", dacă cel puțin un modul senzor trimite comandă de pornire, atunci centrala termică trebuie să înceapă ciclul de încălzire.
+	Modulul de control este de o complexitate redusă. Primește comenzi de la modulele senzor, le interpretează, iar pe baza acestora controlează centrala. Modulul se folosește de logică de tip "SAU", dacă cel puțin un modul senzor trimite comandă de pornire, atunci centrala termică trebuie să înceapă ciclul de încălzire.
 
 	Transferul de date între modulele senzor și modulul de control se face prin intermediul undelor radio, 433 MHz. Placuțele ESP8266 se folosesc de unde Wi-Fi, 2.4 GHz, pentru a se conecta la router.
 
@@ -41,7 +41,7 @@
 			\item Butoane
 			\item Transmițător RF
 			\item Electrovalvă
-			\item Invertor de semnal
+			\item Circuit integrat Schmitt-Trigger
 			\item Rezistență
 			\item Condensator
 			\item Alimentator 12 volți
@@ -59,7 +59,7 @@
 
 \vspace{1em}
 
-	Placa de bază pentru modulul WiFi are două roluri esențiale în crearea circuitului. Acesta facilitează felul în care se poate alimenta plăcuța wireless, punând la dispoziție o mufă de alimentare care poate fi conectată la alimentatoare ce furnizează tensiuni între 6 și 24 de volți. Prin intermediul unui regulator de tensiune va aduce tensiunea de alimentare a modulului WiFi până la 5 volți, prevenind orice posibilitate de supraalimentare. Astfel, placa de bază pune la dispoziție pini ce oferă tensiuni de ieșire de 3.3 volti, 5 volți și o serie de pini ce sunt conectați direct la mufa de alimentare și furnizează voltaj egal cu cel dat de alimentator. De asemenea, oferă pentru fiecare pin al modulului ESP8266 încă 4 pini corespondenți, fapt ce reprezintă un avantaj când vine vorba de conectarea unor componente auxiliare.
+	Placa de bază pentru modulul WiFi are două roluri esențiale în crearea circuitului. Acesta facilitează felul în care se poate alimenta plăcuța wireless, punând la dispoziție un conector de alimentare care este compatibil cu alimentatoare ce furnizează tensiuni între 6 și 24 de volți. Prin intermediul unui regulator de tensiune, va aduce tensiunea de alimentare a modulului WiFi până la 5 volți, prevenind orice posibilitate de supraalimentare. Astfel, placa de bază pune la dispoziție pini ce oferă tensiuni de ieșire de 3.3 volti, 5 volți și o serie de pini ce sunt conectați direct la conectorul de alimentare și furnizează voltaj egal cu cel dat de alimentator. De asemenea, oferă pentru fiecare pin al modulului ESP8266 încă 4 pini corespondenți, fapt ce reprezintă un avantaj când vine vorba de conectarea unor componente auxiliare.
 
 \vspace{1em}
 
@@ -67,7 +67,7 @@
 
 \vspace{1em}
 
-	Senzorul de temperatură și umiditate pe care îl utilizez prezintă 3 pini. Doi sunt utilizati pentru alimentare, VCCC și GND, iar cel de-al treilea este pinul de date, utilizat pentru transferul de informații între senzor și plăcuța cu microcontroler la care este conectat.
+	Senzorul de temperatură și umiditate pe care îl utilizez prezintă 3 pini. Doi sunt utilizati pentru alimentare, VCC și GND, iar cel de-al treilea este pinul de date, utilizat pentru transferul de informații între senzor și plăcuța cu microcontroler la care este conectat.
 
 \vspace{1em}
 
@@ -83,11 +83,11 @@
 
 \vspace{1em}
 
-	Electrovlava se montează pe returul caloriferelor și este responsabilă cu închiderea sau deschiderea circuitului de apă din calorifer. Releul este cel care întrerupe, sau nu, alimentarea electrică a electrovalvei.
+	Electrovlava se montează pe returul caloriferelor și este responsabilă de închiderea sau deschiderea circuitului de apă din calorifer. Releul este cel care întrerupe, sau nu, alimentarea electrică a electrovalvei.
 
 \vspace{1em}
 
-	Invertorul de semnal, rezistența și condensatorul sunt componente electrice pe care le-am utilizat pentru a filtra semnalul provenit de la buton.  
+	Circuitul integrat Schmitt-Trigger, rezistența și condensatorul sunt componente electrice pe care le-am utilizat pentru a filtra semnalul provenit de la buton.  
 
 \subsection{Modulul de control}
 
@@ -123,15 +123,15 @@
 
 \subsubsection{Inițializări}
 
-	Modulul prezintă o serie vastă de funcționalități și se conectează cu mai multe componente auxiliare. Pentru programarea acestuia am utilizat ArduinoIDE, iar ca și limbaj de programare C++. 
+	Modulul prezintă o serie vastă de funcționalități și se conectează cu mai multe componente auxiliare. Pentru programarea acestuia am utilizat ArduinoIDE, iar ca și limbaj de programare, C++. 
 
-	Codul este împărțit în trei fișiere cu estensii diferite: .ino, .cpp și .h. În fișierul cu extensia .h se află prototipurile claselor și al metodelor, iar fișierul .cpp conține implementările acestor metode. Fișierul .ino este alcătuit din două funcții: \textit{setup} și \textit{loop}. Prima este utilizată pentru inițializări și se execută o singură dată, la pornirea modulului. În ceea ce privește cea de-a doua funcție, se execută în mod repetitiv până la oprirea alimentării plăcuței WiFi.
+	Codul este împărțit în trei fișiere cu extensii diferite: .ino, .cpp și .h. În fișierul cu extensia .h se află prototipurile claselor și al metodelor, iar fișierul .cpp conține implementările acestor metode. Fișierul .ino este alcătuit din două funcții: \textit{setup} și \textit{loop}. Prima este utilizată pentru inițializări și se execută o singură dată, la pornirea modulului. În ceea ce privește cea de-a doua funcție, se execută în mod repetitiv până la oprirea alimentării plăcuței WiFi.
 
 \vspace{1em}
 
 	În continuare, voi prezenta funcția \textit{setup} din fișierul .ino și voi explica rolul apelurilor din cadrul acesteia.
 
-\vspace{2em}
+
 
 \begin{lstlisting}
 #include "WiFiModule.h"
@@ -166,7 +166,7 @@ void setup() {
 
 	Pentru început, se creează instanțe pentru clasele ale căror funcționalități urmează să fie utilizate, iar în corpul funcției \textit{setup} se vor apela funcții ce țin de inițializare.
 
-	Din clasa \textit{TimeManager} se apelează metoda \textit{timeManagerConfig}, fiind responsabilă de setarea fusului orar pentru a ști în mod exact data și timpul curent. Acestea sunt necesare în modul de funcționare automat, mod în care se ține cont de temperaturile setate de utilizator pe anumite intervale orare. 
+	Din clasa \textit{TimeManager} se apelează metoda \textit{timeManagerConfig}, fiind responsabilă de setarea fusului orar. Timpul curent este folosit în modul de funcționare automat, mod în care se ține cont de temperaturile setate de utilizator pe anumite intervale orare. 
 
 	Până se execută toate funcțiile de inițializare, LCD-ul va fi pornit și va afișa mesajul \textit{"Initializing..."}. Pentru ca acest comportament să fie posibil, este necesar apelul metodei \textit{lcd.initializeLCD()}. 	
 
@@ -199,7 +199,7 @@ void WiFiModule::pinSetup(){
 
 \subsubsection{Întreruperile și tratarea acestora}
 
-	În continuare, voi prezenta rutinele de tratare a întreruperilor. Acestea sunt simple, nu consumă multe resurse și, ceea ce este esențial în crearea unor astfel de rutine, execuția lor nu durează mult. De asemenea, utilizez două variabile globale, \textit{increaseDesiredTemperature} și \textit{decreaseDesiredTemperature}, pentru a marca faptul că o procedura de tratare a întreruperii a fost accesată.
+	În continuare, voi prezenta rutinele de tratare a întreruperilor. Acestea sunt simple, nu consumă multe resurse și, ceea ce este esențial în crearea unor astfel de rutine, execuția lor nu durează mult. De asemenea, utilizez două variabile globale, \textit{increaseDesiredTemperature} și \textit{decreaseDesiredTemperature}, pentru a marca faptul că o procedură de tratare a întreruperii a fost accesată.
 
 \vspace{1em}
 
@@ -248,7 +248,7 @@ ICACHE_RAM_ATTR void decreaseTemperature() {
 
 \vspace{2em}	
 
-	Pentru început, se verifică dacă de la ultima iterație a fost modificată variabila \textit{increaseDesiredTemperature} sau \textit{decreaseDesiredTemperature}. În caz afirmativ, se face o incrementare sau decrementare a valorii temperaturii setate. Pentru ca rezultatul să se afișeze pe LCD cât mai repede, după ajustarea valorii, se face apelul funcției \textit{displayDesiredTemperature}, din cadrul clasei LCD. Astfel, se obține un timp mic de actualizare și o experiență mai bună cu utilizatorul. De asemenea, se examinează modul de funcționare a modulului wireless, conectat sau deconectat la o rețea de internet. In cazul în care există o conexiune validă, valoarea actualizată a temperaturii va fi trimisă în baza de date. O altă condiție necesară ca modul de funcționare pe intervale orare să fie dezactivat  \textit{!switchIntervalsOn}.
+	Pentru început, se verifică dacă de la ultima iterație a fost modificată variabila \textit{increaseDesiredTemperature} sau \textit{decreaseDesiredTemperature}. În caz afirmativ, se face o incrementare sau decrementare a valorii temperaturii setate. Pentru ca rezultatul să se afișeze pe LCD cât mai repede, după ajustarea valorii, se face apelul funcției \textit{displayDesiredTemperature}, din cadrul clasei LCD. Astfel, se obține un timp mic de actualizare și o experiență mai bună cu utilizatorul. De asemenea, se examinează modul de funcționare a modulului wireless, conectat, sau nu, la o rețea de internet. In cazul în care există o conexiune validă, valoarea actualizată a temperaturii va fi trimisă în baza de date. O altă condiție necesară este ca modul de funcționare pe intervale orare să fie dezactivat  \textit{!switchIntervalsOn}.
 
 \subsubsection{Mod de operare presetat de utilizator}
 
@@ -301,52 +301,43 @@ if (WiFi.status() == WL_CONNECTED) {
 	
 \begin{lstlisting}
  {
-                String A = wifiModule.readStr("Intervals/WorkingDay/A");
-                String B = wifiModule.readStr("Intervals/WorkingDay/B");
-                String C = wifiModule.readStr("Intervals/WorkingDay/C");
-                String D = wifiModule.readStr("Intervals/WorkingDay/D");
+    String A = wifiModule.readStr("Intervals/WorkingDay/A");
+    String B = wifiModule.readStr("Intervals/WorkingDay/B");
+    String C = wifiModule.readStr("Intervals/WorkingDay/C");
+    String D = wifiModule.readStr("Intervals/WorkingDay/D");
 
-                int hourA = timeManager.getHourFromTimeFormat(A);
-                int minuteA = timeManager.getMinuteFromTimeFormat(A);
-                int hourB = timeManager.getHourFromTimeFormat(B);
-                int minuteB = timeManager.getMinuteFromTimeFormat(B);
-                int hourC = timeManager.getHourFromTimeFormat(C);
-                int minuteC = timeManager.getMinuteFromTimeFormat(C);
-                int hourD = timeManager.getHourFromTimeFormat(D);
-                int minuteD = timeManager.getMinuteFromTimeFormat(D);
+    int hourA = timeManager.getHourFromTimeFormat(A);
+    int minuteA = timeManager.getMinuteFromTimeFormat(A);
+    int hourB = timeManager.getHourFromTimeFormat(B);
+    int minuteB = timeManager.getMinuteFromTimeFormat(B);
+    int hourC = timeManager.getHourFromTimeFormat(C);
+    int minuteC = timeManager.getMinuteFromTimeFormat(C);
+    int hourD = timeManager.getHourFromTimeFormat(D);
+    int minuteD = timeManager.getMinuteFromTimeFormat(D);
 
 
-                if ((hourA < currentHour && currentHour < hourB) || 
-                     (hourA == hourB && currentHour == hourA && currentMinute >= minuteA && currentMinute < minuteB)||
-                    (hourA == currentHour && hourB != currentHour && currentMinute >= minuteA) ||
-                    (hourA != currentHour && hourB == currentHour && currentMinute < minuteB)) {
-                        wifiModule.readDesiredTemperatureFromDatabase
+    if ((hourA < currentHour && currentHour < hourB) || (hourA == hourB && currentHour == hourA && currentMinute >= minuteA && currentMinute < minuteB) || (hourA == currentHour && hourB != currentHour && currentMinute >= minuteA) || (hourA != currentHour && hourB == currentHour && currentMinute < minuteB)) {
+             wifiModule.readDesiredTemperatureFromDatabase
 									("Intervals/WorkingDay/TemperatureAB");
-                        endHour = hourB;
-                        endMinute = minuteB;
-                } else if ((hourB < currentHour && currentHour < hourC) || 
-                     (hourB == hourC && currentHour == hourB && currentMinute >= minuteB && currentMinute < minuteC)||
-                    (hourB == currentHour && hourC != currentHour && currentMinute >= minuteB) ||
-                    (hourB != currentHour && hourC == currentHour && currentMinute < minuteC)){
-                              wifiModule.readDesiredTemperatureFromDatabase
+             endHour = hourB;
+             endMinute = minuteB;
+      } else if ((hourB < currentHour && currentHour < hourC) || (hourB == hourC && currentHour == hourB && currentMinute >= minuteB && currentMinute < minuteC) || (hourB == currentHour && hourC != currentHour && currentMinute >= minuteB) || (hourB != currentHour && hourC == currentHour && currentMinute < minuteC)){
+                   wifiModule.readDesiredTemperatureFromDatabase
 									("Intervals/WorkingDay/TemperatureBC");
-                              endHour = hourC;
-                              endMinute = minuteC;
-                } else if ((hourC < currentHour && currentHour < hourD) || 
-                     (hourC == hourD && currentHour == hourC && currentMinute >= minuteC && currentMinute < minuteD)||
-                    (hourC == currentHour && hourD != currentHour && currentMinute >= minuteC) ||
-                    (hourC != currentHour && hourD == currentHour && currentMinute < minuteD)) {
-                              wifiModule.readDesiredTemperatureFromDatabase
+                   endHour = hourC;
+                   endMinute = minuteC;
+      } else if ((hourC < currentHour && currentHour < hourD) ||  (hourC == hourD && currentHour == hourC && currentMinute >= minuteC && currentMinute < minuteD) || (hourC == currentHour && hourD != currentHour && currentMinute >= minuteC) || (hourC != currentHour && hourD == currentHour && currentMinute < minuteD)) {
+                   wifiModule.readDesiredTemperatureFromDatabase
 									("Intervals/WorkingDay/TemperatureCD");
-                              endHour = hourD;
-                              endMinute = minuteD;
-                } else {
-                    wifiModule.readDesiredTemperatureFromDatabase
+                   endHour = hourD;
+                   endMinute = minuteD;
+     } else {
+           wifiModule.readDesiredTemperatureFromDatabase
 									("Intervals/WorkingDay/TemperatureDA");
-                    endHour = hourA;
-                    endMinute = minuteA;
-                }
-            }
+           endHour = hourA;
+           endMinute = minuteA;
+     }
+ }
 \end{lstlisting}
 \vspace{2em}
 
@@ -365,14 +356,14 @@ int humidity = dhtSensor.readHumidity();
 
 \vspace{1em}
 \begin{lstlisting}
-     wifiModule.heatControl(currentTemperature); 
-     wifiModule.statusIndicator();
-     lcd.displayDesiredTemperature();
-     lcd.displayCurrentTemperature(currentTemperature);
+wifiModule.heatControl(currentTemperature); 
+wifiModule.statusIndicator();
+lcd.displayDesiredTemperature();
+lcd.displayCurrentTemperature(currentTemperature);
 \end{lstlisting}
 \vspace{2em}	
 
-	Pentru a face posibilă conectarea/deconectarea sistemului de încălzire, este necesar apelul funcției \textit{heatControl}. Acesta trimite comandă atât la electrovalva montată pe calorifer, cât și la centrala termică. De asemenea, este necesar apelul \textit{displayDesiredTemperature} și \textit{displayCurrentTemperature} pentru a afișa temperatura setată și temperatura dorită din cameră. Scopul final este de a permite monitorizarea temperaturii ambientale.
+	Pentru a face posibilă pornirea/oprirea sistemului de încălzire, este necesar apelul funcției \textit{heatControl}. Acesta trimite comandă atât la electrovalva montată pe calorifer, cât și la centrala termică. De asemenea, este necesar apelul \textit{displayDesiredTemperature} și \textit{displayCurrentTemperature} pentru a afișa temperatura setată și temperatura dorită din cameră. Scopul final este de a permite monitorizarea temperaturii ambientale.
 
 \subsection{Programare plăcuță Arduino}
 
@@ -428,19 +419,19 @@ if (driver.recv(dataPackage, &dataPackageLength))
 \end{lstlisting}
 \vspace{2em} 
 
-	Mesajul pe care modulul receptor îl interceptează este format din doi octeți, din care octetul cel mai semnificativ conține numărul de identificare al modulului, iar octetul cel mai puțin semnificativ deține informații legate de natura comenzii. Mesajul recepționat este convertit în întreg, datorită faptului că se poate prelucra mai ușor, aplicând operații precum: modulo și div.
+	Mesajul pe care modulul receptor îl interceptează este format din doi octeți, din care octetul cel mai semnificativ conține numărul de identificare al modulului care a trimis mesajul, iar octetul cel mai puțin semnificativ deține informații legate de natura comenzii. Mesajul recepționat este convertit în întreg datorită faptului că se poate prelucra mai ușor aplicând operații, precum: modulo și div.
 
-	Întotdeauna se salvează momentul în care s-au recepționat informații de la fiecare modul în parte. Este importantă menținerea evidenței pentru a evita situațiile în care apar întreruperi de transfer prin radio - frecvență. Ca și o măsură de prevenție, dacă modulul de control nu primește comenzi de la modulele senzor timp mai mare sau egal cu 5 secunde, centrala termică va fi oprită.
+	Întotdeauna se salvează momentul în care s-au recepționat informații de la fiecare modul în parte. Este importantă menținerea evidenței, pentru a evita situațiile în care apar întreruperi de transfer prin radio - frecvență. Ca și o măsură de prevenție, dacă modulul de control nu primește comenzi de la modulele senzor un timp mai mare sau egal cu 5 secunde, centrala termică va fi oprită.
 
-	După ce au fost primite comenzi de la ambele module senzor, se execută operație logică de tip SAU, iar în funcție de rezultatul acesteia, va cupla sau decupla releul, ce in continuare controlează centrala termică. Un octet cu valoarea 1 indică pornirea, iar un octet cu valoarea 0 indică oprirea centralei din imobil. De asemenea, ultimele instrucțiuni condiționale din secvența de cod afișată anterior, au rolul de a implementa oprirea de siguranță a sistemului de încălzire. 
+	După ce au fost primite comenzi de la ambele module senzor, se execută operație logică de tip SAU, iar în funcție de rezultatul acesteia, va cupla sau decupla releul, ce în continuare controlează centrala termică. Un octet cu valoarea 1 indică pornirea, iar un octet cu valoarea 0 indică oprirea centralei din imobil. De asemenea, ultimele instrucțiuni condiționale din secvența de cod afișată anterior, au rolul de a implementa oprirea de siguranță a sistemului de încălzire. 
 
 	Inițial, se verifică dacă ambele module senzor nu au trimis comenzi de mai mult de 5 secunde. Dacă nu se respectă prima condiție, se examinează cazul în care primul modul are conexiunea întreruptă, iar cel de-al doilea trimite comandă de oprire a sistemului de încălzire. Iar ultima situație care poate apărea este cea în care conexiunea prin radio frecvență la al doilea modul este inactivă de peste 5 secunde, iar primul modul trimite comandă de întrerupere a funcționării centralei. Toate aceste situații apar în cazuri de avarie, iar principala cauză este comunicația precară între modulele senzor și modulul de control. Pentru a preveni defectarea centralei termice, este concepută o măsură de siguranță ce constă în oprirea acesteia.  
 
 \subsection{Realizarea aplicației web}
 
-	Aplicația web face transferul de date cu partea electronică prin intermediul bazei de date \textit{Firebase}. Citirile valorilor umidității și a temperaturii se actualizează în aplicația web doar atunci când apar modificări in baza de date. Astfel, se evită citirile repetate și consumatoare de resurse.
+	Aplicația web face transferul de date cu partea electronică prin intermediul bazei de date \textit{Firebase}. Valorile umidității și a temperaturii se actualizează în aplicația web doar atunci când apar modificări în baza de date. Astfel, se evită citirile repetate și consumatoare de resurse.
 	
-	În ceea ce privește partea de acces a aplicației, aceasta este găzduită pe un server, la distanță, prin intermediul platformei \textit{Keroku}. Oricine deține adresa aplicației o poate accesa, însă prima pagină care apare la accesare este cea de conectare, iar navigarea poate fi continuată doar în cazul în care utilizatorul deține un cont valid. 
+	În ceea ce privește partea de acces a aplicației, aceasta este găzduită pe un server, la distanță, prin intermediul platformei \textit{Heroku}. Oricine deține adresa aplicației o poate accesa, însă prima pagină care apare la accesare este cea de conectare, iar navigarea poate fi continuată doar în cazul în care utilizatorul deține un cont valid. 
 	
 \vspace{1em}
 	Printre funcționalitățile esențiale pe care le deține aplicația sunt:
@@ -463,12 +454,12 @@ if (driver.recv(dataPackage, &dataPackageLength))
 
 	Logica din spatele criptării și verificării ulterioare a parolei o voi prezenta în rândurile ce urmează.
 
-\vspace{1em}	
+\vspace{3em}	
 \begin{lstlisting}	
-        if user_to_login:
-            if bcrypt.check_password_hash(user_to_login.password, password):
-                login_user(user_to_login)
-                return redirect(url_for('home'))
+if user_to_login:
+     if bcrypt.check_password_hash(user_to_login.password, password):
+           login_user(user_to_login)
+           return redirect(url_for('home'))
 \end{lstlisting}
 \vspace{1em} 	
 
@@ -533,7 +524,7 @@ def home():
 
 \begin{figure}[H]
    	\centering
-    	\includegraphics[width=0.4\textwidth]{IntrareDeTipNumeric.png}
+    	\includegraphics[width=0.3\textwidth]{IntrareDeTipNumeric.png}
 	\caption{Intrare HTML pentru formatul numeric}
 \end{figure}
 
@@ -598,7 +589,7 @@ def getTime(timeFormat):
 \end{lstlisting}
 \vspace{2em} 
 
-	Apelul \textit{getHourFromTimeFormat} și \textit{getMinuteFromTimeFormat} sunt utilizate pentru a despărți șirul de caractere ce conține ora și minutul setat de către utilizator. Obiectele predefinite în \textit{python} pentru stocarea datei și timpului prezintă ca și câmpuri obligatorii: anul, luna, ziua, ora și minutul. Ca și intrare de la utilizator primim doar ora și minutul, iar pentru crearea obiectului, restul valorilor ne sunt puse la dispoziție prin intermediul unui modul, ce are setat fusul orar actual. 
+	Apelul \textit{getHourFromTimeFormat} și \textit{getMinuteFromTimeFormat} sunt utilizate pentru a despărți șirul de caractere ce conține ora și minutul setat de către utilizator. Obiectele predefinite în \textit{python} pentru stocarea datei și timpului prezintă ca și câmpuri obligatorii: anul, luna, ziua, ora și minutul. Ca și intrare de la utilizator primim doar ora și minutul, iar pentru crearea obiectului, restul valorilor ne sunt puse la dispoziție prin intermediul unui modul \textit{python}, ce are setat fusul orar actual. În urma apelului funcției \textit{datetime} sunt returnate obiecte ce conțin data curentă, ora și minutul capetelor intervalelor introduse de utilizator. Pe aceste obiecte se vor executa operații de comparație pentru a determina dacă ordinea este una cronologică.
 
 	Intr-un final, după ce datele au fost validate, urmează salvarea acestora în baza de date. Pentru a implementa acest aspect, se utilizează suita de apeluri \textit{firebase.put}, care primesc ca și parametrii: numele câmpului unde urmează să se facă stocarea, împreună cu informațiile aferente.
 
@@ -617,13 +608,13 @@ def getTime(timeFormat):
 
 \subsubsection{Vibrațiile contactelor metalice ale întrerupătoarelor}
 
-	Pentru a putea modifica valoarea temperaturii setate a fi menținute în imobil, se utilizează butoane fizice, legate prin conductori eletrici la modulele WiFi. Din punct de vedere funcțional, acestea pot avea comportament neașteptat, cauzat de vibrațiile fine care se produc între contactele metalice ale întrerupătorului. Frecvența cu care microcontrolerul citește semnalul provenit de la buton este suficient de mare, astfel încât, să poată sesiza inclusiv o vibrație ca fiind o apăsare distinctă. Prin urmare, se întâmpla ocazional ca intenția utilizatorului de a incrementa sau decrementa cu o unitate temperatura setată, să se traducă în modificarea acesteia cu mai multe unități. Soluția pe care am implementat-o în această situație, a fost realizarea și montarea unor filtre trece-jos pentru fiecare buton în parte. Rolul acestora este de a permite trecerea doar a semnalelor cu frecvențe mici, iar cele de frecvențe mari, perturbațiile, fiind oprite. Capturile de ecran din cadrul capitolului 3, prezintă semnalul înainte de filtrare \ref{fig:InainteDeFiltru}, dar și după aceasta \ref{fig:DupaFiltru}.
+	Pentru a putea modifica valoarea temperaturii setate a fi menținute în imobil, se utilizează butoane fizice, legate prin conductori eletrici la modulele WiFi. Din punct de vedere funcțional, acestea pot avea comportament neașteptat, cauzat de vibrațiile fine care se produc între contactele metalice ale întrerupătorului. Frecvența cu care microcontrolerul citește semnalul provenit de la buton este suficient de mare, astfel încât, să poată sesiza inclusiv o vibrație ca fiind o apăsare distinctă. Prin urmare, se întâmpla ocazional ca intenția utilizatorului de a incrementa sau decrementa cu o unitate temperatura setată, să se traducă în modificarea acesteia cu mai multe unități. Soluția pe care am implementat-o în această situație, a fost realizarea și montarea unor filtre trece jos pentru fiecare buton în parte. Rolul acestora este de a permite trecerea doar a semnalelor cu frecvențe mici, iar cele de frecvențe mari, perturbațiile, fiind oprite. Capturile de ecran din cadrul capitolului 3, prezintă semnalul înainte de filtrare \ref{fig:InainteDeFiltru}, dar și după aceasta \ref{fig:DupaFiltru}.
 
 \subsubsection{Amorsarea instalației cu apă}
 
 	Pompa de apă pe care am utilizat-o în circuit, nu prezintă funcționalitate de autoamorsare. Prin urmare, prima tentativă de umplere a circuitului cu apă, a constat în desfacerea unei îmbinări a circuitului și introducerea apei cu o seringă prin aceasta. Din cauza faptului că instalația prezintă multe coturi, iar introducerea apei nu o faceam din punctul cel mai înalt, procentajul de umplere al circuitului nu era satisfăcător. Ca și disfuncționalitate, se manifesta prin faptul că pompa de apă de dezamorsa în timpul funcționării. Într-un final, am decis să montez un aerisitor în punctul cel mai înalt al instalației, iar introducerea apei să se facă prin acesta. Astfel, volumul de aer din circuit a fost redus considerabil, ducând la eliminarea situațiilor de dezamorsare a pompei.
 
-\subsubsection{Conflict de date apărut la transferul prin radio-frecvență}
+\subsubsection{Conflict de date apărut la transferul prin radio - frecvență}
 
 	Ambele transmițătoare utilizate în cadrul machetei funcționează la aceeași frecvență, 433 Mhz. Transferul datelor se face către un singur receptor, montat pe modulul de comandă al centralei termice. Din punct de vedere funcțional, apăreau probleme în momentul în care ambele transmițătoare făceau transfer simultan. Datele nu mai ajungeau să fie recepționate de către receptor, ajungând la pierderea comenzilor. Modulele wireless sunt conectate la un server prin intermediul căruia citesc data și ora curentă. Utilizând acest aspect, am programat modulele astfel încât să facă transferul de date concurent. Un modul va transfera la secundă pară, pe când celălalt la secundă impară. 
 
@@ -650,6 +641,8 @@ def getTime(timeFormat):
 			\item Verificarea funcției de setare a temperaturii pentru ambele camere.
 	\end{itemize} 
 
+\vspace{2em}
+
 	Cea de-a doua categorie este dedicată testelor unitare pentru utilizatorii care nu au drepturi de administrator. În principiu, aici se verifică faptul că doar aministratorii au acces la funcționalitățile privilegiate. Sunt validate cazurile de test precum:
  
 	\begin{itemize}
@@ -658,6 +651,8 @@ def getTime(timeFormat):
 			\item Un cont fără drept de aministrator nu este autorizat pentru crearea de alte conturi.
 			\item Nu este permis accesul pentru a vedea lista de conturi, a șterge un cont, a oferi drepturi de administrator sau a șterge drepturi de aministrator.
 	\end{itemize} 
+
+\vspace{2em}
 
 	În cele din urmă, ultima categorie cuprinde testarea doar a funcționalităților dedicate administratorilor. Se verifică:
 
@@ -674,7 +669,15 @@ def getTime(timeFormat):
 			\item Retragerea drepturilor de administrator pentru un cont inexistent.
 	\end{itemize} 
 
-Coverage.... rezultate experimentale....
+	Este important ca prin testele create să acoperim un procent cât mai mare din întreaga aplicație. Cu toate acestea, trebuie menționat faptul că, procentul de acoperire nu este un indicator al calității testelor, ci doar reprezintă cât de multe funcționalități sunt acoperite prin cazurile de test.
+
+\begin{figure}[H]
+	\centering
+    	\includegraphics[width=1\textwidth, height=4.5cm]{CoverageReport.png}
+	\caption{Procent de acoperire}
+\end{figure}    
+
+\vspace{2em}
 
 	Partea de verificare a instalației de apă a fost una mai simplă. După finalizarea lipiturilor conductelor de cupru și montarea garniturilor la fiecare îmbinare, a fost necesară o verificare a faptului că etanșeitatea este asigurată. Procesul a constat în introducerea unei presiuni de 2 bari, pe care am menținut-o în circuit un timp de 10 minute. În toată această perioadă, am monitorizat, cu ajutorul manometrului pompei de aer, faptul că presiunea rămâne constantă. Pentru a mă asigura că pompa de apă și electrovalvele funcționează corespunzător, am folosit o sursă de tensiune de 12 volți și am alimentat fiecare componentă electrică în parte. 
 

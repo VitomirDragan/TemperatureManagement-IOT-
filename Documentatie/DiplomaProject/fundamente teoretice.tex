@@ -74,11 +74,11 @@
 	
 \subsection{Senzor DHT11}
 
-	Prezintă două părți componente. Prima componentă are rolul de a citi umiditatea ambientală. Este alcatuită din doi electrozi, care se suprapun peste un substrat. În momentul în care umiditatea substratului se modifică, determina o modificare a rezistenței dintre cei doi electrozi, iar microcontrolerul detectează, și interpretează această valoare. Componenta termică, este formată dintr-un termistor. Termistorul este un rezistor a cărui rezistența este invers proporțională cu variația temperaturii. Pe baza valorii rezistenței date de termistor, se vor face prelucrări ajungându-se la o valoare validă a temperaturii.
+	Prezintă două părți componente. Prima componentă are rolul de a citi umiditatea ambientală. Este alcatuită din doi electrozi care se suprapun peste un substrat. În momentul în care umiditatea substratului se modifică, determină o modificare a rezistenței dintre cei doi electrozi, iar microcontrolerul detectează și interpretează această valoare. Componenta termică este formată dintr-un termistor. Termistorul este un rezistor a cărui rezistența este invers proporțională cu variația temperaturii. Pe baza valorii rezistenței date de termistor, se vor face prelucrări ajungându-se la o valoare validă a temperaturii.
 
 \subsection{Modul radio frecvență}
 
-	Pereche formată dintr-un transmițător și receptor. Construite pentru a facilita transferul de date prin radio frecvență. Acestea funcționează la o frecvență de 433Mhz \cite{rfModule}, iar distanța de transmisie diferă în funcție de tensiunea de alimentare a transmițătorului și de calitatea antenelor.
+	Pereche formată dintr-un transmițător și receptor. Construite pentru a facilita transferul de date prin radio-frecvență. Acestea funcționează la o frecvență de 433Mhz \cite{rfModule}, iar distanța de transmisie diferă în funcție de tensiunea de alimentare a transmițătorului și de calitatea antenelor.
 
 	Conform \cite{rfModule}, se pot evidenția următoarele caracteristici:
  		\begin{itemize}
@@ -114,9 +114,9 @@
 
 	Asemenea condensatorului, rezistența se încadrează în categoria componentelor electrice pasive. Aceasta are rolul de a se opune trecerii curentului electric. 
 
-\subsection{Invertor Schmitt-Trigger}
+\subsection{Circuit integrat Schmitt-Trigger}
 
-	Acesta este utilizat pentru a inversa logica semnalului. Dacă se aplică la intrare un semnal cu nivel logic 1, la ieșirea din invertor va avea nivelul logic 0.
+	Acesta este utilizat pentru a transforma un semnal analog într-un semnal digital, dar prezintă și rolul de inversor. Dacă se aplică la intrare un semnal cu nivel logic 1, la ieșirea din circuitul integrat va avea nivelul logic 0.
 
 \subsection{Diodă}
 
@@ -124,29 +124,76 @@
 
 \section{Filtrarea semnalelor}
 
-	Butoanele pe care le-am folosit, pentru setarea temperaturii dorite, sunt formate din contacte metalice. În momentul în care acestea se ating, produc o vibrație pe care microcontrolerul o percepe ca o apăsare multiplă a butonului. Pentru a rezolva aceasta problemă este necesară crearea unor filtre trece jos \cite{buttonDebouncing} pentru fiecare buton în parte. Rolul acestor filtre este de a permite trecerea semnalelor cu frecvență mică si de a opri semnalele cu frecvențe mari. Pentru aceasta am utilizat circuite RC serie, iar valorile rezistenței si condesatorului au fost calculate utilizând ecuația de descărcare a condensatorului \cite{buttonDebouncing}.
+	Butoanele pe care le-am folosit, pentru setarea temperaturii dorite, sunt formate din contacte metalice. În momentul în care acestea se ating, produc o vibrație pe care microcontrolerul o percepe ca o apăsare multiplă a butonului. Pentru a rezolva această problemă este necesară crearea unor filtre trece jos \cite{buttonDebouncing} pentru fiecare buton în parte. Rolul acestor filtre este de a permite trecerea semnalelor cu frecvență mică si de a opri semnalele cu frecvențe mari. Pentru aceasta, am utilizat circuite RC serie, iar valorile rezistenței si condesatorului au fost calculate utilizând ecuația de încărcare și de descărcare a condensatorului. De asemenea, pentru a obține o filtrare cât mai bună, am utilizat un circuit integrat Schmitt-Trigger. Caracteristica datorită căreia acesta îmbunătățește filtrarea semnalului este histereza pe care o are între pragul superior, declanșează trecerea pe nivel logic 0, și pragul inferior, declanșează trecerea pe nivel logic 1.  
+\vspace{1em}\\
+Conform \cite{buttonDebouncing}, ecuația de încărcare a condensatorului este:
 
 \begin{equation}
-V_{cap} = V_{initial}(e^{\frac{-t}{RC}})                 
+V_{cap} = V_{in}(1-e^{\frac{-t}{RC}})
 \end{equation}
+\vspace{1em}\\
+Conform \cite{buttonDebouncing}, ecuația de descărcare a condensatorului este:
 
-	În continuare, pentru a putea aplica formula, este necesară aflarea timpului cât durează oscilația semnalului. Pentru aceasta, am utilizat un osciloscop, care permite analiza semnalului provenit de la buton.
+\begin{equation}
+V_{cap} = V_{in}(e^{\frac{-t}{RC}})                 
+\end{equation}
+\vspace{1em}\\
+$V_{cap}$ - tensiunea stocată în condensator la momentul t
+\vspace{0.7em}\\
+$V_{in}$ - tensiune de alimentare a circuitului
+\vspace{0.7em}\\
+t - timpul măsurat din momentul aplicării tensiunii de alimentare la bornele circuitului, în cazul ecuației de încărcare a condensatorului. Pentru ecuația de descărcare a condensatorului, reprezintă timpul măsurat din momentul întreruperii alimentării circuitului
+\vspace{0.7em}\\
+R - valoarea în ohmi a rezistenței utilizate
+\vspace{0.7em}\\
+C - valoarea în farazi a condensatorului utilizat\\ 
+
+\vspace{1em}
+	În continuare, pentru a putea aplica formulele, este necesară aflarea timpului cât durează oscilația semnalului. Pentru aceasta, am utilizat un osciloscop ce permite analiza semnalului provenit de la buton.
 
 \begin{figure}[H]
 	\centering
-    	\includegraphics[width=1\textwidth]{InainteDeFiltru.jpg}
+    	\includegraphics[width=0.8\textwidth]{InainteDeFiltru.jpg}
 	\caption{Semnal înainte de filtrul trece jos}
 	\label{fig:InainteDeFiltru}
 \end{figure}
 
 \begin{figure}[H]
    	\centering
-    	\includegraphics[width=1\textwidth]{DupaFiltru.jpg}
+    	\includegraphics[width=0.8\textwidth]{DupaFiltru.jpg}
 	\caption{Semnal după filtrul trece jos}
 	\label{fig:DupaFiltru}
 \end{figure}
 	
-	De asemenea, pentru a obține o filtrare cât mai bună, am utilizat un invertor Schmitt-Trigger. Caracteristica datorită căreia acesta îmbunătățește filtrarea semnalului este histereza pe care o are între pragul superior, declanșează trecerea pe nivel logic 0, și pragul inferior, declanșează trecerea pe nivel logic 1.  
+	În urma analizei mai multor semnale de la push buton, cea mai mare perturbație a durat aproximativ 8 ms. În calculul valorii rezistențelor si condensatorului care trebuie folosite în filtrele trece jos, voi folosi un timp de 10 ms. Cele 2 ms în plus reprezintă o marjă de siguranță pentru situațiile în care apar perturbații mai mari decât cele măsurate. 
+
+\vspace{1em}
+
+	În cele ce urmează, voi prezenta schema filtrului trece jos, iar pe baza acesteia voi detalia calculele realizate pentru a determina valorile componentelor electrice utilizate.
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=0.8\textwidth]{CircuitRC.png}
+	\caption{Schemă filtru trece-jos (sursa: \cite{buttonDebouncing})}
+\end{figure}
+
+	În momentul în care întrerupătorul se închide, condensatorul începe să se descarce prin intermediul rezistenței $R_2$. Cunoscând acest aspect, voi putea calcula valoarea $R_2$ utilizând ecuația de descărcare a condensatorului. Valoarea lui t va fi de 10 ms, $V_{in}$ este echivalent cu 3.3 volți(tensiunea la care funcționează modulul WiFi), $V_{cap}$ este egal cu valoarea pragului inferior al inversorului Schmitt-Trigger, iar valoarea condensatorului o aleg de 1 µF. Mai exact, se calculează rezistența astfel încât, după t = 10 ms de la începerea descărcării, tensiunea stocată în condensator să ajungă la valoarea de prag a circuitului integrat.
+
+\[
+	R_2 = \frac{-t}{C\ln(\frac{V_{cap}}{V_{in}})} = \frac{-10 \cdot 10^{-3}}{10^{-6}\ln(\frac{1}{3.3})} = \frac{-10}{\ln(0.3)}\cdot 10^3 =  \frac{-10}{-1.2}\cdot 10^3 = 8.33 \cdot 10^3 = 8.33 K\Omega
+\]
+
+	Când se deschide întrerupătorul, condensatorul începe să se încarce prin intermediul rezistențelor $R_1$ și $R_2$. Pornind de la această informație, voi calcula valoarea $R_1 + R_2$ utilizând ecuația de încărcare a condensatorului. Doar valoarea parametrului $V_{cap}$ se modifică, va fi echivalentă cu pragul superior al inversorului. 
+
+\[
+	R_1 + R_2 = \frac{-t}{C\ln(1 - \frac{V_{cap}}{V_{in}})} = \frac{-10 \cdot 10^{-3}}{10^{-6}\ln(1 - \frac{1.5}{3.3})} = \frac{-10}{\ln(0.54)}\cdot 10^3 =  \frac{-10}{-0.61}\cdot 10^3 = 16.39 \cdot 10^3
+\]
+\[
+	 = 16.39 K\Omega
+\]
+\[
+	R_1 + R_2 = 16.39 K\Omega, R_2 = 8.33 K\Omega \Rightarrow R_1 = 8.06 K\Omega
+\]	
 	
 \section{Histereza}
 

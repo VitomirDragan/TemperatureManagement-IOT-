@@ -1,14 +1,17 @@
 \babel@toc {romanian}{}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Evolu\IeC {{\textcommabelow t}}ia num\IeC {\u a}rului de dispozitive IoT}}{4}{figure.1.1}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Evolu\IeC {{\textcommabelow t}}ia num\IeC {\u a}rului de dispozitive IoT (sursa: \cite {increaseOfIot})}}{4}{figure.1.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Semnal \IeC {\^\i }nainte de filtrul trece jos}}{16}{figure.3.1}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Semnal \IeC {\^\i }nainte de filtrul trece jos}}{17}{figure.3.1}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Semnal dup\IeC {\u a} filtrul trece jos}}{17}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Schem\IeC {\u a} filtru trece-jos (sursa: \cite {buttonDebouncing})}}{18}{figure.3.3}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Arhitectura sistemului}}{20}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Arhitectura modulului senzor}}{21}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Arhitectura modulului de control}}{23}{figure.4.3}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Intrare HTML pentru formatul timp}}{37}{figure.4.4}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Arhitectura sistemului}}{21}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Arhitectura modulului senzor}}{22}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Arhitectura modulului de control}}{24}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Intrare HTML pentru formatul timp}}{38}{figure.4.4}%
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Intrare HTML pentru formatul numeric}}{38}{figure.4.5}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Stocare program intervale orare}}{40}{figure.4.6}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Stocare program intervale orare}}{41}{figure.4.6}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Procent de acoperire}}{45}{figure.4.7}%
+\addvspace {10\p@ }
