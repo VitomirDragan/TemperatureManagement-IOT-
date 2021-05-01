@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.4.22)  28 APR 2021 22:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.4.22)  29 APR 2021 23:49
 entering extended mode
 **./main.tex
 (main.tex
@@ -976,48 +976,48 @@ Package pdftex.def Info: ./fig//IntrareDeTipNumeric.png  used on input line 527
 .
 (pdftex.def)             Requested size: 125.47737pt x 49.99132pt.
 
-Overfull \hbox (10.02127pt too wide) in paragraph at lines 531--533
+Overfull \hbox (10.02127pt too wide) in paragraph at lines 531--532
 \T1/ptm/m/n/12 mise mai de-parte par[]ii, din ca-drul aplica[]iei web, res-pon-
 sa-bile cu pro-ce-sa-rea informa[]iilor.
  []
 
 [38 <./fig//IntrareDeTipTimp.png> <./fig//IntrareDeTipNumeric.png>] [39]
 [40]
-<./fig//IntervalsWorkingDays.png, id=772, 274.02374pt x 283.0575pt>
+<./fig//IntervalsWorkingDays.png, id=770, 274.02374pt x 283.0575pt>
 File: ./fig//IntervalsWorkingDays.png Graphic file (type png)
 <use ./fig//IntervalsWorkingDays.png>
 Package pdftex.def Info: ./fig//IntervalsWorkingDays.png  used on input line 59
-9.
+4.
 (pdftex.def)             Requested size: 334.60422pt x 345.6622pt.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\u' on input line 603.
+(hyperref)                removing `\u' on input line 598.
 
 [41 <./fig//IntervalsWorkingDays.png>] [42]
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 621.
+(hyperref)                removing `\textcommabelow' on input line 616.
 
 
-Overfull \hbox (10.34238pt too wide) in paragraph at lines 625--626
+Overfull \hbox (10.34238pt too wide) in paragraph at lines 620--621
 []\T1/ptm/m/n/12 În ceea ce prive[]te pro-iec-tul pre-zen-tat, tes-ta-rea a vi-
 zat dou  mari com-po-nente: aplica[]ia
  []
 
 
-Overfull \hbox (1.02052pt too wide) in paragraph at lines 632--633
+Overfull \hbox (1.02052pt too wide) in paragraph at lines 627--628
 []\T1/ptm/m/n/12 Verificarea fap-tu-lui c  pen-tru a pu-tea re-a-liza orice fun
 c[]ionalitate din aplica[]ia
  []
 
-[43] [44]
-<./fig//CoverageReport.png, id=798, 963.6pt x 232.36812pt>
+[43]
+<./fig//CoverageReport.png, id=792, 963.6pt x 232.36812pt>
 File: ./fig//CoverageReport.png Graphic file (type png)
 <use ./fig//CoverageReport.png>
-Package pdftex.def Info: ./fig//CoverageReport.png  used on input line 676.
+Package pdftex.def Info: ./fig//CoverageReport.png  used on input line 671.
 (pdftex.def)             Requested size: 418.251pt x 128.0404pt.
-) (concluzii.tex [45 <./fig//CoverageReport.png>]
+ [44]) (concluzii.tex [45 <./fig//CoverageReport.png>]
 Capitolul 5.
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
@@ -1027,19 +1027,19 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 1.
 
-) [46
+[46
 
-] (main.lof)
+]) [47] (main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [47
+ [48
 
 ] (main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- (main.bbl [48
+ (main.bbl [49
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 42--46
@@ -1077,7 +1077,7 @@ Underfull \hbox (badness 4120) in paragraph at lines 66--69
  -[] nest/$[].  [Data ac-ce-s -rii:
  []
 
-[49
+[50
 
 ]
 Underfull \hbox (badness 2426) in paragraph at lines 71--77
@@ -1097,15 +1097,15 @@ Underfull \hbox (badness 5924) in paragraph at lines 94--98
 [].  [Data ac-ce-s -rii:
  []
 
-) [50] (main.aux)
+) [51] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 504A79F122777B9F86D71F90D8FB574C;3012.
  ) 
 Here is how much of TeX's memory you used:
- 13116 strings out of 479618
- 180398 string characters out of 2879619
+ 13109 strings out of 479618
+ 180308 string characters out of 2879619
  758779 words of memory out of 3000000
- 29559 multiletter control sequences out of 15000+200000
+ 29553 multiletter control sequences out of 15000+200000
  510163 words of font info for 188 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,19n,74p,1503b,1984s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1117,9 +1117,9 @@ ype1/urw/courier/ucrr8a.pfb><D:/New folder/fonts/type1/urw/courier/ucrro8a.pfb>
 ymbol/usyr.pfb><D:/New folder/fonts/type1/urw/times/utmb8a.pfb><D:/New folder/f
 onts/type1/urw/times/utmr8a.pfb><D:/New folder/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on main.pdf (52 pages, 2444380 bytes).
+Output written on main.pdf (53 pages, 2444992 bytes).
 PDF statistics:
- 983 PDF objects out of 1000 (max. 8388607)
- 398 named destinations out of 1000 (max. 500000)
+ 985 PDF objects out of 1000 (max. 8388607)
+ 397 named destinations out of 1000 (max. 500000)
  451 words of extra memory for PDF output out of 10000 (max. 10000000)
 

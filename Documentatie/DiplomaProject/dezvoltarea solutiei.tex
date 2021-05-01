@@ -528,12 +528,7 @@ def home():
 	\caption{Intrare HTML pentru formatul numeric}
 \end{figure}
 
-	După ce utilizatorul completează toate câmpurile, aceste valori urmează să fie transmise mai departe parții, din cadrul aplicației web, responsabile cu procesarea informațiilor. Transferul datelor se face la acționarea unui buton, iar aspectul acestuia este creat în \textit{Bootstrap}.
-\vspace{1em}
-\begin{lstlisting}
-	<button type="submit" class="btn btn-primary btn-block">Set intervals</button>
-\end{lstlisting}
-\vspace{2em} 
+	După ce utilizatorul completează toate câmpurile, aceste valori urmează să fie transmise mai departe parții, din cadrul aplicației web, responsabile cu procesarea informațiilor. Transferul datelor se face prin metode de tip \textit{POST}.
 
 	Înainte de salvarea informațiilor în baza de date, este necesară o verificare a acestora. Valorile temperaturilor trebuie să se încadreze în intervalul 15 °C și 32 °C, iar orice depășire a acestor limite nu poate fi stocată. De asemenea, ordinea intervalelor orare trebuie să fie setată într-un mod cronologic. În cazul în care aceste condiții nu sunt respectate, se va afișa un mesaj de eroare adaptat contextului, iar utilizatorului i se oferă posibilitatea reintroducerii datelor.
 
