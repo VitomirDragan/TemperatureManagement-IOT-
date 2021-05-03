@@ -20,7 +20,7 @@ void setup() {
     wifiModule.connectToInternet("Asus", "vitomir10");
     Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
     wifiModule.defineInterrupts();
-    wifiModule.stream(streamDesiredTemperature,"/DesiredTempRoom2/Zapier/Value");
+    wifiModule.stream(streamDesiredTemperature,"/DesiredTempRoom1/Zapier/Value");
     wifiModule.stream(streamSwitchIntervalsOn, "/SwitchIntervalsOn/Value");  
     wifiModule.stream(streamIntervals, "/Intervals");
     delay(500);
@@ -35,7 +35,7 @@ void loop() {
           lcd.displayDesiredTemperature();
           if (WiFi.status() == WL_CONNECTED && (!switchIntervalsOn))
           {
-              wifiModule.sendDesiredTemperatureToDatabase("DesiredTempRoom2/Zapier/Value");
+              wifiModule.sendDesiredTemperatureToDatabase("DesiredTempRoom1/Zapier/Value");
           }
       }
       increaseDesiredTemperature = false;
@@ -45,7 +45,7 @@ void loop() {
           lcd.displayDesiredTemperature();
           if (WiFi.status() == WL_CONNECTED && (!switchIntervalsOn))
           {
-              wifiModule.sendDesiredTemperatureToDatabase("DesiredTempRoom2/Zapier/Value");
+              wifiModule.sendDesiredTemperatureToDatabase("DesiredTempRoom1/Zapier/Value");
           }
         }
       decreaseDesiredTemperature = false;
@@ -135,9 +135,9 @@ void loop() {
               timeIntervalsOperatingMode = false;
             }
         } else {
-            wifiModule.readStreamValue(desiredTemperature, streamDesiredTemperature,"/DesiredTempRoom2/Zapier/Value");
+            wifiModule.readStreamValue(desiredTemperature, streamDesiredTemperature,"/DesiredTempRoom1/Zapier/Value");
             if(!normalOperatingMode){
-               wifiModule.readDesiredTemperatureFromDatabase("DesiredTempRoom2/Zapier/Value");
+               wifiModule.readDesiredTemperatureFromDatabase("DesiredTempRoom1/Zapier/Value");
                normalOperatingMode = true;
                timeIntervalsOperatingMode = false;
             }

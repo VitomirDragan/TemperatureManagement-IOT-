@@ -47,10 +47,10 @@ void loop()
         Serial.println(commandModule1);
         Serial.print("Module2:");
         Serial.println(commandModule2);
-        if(commandModule1 || commandModule2){
+        if(commandModule1 == 1 || commandModule2 == 1){
           digitalWrite(7, LOW);
           Serial.println("On");
-        }else{
+        }else if(commandModule1 == 0 && commandModule2 == 0){
           digitalWrite(7, HIGH);
           Serial.println("Off");
         }

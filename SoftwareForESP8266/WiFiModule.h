@@ -24,6 +24,7 @@
 #define MIN_TEMP 15
 #define ON 1
 #define OFF 0
+#define PREVENT_TIMEOUT 2
 #define HYSTERESIS 1
 
 extern volatile int desiredTemperature;

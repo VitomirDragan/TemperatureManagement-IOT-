@@ -114,7 +114,7 @@ int DHTSensor::readTemp(){
 void WiFiModule::sendHumidityToDatabase(int humidity){
   if(lastHumidityValue != humidity)
   {
-    if(Firebase.setInt(firebaseData, "HumidityRoom2/Value", humidity)==false)
+    if(Firebase.setInt(firebaseData, "HumidityRoom1/Value", humidity)==false)
     {
       return;
     }
@@ -126,7 +126,7 @@ void WiFiModule::sendHumidityToDatabase(int humidity){
 void WiFiModule::sendCurrentTemperatureToDatabase(int currentTemperature){
   if(lastTemperatureValue != currentTemperature)
   {
-    if(Firebase.setInt(firebaseData, "CurrentTempRoom2/Value", currentTemperature)==false)
+    if(Firebase.setInt(firebaseData, "CurrentTempRoom1/Value", currentTemperature)==false)
     {
       return;
     }
@@ -191,6 +191,9 @@ void WiFiModule::heatControl(int currentTemperature){
          transmitter.sendCommandToController(OFF);
          digitalWrite(RELAY_PIN, HIGH);
      }
+     else if(currentTemperature == desiredTemperature){
+         transmitter.sendCommandToController(PREVENT_TIMEOUT);
+     }
 }
 
 void WiFiModule::statusIndicator(){
@@ -213,12 +216,12 @@ void RFTransmitter::initializeRFTransmitter(){
 }
 
 void RFTransmitter::sendCommandToController(int command){
-      while(timer.getCurrentSecond()%2 == 0){
+      while(timer.getCurrentSecond()%2 != 0){
         delay(5);
       }//wait while second is odd
 
       char message[2];
-      itoa(20 + command, message, 10);
+      itoa(10 + command, message, 10);
       driver.send(((unsigned char *) message), strlen(message));
       driver.waitPacketSent();
 }
