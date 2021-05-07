@@ -7,11 +7,12 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Semnal dup\IeC {\u a} filtrul trece jos}}{17}{figure.3.2}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Schem\IeC {\u a} filtru trece-jos (sursa: \cite {buttonDebouncing})}}{18}{figure.3.3}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Arhitectura sistemului}}{21}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Arhitectura modulului senzor}}{22}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Arhitectura modulului de control}}{24}{figure.4.3}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Intrare HTML pentru formatul timp}}{38}{figure.4.4}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Intrare HTML pentru formatul numeric}}{38}{figure.4.5}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Stocare program intervale orare}}{41}{figure.4.6}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Procent de acoperire}}{45}{figure.4.7}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Cazurile de utilizare pentru aplica\IeC {{\textcommabelow t}}ia web}}{21}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Arhitectura sistemului}}{22}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Arhitectura modulului senzor}}{23}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Arhitectura modulului de control}}{26}{figure.4.4}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Intrare HTML pentru formatul timp}}{40}{figure.4.5}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Intrare HTML pentru formatul numeric}}{40}{figure.4.6}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Stocare program intervale orare}}{43}{figure.4.7}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Procent de acoperire}}{47}{figure.4.8}%
 \addvspace {10\p@ }

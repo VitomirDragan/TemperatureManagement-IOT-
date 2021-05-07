@@ -3,7 +3,33 @@
 	Acest capitol conține o prezentarea detaliată a modului în care a fost implementat proiectul. Voi face referiri atât la partea hardware, cât și la partea software. 
 
 \section{Specificarea cerințelor}
-	...
+	
+	Redactarea cerințelor sistemului reprezintă o etapă esențială în crearea oricărui proiect. Acestea dictează comportamentul produsului final, fiind necesare atât în faza de dezvoltare, cât și în cea de testare. Cu ajutorul diagramelor cazurilor de utilizare, voi detalia cerințele sistemului descris în această lucrare.
+
+\subsection{Cerințele funcționale ale aplicației web}
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=1\textwidth]{Use-Case site.png}
+	\caption{Cazurile de utilizare pentru aplicația web}
+\end{figure}
+	
+	-Aplicația trebuie să permită utilizatorilor să se autentifice cu ajutorul credențialelor, indiferent de rolul utilizatorului.
+
+	-Setarea temperaturii trebuie să fie posibilă prin intermediul aplicației web, iar această acțiune nu depinde de rolul utilizatorului.
+
+	-De asemenea, o cerință esențială a sistemului este de a oferi posibilitatea setarii, de la distanță, unui program de funcționare. Această funcționalitate trebuie să fie accesibilă atât pentru conturile cu drepturi de administrator, cât și pentru cele fără.
+
+	-Este util ca accesul la aplicația web să poată fi oferit și altor persoane, să poată fi modificat sau chiar retras, dar doar de către administratori. Prin urmare, aplicația trebuie să permită administratorilor să creeze noi conturi, să șteargă conturi și să modifice drepturile de acces. Însă, pentru a facilita realizarea ultimelor două funcționalități este necesară o pagină care să afișeze toate conturile, împreună cu drepturile aferente, din baza de date. 
+
+	-Noile conturi sunt create de administratori și au parole provizorii, fapt ce duce la apariția unei noi cerințe, și anume: aplicația web trebuie să ofere posibilitatea utilizatorilor de a-și schimba parola.   
+
+	-La încheierea sesiunii de navigare, orice utilizator trebuie să se poată deconecta. 	 
+
+\subsection{Cerințe nefuncționale ale aplicației web}
+
+	
+	
 
 \section{Arhitectura sistemului}
 
@@ -15,7 +41,7 @@
 
 	Sistemul a fost conceput pentru un apartament cu două camere, însă poate fi extins pentru un număr mai mare de încăperi. La nivel macro, este format din trei module, câte un modul senzor pentru fiecare cameră și un modul de control, montat în apropierea centralei termice.
 
-	Modulul senzor prezintă o complexitate mai mare, este alcătuit din mai multe componente și îndeplinește o serie de funcționalități. Preia informații precum: temperatura și umiditatea și le trimite în baza de date. În continuare, aceste valori sunt afișate utilizând aplicația web, făcând posibilă monitorizarea parametrilor ambientali. De asemenea, are acces la temperatura setată, iar in funcție de aceasta, dar și de temperatura curentă din cameră, controlează electrovalva și trimite comandă de oprire sau pornire a centralei. Un alt rol esențial pe care îl îndeplinește modulul, este de a face posibilă setarea unei valori a temperaturii ce urmează să fie menținută în cameră.
+	Modulul senzor prezintă o complexitate mai mare, este alcătuit din mai multe componente și îndeplinește o serie de funcționalități. Preia informații precum: temperatura și umiditatea și le trimite în baza de date. În continuare, aceste valori sunt afișate utilizând aplicația web, făcând posibilă monitorizarea parametrilor ambientali. De asemenea, are acces la temperatura setată, iar in funcție de aceasta, dar și de temperatura curentă din cameră, controlează electrovalva și trimite comandă de oprire sau pornire a centralei. Un alt rol esențial pe care îl îndeplinește modulul este de a face posibilă setarea unei valori a temperaturii ce urmează să fie menținută în cameră.
 
 	Modulul de control este de o complexitate redusă. Primește comenzi de la modulele senzor, le interpretează, iar pe baza acestora controlează centrala. Modulul se folosește de logică de tip "SAU", dacă cel puțin un modul senzor trimite comandă de pornire, atunci centrala termică trebuie să înceapă ciclul de încălzire.
 
