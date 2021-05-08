@@ -14,20 +14,38 @@
 	\caption{Cazurile de utilizare pentru aplicația web}
 \end{figure}
 	
-	-Aplicația trebuie să permită utilizatorilor să se autentifice cu ajutorul credențialelor, indiferent de rolul utilizatorului.
+	Prima cerință pe care aplicația trebuie să o îndeplinească este de a permite utilizatorilor să se autentifice cu ajutorul credențialelor, indiferent de rolul utilizatorului. De asemenea, trebuie tratate situațiile în care parola este greșită sau contul nu există în baza de date.
 
-	-Setarea temperaturii trebuie să fie posibilă prin intermediul aplicației web, iar această acțiune nu depinde de rolul utilizatorului.
+	Prin intermediul aplicației web, orice utilizator trebuie să poată monitoriza valoarea temperaturii și umidității din imobil.
 
-	-De asemenea, o cerință esențială a sistemului este de a oferi posibilitatea setarii, de la distanță, unui program de funcționare. Această funcționalitate trebuie să fie accesibilă atât pentru conturile cu drepturi de administrator, cât și pentru cele fără.
+	Setarea temperaturii trebuie să fie posibilă prin intermediul aplicației web, iar această acțiune nu depinde de rolul utilizatorului.
 
-	-Este util ca accesul la aplicația web să poată fi oferit și altor persoane, să poată fi modificat sau chiar retras, dar doar de către administratori. Prin urmare, aplicația trebuie să permită administratorilor să creeze noi conturi, să șteargă conturi și să modifice drepturile de acces. Însă, pentru a facilita realizarea ultimelor două funcționalități este necesară o pagină care să afișeze toate conturile, împreună cu drepturile aferente, din baza de date. 
+	O cerință esențială a sistemului este de a oferi posibilitatea setarii, de la distanță, a unui program de funcționare. Această funcționalitate trebuie să fie accesibilă atât pentru conturile cu drepturi de administrator, cât și pentru cele fără. Este necesar ca datele introduse de utilizator să fie verificate și semnalate cazurile în care valorile temperaturilor nu sunt valide sau intervalele nu sunt setate în ordine cronologică.
 
-	-Noile conturi sunt create de administratori și au parole provizorii, fapt ce duce la apariția unei noi cerințe, și anume: aplicația web trebuie să ofere posibilitatea utilizatorilor de a-și schimba parola.   
+	Pentru a putea gestiona accesul la aplicație, aceasta trebuie să permită administratorilor să creeze, să șteargă conturi pentru alte persoane și să modifice drepturile de acces ale tuturor conturilor salvate în baza de date. Prin urmare, apare nevoia de noi funcționalități, precum: creare cont, ștergere cont și modificare drepturi de acces. La crearea unui cont, se va verifica dacă parola introdusă este una sigură. Validarea se face pe baza a trei criterii: parola trebuie să conțină cel puțin 6 caractere, cel puțin o literă mare și cel puțin o cifră. În cazul în care nu se respectă condițiile, utilizatorul trebuie să fie avertizat, iar contul nu va fi creat. 
 
-	-La încheierea sesiunii de navigare, orice utilizator trebuie să se poată deconecta. 	 
+	Cele 3 cerințe menționate mai sus duc la apariția unei noi cerințe. Pentru a facilita stergerea conturilor și modificarea drepturilor de acces, aplicația web trebuie să pună la dispoziție o pagină care să afișeze toate conturile existente în baza de date. Aceasta trebuie să fie accesibilă doar administratorilor.
+	 
+	De asemenea, din motive de securitate, trebuie ca fiecare utilizator să poată să iși modifice parola. Acest caz de utilizare implică mai multe validări. Este necesar să se verifice dacă parola actuală introdusă este cea corectă. După aceea, identic cazului de utilizare modificare parolă, se verifică dacă noua parolă introdusă este una sigură. În cele din urmă, trebuie verificat dacă parola noua și confirmarea acesteia coincid. Nerespectarea condițiilor duce la afișarea unui mesaj de eroare și la nefinalizarea acțiunii de schimbare a parolei.
+
+	După finalizarea acțiunilor dorite, utilizatorii trebuie să se poată deconecta de la aplicație. 	 
 
 \subsection{Cerințe nefuncționale ale aplicației web}
+\subsection{Cerințe funcționale pentru ansamblul de componente electronice}
 
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=1\textwidth]{Use-Case hardware.png}
+	\caption{Cazurile de utilizare pentru ansamblul de componente electronice}
+\end{figure}	
+
+	Sistemul trebuie să poată funcționa și în cazul întreruperii conexiunii la internet. Într-o astfel de situație, componentele electronice trebuie să fie capabile să preia funcționalitățile de bază ale aplicației web, și anume: monitorizarea temperaturii și umidității, precum și setarea temperaturii.
+
+	Ansamblul componentelor electronice trebuie sa permită modificarea temperaturii setate. Pentru aceasta, se utilizează butoane, iar modificările de temperatură se afișează pe LCD.
+
+ 	Pentru a face posibilă monitorizarea parametrilor ambientali, modulele WiFi trebuie să afișeze pe LCD valorile citite de senzorul de temperatură și umiditate. 
+
+	 
 	
 	
 
@@ -460,21 +478,10 @@ if (driver.recv(dataPackage, &dataPackageLength))
 	În ceea ce privește partea de acces a aplicației, aceasta este găzduită pe un server, la distanță, prin intermediul platformei \textit{Heroku}. Oricine deține adresa aplicației o poate accesa, însă prima pagină care apare la accesare este cea de conectare, iar navigarea poate fi continuată doar în cazul în care utilizatorul deține un cont valid. 
 	
 \vspace{1em}
-	Printre funcționalitățile esențiale pe care le deține aplicația sunt:
 
-\begin{itemize}
-\setlength{\itemindent}{2em}
-	\itemsep0em
-	\item pagina principală, ce apare imediat după o conectare cu succes, prezintă rolurile cele mai importante, si anume: posibilitatea de monitorizare a temperaturii și umidității ambientale, dar și reglarea temperaturii dorite. Este construită pentru două camere, dar poate fi extinsă pentru mai multe.
-	\item pagina de programare a intervalelor orare si temperaturile corespunzătoare acestora este, de asemenea, o funcționalitate utilă pentru utilizatori și pentru partea de control al modului de funcționare al sistemului.
-	\item pentru a permite accesul si altor persoane la aplicație, pagina de creare cont oferă posibilitatea de adăugare a noi intrări în baza de date. Astfel, un administrator poate oferi dreptul de acces și altor utilizatori. 
-	\item un administrator are dreptul de a analiza lista persoanelor care dețin un cont și de a adăuga sau retrage anumite drepturi de acces.
-	\item o funcționalitate utilă pentru persoanele care primesc conturile cu credențialele setate de către un administrator, este posibilitatea de schimbare a parolei vechi. Astfel, parolele rămân confidențiale fiecărui utilizator în parte.
-\end{itemize}
-	
 \subsubsection{Secvențe de cod esențiale din cadrul implementării aplicației web}
 
-	Pentru a asigura accesul la aplicație doar a persoanelor privilegiate, trebuie creată o pagină de conectare ce să permită verificarea corespondenței credențialelor introduse în formular cu cele salvate în baza de date. În cazul unei potriviri, utilizatorul este redirecționat la calea \textit{/home}, aceasta aparținând paginii principale și permite monitorizarea parametrilor ambientali și setarea  temperaturii dorite. Situația în care se introduc credențiale greșite, este tratată printr-un mesaj de avertizare, iar utilizatorului i se oferă posibilitatea reintroducerii datelor de conectare.
+	Pentru a asigura accesul la aplicație doar a persoanelor privilegiate, trebuie creată o pagină de conectare ce să permită verificarea concordanței credențialelor introduse în formular cu cele salvate în baza de date. În cazul unei potriviri, utilizatorul este redirecționat la calea \textit{/home}, aceasta aparținând paginii principale și permite monitorizarea parametrilor ambientali și setarea  temperaturii dorite. Situația în care se introduc credențiale greșite este tratată printr-un mesaj de avertizare, iar utilizatorului i se oferă posibilitatea reintroducerii datelor de conectare.
 
 	Inițial, se preiau informațiile din interfață și se verifică existența utilizatorului cu numele introdus, instrucțiunea ce realizează acest aspect este: \textit{\texttt{user\_to\_login = Users.query.filter\_by(username=username).first()}}. Dacă numele utilizatorului a fost găsit, următorul pas ce trebuie inspectat este potrivirea parolei introduse cu cea salvată în baza de date. Este esențial de luat în considerare faptul că parolele sunt salvate criptate în baza de date, iar înainte de a face comparația cu parola introdusă, este obligatorie și criptarea parolei tastate de utilizator în formularul de conectare. 
 

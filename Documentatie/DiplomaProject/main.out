@@ -34,14 +34,15 @@
 \BOOKMARK [1][-]{section.4.1}{Specificarea cerintelor}{chapter.4}% 34
 \BOOKMARK [2][-]{subsection.4.1.1}{Cerintele functionale ale aplicatiei web}{section.4.1}% 35
 \BOOKMARK [2][-]{subsection.4.1.2}{Cerinte nefunctionale ale aplicatiei web}{section.4.1}% 36
-\BOOKMARK [1][-]{section.4.2}{Arhitectura sistemului}{chapter.4}% 37
-\BOOKMARK [2][-]{subsection.4.2.1}{Modulul senzor}{section.4.2}% 38
-\BOOKMARK [2][-]{subsection.4.2.2}{Modulul de control}{section.4.2}% 39
-\BOOKMARK [1][-]{section.4.3}{Proiectare detaliata}{chapter.4}% 40
-\BOOKMARK [1][-]{section.4.4}{Implementarea solutiei}{chapter.4}% 41
-\BOOKMARK [2][-]{subsection.4.4.1}{Programare modul ESP8266}{section.4.4}% 42
-\BOOKMARK [2][-]{subsection.4.4.2}{Programare placuta Arduino}{section.4.4}% 43
-\BOOKMARK [2][-]{subsection.4.4.3}{Realizarea aplicatiei web}{section.4.4}% 44
-\BOOKMARK [2][-]{subsection.4.4.4}{Probleme \356nt\342mpinate \356n timpul realizarii proiectului}{section.4.4}% 45
-\BOOKMARK [1][-]{section.4.5}{Testarea solutiei}{chapter.4}% 46
-\BOOKMARK [0][-]{chapter.5}{Concluzii si directii de dezvoltare}{}% 47
+\BOOKMARK [2][-]{subsection.4.1.3}{Cerinte functionale pentru ansamblul de componente electronice}{section.4.1}% 37
+\BOOKMARK [1][-]{section.4.2}{Arhitectura sistemului}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.2.1}{Modulul senzor}{section.4.2}% 39
+\BOOKMARK [2][-]{subsection.4.2.2}{Modulul de control}{section.4.2}% 40
+\BOOKMARK [1][-]{section.4.3}{Proiectare detaliata}{chapter.4}% 41
+\BOOKMARK [1][-]{section.4.4}{Implementarea solutiei}{chapter.4}% 42
+\BOOKMARK [2][-]{subsection.4.4.1}{Programare modul ESP8266}{section.4.4}% 43
+\BOOKMARK [2][-]{subsection.4.4.2}{Programare placuta Arduino}{section.4.4}% 44
+\BOOKMARK [2][-]{subsection.4.4.3}{Realizarea aplicatiei web}{section.4.4}% 45
+\BOOKMARK [2][-]{subsection.4.4.4}{Probleme \356nt\342mpinate \356n timpul realizarii proiectului}{section.4.4}% 46
+\BOOKMARK [1][-]{section.4.5}{Testarea solutiei}{chapter.4}% 47
+\BOOKMARK [0][-]{chapter.5}{Concluzii si directii de dezvoltare}{}% 48
