@@ -34,20 +34,21 @@
 \contentsline {chapter}{\numberline {4}Dezvoltarea solu\IeC {{\textcommabelow t}}iei}{20}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Specificarea cerin\IeC {{\textcommabelow t}}elor}{20}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Cerin\IeC {{\textcommabelow t}}ele func\IeC {{\textcommabelow t}}ionale ale aplica\IeC {{\textcommabelow t}}iei web}{21}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Cerin\IeC {{\textcommabelow t}}e nefunc\IeC {{\textcommabelow t}}ionale ale aplica\IeC {{\textcommabelow t}}iei web}{23}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Cerin\IeC {{\textcommabelow t}}e func\IeC {{\textcommabelow t}}ionale pentru ansamblul de componente electronice}{23}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.2}Cerin\IeC {{\textcommabelow t}}e nefunc\IeC {{\textcommabelow t}}ionale ale aplica\IeC {{\textcommabelow t}}iei web}{22}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Cerin\IeC {{\textcommabelow t}}e func\IeC {{\textcommabelow t}}ionale pentru componentele electronice}{23}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Cerin\IeC {{\textcommabelow t}}e nefunc\IeC {{\textcommabelow t}}ionale pentru componentele electronice}{23}{subsection.4.1.4}%
 \contentsline {section}{\numberline {4.2}Arhitectura sistemului}{24}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Modulul senzor}{25}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Modulul de control}{27}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.2}Modulul de control}{28}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}Proiectare detaliat\IeC {\u a}}{28}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Implementarea solu\IeC {{\textcommabelow t}}iei}{28}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Programare modul ESP8266}{28}{subsection.4.4.1}%
-\contentsline {subsubsection}{Ini\IeC {{\textcommabelow t}}ializ\IeC {\u a}ri}{28}{section*.2}%
-\contentsline {subsubsection}{\IeC {\^I}ntreruperile \IeC {{\textcommabelow s}}i tratarea acestora}{30}{section*.3}%
+\contentsline {section}{\numberline {4.4}Implementarea solu\IeC {{\textcommabelow t}}iei}{29}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Programare modul ESP8266}{29}{subsection.4.4.1}%
+\contentsline {subsubsection}{Ini\IeC {{\textcommabelow t}}ializ\IeC {\u a}ri}{29}{section*.2}%
+\contentsline {subsubsection}{\IeC {\^I}ntreruperile \IeC {{\textcommabelow s}}i tratarea acestora}{31}{section*.3}%
 \contentsline {subsubsection}{Mod de operare presetat de utilizator}{32}{section*.4}%
 \contentsline {subsubsection}{Mod clasic de operare}{35}{section*.5}%
-\contentsline {subsection}{\numberline {4.4.2}Programare pl\IeC {\u a}cu\IeC {{\textcommabelow t}}\IeC {\u a} Arduino}{35}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Realizarea aplica\IeC {{\textcommabelow t}}iei web}{37}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.2}Programare pl\IeC {\u a}cu\IeC {{\textcommabelow t}}\IeC {\u a} Arduino}{36}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Realizarea aplica\IeC {{\textcommabelow t}}iei web}{38}{subsection.4.4.3}%
 \contentsline {subsubsection}{Secven\IeC {{\textcommabelow t}}e de cod esen\IeC {{\textcommabelow t}}iale din cadrul implement\IeC {\u a}rii aplica\IeC {{\textcommabelow t}}iei web}{38}{section*.6}%
 \contentsline {subsection}{\numberline {4.4.4}Probleme \IeC {\^\i }nt\IeC {\^a}mpinate \IeC {\^\i }n timpul realiz\IeC {\u a}rii proiectului}{44}{subsection.4.4.4}%
 \contentsline {subsubsection}{For\IeC {{\textcommabelow t}}a contraelectromotoare a bobinei}{44}{section*.7}%

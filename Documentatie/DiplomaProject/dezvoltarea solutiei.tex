@@ -31,23 +31,70 @@
 	După finalizarea acțiunilor dorite, utilizatorii trebuie să se poată deconecta de la aplicație. 	 
 
 \subsection{Cerințe nefuncționale ale aplicației web}
-\subsection{Cerințe funcționale pentru ansamblul de componente electronice}
+
+	În continuare, voi enumera cerințele legate de securitate:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+		\itemsep0em
+		\item Permisiunile de acces pot fi modificate doar de administratori.
+		\item Toate parolele trebuie să fie criptate.
+		\item Parolele trebuie să fie complexe. 
+	\end{itemize} 
+
+\vspace{1em}
+
+	De asemenea, pe partea de performanță:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+		\itemsep0em
+		\item Aplicația web trebuie să poată monitoriza parametrii ambientali și seta temperatura într-un imobil cu două camere.
+		\item Valorile afișate pe pagina principală trebuie actualizate doar în momentul în care acestea se modifică în baza de date. Nu se acceptă ca actualizările să se execute la anumite intervale de timp prestabilite. 
+	\end{itemize} 
+
+\subsection{Cerințe funcționale pentru componentele electronice}
 
 \begin{figure}[H]
    	\centering
-    	\includegraphics[width=1\textwidth]{Use-Case hardware.png}
+    	\includegraphics[width=0.8\textwidth]{Use-Case hardware.png}
 	\caption{Cazurile de utilizare pentru ansamblul de componente electronice}
 \end{figure}	
-
-	Sistemul trebuie să poată funcționa și în cazul întreruperii conexiunii la internet. Într-o astfel de situație, componentele electronice trebuie să fie capabile să preia funcționalitățile de bază ale aplicației web, și anume: monitorizarea temperaturii și umidității, precum și setarea temperaturii.
 
 	Ansamblul componentelor electronice trebuie sa permită modificarea temperaturii setate. Pentru aceasta, se utilizează butoane, iar modificările de temperatură se afișează pe LCD.
 
  	Pentru a face posibilă monitorizarea parametrilor ambientali, modulele WiFi trebuie să afișeze pe LCD valorile citite de senzorul de temperatură și umiditate. 
 
-	 
+	Dacă nu există o conexiune la internet în momentul în care sistemul este pornit, este necesar să se considere valoarea prestabilită de 21 °C ca fiind temperatura ce trebuie menținută în imobil. În cazul întreruperii conexiunii la internet în timpul funcționării, trebuie ca ultima valoare a temperaturii dorite, citită din baza de date, să rămână salvată în sistem.  
+
+\subsection{Cerințe nefuncționale pentru componentele electronice}
 	
+	O serie de cerințe arhitecturale ale sistemului sunt:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+		\itemsep0em
+		\item Sistemul trebuie să ruleze într-un regim continuu, zi și noapte.
+		\item Pentru a facilita montajul sistemului, trebuie ca transferul comenzilor între modulele senzor și modulul de control să se facă prin radio-frecvență.
+		\item Distanța maximă de transfer între modulele senzor și modulul de control trebuie să fie de 200 de metri, în spațiu deschis. 
+	\end{itemize} 
+
+\vspace{1em}
+
+	Pe partea de siguranță, este necesar ca:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+		\itemsep0em
+		\item Centrala termică să fie oprită dacă transferul de date intre modulele senzor și modulul de control este întrerupt mai mult de 5 secunde.
+	\end{itemize}
 	
+\vspace{1em}
+
+	În ceea ce privește fiabilitate:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+		\itemsep0em
+		\item Sistemul trebuie să poată funcționa și în cazul întreruperii conexiunii la internet.
+		\item Pentru a evita situațiile în care o comandă nu este recepționată, transferul datelor între modulele senzor și modulul de control trebuie să se facă ciclic.
+	\end{itemize}
+ 
 
 \section{Arhitectura sistemului}
 
