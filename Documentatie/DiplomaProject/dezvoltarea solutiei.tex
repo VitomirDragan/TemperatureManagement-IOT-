@@ -204,7 +204,22 @@
 
 \section{Proiectare detaliată}
 
-	...
+	Prin intermediul diagramelor UML voi detalia anumite aspecte ce țin de proiectarea sistemului. De asemenea, voi prezenta și o parte din modulele aplicației, dar și modulele codului aferent părții electronice.
+
+\subsection{Diagramă de clase}
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=0.6\textwidth]{DiagramaClase.png}
+	\caption{Diagramă de clase}
+\end{figure}
+
+	Pentru fiecare componentă electronică, ce prezintă funcționalități mai complexe, am creat câte o clasă diferită. Acestea conțin metode ce implementează funcțiile pe care componenta trebuie să le îndeplinească. Cea mai complexă clasă este cea aferentă modulului WiFi, deoarece acesta îndeplinește un rol esențial în cadrul sistemului.
+
+	??compozitie sau agregare??
+
+	Există o relație de compoziție între clasa \textit{WiFiModule} și \textit{RFTransmitter}. În cadrul metodei \textit{heatControl} este necesară o instanță a clasei \textit{RFTransmitter} pentru a putea apela metoda \textit{sendCommandToController}.
+ 	
 
 \section{Implementarea soluției}
 
