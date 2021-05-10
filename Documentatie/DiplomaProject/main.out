@@ -41,10 +41,11 @@
 \BOOKMARK [2][-]{subsection.4.2.2}{Modulul de control}{section.4.2}% 41
 \BOOKMARK [1][-]{section.4.3}{Proiectare detaliata}{chapter.4}% 42
 \BOOKMARK [2][-]{subsection.4.3.1}{Diagrama de clase}{section.4.3}% 43
-\BOOKMARK [1][-]{section.4.4}{Implementarea solutiei}{chapter.4}% 44
-\BOOKMARK [2][-]{subsection.4.4.1}{Programare modul ESP8266}{section.4.4}% 45
-\BOOKMARK [2][-]{subsection.4.4.2}{Programare placuta Arduino}{section.4.4}% 46
-\BOOKMARK [2][-]{subsection.4.4.3}{Realizarea aplicatiei web}{section.4.4}% 47
-\BOOKMARK [2][-]{subsection.4.4.4}{Probleme \356nt\342mpinate \356n timpul realizarii proiectului}{section.4.4}% 48
-\BOOKMARK [1][-]{section.4.5}{Testarea solutiei}{chapter.4}% 49
-\BOOKMARK [0][-]{chapter.5}{Concluzii si directii de dezvoltare}{}% 50
+\BOOKMARK [2][-]{subsection.4.3.2}{Diagrame de secventa}{section.4.3}% 44
+\BOOKMARK [1][-]{section.4.4}{Implementarea solutiei}{chapter.4}% 45
+\BOOKMARK [2][-]{subsection.4.4.1}{Programare modul ESP8266}{section.4.4}% 46
+\BOOKMARK [2][-]{subsection.4.4.2}{Programare placuta Arduino}{section.4.4}% 47
+\BOOKMARK [2][-]{subsection.4.4.3}{Realizarea aplicatiei web}{section.4.4}% 48
+\BOOKMARK [2][-]{subsection.4.4.4}{Probleme \356nt\342mpinate \356n timpul realizarii proiectului}{section.4.4}% 49
+\BOOKMARK [1][-]{section.4.5}{Testarea solutiei}{chapter.4}% 50
+\BOOKMARK [0][-]{chapter.5}{Concluzii si directii de dezvoltare}{}% 51

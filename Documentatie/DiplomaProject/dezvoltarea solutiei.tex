@@ -216,10 +216,27 @@
 
 	Pentru fiecare componentă electronică, ce prezintă funcționalități mai complexe, am creat câte o clasă diferită. Acestea conțin metode ce implementează funcțiile pe care componenta trebuie să le îndeplinească. Cea mai complexă clasă este cea aferentă modulului WiFi, deoarece acesta îndeplinește un rol esențial în cadrul sistemului.
 
-	??compozitie sau agregare??
-
-	Există o relație de compoziție între clasa \textit{WiFiModule} și \textit{RFTransmitter}. În cadrul metodei \textit{heatControl} este necesară o instanță a clasei \textit{RFTransmitter} pentru a putea apela metoda \textit{sendCommandToController}.
+	Metoda \textit{heatControl}, din clasa WiFiModule, prezintă o instanță a clasei \textit{RFTransmitter} pentru a putea apela \textit{sendCommandToController}. De asemenea, pentru a evita conflictele de date ce pot apărea la transferul comenzilor prin radio-frecvență, metoda \textit{sendCommandToController} va apela \textit{getCurrentSecond} din cadrul clasei TimeManager.
  	
+\subsection{Diagrame de secvență}
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=1\textwidth]{ModOperareManual.png}
+	\caption{;}
+\end{figure}
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=1\textwidth]{ModOperareOffline.png}
+	\caption{Mod de operare fără conexiune la internet}
+\end{figure}
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=1\textwidth]{ModOperareIntervale.png}
+	\caption{Mod de operare pe intervale orare}
+\end{figure}
 
 \section{Implementarea soluției}
 
