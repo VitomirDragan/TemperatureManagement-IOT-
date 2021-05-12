@@ -222,21 +222,37 @@
 
 \begin{figure}[H]
    	\centering
-    	\includegraphics[width=1\textwidth]{ModOperareManual.png}
-	\caption{;}
-\end{figure}
-
-\begin{figure}[H]
-   	\centering
     	\includegraphics[width=1\textwidth]{ModOperareOffline.png}
 	\caption{Mod de operare fără conexiune la internet}
 \end{figure}
+
+	Sistemul trebuie să poată funcționa și în cazul în care are loc o întrerupere la conexiunea de internet. Electronica este proiectată în așa fel încât să poată prelua funcționalitățile de bază ale aplicației, si anume: monitorizarea și setarea temperaturii.
+	
+	Pentru a obține acest comportament, se produc o serie de interacțiuni între obiecte. Temperatura și umiditatea sunt returnate în urma apelului metodelor \textit{readTemp} și \textit{readHumidity} pe o instanță a clasei \textit{DHTSensor}. În continuare, utilizând un obiect de tip WiFiModule, se vor apela metodele responsabile pentru controlul sistemului de încălzire și indicarea statusului plăcuței. Dacă aceasta este conectată la internet, se va aprinde un led incorporat, altfel va rămâne stins. În cele din urmă, se apelează metodele din cadrul clasei \textit{LCD} pentru a afișa valorile temperaturilor.
 
 \begin{figure}[H]
    	\centering
     	\includegraphics[width=1\textwidth]{ModOperareIntervale.png}
 	\caption{Mod de operare pe intervale orare}
 \end{figure}
+
+	Diagrama de secvență prezentată este aferentă modului de funcționare pe intervale orare, în timpul zilelor din weekend. Sistemul permite setarea unor temperaturi diferite pe durata a două perioade, valabile doar sâmbăta și duminică. Această funcționalitate este valabilă dacă modul automat este activat și poate fi utilă, deoarece permite setarea unei temperaturi mai mici pe timpul nopții, având ca și efect un consum redus. Pentru zilele lucrătoare, modul de operare este identic, cu mențiunea că sistemul va citi și gestiona patru intervale orare.
+
+	Din punct de vedere funcțional, prezintă o complexitate mai mare, fapt ilustrat inclusiv de numărul de interacțiuni între instanțele claselor. Asemenea modului de operare prezentat anterior, apare interacțiunea cu clasa \textit{DHTSensor} pentru a obține valorile umidității și temperaturii ambientale. Deoarece există o conexiune la internet, aceste valori vor fi stocate în baza de date. Motiv pentru care, este necesar apelul metodelor \textit{sendCurrentTemperatureToDatabase} și \textit{sendHumidityToDatabase} pe un obiect al clasei \textit{WiFiModule}. Apelul următor este necesar pentru a actualiza variabila care reține modul actual de funcționare al sistemului. 
+
+	Pentru a putea stabili în ce interval orar se încadrează sistemul, este necesar să se cunoască ziua, ora și minutul curent. Apelurile metodelor, din clasa TimeManager, \textit{getWeekDay}, \textit{getCurrentHour} și \textit{getCurrentMinute} satisfac această necesitate. Dacă există modificări în baza de date, sau dacă s-a făcut o comutare de la modul clasic de operare la cel automat, este necesar să se recitească valorile intervalelor. De aceea, se apelează \textit{readStr("Intervals/Weekend/A")} și \textit{readStr("Intervals/Weekend/B")} pe instanța clasei WiFiModule. În continuare, apelurile metodelor din clasa \textit{TimeManager} au rolul de a prelucra intervalele, returnate ca șir de caractere de apelul \textit{readStr}. În urma blocului condițional, se va citi temperatura setată pentru intervalul curent.
+
+	Interacțiunile următoare, cu obiecte de tip WiFiModule, au rolul de a îndeplini funcții precum reglarea temperaturii și setarea statusului plăcuței ESP8266. Identic modului de operare fără conexiune la internet, metodele din clasa \textit{LCD} sunt utilizate pentru a afișa valorile pe ecran. 
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=1\textwidth]{ModOperareManual.png}
+	\caption{Mod operare clasic}
+\end{figure}
+
+	Acest mod de operare menține temperatura setată de utilizator, fără a fi influențat de timp sau dată. Spre deosebire de modul de operare fără conexiune la internet, acesta face transfer de informații cu baza de date. Prin urmare, apar noi interacțiuni cu instanțe ale clasei \textit{WiFiModule} pentru: salvarea temperaturii și umidității în baza de date, actualizarea variabilei \textit{switchIntervalsOn} și actualizarea temperaturii setate.
+
+	Apelul metodei \textit{readStreamValue(desiredTemperature, streamDesiredTemperature, "/DesiredTempRoom1/Zapier/Value")} va actualiza temperatura dorită doar când apar modificări. Însă, când se face o comutare de la modul automat la cel clasic, se folosește apelul \textit{readDesiredTemperatureFromDatabase("DesiredTempRoom1/Zapier/Value")}, deoarece este posibil ca datele din baza de date sa nu fie modificate. Situație în care funcția \textit{readStreamValue} nu ar returna nicio valoare.
 
 \section{Implementarea soluției}
 
