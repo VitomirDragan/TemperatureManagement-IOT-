@@ -28,6 +28,7 @@ class Users(UserMixin, db.Model):
     password = db.Column(db.String(80), nullable=False)
     admin_role = db.Column(db.Boolean, default=False)
 
+
 @login_manager.user_loader
 def load_user(id):
     return Users.query.get(int(id))
@@ -43,4 +44,3 @@ app.register_blueprint(main)
 
 if __name__ == "__main__":
     app.run(debug=True)
-

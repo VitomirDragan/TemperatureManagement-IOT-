@@ -112,7 +112,6 @@ class CommonTestCase(BaseTestCase):
             self.assertTrue(bcrypt.check_password_hash(current_user.password, 'userAdmin'))
             self.assertFalse(bcrypt.check_password_hash(current_user.password, 'wrongPassword'))
 
-            # -----------#
 
     def test_login(self):
         with self.client:

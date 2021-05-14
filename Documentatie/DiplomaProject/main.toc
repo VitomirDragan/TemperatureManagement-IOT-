@@ -43,19 +43,24 @@
 \contentsline {section}{\numberline {4.3}Proiectare detaliat\IeC {\u a}}{28}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Diagram\IeC {\u a} de clase}{29}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Diagrame de secven\IeC {{\textcommabelow t}}\IeC {\u a}}{30}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Structur\IeC {\u a} software}{34}{subsection.4.3.3}%
+\contentsline {subsubsection}{Structura aplica\IeC {{\textcommabelow t}}iei web}{34}{section*.2}%
+\contentsline {subsubsection}{Structur\IeC {\u a} cod aferent componentei electronice}{34}{section*.3}%
 \contentsline {section}{\numberline {4.4}Implementarea solu\IeC {{\textcommabelow t}}iei}{34}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Programare modul ESP8266}{34}{subsection.4.4.1}%
-\contentsline {subsubsection}{Ini\IeC {{\textcommabelow t}}ializ\IeC {\u a}ri}{34}{section*.2}%
-\contentsline {subsubsection}{\IeC {\^I}ntreruperile \IeC {{\textcommabelow s}}i tratarea acestora}{36}{section*.3}%
-\contentsline {subsubsection}{Mod de operare presetat de utilizator}{37}{section*.4}%
-\contentsline {subsubsection}{Mod clasic de operare}{40}{section*.5}%
-\contentsline {subsection}{\numberline {4.4.2}Programare pl\IeC {\u a}cu\IeC {{\textcommabelow t}}\IeC {\u a} Arduino}{41}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Realizarea aplica\IeC {{\textcommabelow t}}iei web}{43}{subsection.4.4.3}%
-\contentsline {subsubsection}{Secven\IeC {{\textcommabelow t}}e de cod esen\IeC {{\textcommabelow t}}iale din cadrul implement\IeC {\u a}rii aplica\IeC {{\textcommabelow t}}iei web}{43}{section*.6}%
-\contentsline {subsection}{\numberline {4.4.4}Probleme \IeC {\^\i }nt\IeC {\^a}mpinate \IeC {\^\i }n timpul realiz\IeC {\u a}rii proiectului}{49}{subsection.4.4.4}%
-\contentsline {subsubsection}{For\IeC {{\textcommabelow t}}a contraelectromotoare a bobinei}{49}{section*.7}%
-\contentsline {subsubsection}{Vibra\IeC {{\textcommabelow t}}iile contactelor metalice ale \IeC {\^\i }ntrerup\IeC {\u a}toarelor}{50}{section*.8}%
-\contentsline {subsubsection}{Amorsarea instala\IeC {{\textcommabelow t}}iei cu ap\IeC {\u a}}{50}{section*.9}%
-\contentsline {subsubsection}{Conflict de date ap\IeC {\u a}rut la transferul prin radio - frecven\IeC {{\textcommabelow t}}\IeC {\u a}}{50}{section*.10}%
-\contentsline {section}{\numberline {4.5}Testarea solu\IeC {{\textcommabelow t}}iei}{51}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Concluzii \IeC {{\textcommabelow s}}i direc\IeC {{\textcommabelow t}}ii de dezvoltare}{54}{chapter.5}%
+\contentsline {subsection}{\numberline {4.4.1}Programare modul ESP8266}{35}{subsection.4.4.1}%
+\contentsline {subsubsection}{Ini\IeC {{\textcommabelow t}}ializ\IeC {\u a}ri}{35}{section*.4}%
+\contentsline {subsubsection}{\IeC {\^I}ntreruperile \IeC {{\textcommabelow s}}i tratarea acestora}{37}{section*.5}%
+\contentsline {subsubsection}{Mod de operare presetat de utilizator}{38}{section*.6}%
+\contentsline {subsubsection}{Mod clasic de operare}{41}{section*.7}%
+\contentsline {subsection}{\numberline {4.4.2}Programare pl\IeC {\u a}cu\IeC {{\textcommabelow t}}\IeC {\u a} Arduino}{42}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Realizarea aplica\IeC {{\textcommabelow t}}iei web}{44}{subsection.4.4.3}%
+\contentsline {subsubsection}{Secven\IeC {{\textcommabelow t}}e de cod esen\IeC {{\textcommabelow t}}iale din cadrul implement\IeC {\u a}rii aplica\IeC {{\textcommabelow t}}iei web}{44}{section*.8}%
+\contentsline {subsection}{\numberline {4.4.4}Probleme \IeC {\^\i }nt\IeC {\^a}mpinate \IeC {\^\i }n timpul realiz\IeC {\u a}rii proiectului}{50}{subsection.4.4.4}%
+\contentsline {subsubsection}{For\IeC {{\textcommabelow t}}a contraelectromotoare a bobinei}{50}{section*.9}%
+\contentsline {subsubsection}{Vibra\IeC {{\textcommabelow t}}iile contactelor metalice ale \IeC {\^\i }ntrerup\IeC {\u a}toarelor}{51}{section*.10}%
+\contentsline {subsubsection}{Amorsarea instala\IeC {{\textcommabelow t}}iei cu ap\IeC {\u a}}{51}{section*.11}%
+\contentsline {subsubsection}{Conflict de date ap\IeC {\u a}rut la transferul prin radio - frecven\IeC {{\textcommabelow t}}\IeC {\u a}}{51}{section*.12}%
+\contentsline {section}{\numberline {4.5}Testarea solu\IeC {{\textcommabelow t}}iei}{52}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Ghidul utilizatorului}{55}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Interfa\IeC {{\textcommabelow t}}a cu utilizatorul}{55}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Concluzii \IeC {{\textcommabelow s}}i direc\IeC {{\textcommabelow t}}ii de dezvoltare}{56}{chapter.6}%

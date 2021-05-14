@@ -204,7 +204,7 @@
 
 \section{Proiectare detaliată}
 
-	Prin intermediul diagramelor UML voi detalia anumite aspecte ce țin de proiectarea sistemului. De asemenea, voi prezenta și o parte din modulele aplicației, dar și modulele codului aferent părții electronice.
+	Prin intermediul diagramelor UML voi detalia anumite aspecte ce țin de proiectarea sistemului. De asemenea, voi prezenta structura aplicației și codului aferent părții electronice.
 
 \subsection{Diagramă de clase}
 
@@ -212,6 +212,7 @@
    	\centering
     	\includegraphics[width=0.6\textwidth]{DiagramaClase.png}
 	\caption{Diagramă de clase}
+	\label{fig:DiagramaClase}
 \end{figure}
 
 	Pentru fiecare componentă electronică, ce prezintă funcționalități mai complexe, am creat câte o clasă diferită. Acestea conțin metode ce implementează funcțiile pe care componenta trebuie să le îndeplinească. Cea mai complexă clasă este cea aferentă modulului WiFi, deoarece acesta îndeplinește un rol esențial în cadrul sistemului.
@@ -253,6 +254,34 @@
 	Acest mod de operare menține temperatura setată de utilizator, fără a fi influențat de timp sau dată. Spre deosebire de modul de operare fără conexiune la internet, acesta face transfer de informații cu baza de date. Prin urmare, apar noi interacțiuni cu instanțe ale clasei \textit{WiFiModule} pentru: salvarea temperaturii și umidității în baza de date, actualizarea variabilei \textit{switchIntervalsOn} și actualizarea temperaturii setate.
 
 	Apelul metodei \textit{readStreamValue(desiredTemperature, streamDesiredTemperature, "/DesiredTempRoom1/Zapier/Value")} va actualiza temperatura dorită doar când apar modificări. Însă, când se face o comutare de la modul automat la cel clasic, se folosește apelul \textit{readDesiredTemperatureFromDatabase("DesiredTempRoom1/Zapier/Value")}, deoarece este posibil ca datele din baza de date sa nu fie modificate. Situație în care funcția \textit{readStreamValue} nu ar returna nicio valoare.
+
+\subsection{Structură software}
+
+\subsubsection{Structura aplicației web}
+
+	Din punct de vedere structural, aplicația web conține două directoare cu implementări specifice părții de interfață cu utilizatorul. Acestea sunt:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+			\itemsep0em
+			\item \textit{templates} - alcătuit din fișiere de tip \textit{html}.
+			\item \textit{static} - format din poze ce vor fi afișate în cadrul aplicației, fișiere \textit{javascript} și \textit{css}.
+	\end{itemize}
+
+	A fost necesară adăugarea directorului \textit{functions}. Acesta este impărțit în module \textit{python}, care implementează funcționalități precum: conversii de tipuri de date, validarea parolei, citirea orei și minutului curent și restricționarea accesului utilizatorilor, care nu sunt administratori, la anumite servicii ale aplicației.
+
+	Codul ce implementează logica programului este împărțit în 3 module \textit{python}. Fiecare modul încapsulează funcții specifice categoriei în care se încadrează. De exemplu, modulul \textit{accounts.py} va conține funcțiile pentru gestiunea conturilor din baza de date. Setarea temperaturilor, intervalelor orare și al modului de funcționare al sistemului sunt implementate în cadrul modului \textit{controls.py}. În cele din urmă, funcțiile de bază, \textit{login} și \textit{logout}, sunt conținute în \textit{main.py}.     
+	 
+\subsubsection{Structură cod aferent componentei electronice}
+	
+	Modulele de cod ce implementează serviciile oferite de componenta electronică sunt:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+			\itemsep0em
+			\item \textit{softwareForESP8266} - conține implementarea tuturor funcționalităților oferite de modulul WiFi.
+			\item \textit{softwareForArduino} - prezintă logica din spatele modulului de control al centralei termice.
+	\end{itemize}
+
+	De asemenea, codul prezent în modulul \textit{softwareForESP8266} este divizat în mai multe clase, conform \ref{fig:DiagramaClase}
 
 \section{Implementarea soluției}
 
