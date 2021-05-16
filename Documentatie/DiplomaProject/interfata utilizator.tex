@@ -64,15 +64,23 @@
 
 \section{Optimizare}
 
+	În acest subcapitol voi prezenta una din optimizările pe care a fost necesar să o implementez pentru a reduce consumul de date. Resursele pe care baza de date le pune la dispoziție sunt limitate. Prin urmare, există și o limitare în ceea ce privește capacitatea datelor descărcate.
+
+	Primele versiuni de cod pentru modulul WiFi făceau ca la fiecare iterație a instrucțiunii repetitive \textit{loop} să se citească valorile temperaturilor și intervalelor din baza de date. Motiv pentru care, consumul de date era mare.  În figura următoare, este ilustrată cantitatea de date citite în decursul a unei jumătăți de oră de funcționare.
+ 
 \begin{figure}[H]
    	\centering
     	\includegraphics[width=0.8\textwidth]{FaraOptimizare.png}
 	\caption{Versiunea de cod neoptimizată}
 \end{figure}
 
+	Pentru a renunța la acest comportament, a fost necesară modificarea implementării codului. Astfel, citirile se vor realiza doar în momentul în care se modifică valorile din baza de date. În figura atașată, se ilustrează consumul de date în urma funcționării timp de jumătate de oră cu noul cod. În acest timp, pentru a face o simulare cât mai complexă, am setat diferite valori ale temperaturii prin intermediul aplicației web. 
+
 \begin{figure}[H]
    	\centering
     	\includegraphics[width=0.8\textwidth]{CuOptimizare.png}
 	\caption{Versiunea de cod optimizată}
 \end{figure}
+
+	În urma acestui experiment, se poate observa o scădere considerabilă a consumului de date, fapt ce face posibilă funcționarea sistemului în mod continuu. 
 

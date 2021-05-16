@@ -9,47 +9,52 @@
 \BOOKMARK [1][-]{section.2.5}{Abordare comparativa a sistemelor prezentate}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.6}{Comparatie cu sistemul prezentat \356n aceasta lucrare}{chapter.2}% 10
 \BOOKMARK [0][-]{chapter.3}{Fundamente teoretice}{}% 11
-\BOOKMARK [1][-]{section.3.1}{Python}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.2}{Flask}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.3}{C++}{chapter.3}% 14
-\BOOKMARK [1][-]{section.3.4}{Arduino IDE}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.5}{Componente utilizate}{chapter.3}% 16
-\BOOKMARK [2][-]{subsection.3.5.1}{ESP8266}{section.3.5}% 17
-\BOOKMARK [2][-]{subsection.3.5.2}{Placa de baza pentru NodeMCU}{section.3.5}% 18
-\BOOKMARK [2][-]{subsection.3.5.3}{Arduino Uno}{section.3.5}% 19
-\BOOKMARK [2][-]{subsection.3.5.4}{LCD 1602}{section.3.5}% 20
-\BOOKMARK [2][-]{subsection.3.5.5}{Senzor DHT11}{section.3.5}% 21
-\BOOKMARK [2][-]{subsection.3.5.6}{Modul radio frecventa}{section.3.5}% 22
-\BOOKMARK [2][-]{subsection.3.5.7}{Releu}{section.3.5}% 23
-\BOOKMARK [2][-]{subsection.3.5.8}{Electrovalva}{section.3.5}% 24
-\BOOKMARK [2][-]{subsection.3.5.9}{Pompa de apa}{section.3.5}% 25
-\BOOKMARK [2][-]{subsection.3.5.10}{Push buton}{section.3.5}% 26
-\BOOKMARK [2][-]{subsection.3.5.11}{Condensator}{section.3.5}% 27
-\BOOKMARK [2][-]{subsection.3.5.12}{Rezistenta}{section.3.5}% 28
-\BOOKMARK [2][-]{subsection.3.5.13}{Circuit integrat Schmitt-Trigger}{section.3.5}% 29
-\BOOKMARK [2][-]{subsection.3.5.14}{Dioda}{section.3.5}% 30
-\BOOKMARK [1][-]{section.3.6}{Filtrarea semnalelor}{chapter.3}% 31
-\BOOKMARK [1][-]{section.3.7}{Histereza}{chapter.3}% 32
-\BOOKMARK [0][-]{chapter.4}{Dezvoltarea solutiei}{}% 33
-\BOOKMARK [1][-]{section.4.1}{Specificarea cerintelor}{chapter.4}% 34
-\BOOKMARK [2][-]{subsection.4.1.1}{Cerintele functionale ale aplicatiei web}{section.4.1}% 35
-\BOOKMARK [2][-]{subsection.4.1.2}{Cerinte nefunctionale ale aplicatiei web}{section.4.1}% 36
-\BOOKMARK [2][-]{subsection.4.1.3}{Cerinte functionale pentru componentele electronice}{section.4.1}% 37
-\BOOKMARK [2][-]{subsection.4.1.4}{Cerinte nefunctionale pentru componentele electronice}{section.4.1}% 38
-\BOOKMARK [1][-]{section.4.2}{Arhitectura sistemului}{chapter.4}% 39
-\BOOKMARK [2][-]{subsection.4.2.1}{Modulul senzor}{section.4.2}% 40
-\BOOKMARK [2][-]{subsection.4.2.2}{Modulul de control}{section.4.2}% 41
-\BOOKMARK [1][-]{section.4.3}{Proiectare detaliata}{chapter.4}% 42
-\BOOKMARK [2][-]{subsection.4.3.1}{Diagrama de clase}{section.4.3}% 43
-\BOOKMARK [2][-]{subsection.4.3.2}{Diagrame de secventa}{section.4.3}% 44
-\BOOKMARK [2][-]{subsection.4.3.3}{Structura software}{section.4.3}% 45
-\BOOKMARK [1][-]{section.4.4}{Implementarea solutiei}{chapter.4}% 46
-\BOOKMARK [2][-]{subsection.4.4.1}{Programare modul ESP8266}{section.4.4}% 47
-\BOOKMARK [2][-]{subsection.4.4.2}{Programare placuta Arduino}{section.4.4}% 48
-\BOOKMARK [2][-]{subsection.4.4.3}{Realizarea aplicatiei web}{section.4.4}% 49
-\BOOKMARK [2][-]{subsection.4.4.4}{Probleme \356nt\342mpinate \356n timpul realizarii proiectului}{section.4.4}% 50
-\BOOKMARK [1][-]{section.4.5}{Testarea solutiei}{chapter.4}% 51
-\BOOKMARK [0][-]{chapter.5}{Ghidul utilizatorului}{}% 52
-\BOOKMARK [1][-]{section.5.1}{Interfata cu utilizatorul}{chapter.5}% 53
-\BOOKMARK [1][-]{section.5.2}{Optimizare}{chapter.5}% 54
-\BOOKMARK [0][-]{chapter.6}{Concluzii si directii de dezvoltare}{}% 55
+\BOOKMARK [1][-]{section.3.1}{Arduino IDE}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.2}{PyCharm}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.3}{Python}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.4}{Firebase Realtime Database}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.5}{Bootstrap}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.6}{HTML}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.7}{Heroku}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.8}{Flask}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.9}{C++}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.10}{Componente utilizate}{chapter.3}% 21
+\BOOKMARK [2][-]{subsection.3.10.1}{ESP8266}{section.3.10}% 22
+\BOOKMARK [2][-]{subsection.3.10.2}{Placa de baza pentru NodeMCU}{section.3.10}% 23
+\BOOKMARK [2][-]{subsection.3.10.3}{Arduino Uno}{section.3.10}% 24
+\BOOKMARK [2][-]{subsection.3.10.4}{LCD 1602}{section.3.10}% 25
+\BOOKMARK [2][-]{subsection.3.10.5}{Senzor DHT11}{section.3.10}% 26
+\BOOKMARK [2][-]{subsection.3.10.6}{Modul radio frecventa}{section.3.10}% 27
+\BOOKMARK [2][-]{subsection.3.10.7}{Releu}{section.3.10}% 28
+\BOOKMARK [2][-]{subsection.3.10.8}{Electrovalva}{section.3.10}% 29
+\BOOKMARK [2][-]{subsection.3.10.9}{Pompa de apa}{section.3.10}% 30
+\BOOKMARK [2][-]{subsection.3.10.10}{Push buton}{section.3.10}% 31
+\BOOKMARK [2][-]{subsection.3.10.11}{Condensator}{section.3.10}% 32
+\BOOKMARK [2][-]{subsection.3.10.12}{Rezistenta}{section.3.10}% 33
+\BOOKMARK [2][-]{subsection.3.10.13}{Circuit integrat Schmitt-Trigger}{section.3.10}% 34
+\BOOKMARK [2][-]{subsection.3.10.14}{Dioda}{section.3.10}% 35
+\BOOKMARK [1][-]{section.3.11}{Filtrarea semnalelor}{chapter.3}% 36
+\BOOKMARK [1][-]{section.3.12}{Histereza}{chapter.3}% 37
+\BOOKMARK [0][-]{chapter.4}{Dezvoltarea solutiei}{}% 38
+\BOOKMARK [1][-]{section.4.1}{Specificarea cerintelor}{chapter.4}% 39
+\BOOKMARK [2][-]{subsection.4.1.1}{Cerintele functionale ale aplicatiei web}{section.4.1}% 40
+\BOOKMARK [2][-]{subsection.4.1.2}{Cerinte nefunctionale ale aplicatiei web}{section.4.1}% 41
+\BOOKMARK [2][-]{subsection.4.1.3}{Cerinte functionale pentru componentele electronice}{section.4.1}% 42
+\BOOKMARK [2][-]{subsection.4.1.4}{Cerinte nefunctionale pentru componentele electronice}{section.4.1}% 43
+\BOOKMARK [1][-]{section.4.2}{Arhitectura sistemului}{chapter.4}% 44
+\BOOKMARK [2][-]{subsection.4.2.1}{Modulul senzor}{section.4.2}% 45
+\BOOKMARK [2][-]{subsection.4.2.2}{Modulul de control}{section.4.2}% 46
+\BOOKMARK [1][-]{section.4.3}{Proiectare detaliata}{chapter.4}% 47
+\BOOKMARK [2][-]{subsection.4.3.1}{Diagrama de clase}{section.4.3}% 48
+\BOOKMARK [2][-]{subsection.4.3.2}{Diagrame de secventa}{section.4.3}% 49
+\BOOKMARK [2][-]{subsection.4.3.3}{Structura software}{section.4.3}% 50
+\BOOKMARK [1][-]{section.4.4}{Implementarea solutiei}{chapter.4}% 51
+\BOOKMARK [2][-]{subsection.4.4.1}{Programare modul ESP8266}{section.4.4}% 52
+\BOOKMARK [2][-]{subsection.4.4.2}{Programare placuta Arduino}{section.4.4}% 53
+\BOOKMARK [2][-]{subsection.4.4.3}{Realizarea aplicatiei web}{section.4.4}% 54
+\BOOKMARK [2][-]{subsection.4.4.4}{Probleme \356nt\342mpinate \356n timpul realizarii proiectului}{section.4.4}% 55
+\BOOKMARK [1][-]{section.4.5}{Testarea solutiei}{chapter.4}% 56
+\BOOKMARK [0][-]{chapter.5}{Ghidul utilizatorului}{}% 57
+\BOOKMARK [1][-]{section.5.1}{Interfata cu utilizatorul}{chapter.5}% 58
+\BOOKMARK [1][-]{section.5.2}{Optimizare}{chapter.5}% 59
+\BOOKMARK [0][-]{chapter.6}{Concluzii si directii de dezvoltare}{}% 60

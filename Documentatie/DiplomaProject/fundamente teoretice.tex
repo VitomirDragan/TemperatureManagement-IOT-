@@ -1,28 +1,6 @@
 \chapter{Fundamente teoretice}\label{ch:3fundamenteTeoretice}
 
-	În acest capitol voi prezenta principalele concepte teoretice utilizate în realizarea proiectului, împreună cu limbajele de programare și framework-urile folosite. 
-
-\section{Python}
-	Python este un limbaj de programare ce a apărut în anul 1991, fiind realizat de către Guido van Rossum \cite{python}. Se bucură de o evoluție fulminantă, ajungând să fie unul din cele mai utilizate limbaje de programare în anul 2020. Creșterea numărului de programatori care aleg să folosească Python, este datorată  caracteristicilor precum \cite{python}: 
-	\begin{itemize}
-	\setlength{\itemindent}{2em}
-	\itemsep0em
-	\item Flexibilitatea, poate fi utilizat într-un număr vast de domenii, de la programare web, până la programare pe plăcuțe. Funcționează pe o multitudine de platforme, printre care se enumeră: Windows, Mac, Linux și Raspberry Pi. 
-	\item În ceea ce privește sintaxa acestui limbaj de programare, este una simplă, care permite scrierea de programe utilizând un număr mai mic de linii de cod. 
-	\item Poate fi folosit atât pentru programare procedurală, funcțională, dar și orientată pe obiecte.
-	\end{itemize}
-
-\section{Flask}
-
-	Este un framework construit pe baza limbajului de programare Python, ce oferă posibilitatea de a dezvolta aplicații web. Faptul că este proiectat ca să fie extins, oferă posibilitatea programatorului de a avea control total asupra aplicației pe care o creează. Prezintă un nucleu robust, care include toate funcționalitățile de bază pe care o aplicație web le necesită, nucleu ce poate fi extins de diverse părți terțe \cite{flask}.
-
-	Pentru a crea aplicații web complexe, utilizarea doar a framework-ului nu este suficientă. Motiv pentru care, flask permite îmbinarea cu limbaje de programare precum javascript, CSS și HTML.
-
-\section{C++}
-
-	C++ este un limbaj de programare bazat pe C. Motivele pentru care creatorul acestui limbaj de programare, Bjarne Stroustrup, a decis să folosească limbajul C ca punct de plecare sunt: flexibilitatea si faptul că este un limbaj apropiat de partea hardware, rulează pe multe platforme și se potrivește cu mediul de programare UNIX \cite{c++}.
-
-	Ceea ce aduce nou este posibilitatea de a programa orientat pe obiecte, o programare de tip generic și face posibil conceptul de abstractizare al datelor \cite{c++}. Numărul de domenii în care C++ poate fi aplicat crește considerabil datorită introducerii noțunii de programare orientată pe obiecte. Aceasta implică modelarea unor entități din lumea reală, și interacțiunile acestora, prin intermediul claselor. 
+	În acest capitol voi prezenta principalele concepte teoretice utilizate în realizarea proiectului, împreună cu mediile de dezvoltare, limbajele de programare și framework-urile folosite. 
 
 \section{Arduino IDE}
 
@@ -39,6 +17,57 @@
 		\end{itemize} 
 
 	Arduino IDE îndeplinește atât rolul de editor de text, cât și rolul de compilator. Editorul de text reprezintă un suport pentru redactarea codului, iar compilatorul este responsabil de transformarea codului sursă în cod obiect și încărcarea acestuia pe microcontroler \cite{arduinoIDE}.
+
+\section{PyCharm}
+
+	Acesta este un mediu de dezvoltare dedicat limbajului de programare \textit{Python}. Prezintă o serie de funcționalități ce facilitează programarea în acest limbaj. Conform \cite{pyCharm}, caracteristicile esențiale oferite de \textit{PyCharm} sunt:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+		\itemsep0em
+		\item Completare automată de cod.
+		\item Refactorizare rapidă și sigură de cod.
+		\item Posibilitatea de a crea teste și de a le rula utilizând interfața cu utilizatorul pusă la dispoziție. 
+	\end{itemize}
+	
+
+\section{Python}
+	Python este un limbaj de programare ce a apărut în anul 1991, fiind realizat de către Guido van Rossum \cite{python}. Se bucură de o evoluție fulminantă, ajungând să fie unul din cele mai utilizate limbaje de programare în anul 2020. Creșterea numărului de programatori care aleg să folosească Python, este datorată  caracteristicilor precum \cite{python}: 
+	\begin{itemize}
+	\setlength{\itemindent}{2em}
+	\itemsep0em
+	\item Flexibilitatea, poate fi utilizat într-un număr vast de domenii, de la programare web, până la programare pe plăcuțe. Funcționează pe o multitudine de platforme, printre care se enumeră: Windows, Mac, Linux și Raspberry Pi. 
+	\item În ceea ce privește sintaxa acestui limbaj de programare, este una simplă, care permite scrierea de programe utilizând un număr mai mic de linii de cod. 
+	\item Poate fi folosit atât pentru programare procedurală, funcțională, dar și orientată pe obiecte.
+	\end{itemize}
+
+\section{Firebase Realtime Database}
+
+	Este o bază de date găzduită pe cloud, iar informațiile sunt stocate în format JSON \cite{firebase}. De asemenea, nu necesită interogări de tip SQL pentru a stoca sau a citi date și oferă siguranța faptului că datele nu se vor pierde dacă este întreruptă conexiunea \cite{firebase}.
+
+\section{Bootstrap}
+
+	Framework utilizat pentru a crea partea de interfață cu utilizatorul, ce combină \textit{HTML}, \textit{CSS} și \textit{JavaScript} \cite{bootstrap}. Prezintă o serie de formulare, meniuri de navigare și multe alte elemente de aspect predefinite.  
+
+\section{HTML}
+
+	Acesta este un limbaj de programare utilizat pentru a forma interfața aplicației web din punct de vedere structural. Permite impărțirea paginilor în mai multe secțiuni și crearea unor serii de elemente esențiale utilizate în astfel de aplicații, precum: butoane, tabele, formulare, câmpuri de intrare și multe altele. Mai mult decât atât, oferă și posibilitatea formatării de text.  
+
+\section{Heroku}
+
+	Este o platformă cloud ce permite găzduirea aplicațiilor web realizate în diverse limbaje de programare: Ruby, Java, Node.js, Clojure, Scala, Python și PHP \cite{heroku}. După ce aplicația a fost găzduită, aceasta poate fi administrată prin intermediul liniei de comandă pusă la dispoziție de platformă \cite{heroku}.
+
+\section{Flask}
+
+	Este un framework construit pe baza limbajului de programare Python, ce oferă posibilitatea de a dezvolta aplicații web. Faptul că este proiectat ca să fie extins, oferă posibilitatea programatorului de a avea control total asupra aplicației pe care o creează. Prezintă un nucleu robust, care include toate funcționalitățile de bază pe care o aplicație web le necesită, nucleu ce poate fi extins de diverse părți terțe \cite{flask}.
+
+	Pentru a crea aplicații web complexe, utilizarea doar a framework-ului nu este suficientă. Motiv pentru care, flask permite îmbinarea cu limbaje de programare precum javascript, CSS și HTML.
+
+\section{C++}
+
+	C++ este un limbaj de programare bazat pe C. Motivele pentru care creatorul acestui limbaj de programare, Bjarne Stroustrup, a decis să folosească limbajul C ca punct de plecare sunt: flexibilitatea si faptul că este un limbaj apropiat de partea hardware, rulează pe multe platforme și se potrivește cu mediul de programare UNIX \cite{c++}.
+
+	Ceea ce aduce nou este posibilitatea de a programa orientat pe obiecte, o programare de tip generic și face posibil conceptul de abstractizare al datelor \cite{c++}. Numărul de domenii în care C++ poate fi aplicat crește considerabil datorită introducerii noțunii de programare orientată pe obiecte. Aceasta implică modelarea unor entități din lumea reală, și interacțiunile acestora, prin intermediul claselor. 
+
 
 \section{Componente utilizate}
 
