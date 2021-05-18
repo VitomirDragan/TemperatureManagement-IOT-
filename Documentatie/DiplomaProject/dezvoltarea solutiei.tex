@@ -6,6 +6,50 @@
 	
 	Redactarea cerințelor sistemului reprezintă o etapă esențială în crearea oricărui proiect. Acestea dictează comportamentul produsului final, fiind necesare atât în faza de dezvoltare, cât și în cea de testare. Cu ajutorul diagramelor cazurilor de utilizare, voi detalia cerințele sistemului descris în această lucrare.
 
+\subsection{Cerințe funcționale pentru partea hardware}
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=0.8\textwidth]{Use-Case hardware.png}
+	\caption{Cazurile de utilizare pentru ansamblul de componente electronice}
+\end{figure}	
+
+	Ansamblul componentelor electronice trebuie sa permită modificarea temperaturii setate. Pentru aceasta, se utilizează butoane, iar modificările de temperatură se afișează pe LCD.
+
+ 	Pentru a face posibilă monitorizarea temperaturii, modulele WiFi trebuie să afișeze pe LCD valoarea citită de senzorul DHT11. 
+
+	Dacă nu există o conexiune la internet în momentul în care sistemul este pornit, este necesar să se considere valoarea prestabilită de 21 °C ca fiind temperatura ce trebuie menținută în imobil. În cazul întreruperii conexiunii la internet în timpul funcționării, trebuie ca ultima valoare a temperaturii dorite, citită din baza de date, să rămână salvată în sistem.  
+
+\subsection{Cerințe nefuncționale pentru partea hardware}
+	
+	O serie de cerințe arhitecturale ale sistemului sunt:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+		\itemsep0em
+		\item Sistemul trebuie să ruleze într-un regim continuu, zi și noapte.
+		\item Pentru a facilita montajul sistemului, trebuie ca transferul comenzilor între modulele senzor și modulul de control să se facă prin radio-frecvență.
+		\item Distanța maximă de transfer între modulele senzor și modulul de control trebuie să fie de 200 de metri, în spațiu deschis. 
+	\end{itemize} 
+
+\vspace{1em}
+
+	Pe partea de siguranță, este necesar ca:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+		\itemsep0em
+		\item Centrala termică să fie oprită dacă transferul de date intre modulele senzor și modulul de control este întrerupt mai mult de 5 secunde.
+	\end{itemize}
+	
+\vspace{1em}
+
+	În ceea ce privește fiabilitate:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+		\itemsep0em
+		\item Sistemul trebuie să poată funcționa și în cazul întreruperii conexiunii la internet.
+		\item Pentru a evita situațiile în care o comandă nu este recepționată, transferul datelor între modulele senzor și modulul de control trebuie să se facă ciclic.
+	\end{itemize}
+
 \subsection{Cerințele funcționale ale aplicației web}
 
 \begin{figure}[H]
@@ -50,50 +94,6 @@
 		\item Aplicația web trebuie să poată monitoriza parametrii ambientali și seta temperatura într-un imobil cu două camere.
 		\item Valorile afișate pe pagina principală trebuie actualizate doar în momentul în care acestea se modifică în baza de date. Nu se acceptă ca actualizările să se execute la anumite intervale de timp prestabilite. 
 	\end{itemize} 
-
-\subsection{Cerințe funcționale pentru componentele electronice}
-
-\begin{figure}[H]
-   	\centering
-    	\includegraphics[width=0.8\textwidth]{Use-Case hardware.png}
-	\caption{Cazurile de utilizare pentru ansamblul de componente electronice}
-\end{figure}	
-
-	Ansamblul componentelor electronice trebuie sa permită modificarea temperaturii setate. Pentru aceasta, se utilizează butoane, iar modificările de temperatură se afișează pe LCD.
-
- 	Pentru a face posibilă monitorizarea parametrilor ambientali, modulele WiFi trebuie să afișeze pe LCD valorile citite de senzorul de temperatură și umiditate. 
-
-	Dacă nu există o conexiune la internet în momentul în care sistemul este pornit, este necesar să se considere valoarea prestabilită de 21 °C ca fiind temperatura ce trebuie menținută în imobil. În cazul întreruperii conexiunii la internet în timpul funcționării, trebuie ca ultima valoare a temperaturii dorite, citită din baza de date, să rămână salvată în sistem.  
-
-\subsection{Cerințe nefuncționale pentru componentele electronice}
-	
-	O serie de cerințe arhitecturale ale sistemului sunt:
-	\begin{itemize}
-		\setlength{\itemindent}{2em}
-		\itemsep0em
-		\item Sistemul trebuie să ruleze într-un regim continuu, zi și noapte.
-		\item Pentru a facilita montajul sistemului, trebuie ca transferul comenzilor între modulele senzor și modulul de control să se facă prin radio-frecvență.
-		\item Distanța maximă de transfer între modulele senzor și modulul de control trebuie să fie de 200 de metri, în spațiu deschis. 
-	\end{itemize} 
-
-\vspace{1em}
-
-	Pe partea de siguranță, este necesar ca:
-	\begin{itemize}
-		\setlength{\itemindent}{2em}
-		\itemsep0em
-		\item Centrala termică să fie oprită dacă transferul de date intre modulele senzor și modulul de control este întrerupt mai mult de 5 secunde.
-	\end{itemize}
-	
-\vspace{1em}
-
-	În ceea ce privește fiabilitate:
-	\begin{itemize}
-		\setlength{\itemindent}{2em}
-		\itemsep0em
-		\item Sistemul trebuie să poată funcționa și în cazul întreruperii conexiunii la internet.
-		\item Pentru a evita situațiile în care o comandă nu este recepționată, transferul datelor între modulele senzor și modulul de control trebuie să se facă ciclic.
-	\end{itemize}
  
 
 \section{Arhitectura sistemului}
@@ -210,7 +210,7 @@
 
 \begin{figure}[H]
    	\centering
-    	\includegraphics[width=0.6\textwidth]{DiagramaClase.png}
+    	\includegraphics[width=0.35\textwidth]{DiagramaClase.png}
 	\caption{Diagramă de clase}
 	\label{fig:DiagramaClase}
 \end{figure}
@@ -463,7 +463,8 @@ if (WiFi.status() == WL_CONNECTED) {
 
 	Primele două instrucțiuni au rolul de a încărca în baza de date valoarea temperaturii si a umiditătii. Modul de funcționare a sistemului este salvat într-un câmp al bazei de date, numit \textit{SwitchIntervalsOn/Value}. Acesta este monitorizat prin instalarea unui observator pe câmpul bazei de date. 
 
-	Instrucțiunile ce urmează au rolul de a încadra sistemul în ora, minutul și ziua curentă, iar cu ajutorul acestora, sistemul poate urmări programul de temperaturi setat de către utilizator. Secvența de cod prezentată anterior este utilizată pentru încadrarea zilelor de la sfârșitul săptămânii, sâmbătă si duminică. In cazul în care nu se respectă condițita, se execută secvențele condiționale următoare, împreună cu citirile capetelor intervalelor și valorile temperaturilor corespunzătoare.
+	Instrucțiunile ce urmează au rolul de a încadra sistemul în ora, minutul și ziua curentă, iar cu ajutorul acestora, sistemul poate urmări programul de temperaturi setat de către utilizator. Secvența de cod prezentată anterior este utilizată pentru încadrarea zilelor de la sfârșitul săptămânii, sâmbătă si duminică. Dacă această condiție este respectată, execuția va continua prin citirea intervalelor, prelucrarea șirului de caractere returnat de \textit{readStr} și citirea temperaturii aferente intervalului ce conține ora și minutul curent. În cazul în care nu se respectă condiția, se execută următoarea secțiune de cod, în care se vor citi capetele intervalelor pentru zilele lucrătoare, se vor face prelucrări pe acestea și se va citi doar temperatura corespunzătoare intervalului curent.   
+
 
 \vspace{1em}
 	
@@ -611,7 +612,7 @@ if (driver.recv(dataPackage, &dataPackageLength))
 
 	Logica din spatele criptării și verificării ulterioare a parolei o voi prezenta în rândurile ce urmează.
 
-\vspace{3em}	
+\vspace{1em}	
 \begin{lstlisting}	
 if user_to_login:
      if bcrypt.check_password_hash(user_to_login.password, password):
@@ -667,13 +668,13 @@ def home():
                placeholder="Temperature 1" required>
 </div>
 \end{lstlisting}
-\vspace{2em} 
+\vspace{1em} 
 
 	Primul tip de intrare \textit{html} utilizat este cel pentru formatul timp. Este un câmp predefinit, împărțit în două secțiuni, una pentru alegerea orei, iar cealaltă pentru selectarea minutului.
 	
 \begin{figure}[H]
    	\centering
-    	\includegraphics[width=0.4\textwidth]{IntrareDeTipTimp.png}
+    	\includegraphics[width=0.2\textwidth]{IntrareDeTipTimp.png}
 	\caption{Intrare HTML pentru formatul timp}
 \end{figure}
 

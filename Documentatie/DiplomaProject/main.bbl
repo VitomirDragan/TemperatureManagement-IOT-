@@ -85,31 +85,31 @@ Guido Van~Rossum et~al.
   1991.
 \newblock [Data accesării: 15.03.2021].
 
-\bibitem{firebase}
-Sonam Khedkar, Swapnil Thube, WI~Estate, C~Naka, et~al.
-\newblock Real time databases for applications.
-\newblock {\em International Research Journal of Engineering and Technology
-  (IRJET)}, 4(06):2078--2082, 2017.
-
-\bibitem{bootstrap}
-Jake Spurlock.
-\newblock {\em Bootstrap: Responsive Web Development}.
-\newblock " O'Reilly Media, Inc.", 2013.
+\bibitem{c++}
+Bjarne Stroustrup.
+\newblock {\em The C++ programming language}.
+\newblock Pearson Education India, 2000.
 
 \bibitem{heroku}
 Anubhav Hanjura.
 \newblock {\em Heroku Cloud Application Development}.
 \newblock Packt Publishing Ltd, 2014.
 
+\bibitem{firebase}
+Sonam Khedkar, Swapnil Thube, WI~Estate, C~Naka, et~al.
+\newblock Real time databases for applications.
+\newblock {\em International Research Journal of Engineering and Technology
+  (IRJET)}, 4(06):2078--2082, 2017.
+
 \bibitem{flask}
 Miguel Grinberg.
 \newblock {\em Flask web development: developing web applications with python}.
 \newblock " O'Reilly Media, Inc.", 2018.
 
-\bibitem{c++}
-Bjarne Stroustrup.
-\newblock {\em The C++ programming language}.
-\newblock Pearson Education India, 2000.
+\bibitem{bootstrap}
+Jake Spurlock.
+\newblock {\em Bootstrap: Responsive Web Development}.
+\newblock " O'Reilly Media, Inc.", 2013.
 
 \bibitem{esp8266}
 Espressif Systems.
