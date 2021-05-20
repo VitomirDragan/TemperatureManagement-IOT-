@@ -15,10 +15,10 @@
 
 #define FIREBASE_HOST "temperaturemanagement-iot.firebaseio.com" // The path of the database
 #define FIREBASE_AUTH "S7iqWxfvmFh67MJJBoWKlSBtJ2F1m8tFGv8sBBin" // Secret key for allowing the connection to database
-#define RELAY_PIN D3
-#define DHT11_PIN D0
-#define INCREASE_TEMPERATURE_PIN D5
-#define DECREASE_TEMPERATURE_PIN D6
+#define RELAY_PIN D3 // Define the pin which connects to relay
+#define DHT11_PIN D0 // Define the pin which connects to temperature and humidity sensor
+#define INCREASE_TEMPERATURE_PIN D5 // Define the pin which connects to increase temperature button
+#define DECREASE_TEMPERATURE_PIN D6 // Define the pin which connects to decrease temperature button
 #define TIME_TO_CONNECT 15000 // The maximum time allowed for WiFi module to connect to internet
 #define MAX_TEMP 32 // Maximum temperature allowed to be set
 #define MIN_TEMP 15 // Minimum temperature allowed to be set
@@ -27,18 +27,17 @@
 #define PREVENT_TIMEOUT 2 // Value of command to prevent the heat cotrol module to timeout
 #define HYSTERESIS 1 // Tolerance over the set temperature.
 
-extern volatile int desiredTemperature;
-extern volatile int lastHumidityValue;
-extern volatile int lastTemperatureValue;
-extern volatile int lastDesiredTemperature;
-extern volatile int switchIntervalsOn;
-extern volatile int endHour;
-extern volatile int endMinute;
-extern volatile boolean increaseDesiredTemperature;
-extern volatile boolean decreaseDesiredTemperature;
-extern volatile boolean timeIntervalsOperatingMode;
-extern volatile boolean normalOperatingMode;
-extern volatile boolean endOfInterval;
+extern volatile int desiredTemperature; // Stores the value of temperature that should be in the room 
+extern volatile int lastHumidityValue; // Last value of humidity
+extern volatile int lastTemperatureValue; // Last value of temperature
+extern volatile int switchIntervalsOn; // Indicates the current operating mode of the sistem
+extern volatile int endHour; // Indicates the hour when interval is ending
+extern volatile int endMinute; // Indicates the minute when interval is ending
+extern volatile boolean increaseDesiredTemperature; // Indicates that an interrupt was triggered by pressing the increase temperature button 
+extern volatile boolean decreaseDesiredTemperature; // Indicates that an interrupt was triggered by pressing the decrease temperature button 
+extern volatile boolean timeIntervalsOperatingMode; // Indicates if the automatic operating mode is ON or OFF
+extern volatile boolean normalOperatingMode; // Indicates if the manual operating mode is ON or OFF
+extern volatile boolean endOfInterval; // Indicates if the end of interval was reached or not
 
 // Class which is dealing with time management
 class TimeManager {

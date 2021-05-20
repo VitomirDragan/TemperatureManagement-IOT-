@@ -8,7 +8,6 @@ RH_ASK driver(2000, D8, D7, D8);
 volatile int desiredTemperature = 21;
 volatile int lastHumidityValue = 0;
 volatile int lastTemperatureValue = 0;
-volatile int lastDesiredTemperature = 0;
 volatile int switchIntervalsOn = 0;
 volatile int endHour = 0;
 volatile int endMinute = 0;
