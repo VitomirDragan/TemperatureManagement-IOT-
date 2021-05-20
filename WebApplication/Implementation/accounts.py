@@ -10,7 +10,7 @@ accounts = Blueprint('accounts', __name__)  # Create blueprint for accounts logi
 
 
 @accounts.route('/register', methods=['GET', 'POST'])
-@login_required  # Access function only if exists an user logged in
+@login_required  # Access function only if an user is logged in
 @admin_required  # Access function if the user logged in is administrator
 def register():
     if request.method == 'POST':  # Verify if there is a POST request
