@@ -1,43 +1,44 @@
 .designAccountsDiv {
+    /* Set padding for div that contains the list of accounts */
     padding-top: 5%;
     padding-left: 50%;
     padding-right: 50%;
     padding-bottom: 15%;
-    height: 80vh;
-    text-align: center;
+    height: 80vh; /* Set div's height. 80% of viewport height */
+    text-align: center; /* Align text to center */
 }
 
 table {
-    width: 100%;
+    width: 100%; /* Set the width of table */
 }
 
 th {
-    padding-bottom: 5vh;
-    text-decoration: underline;
+    padding-bottom: 5vh; /* Set bottom padding for header of the table */
+    text-decoration: underline; /* underline the text in the header */
 }
 
 td {
-    padding-bottom: 2vh;
+    padding-bottom: 2vh; /* Set bottom padding for data cell */
 }
 
 #delete-button {
-    width: 130px;
-    font-size: small;
+    width: 130px; /* Set width for delete button */
+    font-size: small; /* Set text font size */
 }
 
 #giveRights-button {
-    width: 130px;
-    font-size: small;
+    width: 130px; /* Set width for give rights button */
+    font-size: small; /* Set text font size */
 }
 
 #removeRights-button {
-    width: 130px;
-    font-size: small;
+    width: 130px; /* Set width for give rights button */
+    font-size: small; /* Set text font size */
 }
 
 .inactive-button {
-    width: 130px;
-    font-size: small;
-    pointer-events: none;
-    opacity: 0.1;
+    width: 130px; /* Set width for give rights button */
+    font-size: small; /* Set text font size */
+    pointer-events: none; /* disable pointer when hovering over inactive buttons */
+    opacity: 0.1; /* Set button opacity */
 }

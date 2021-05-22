@@ -370,326 +370,386 @@ class CommonTestCase(BaseTestCase):
                           resp.data)  # Verify that the error message is displayed
 
     def test_changePassword(self):
+        """Verify change password functionality"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
-                             )
+                             )  # Log in with a valid account
             resp = self.client.post('/changePassword',
                                     data=dict(currentPassword='userNotAdmin',
                                               newPassword='newPassword1',
                                               confirmNewPassword='newPassword1'),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'Password changed successfully!', resp.data)
-            self.assertTrue(bcrypt.check_password_hash(current_user.password, 'newPassword1'))
+                                    )  # Try to change the current password
+            self.assertIn(b'Password changed successfully!', resp.data)  # Verify that the success message is displayed
+            self.assertTrue(bcrypt.check_password_hash(current_user.password,
+                                                       'newPassword1'))  # Verify that the password was changed
 
     def test_changePasswordWrongCurrentPassword(self):
+        """Try to change the password when a wrong current password is introduced."""
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
-                             )
+                             )  # Log in with a valid account
             resp = self.client.post('/changePassword',
                                     data=dict(currentPassword='wrongCurrentPassword',
                                               newPassword='newPassword1',
                                               confirmNewPassword='newPassword1'),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'Wrong password! Please try again!', resp.data)
-            self.assertTrue(bcrypt.check_password_hash(current_user.password, 'userNotAdmin'))
+                                    )  # Introduce wrong current password in the change password form
+            self.assertIn(b'Wrong password! Please try again!', resp.data)  # Verify that the error message is displayed
+            self.assertTrue(bcrypt.check_password_hash(current_user.password,
+                                                       'userNotAdmin'))  # Verify that the password was not changed
 
     def test_changePasswordUnmatchingPasswords_notAdmin(self):
+        """Try to change password when the new password and the confirmation do not match"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
-                             )
+                             )  # Log in with a valid account
             resp = self.client.post('/changePassword',
                                     data=dict(currentPassword='userNotAdmin',
                                               newPassword='nePassword1',
                                               confirmNewPassword='newPassword1'),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'The passwords do not match!', resp.data)
-            self.assertTrue(bcrypt.check_password_hash(current_user.password, 'userNotAdmin'))
+                                    )  # New password and confirmation do not match
+            self.assertIn(b'The passwords do not match!', resp.data)  # Verify that the error message is displayed
+            self.assertTrue(bcrypt.check_password_hash(current_user.password,
+                                                       'userNotAdmin'))  # Verify that the password was not changed
 
     def test_changePasswordTooShort(self):
+        """Try to change password when the new password is too short"""
         with self.client:
             self.client.post(
                 '/',
                 data=dict(username="userNotAdmin", password="userNotAdmin"),
                 follow_redirects=True
-            )
+            )  # Log in with a valid account
             resp = self.client.post('/changePassword',
                                     data=dict(currentPassword='userNotAdmin',
                                               newPassword='Shor1',
                                               confirmNewPassword='Shor1',
                                               ),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'Password must have at least 6 characters!', resp.data)
-            self.assert_status(resp, 200, 'Error occured during creating new account!')
+                                    )  # Introduce a password that is too short
+            self.assertIn(b'Password must have at least 6 characters!',
+                          resp.data)  # Verify that the error message is displayed
+            self.assertTrue(bcrypt.check_password_hash(current_user.password,
+                                                       'userNotAdmin'))  # Verify that the password was not changed
 
     def test_changePasswordMissingUpperCaseLetter(self):
+        """Try to change password when the new password does not contain upper case letter"""
         with self.client:
             self.client.post(
                 '/',
                 data=dict(username="userNotAdmin", password="userNotAdmin"),
                 follow_redirects=True
-            )
+            )  # Log in with a valid account
             resp = self.client.post('/changePassword',
                                     data=dict(currentPassword='userNotAdmin',
                                               newPassword='newuser1',
                                               confirmNewPassword='newuser1',
                                               ),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'The password must contain at least one upper case letter!', resp.data)
-            self.assert_status(resp, 200, 'Error occured during creating new account!')
+                                    )  # Introduce new password without containing upper case letter
+            self.assertIn(b'The password must contain at least one upper case letter!',
+                          resp.data)  # Verify that the error message is displayed
+            self.assertTrue(bcrypt.check_password_hash(current_user.password,
+                                                       'userNotAdmin'))  # Verify that the password was not changed
 
     def test_changePasswordMissingDigit(self):
+        """Try to change password when the new password does not contain at least one digit"""
         with self.client:
             self.client.post(
                 '/',
                 data=dict(username="userNotAdmin", password="userNotAdmin"),
                 follow_redirects=True
-            )
+            )  # Log in with a valid account
             resp = self.client.post('/changePassword',
                                     data=dict(currentPassword='userNotAdmin',
                                               newPassword='newUser',
                                               confirmNewPassword='newUser',
                                               ),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'The password must contain at least one digit!', resp.data)
-            self.assert_status(resp, 200, 'Error occured during creating new account!')
+                                    )  # Introduce new password without containing at least one digit
+            self.assertIn(b'The password must contain at least one digit!',
+                          resp.data)  # Verify that the error message is displayed
+            self.assertTrue(bcrypt.check_password_hash(current_user.password,
+                                                       'userNotAdmin'))  # Verify that the password was not changed
 
     def test_setTemperatureRoom1(self):
+        """Verify set temperature functionality for the first room"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
-                             )
+                             )  # Log in with a valid account
             resp = self.client.post('/home',
                                     data=dict(outputValue1='21'),
                                     follow_redirects=True
-                                    )
-            self.assert_status(resp, 200, 'Failed to set temperature!')
+                                    )  # Set temperature
+            self.assert_status(resp, 200,
+                               'Failed to set temperature!')  # Verify if the temperature was set. If 200 html error code is returned, then the value was not saved in database
 
     def test_setTemperatureRoom2(self):
+        """Verify set temperature functionality for the second room"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
-                             )
+                             )  # Log in with a valid account
             resp = self.client.post('/home',
                                     data=dict(outputValue2='22'),
                                     follow_redirects=True
-                                    )
-            self.assert_status(resp, 200, 'Failed to set temperature!')
-
-            # -----------#
+                                    )  # Set temperature
+            self.assert_status(resp, 200,
+                               'Failed to set temperature!')  # Verify if temperature was set. If 200 http status code is not returned, an error message will be displayed
 
 
 class UserNotAdminTestCase(BaseTestCase):
+    """Verify that an user that is not admin is not allowed to create accounts"""
+
     def test_notAuthorizedForRegister(self):
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/register', follow_redirects=True)
-            self.assert_status(resp, 401, 'Security error! User without admin rights can access registration page.')
+                             )  # Log in with a valid account, but without admin rights
+            resp = self.client.get('/register', follow_redirects=True)  # Try to access register page
+            self.assert_status(resp, 401,
+                               'Security error! User without admin rights can access registration page.')  # If 401 http status code is not returned, an error message will be displayed
 
     def test_notAuthorizedForViewAccounts(self):
+        """Verify that an user that is not admin is not allowed to view the list of accounts"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/viewAccounts', follow_redirects=True)
-            self.assert_status(resp, 401, 'Security error! User without admin rights can access view accounts page.')
+                             )  # Log in with a valid account, but without admin rights
+            resp = self.client.get('/viewAccounts', follow_redirects=True)  # Try to access view accounts page
+            self.assert_status(resp, 401,
+                               'Security error! User without admin rights can access view accounts page.')  # If 401 http status code is not returned, an error message will be displayed
 
     def test_notAuthorizedForDeleteAccount(self):
+        """Verify that an user that is not admin is not allowed to delete accounts"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/deleteAccount/1', follow_redirects=True)
-            self.assert_status(resp, 401, 'Security error! User without admin rights can delete accounts.')
+                             )  # Log in with a valid account, but without admin rights
+            resp = self.client.get('/deleteAccount/1', follow_redirects=True)  # Try to delete an account
+            self.assert_status(resp, 401,
+                               'Security error! User without admin rights can delete accounts.')  # If 401 http status code is not returned, an error message will be displayed
 
     def test_notAuthorizedForGiveAdminRights(self):
+        """Verify that an user that is not admin is not allowed to give admin rights to other accounts"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/giveAdminRights/1', follow_redirects=True)
+                             )  # Log in with a valid account, but without admin rights
+            resp = self.client.get('/giveAdminRights/1',
+                                   follow_redirects=True)  # Try to give admin rights to an account
             self.assert_status(resp, 401,
-                               'Security error! User which is not admin can give admin rights to other users.')
+                               'Security error! User which is not admin can give admin rights to other users.')  # If 401 http status code is not returned, an error message will be displayed
 
     def test_notAuthorizedForRemoveAdminRights(self):
+        """Verify that an user that is not admin is not allowed to remove admin rights from other accounts"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userNotAdmin', password='userNotAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/removeAdminRights/1', follow_redirects=True)
+                             )  # Log in with a valid account, but without admin rights
+            resp = self.client.get('/removeAdminRights/1',
+                                   follow_redirects=True)  # Try to remove admin rights from an account
             self.assert_status(resp, 401,
-                               'Security error! User which is not admin can remove admin rights from other users.')
+                               'Security error! User which is not admin can remove admin rights from other users.')  # If 401 http status code is not returned, an error message will be displayed
 
 
 class UserAdminTestCase(BaseTestCase):
     def test_registration(self):
+        """Verify registration functionality using an admin account"""
         with self.client:
             self.client.post(
                 '/',
                 data=dict(username="userAdmin", password="userAdmin"),
                 follow_redirects=True
-            )
+            )  # Log in with an admin account
             resp = self.client.post('/register',
                                     data=dict(username='newUser',
                                               password='newUser1',
                                               confirmPassword='newUser1',
                                               admin_role=False),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'You successfully created a new account!', resp.data)
-            self.assert_status(resp, 200, 'Error occured during creating new account!')
+                                    )  # Try to create new account
+            self.assertIn(b'You successfully created a new account!',
+                          resp.data)  # Verify that a success message is displayed
+            self.assert_status(resp, 200,
+                               'Error occured during creating new account!')  # Verify if account was created. If 200 http status code was not returned, an error message will be displayed
 
     def test_registrationUnmatchingPasswords(self):
+        """Try to register when password and confirmation do not match"""
         with self.client:
             self.client.post(
                 '/',
                 data=dict(username="userAdmin", password="userAdmin"),
                 follow_redirects=True
-            )
+            )  # Log in with an admin account
             resp = self.client.post('/register',
                                     data=dict(username='newUser',
                                               password='newUser1',
                                               confirmPassword='newUser2',
                                               admin_role=False),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'The passwords do not match!', resp.data)
-            self.assert_status(resp, 200, 'Error occured during creating new account!')
+                                    )  # Introduce password and confirmPassword that do not match
+            self.assertIn(b'The passwords do not match!', resp.data)  # Verify that an error message is displayed
+            self.assert_status(resp, 200,
+                               'Error occured during creating new account!')  # If 200 http status code is not returned, an error message is displayed
 
     def test_registrationPasswordTooShort(self):
+        """Try to register when password is too short"""
         with self.client:
             self.client.post(
                 '/',
                 data=dict(username="userAdmin", password="userAdmin"),
                 follow_redirects=True
-            )
+            )  # Log in with an admin account
             resp = self.client.post('/register',
                                     data=dict(username='newUser',
                                               password='Shor1',
                                               confirmPassword='Shor1',
                                               admin_role=False),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'Password must have at least 6 characters!', resp.data)
-            self.assert_status(resp, 200, 'Error occured during creating new account!')
+                                    )  # Introduce a password that is too short
+            self.assertIn(b'Password must have at least 6 characters!',
+                          resp.data)  # Verify that an error message is displayed
+            self.assert_status(resp, 200,
+                               'Error occured during creating new account!')  # If 200 http status code is not returned, an error message is displayed
 
     def test_registrationMissingUpperCaseLetter(self):
+        """Try to register when password is missing upper case letter"""
         with self.client:
             self.client.post(
                 '/',
                 data=dict(username="userAdmin", password="userAdmin"),
                 follow_redirects=True
-            )
+            )  # Log in with an admin account
             resp = self.client.post('/register',
                                     data=dict(username='newUser',
                                               password='newuser1',
                                               confirmPassword='newuser1',
                                               admin_role=False),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'The password must contain at least one upper case letter!', resp.data)
-            self.assert_status(resp, 200, 'Error occured during creating new account!')
+                                    )  # Introduce a password that is missing upper case letter
+            self.assertIn(b'The password must contain at least one upper case letter!',
+                          resp.data)  # Verify that error message is displayed
+            self.assert_status(resp, 200,
+                               'Error occured during creating new account!')  # If 200 http status code is not returned, an error message is displayed
 
     def test_registrationMissingDigit(self):
+        """Try to register when password is missing digit"""
         with self.client:
             self.client.post(
                 '/',
                 data=dict(username="userAdmin", password="userAdmin"),
                 follow_redirects=True
-            )
+            )  # Log in with an admin account
             resp = self.client.post('/register',
                                     data=dict(username='newUser',
                                               password='newUser',
                                               confirmPassword='newUser',
                                               admin_role=False),
                                     follow_redirects=True
-                                    )
-            self.assertIn(b'The password must contain at least one digit!', resp.data)
-            self.assert_status(resp, 200, 'Error occured during creating new account!')
+                                    )  # Introduce a password that has no digits
+            self.assertIn(b'The password must contain at least one digit!',
+                          resp.data)  # Verify that error message is displayed
+            self.assert_status(resp, 200,
+                               'Error occured during creating new account!')  # If 200 http status code is not returned, an error message is displayed
 
     def test_deleteAccount(self):
+        """Verify delete account functionality using an admin account"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userAdmin', password='userAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/deleteAccount/2', follow_redirects=True)
-            self.assertIn(b'The account was successfully deleted!', resp.data)
-            self.assert_status(resp, 200, 'Error occured during deleting account!')
+                             )  # Log in with an admin account
+            resp = self.client.get('/deleteAccount/2', follow_redirects=True)  # Try to delete account
+            self.assertIn(b'The account was successfully deleted!',
+                          resp.data)  # Verify if the success message is displayed
+            self.assert_status(resp, 200,
+                               'Error occured during deleting account!')  # If 200 http status code is not returned, an error message is displayed
 
     def test_deleteAccountDatabaseError(self):
+        """Try to delete account that is not in database"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userAdmin', password='userAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/deleteAccount/10', follow_redirects=True)
-            self.assertIn(b'There was a problem deleting the account!', resp.data)
-            self.assert_status(resp, 200, 'Error occured during deleting account!')
+                             )  # Log in with an admin account
+            resp = self.client.get('/deleteAccount/10', follow_redirects=True)  # Try to delete account
+            self.assertIn(b'There was a problem deleting the account!',
+                          resp.data)  # Verify that error message is displayed
+            self.assert_status(resp, 200,
+                               'Error occured during deleting account!')  # If 200 http status code is not returned, an error message is displayed
 
     def test_giveAdminRights(self):
+        """Verify if an administrator can give admin rights to other user """
         with self.client:
             self.client.post('/',
                              data=dict(username='userAdmin', password='userAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/giveAdminRights/2', follow_redirects=True)
-            self.assertIn(b'Succesfully updated the admin rights!', resp.data)
+                             )  # Log in with an admin account
+            resp = self.client.get('/giveAdminRights/2',
+                                   follow_redirects=True)  # Try to give admin rights to an account
+            self.assertIn(b'Succesfully updated the admin rights!',
+                          resp.data)  # Verify that success message is displayed
             self.assert_status(resp, 200,
-                               'Error occured during giving admin rights to an user account!')
+                               'Error occured during giving admin rights to an user account!')  # If 200 http status code is not returned, an error message is displayed
 
     def test_giveAdminRightsDatabaseError(self):
+        """Try to give admin rights to an account that is not in database"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userAdmin', password='userAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/giveAdminRights/10', follow_redirects=True)
-            self.assertIn(b'There was a problem updating the admin rights!', resp.data)
+                             )  # Log in with an admin account
+            resp = self.client.get('/giveAdminRights/10',
+                                   follow_redirects=True)  # Try to give admin rights to non-existent account
+            self.assertIn(b'There was a problem updating the admin rights!',
+                          resp.data)  # Verify that error message is displayed
             self.assert_status(resp, 200,
-                               'Error occured during giving admin rights to an user account!')
+                               'Error occured during giving admin rights to an user account!')  # If 200 http status code is not returned, an error message is displayed
 
     def test_removeAdminRights(self):
+        """Verify if an administrator can remove admin rights from other user """
         with self.client:
             self.client.post('/',
                              data=dict(username='userAdmin', password='userAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/removeAdminRights/3', follow_redirects=True)
-            self.assertIn(b'Succesfully updated the admin rights!', resp.data)
+                             )  # Log in with an admin account
+            resp = self.client.get('/removeAdminRights/3',
+                                   follow_redirects=True)  # Try to remove admin rights from an account
+            self.assertIn(b'Succesfully updated the admin rights!',
+                          resp.data)  # Verify that success message is displayed
             self.assert_status(resp, 200,
-                               'Error occured during removing admin rights to an user account!')
+                               'Error occured during removing admin rights to an user account!')  # If 200 http status code is not returned, an error message is displayed
 
     def test_removeAdminRightsDatabaseError(self):
+        """Try to remove admin rights from an account that is not in database"""
         with self.client:
             self.client.post('/',
                              data=dict(username='userAdmin', password='userAdmin'),
                              follow_redirects=True
-                             )
-            resp = self.client.get('/removeAdminRights/10', follow_redirects=True)
-            self.assertIn(b'There was a problem updating the admin rights!', resp.data)
+                             )  # Log in with an admin account
+            resp = self.client.get('/removeAdminRights/10',
+                                   follow_redirects=True)  # Try to remove admin rights from non-existent account
+            self.assertIn(b'There was a problem updating the admin rights!',
+                          resp.data)  # Verify that error message is displayed
             self.assert_status(resp, 200,
-                               'Error occured during removing admin rights to an user account!')
+                               'Error occured during removing admin rights to an user account!')  # If 200 http status code is not returned, an error message is displayed
 
 
 if __name__ == '__main__':

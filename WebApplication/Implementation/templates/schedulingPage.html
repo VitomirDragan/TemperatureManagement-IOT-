@@ -1,27 +1,35 @@
-{% extends 'template.html' %}
+{% extends 'template.html' %} <!-- Extend from template.html -->
+
+<!-- Head of the page -->
 {% block head %}
-<title> Schedule </title>
+<title> Schedule </title> <!-- Set title of the page -->
+<!-- Import corresponding css file -->
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/schedulingPageDesign.css') }}">
 {% endblock %}
 
+<!-- Content of the page -->
 {% block content %}
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6"> <!-- Set div size -->
         <div class="title">
-            <h3 class="h3-design">Working days</h3>
+            <h3 class="h3-design">Working days</h3> <!-- Subtitle -->
         </div>
+        <!-- Form used to create schedule for working days -->
         <form class="scheduleWorkingDaysForm-design" method="post" action="/setIntervalsForWorkingDays">
+            <!-- CSRF token needed for preventing cross site request forgery -->
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <div class="form-inline">
                 <div class="form-group">
                     <input type="time" class="form-control" name="firstWorkingDayInterval" id="firstWorkingDayInterval"
                            required>
+                    <!-- Field used to enter beginning of the first time interval -->
                 </div>
                 <div class="form-group">
                     <input type="number" class="form-control" name="temperatureFirstWDInterval"
                            id="temperatureFirstWDInterval"
                            placeholder="Temperature 1"
                            required>
+                    <!-- Field used to enter temperature for the first time interval -->
                 </div>
             </div>
             <div class="form-inline">
@@ -29,68 +37,78 @@
                     <input type="time" class="form-control" name="secondWorkingDayInterval"
                            id="secondWorkingDayInterval"
                            required>
+                    <!-- Field used to enter beginning of the second time interval -->
                 </div>
                 <div class="form-group">
                     <input type="number" class="form-control" name="temperatureSecondWDInterval"
                            id="temperatureSecondWDInterval"
                            placeholder="Temperature 2"
                            required>
+                    <!-- Field used to enter temperature for the second time interval -->
                 </div>
             </div>
             <div class="form-inline">
                 <div class="form-group">
                     <input type="time" class="form-control" name="thirdWorkingDayInterval" id="thirdWorkingDayInterval"
                            required>
+                    <!-- Field used to enter beginning of the third time interval -->
                 </div>
                 <div class="form-group">
                     <input type="number" class="form-control" name="temperatureThirdWDInterval"
                            id="temperatureThirdWDInterval"
                            placeholder="Temperature 3" required>
+                    <!-- Field used to enter temperature for the third time interval -->
                 </div>
             </div>
             <div class="form-inline">
                 <div class="form-group">
+                    <!-- Field used to enter beginning of the fourth time interval -->
                     <input type="time" class="form-control" name="fourthWorkingDayInterval"
                            id="fourthWorkingDayInterval"
                            required>
                 </div>
                 <div class="form-group">
+                    <!-- Field used to enter temperature for the fourth time interval -->
                     <input type="number" class="form-control" name="temperatureFourthWDInterval"
                            id="temperatureFourthWDInterval"
                            placeholder="Temperature 4" required>
                 </div>
             </div>
+            <!-- Button used to submit data -->
             <button type="submit" class="btn btn-primary btn-block">Set intervals</button>
         </form>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6"> <!-- Set div size -->
         <div class="title">
-            <h3 class="h3-design">Weekend</h3>
+            <h3 class="h3-design">Weekend</h3> <!-- Subtitle -->
         </div>
+        <!-- Form used to create schedule for weekend -->
         <form class="scheduleWeekendForm-design" method="post" action="/setIntervalsForWeekend">
+            <!-- CSRF token needed for preventing cross site request forgery -->
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <div class="form-inline">
                 <div class="form-group">
                     <input type="time" class="form-control" name="firstWeekendInterval" id="firstWeekendInterval"
-                           required>
+                           required> <!-- Field used to enter beginning of the first time interval -->
                 </div>
                 <div class="form-group">
                     <input type="number" class="form-control" name="temperatureFirstWInterval"
                            id="temperatureFirstWInterval"
-                           placeholder="Temperature 1" required>
+                           placeholder="Temperature 1" required> <!-- Field used to enter temperature for the first time interval -->
                 </div>
             </div>
             <div class="form-inline">
                 <div class="form-group">
                     <input type="time" class="form-control" name="secondWeekendInterval" id="secondWeekendInterval"
-                           required>
+                           required>  <!-- Field used to enter beginning of the second time interval -->
                 </div>
                 <div class="form-group">
                     <input type="number" class="form-control" name="temperatureSecondWInterval"
                            id="temperatureSecondWInterval"
-                           placeholder="Temperature 2" required>
+                           placeholder="Temperature 2" required> <!-- Field used to enter temperature for the second time interval -->
                 </div>
             </div>
+            <!-- Button used to submit data -->
             <button type="submit" class="btn btn-primary btn-block">Set intervals</button>
         </form>
         <script src="../static/javascript/databaseListeners.js"></script>

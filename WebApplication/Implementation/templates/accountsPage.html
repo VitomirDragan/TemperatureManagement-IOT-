@@ -1,67 +1,77 @@
-{% extends 'template.html' %}
+{% extends 'template.html' %} <!-- Extend from template.html -->
 
+<!-- Head of the page -->
 {% block head %}
-<title> Accounts </title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/accountsPageDesign.css') }}">
+<title> Accounts </title> <!-- Set title of the page -->
+<link rel="stylesheet" type="text/css"
+      href="{{ url_for('static', filename='css/accountsPageDesign.css') }}"> <!-- Import corresponding css file -->
 {% endblock %}
 
+<!-- Content of the page -->
 {% block content %}
 <div class="col-md-12 designAccountsDiv">
-    <table>
-        <tr>
+    <table> <!-- Create table that will contain all the accounts saved in database -->
+        <tr> <!-- Create table's header -->
             <th>Username</th>
             <th>Admin rights</th>
             <th>Actions</th>
         </tr>
         {% for user in users %}
-        <div class="modal fade" id="deleteAccount{{user.id}}">
+        <div class="modal fade" id="deleteAccount{{user.id}}"> <!-- Display modal for confirming delete operation -->
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
                         <p>Are you sure that you want to delete the account for {{user.username}}?</p>
+                        <!-- Display informing message -->
                         <a href="{{ url_for('accounts.deleteAccount', id=user.id)}}" class="btn btn-danger">Yes</a>
-                        <a class="btn btn-success" data-dismiss="modal">No</a>
+                        <!-- Button used to approve operation -->
+                        <a class="btn btn-success" data-dismiss="modal">No</a> <!-- Button used to cancel operation -->
                     </div>
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="giveRights{{user.id}}">
+        <div class="modal fade" id="giveRights{{user.id}}">  <!-- Display modal for confirming give rights operation -->
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
                         <p>Are you sure that you want to give admin rights to {{user.username}}?</p>
+                        <!-- Display informing message -->
                         <a href="{{ url_for('accounts.giveAdminRights', id=user.id)}}" class="btn btn-danger">Yes</a>
-                        <a class="btn btn-success" data-dismiss="modal">No</a>
+                        <!-- Button used to approve operation -->
+                        <a class="btn btn-success" data-dismiss="modal">No</a> <!-- Button used to cancel operation -->
                     </div>
                 </div>
             </div>
         </div>
         <div class="modal fade" id="removeRights{{user.id}}">
+            <!-- Display modal for confirming remove rights operation -->
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
                         <p>Are you sure that you want to remove the admin rights for {{user.username}}?</p>
+                        <!-- Display informing message -->
                         <a href="{{ url_for('accounts.removeAdminRights', id=user.id)}}" class="btn btn-danger">Yes</a>
-                        <a class="btn btn-success" data-dismiss="modal">No</a>
+                        <!-- Button used to approve operation -->
+                        <a class="btn btn-success" data-dismiss="modal">No</a> <!-- Button used to cancel operation -->
                     </div>
                 </div>
             </div>
         </div>
         <tr>
-            <td>{{ user.username }}</td>
-            <td>{{ user.admin_role }}</td>
+            <td>{{ user.username }}</td> <!-- Display username -->
+            <td>{{ user.admin_role }}</td> <!-- Display admin role -->
             <td>
                 {% if user.id != current_user.id %}
                 <a href="#deleteAccount{{user.id}}" class="btn btn-danger" id="delete-button" data-toggle="modal">Delete
-                    account</a>
+                    account</a> <!-- Display delete account button -->
                 {% if user.admin_role %}
                 <a href="#removeRights{{user.id}}" class="btn btn-danger" id="removeRights-button" data-toggle="modal">Remove
-                    rights</a>
+                    rights</a> <!-- If user is administrator, display remove rights button -->
                 {% else %}
                 <a href="#giveRights{{user.id}}" class="btn btn-success" id="giveRights-button" data-toggle="modal">Give
-                    rights</a>
+                    rights</a> <!-- If user is not administrator, display give rights button -->
                 {% endif %}
-                {% else %}
+                {% else %} <!-- For current user, the buttons will be inactive -->
                 <a class="btn btn-danger inactive-button">Delete account</a>
                 {% if user.admin_role %}
                 <a class="btn btn-danger inactive-button">Remove rights</a>
