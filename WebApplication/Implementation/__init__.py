@@ -33,6 +33,7 @@ class Users(UserMixin, db.Model):
 
 @login_manager.user_loader
 def load_user(id):
+    """This function is required by LoginManager module and returns user identified by id"""
     return Users.query.get(int(id))
 
 

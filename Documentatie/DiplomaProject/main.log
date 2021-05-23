@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.4.22)  20 MAY 2021 14:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.4.22)  23 MAY 2021 17:02
 entering extended mode
 **./main.tex
 (main.tex
@@ -601,12 +601,12 @@ LaTeX Info: Redefining \nameref on input line 62.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<fig/ACLogo.jpg, id=259, 180.675pt x 157.58875pt>
+<fig/ACLogo.jpg, id=259, 245.41687pt x 160.6pt>
 File: fig/ACLogo.jpg Graphic file (type jpg)
 <use fig/ACLogo.jpg>
 Package pdftex.def Info: fig/ACLogo.jpg  used on input line 5.
-(pdftex.def)             Requested size: 180.67455pt x 157.58835pt.
-<fig/DCTILogo.png, id=260, 220.9053pt x 144.2991pt>
+(pdftex.def)             Requested size: 245.41626pt x 160.5996pt.
+<fig/DCTILogo.png, id=261, 220.9053pt x 144.2991pt>
 File: fig/DCTILogo.png Graphic file (type png)
 <use fig/DCTILogo.png>
 Package pdftex.def Info: fig/DCTILogo.png  used on input line 6.
@@ -704,7 +704,7 @@ Overfull \hbox (0.1902pt too wide) in paragraph at lines 20--21
  fi ne-gli-jat , ex-plic  cre[]terea
  []
 
-<./fig//Statistica-IoT.png, id=359, 1003.75pt x 745.78625pt>
+<./fig//Statistica-IoT.png, id=360, 1003.75pt x 745.78625pt>
 File: ./fig//Statistica-IoT.png Graphic file (type png)
 <use ./fig//Statistica-IoT.png>
 Package pdftex.def Info: ./fig//Statistica-IoT.png  used on input line 26.
@@ -716,7 +716,7 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 ("D:\New folder\tex/latex/psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<./fig//Torelectric.png, id=377, 197.23688pt x 198.24063pt>
+<./fig//Torelectric.png, id=378, 197.23688pt x 198.24063pt>
 File: ./fig//Torelectric.png Graphic file (type png)
 <use ./fig//Torelectric.png>
 Package pdftex.def Info: ./fig//Torelectric.png  used on input line 18.
@@ -724,7 +724,7 @@ Package pdftex.def Info: ./fig//Torelectric.png  used on input line 18.
  [6
 
  <./fig//Torelectric.png>]
-<./fig//Honeywell.png, id=388, 492.33937pt x 364.36125pt>
+<./fig//Honeywell.png, id=389, 492.33937pt x 364.36125pt>
 File: ./fig//Honeywell.png Graphic file (type png)
 <use ./fig//Honeywell.png>
 Package pdftex.def Info: ./fig//Honeywell.png  used on input line 37.
@@ -745,13 +745,13 @@ Underfull \hbox (badness 1642) in paragraph at lines 41--42
  []
 
 [7 <./fig//Honeywell.png>]
-<./fig//Nest.png, id=403, 289.08pt x 224.84pt>
+<./fig//Nest.png, id=404, 289.08pt x 224.84pt>
 File: ./fig//Nest.png Graphic file (type png)
 <use ./fig//Nest.png>
 Package pdftex.def Info: ./fig//Nest.png  used on input line 89.
 (pdftex.def)             Requested size: 146.39133pt x 113.85721pt.
  [8 <./fig//Nest.png>]
-<./fig//Ecobee.png, id=416, 292.59312pt x 211.79124pt>
+<./fig//Ecobee.png, id=417, 292.59312pt x 211.79124pt>
 File: ./fig//Ecobee.png Graphic file (type png)
 <use ./fig//Ecobee.png>
 Package pdftex.def Info: ./fig//Ecobee.png  used on input line 125.
@@ -851,19 +851,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 177--188
 
  []
 
-<./fig//InainteDeFiltru.jpg, id=496, 803.0pt x 602.25pt>
+<./fig//InainteDeFiltru.jpg, id=497, 803.0pt x 602.25pt>
 File: ./fig//InainteDeFiltru.jpg Graphic file (type jpg)
 <use ./fig//InainteDeFiltru.jpg>
 Package pdftex.def Info: ./fig//InainteDeFiltru.jpg  used on input line 194.
 (pdftex.def)             Requested size: 334.60422pt x 250.95831pt.
 [17]
-<./fig//DupaFiltru.jpg, id=506, 803.0pt x 602.25pt>
+<./fig//DupaFiltru.jpg, id=507, 803.0pt x 602.25pt>
 File: ./fig//DupaFiltru.jpg Graphic file (type jpg)
 <use ./fig//DupaFiltru.jpg>
 Package pdftex.def Info: ./fig//DupaFiltru.jpg  used on input line 201.
 (pdftex.def)             Requested size: 334.60422pt x 250.95831pt.
  [18 <./fig//InainteDeFiltru.jpg> <./fig//DupaFiltru.jpg>]
-<./fig//CircuitRC.png, id=513, 362.35374pt x 205.76875pt>
+<./fig//CircuitRC.png, id=514, 362.35374pt x 205.76875pt>
 File: ./fig//CircuitRC.png Graphic file (type png)
 <use ./fig//CircuitRC.png>
 Package pdftex.def Info: ./fig//CircuitRC.png  used on input line 214.
@@ -886,7 +886,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 9.
 
-<./fig//Use-Case hardware.png, id=528, 261.97874pt x 99.37125pt>
+<./fig//Use-Case hardware.png, id=529, 261.97874pt x 99.37125pt>
 File: ./fig//Use-Case hardware.png Graphic file (type png)
 <use ./fig//Use-Case hardware.png>
 Package pdftex.def Info: ./fig//Use-Case hardware.png  used on input line 13.
@@ -914,7 +914,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 53.
 
-<./fig//Use-Case site.png, id=535, 850.17625pt x 813.0375pt>
+<./fig//Use-Case site.png, id=536, 850.17625pt x 813.0375pt>
 File: ./fig//Use-Case site.png Graphic file (type png)
 <use ./fig//Use-Case site.png>
 Package pdftex.def Info: ./fig//Use-Case site.png  used on input line 57.
@@ -939,14 +939,14 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 77.
 
 [24]
-<./fig//ArhitecturaSistemului.png, id=551, 963.6pt x 542.025pt>
+<./fig//ArhitecturaSistemului.png, id=552, 963.6pt x 542.025pt>
 File: ./fig//ArhitecturaSistemului.png Graphic file (type png)
 <use ./fig//ArhitecturaSistemului.png>
 Package pdftex.def Info: ./fig//ArhitecturaSistemului.png  used on input line 1
 03.
 (pdftex.def)             Requested size: 418.25368pt x 235.26619pt.
  [25 <./fig//ArhitecturaSistemului.png>]
-<./fig//ModulSenzor.png, id=557, 963.6pt x 542.025pt>
+<./fig//ModulSenzor.png, id=558, 963.6pt x 542.025pt>
 File: ./fig//ModulSenzor.png Graphic file (type png)
 <use ./fig//ModulSenzor.png>
 Package pdftex.def Info: ./fig//ModulSenzor.png  used on input line 119.
@@ -958,7 +958,7 @@ Overfull \hbox (2.42229pt too wide) in paragraph at lines 157--158
  []
 
 [27]
-<./fig//ModululDeControl.png, id=567, 963.6pt x 542.025pt>
+<./fig//ModululDeControl.png, id=568, 963.6pt x 542.025pt>
 File: ./fig//ModululDeControl.png Graphic file (type png)
 <use ./fig//ModululDeControl.png>
 Package pdftex.def Info: ./fig//ModululDeControl.png  used on input line 187.
@@ -972,7 +972,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 209.
 
-<./fig//DiagramaClase.png, id=573, 546.04pt x 790.955pt>
+<./fig//DiagramaClase.png, id=574, 546.04pt x 790.955pt>
 File: ./fig//DiagramaClase.png Graphic file (type png)
 <use ./fig//DiagramaClase.png>
 Package pdftex.def Info: ./fig//DiagramaClase.png  used on input line 213.
@@ -994,7 +994,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 222.
 
-<./fig//ModOperareOffline.png, id=581, 877.2775pt x 421.575pt>
+<./fig//ModOperareOffline.png, id=582, 877.2775pt x 421.575pt>
 File: ./fig//ModOperareOffline.png Graphic file (type png)
 <use ./fig//ModOperareOffline.png>
 Package pdftex.def Info: ./fig//ModOperareOffline.png  used on input line 226.
@@ -1005,7 +1005,7 @@ Overfull \hbox (18.8048pt too wide) in paragraph at lines 230--231
 el în-cât s  poat  pre-lua func[]ionalit []ile
  []
 
-<./fig//ModOperareIntervale.png, id=582, 1069.9975pt x 1434.35875pt>
+<./fig//ModOperareIntervale.png, id=583, 1069.9975pt x 1434.35875pt>
 File: ./fig//ModOperareIntervale.png Graphic file (type png)
 <use ./fig//ModOperareIntervale.png>
 Package pdftex.def Info: ./fig//ModOperareIntervale.png  used on input line 236
@@ -1029,7 +1029,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.58502pt}.
 
 [31 <./fig//ModOperareIntervale.png>]
-<./fig//ModOperareManual.png, id=595, 875.27pt x 683.55376pt>
+<./fig//ModOperareManual.png, id=596, 875.27pt x 683.55376pt>
 File: ./fig//ModOperareManual.png Graphic file (type png)
 <use ./fig//ModOperareManual.png>
 Package pdftex.def Info: ./fig//ModOperareManual.png  used on input line 250.
@@ -1097,13 +1097,13 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <12> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 611.
 [44] [45]
-<./fig//IntrareDeTipTimp.png, id=874, 91.84312pt x 228.35312pt>
+<./fig//IntrareDeTipTimp.png, id=875, 91.84312pt x 228.35312pt>
 File: ./fig//IntrareDeTipTimp.png Graphic file (type png)
 <use ./fig//IntrareDeTipTimp.png>
 Package pdftex.def Info: ./fig//IntrareDeTipTimp.png  used on input line 677.
 (pdftex.def)             Requested size: 83.64944pt x 207.9933pt.
  [46]
-<./fig//IntrareDeTipNumeric.png, id=888, 125.97063pt x 50.1875pt>
+<./fig//IntrareDeTipNumeric.png, id=889, 125.97063pt x 50.1875pt>
 File: ./fig//IntrareDeTipNumeric.png Graphic file (type png)
 <use ./fig//IntrareDeTipNumeric.png>
 Package pdftex.def Info: ./fig//IntrareDeTipNumeric.png  used on input line 685
@@ -1116,7 +1116,7 @@ sa-bile cu pro-ce-sa-rea informa[]iilor.
  []
 
 [47 <./fig//IntrareDeTipTimp.png> <./fig//IntrareDeTipNumeric.png>] [48]
-<./fig//IntervalsWorkingDays.png, id=928, 274.02374pt x 283.0575pt>
+<./fig//IntervalsWorkingDays.png, id=929, 274.02374pt x 283.0575pt>
 File: ./fig//IntervalsWorkingDays.png Graphic file (type png)
 <use ./fig//IntervalsWorkingDays.png>
 Package pdftex.def Info: ./fig//IntervalsWorkingDays.png  used on input line 75
@@ -1146,7 +1146,7 @@ c[]ionalitate din aplica[]ia
  []
 
 [52]
-<./fig//CoverageReport.png, id=962, 574.145pt x 253.44687pt>
+<./fig//CoverageReport.png, id=963, 574.145pt x 253.44687pt>
 File: ./fig//CoverageReport.png Graphic file (type png)
 <use ./fig//CoverageReport.png>
 Package pdftex.def Info: ./fig//CoverageReport.png  used on input line 829.
@@ -1163,7 +1163,7 @@ l poate s  interac[]ioneze cu aplica[]ia
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 5.
 
-<./fig//Login.png, id=974, 963.6pt x 434.62375pt>
+<./fig//Login.png, id=975, 963.6pt x 434.62375pt>
 File: ./fig//Login.png Graphic file (type png)
 <use ./fig//Login.png>
 Package pdftex.def Info: ./fig//Login.png  used on input line 21.
@@ -1171,29 +1171,29 @@ Package pdftex.def Info: ./fig//Login.png  used on input line 21.
 [55
 
 ]
-<./fig//Home.png, id=979, 951.555pt x 434.62375pt>
+<./fig//Home.png, id=980, 951.555pt x 434.62375pt>
 File: ./fig//Home.png Graphic file (type png)
 <use ./fig//Home.png>
 Package pdftex.def Info: ./fig//Home.png  used on input line 29.
 (pdftex.def)             Requested size: 334.60422pt x 152.83018pt.
-<./fig//SetIntervals.png, id=980, 963.6pt x 542.025pt>
+<./fig//SetIntervals.png, id=981, 963.6pt x 542.025pt>
 File: ./fig//SetIntervals.png Graphic file (type png)
 <use ./fig//SetIntervals.png>
 Package pdftex.def Info: ./fig//SetIntervals.png  used on input line 37.
 (pdftex.def)             Requested size: 334.60422pt x 188.2146pt.
  [56 <./fig//Login.png> <./fig//Home.png>]
-<./fig//Register.png, id=989, 952.05687pt x 432.11438pt>
+<./fig//Register.png, id=990, 952.05687pt x 432.11438pt>
 File: ./fig//Register.png Graphic file (type png)
 <use ./fig//Register.png>
 Package pdftex.def Info: ./fig//Register.png  used on input line 45.
 (pdftex.def)             Requested size: 334.60422pt x 151.86867pt.
-<./fig//ViewAccounts.png, id=990, 951.555pt x 433.11812pt>
+<./fig//ViewAccounts.png, id=991, 951.555pt x 433.11812pt>
 File: ./fig//ViewAccounts.png Graphic file (type png)
 <use ./fig//ViewAccounts.png>
 Package pdftex.def Info: ./fig//ViewAccounts.png  used on input line 53.
 (pdftex.def)             Requested size: 334.60422pt x 152.30075pt.
  [57 <./fig//SetIntervals.png> <./fig//Register.png>]
-<./fig//ChangePassword.png, id=998, 950.55125pt x 434.62375pt>
+<./fig//ChangePassword.png, id=999, 950.55125pt x 434.62375pt>
 File: ./fig//ChangePassword.png Graphic file (type png)
 <use ./fig//ChangePassword.png>
 Package pdftex.def Info: ./fig//ChangePassword.png  used on input line 61.
@@ -1205,12 +1205,12 @@ fi-e-care itera[]ie a instruc[]iunii
  []
 
 [58 <./fig//ViewAccounts.png> <./fig//ChangePassword.png>]
-<./fig//FaraOptimizare.png, id=1007, 665.98813pt x 208.78pt>
+<./fig//FaraOptimizare.png, id=1008, 665.98813pt x 208.78pt>
 File: ./fig//FaraOptimizare.png Graphic file (type png)
 <use ./fig//FaraOptimizare.png>
 Package pdftex.def Info: ./fig//FaraOptimizare.png  used on input line 73.
 (pdftex.def)             Requested size: 334.60422pt x 104.89626pt.
-<./fig//CuOptimizare.png, id=1008, 654.94687pt x 210.7875pt>
+<./fig//CuOptimizare.png, id=1009, 654.94687pt x 210.7875pt>
 File: ./fig//CuOptimizare.png Graphic file (type png)
 <use ./fig//CuOptimizare.png>
 Package pdftex.def Info: ./fig//CuOptimizare.png  used on input line 81.
@@ -1331,9 +1331,9 @@ ype1/urw/courier/ucrr8a.pfb><D:/New folder/fonts/type1/urw/courier/ucrro8a.pfb>
 ymbol/usyr.pfb><D:/New folder/fonts/type1/urw/times/utmb8a.pfb><D:/New folder/f
 onts/type1/urw/times/utmr8a.pfb><D:/New folder/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on main.pdf (68 pages, 5913961 bytes).
+Output written on main.pdf (68 pages, 5918565 bytes).
 PDF statistics:
- 1236 PDF objects out of 1440 (max. 8388607)
+ 1237 PDF objects out of 1440 (max. 8388607)
  455 named destinations out of 1000 (max. 500000)
  673 words of extra memory for PDF output out of 10000 (max. 10000000)
 
