@@ -17,7 +17,7 @@
 \contentsline {subsection}{\numberline {3.2.1}Python}{12}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}C++}{12}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}HTML}{13}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Plarforme cloud}{13}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Platforme cloud}{13}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Heroku}{13}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Firebase Realtime Database}{13}{subsection.3.3.2}%
 \contentsline {section}{\numberline {3.4}Framework-uri}{13}{section.3.4}%

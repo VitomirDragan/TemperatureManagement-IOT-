@@ -70,7 +70,7 @@
 
 	Cele 3 cerințe menționate mai sus duc la apariția unei noi cerințe. Pentru a facilita stergerea conturilor și modificarea drepturilor de acces, aplicația web trebuie să pună la dispoziție o pagină care să afișeze toate conturile existente în baza de date. Aceasta trebuie să fie accesibilă doar administratorilor.
 	 
-	De asemenea, din motive de securitate, trebuie ca fiecare utilizator să poată să iși modifice parola. Acest caz de utilizare implică mai multe validări. Este necesar să se verifice dacă parola actuală introdusă este cea corectă. După aceea, identic cazului de utilizare modificare parolă, se verifică dacă noua parolă introdusă este una sigură. În cele din urmă, trebuie verificat dacă parola noua și confirmarea acesteia coincid. Nerespectarea condițiilor duce la afișarea unui mesaj de eroare și la nefinalizarea acțiunii de schimbare a parolei.
+	De asemenea, din motive de securitate, trebuie ca fiecare utilizator să poată să iși modifice parola. Acest caz de utilizare implică mai multe validări. Este necesar să se verifice dacă parola actuală introdusă este cea corectă. După aceea, identic cazului de utilizare modificare parolă, se verifică dacă noua parolă introdusă este una sigură. În cele din urmă, trebuie verificat dacă parola noua și confirmarea acesteia coincid. Nerespectarea condițiilor duce la afișarea unui mesaj de eroare și la neefectuarea acțiunii de schimbare a parolei.
 
 	După finalizarea acțiunilor dorite, utilizatorii trebuie să se poată deconecta de la aplicație. 	 
 
@@ -106,7 +106,7 @@
 
 	Sistemul a fost conceput pentru un apartament cu două camere, însă poate fi extins pentru un număr mai mare de încăperi. La nivel macro, este format din trei module, câte un modul senzor pentru fiecare cameră și un modul de control, montat în apropierea centralei termice.
 
-	Modulul senzor prezintă o complexitate mai mare, este alcătuit din mai multe componente și îndeplinește o serie de funcționalități. Preia informații precum: temperatura și umiditatea și le trimite în baza de date. În continuare, aceste valori sunt afișate utilizând aplicația web, făcând posibilă monitorizarea parametrilor ambientali. De asemenea, are acces la temperatura setată, iar in funcție de aceasta, dar și de temperatura curentă din cameră, controlează electrovalva și trimite comandă de oprire sau pornire a centralei. Un alt rol esențial pe care îl îndeplinește modulul este de a face posibilă setarea unei valori a temperaturii ce urmează să fie menținută în cameră.
+	Modulul senzor prezintă o complexitate mai mare, este alcătuit din mai multe componente și îndeplinește o serie de funcționalități. Preia informații precum temperatura și umiditatea și le trimite în baza de date. În continuare, aceste valori sunt afișate utilizând aplicația web, făcând posibilă monitorizarea parametrilor ambientali. De asemenea, are acces la temperatura setată, iar in funcție de aceasta, dar și de temperatura curentă din cameră, controlează electrovalva și trimite comandă de oprire sau pornire a centralei. Un alt rol esențial pe care îl îndeplinește modulul este de a face posibilă setarea unei valori a temperaturii ce urmează să fie menținută în cameră.
 
 	Modulul de control este de o complexitate redusă. Primește comenzi de la modulele senzor, le interpretează, iar pe baza acestora controlează centrala. Modulul se folosește de logică de tip "SAU", dacă cel puțin un modul senzor trimite comandă de pornire, atunci centrala termică trebuie să înceapă ciclul de încălzire.
 
@@ -142,7 +142,7 @@
 	
 	Pinul D0 este utilizat pentru a conecta pinul de date de la senzorul de temperatură și umiditate.
 
-	Pinii D1 și D2 se conectează la pinii SCL și SDA pentru a face posibil transferul de date prin protocolul de comunicație $I^2C$.
+	Pinii D1 și D2 se conectează la pinii SCL și SDA, ai LCD-ului, pentru a face posibil transferul de date prin protocolul de comunicație $I^2C$.
 
 	Pinul D3 se conectează la pinul IN al releului și are rolul de a controla închiderea sau deschiderea releului, iar pinii D5 și D6 sunt rezervați pentru butoane. 
 
@@ -150,7 +150,7 @@
 
 \vspace{1em}
 
-	Placa de bază pentru modulul WiFi are două roluri esențiale în crearea circuitului. Acesta facilitează felul în care se poate alimenta plăcuța wireless, punând la dispoziție un conector de alimentare care este compatibil cu alimentatoare ce furnizează tensiuni între 6 și 24 de volți. Prin intermediul unui regulator de tensiune, va aduce tensiunea de alimentare a modulului WiFi până la 5 volți, prevenind orice posibilitate de supraalimentare. Astfel, placa de bază pune la dispoziție pini ce oferă tensiuni de ieșire de 3.3 volti, 5 volți și o serie de pini ce sunt conectați direct la conectorul de alimentare și furnizează voltaj egal cu cel dat de alimentator. De asemenea, oferă pentru fiecare pin al modulului ESP8266 încă 4 pini corespondenți, fapt ce reprezintă un avantaj când vine vorba de conectarea unor componente auxiliare.
+	Placa de bază pentru modulul WiFi are două roluri esențiale în crearea circuitului. Acesta facilitează felul în care se poate alimenta plăcuța wireless, punând la dispoziție un conector de alimentare care este compatibil cu alimentatoare ce furnizează tensiuni între 6 și 24 de volți. Prin intermediul unui regulator de tensiune, va aduce tensiunea de alimentare a modulului WiFi până la 5 volți, prevenind orice posibilitate de supraalimentare. Astfel, placa de bază pune la dispoziție pini ce oferă tensiuni de ieșire de 3.3 volti, 5 volți și o serie de pini ce sunt conectați direct la conectorul de alimentare și furnizează voltaj egal cu cel dat de alimentator. De asemenea, numărul de pini de date este extins, fapt ce reprezintă un avantaj când vine vorba de conectarea unor componente auxiliare.
 
 \vspace{1em}
 
@@ -188,6 +188,16 @@
 	\caption{Arhitectura modulului de control}
 \end{figure}
 
+Este format din următoarele componente:
+	\begin{itemize}
+		\setlength{\itemindent}{2em}
+			\itemsep0em
+			\item Arduino Uno
+			\item Releu
+			\item Receptor RF
+			\item Alimentator 12 volți
+	\end{itemize}
+
 	Acesta nu prezintă conexiune la internet. Modulul wireless este înlocuit cu o plăcuță Arduino Uno, care se ocupă de partea de procesare a datelor primite de la modulele din camere. Prezintă o serie de intrări și ieșiri analogice, dar si digitale. 
 
 	Pinul digital 4 se conectează la pinul de date al receptorului, făcând posibil transferul de informații între acestea.
@@ -210,14 +220,14 @@
 
 \begin{figure}[H]
    	\centering
-    	\includegraphics[width=0.35\textwidth]{DiagramaClase.png}
+    	\includegraphics[width=1\textwidth]{DiagramaClase.png}
 	\caption{Diagramă de clase}
 	\label{fig:DiagramaClase}
 \end{figure}
 
 	Pentru fiecare componentă electronică, ce prezintă funcționalități mai complexe, am creat câte o clasă diferită. Acestea conțin metode ce implementează funcțiile pe care componenta trebuie să le îndeplinească. Cea mai complexă clasă este cea aferentă modulului WiFi, deoarece acesta îndeplinește un rol esențial în cadrul sistemului.
 
-	Metoda \textit{heatControl}, din clasa WiFiModule, prezintă o instanță a clasei \textit{RFTransmitter} pentru a putea apela \textit{sendCommandToController}. De asemenea, pentru a evita conflictele de date ce pot apărea la transferul comenzilor prin radio-frecvență, metoda \textit{sendCommandToController} va apela \textit{getCurrentSecond} din cadrul clasei TimeManager.
+	Metoda \textit{heatControl}, din clasa WiFiModule, prezintă o instanță a clasei \textit{RFTransmitter} pentru a putea apela \textit{sendCommandToController}. De asemenea, pentru a evita conflictele de date ce pot apărea la transferul comenzilor prin radio - frecvență, metoda \textit{sendCommandToController} va apela \textit{getCurrentSecond} din cadrul clasei TimeManager.
  	
 \subsection{Diagrame de secvență}
 
@@ -227,7 +237,7 @@
 	\caption{Mod de operare fără conexiune la internet}
 \end{figure}
 
-	Sistemul trebuie să poată funcționa și în cazul în care are loc o întrerupere la conexiunea de internet. Electronica este proiectată în așa fel încât să poată prelua funcționalitățile de bază ale aplicației, si anume: monitorizarea și setarea temperaturii.
+	Sistemul trebuie să poată funcționa și în cazul în care are loc o întrerupere la conexiunea de internet. Electronica este proiectată în așa fel încât să poată prelua funcționali\-tățile de bază ale aplicației, și anume: monitorizarea și setarea temperaturii.
 	
 	Pentru a obține acest comportament, se produc o serie de interacțiuni între obiecte. Temperatura și umiditatea sunt returnate în urma apelului metodelor \textit{readTemp} și \textit{readHumidity} pe o instanță a clasei \textit{DHTSensor}. În continuare, utilizând un obiect de tip WiFiModule, se vor apela metodele responsabile pentru controlul sistemului de încălzire și indicarea statusului plăcuței. Dacă aceasta este conectată la internet, se va aprinde un led incorporat, altfel va rămâne stins. În cele din urmă, se apelează metodele din cadrul clasei \textit{LCD} pentru a afișa valorile temperaturilor.
 
@@ -241,7 +251,7 @@
 
 	Din punct de vedere funcțional, prezintă o complexitate mai mare, fapt ilustrat inclusiv de numărul de interacțiuni între instanțele claselor. Asemenea modului de operare prezentat anterior, apare interacțiunea cu clasa \textit{DHTSensor} pentru a obține valorile umidității și temperaturii ambientale. Deoarece există o conexiune la internet, aceste valori vor fi stocate în baza de date. Motiv pentru care, este necesar apelul metodelor \textit{sendCurrentTemperatureToDatabase} și \textit{sendHumidityToDatabase} pe un obiect al clasei \textit{WiFiModule}. Apelul următor este necesar pentru a actualiza variabila care reține modul actual de funcționare al sistemului. 
 
-	Pentru a putea stabili în ce interval orar se încadrează sistemul, este necesar să se cunoască ziua, ora și minutul curent. Apelurile metodelor, din clasa TimeManager, \textit{getWeekDay}, \textit{getCurrentHour} și \textit{getCurrentMinute} satisfac această necesitate. Dacă există modificări în baza de date, sau dacă s-a făcut o comutare de la modul clasic de operare la cel automat, este necesar să se recitească valorile intervalelor. De aceea, se apelează \textit{readStr("Intervals/Weekend/A")} și \textit{readStr("Intervals/Weekend/B")} pe instanța clasei WiFiModule. În continuare, apelurile metodelor din clasa \textit{TimeManager} au rolul de a prelucra intervalele, returnate ca șir de caractere de apelul \textit{readStr}. În urma blocului condițional, se va citi temperatura setată pentru intervalul curent.
+	Pentru a putea stabili în ce interval orar se încadrează sistemul, este necesar să se cunoască ziua, ora și minutul curent. Apelurile metodelor, din clasa TimeManager, \textit{getWeekDay}, \textit{getCurrentHour} și \textit{getCurrentMinute} satisfac această necesitate. Dacă există modificări în baza de date, sau dacă s-a făcut o comutare de la modul clasic de operare la cel automat, este necesar să se recitească valorile intervalelor. De aceea, se apelează \textit{readStr("Intervals/Weekend/A")} și \textit{readStr("Intervals/Weekend/B")} pe instanța clasei WiFiModule. În continuare, apelurile metodelor din clasa \textit{TimeManager} au rolul de a prelucra intervalele returnate ca șir de caractere de apelul \textit{readStr}. În urma blocului condițional se va citi temperatura setată pentru intervalul curent.
 
 	Interacțiunile următoare, cu obiecte de tip WiFiModule, au rolul de a îndeplini funcții precum reglarea temperaturii și setarea statusului plăcuței ESP8266. Identic modului de operare fără conexiune la internet, metodele din clasa \textit{LCD} sunt utilizate pentru a afișa valorile pe ecran. 
 
@@ -355,7 +365,7 @@ void WiFiModule::pinSetup(){
 
 \vspace{2em}	
 
-	Pentru identificarea pinilor am definit macrouri, cu nume sugestive, iar cuvintele cheie \textit{INPUT} și \textit{OUTPUT} au fost predefinite în bibliotecile utilizate.
+	Pentru identificarea pinilor am definit macrouri cu nume sugestive, iar cuvintele cheie \textit{INPUT} și \textit{OUTPUT} au fost predefinite în bibliotecile utilizate.
 
 	Majoritatea funcționalităților îndeplinite de acest modul necesită o conexiune validă la internet. Primul pas în acest sens se face prin apelul metodei \textit{connectToInternet}. În cadrul funcției \textit{WiFi.begin()} trebuie menționat numele rețelei la care se conectează și parola. Modulul este programat în așa fel încât timpul alocat conectării la internet să fie de maximum 15 secunde. Dacă acesta este depășit, este posibil să fie o problemă în ceea ce privește conexiunea la internet, iar modulul va funcționa deconectat de la baza de date.
  
@@ -588,11 +598,11 @@ if (driver.recv(dataPackage, &dataPackageLength))
 \end{lstlisting}
 \vspace{2em} 
 
-	Mesajul pe care modulul receptor îl interceptează este format din doi octeți, din care octetul cel mai semnificativ conține numărul de identificare al modulului care a trimis mesajul, iar octetul cel mai puțin semnificativ deține informații legate de natura comenzii. Mesajul recepționat este convertit în întreg datorită faptului că se poate prelucra mai ușor aplicând operații, precum: modulo și div.
+	Mesajul pe care modulul receptor îl interceptează este format din doi octeți, din care octetul cel mai semnificativ conține numărul de identificare al modulului care a trimis mesajul, iar octetul cel mai puțin semnificativ deține informații legate de natura comenzii. Mesajul recepționat este convertit în întreg datorită faptului că se poate prelucra mai ușor aplicând operații precum: modulo și div.
 
-	Întotdeauna se salvează momentul în care s-au recepționat informații de la fiecare modul în parte. Este importantă menținerea evidenței, pentru a evita situațiile în care apar întreruperi de transfer prin radio - frecvență. Ca și o măsură de prevenție, dacă modulul de control nu primește comenzi de la modulele senzor un timp mai mare sau egal cu 5 secunde, centrala termică va fi oprită.
+	Întotdeauna se salvează momentul în care s-au recepționat informații de la fiecare modul în parte. Este importantă menținerea evidenței pentru a evita situațiile în care apar întreruperi de transfer prin radio - frecvență. Ca și o măsură de prevenție, dacă modulul de control nu primește comenzi de la modulele senzor un timp mai mare sau egal cu 5 secunde, centrala termică va fi oprită.
 
-	După ce au fost primite comenzi de la ambele module senzor, se execută operație logică de tip SAU, iar în funcție de rezultatul acesteia, va cupla sau decupla releul, ce în continuare controlează centrala termică. Un octet cu valoarea 1 indică pornirea, iar un octet cu valoarea 0 indică oprirea centralei din imobil. De asemenea, ultimele instrucțiuni condiționale din secvența de cod afișată anterior, au rolul de a implementa oprirea de siguranță a sistemului de încălzire. 
+	După ce au fost primite comenzi de la ambele module senzor, se execută operație logică de tip SAU, iar în funcție de rezultatul acesteia va cupla sau decupla releul, care în continuare controlează centrala termică. Un octet cu valoarea 1 indică pornirea, iar un octet cu valoarea 0 indică oprirea centralei din imobil. De asemenea, ultimele instrucțiuni condiționale din secvența de cod afișată anterior, au rolul de a implementa oprirea de siguranță a sistemului de încălzire. 
 
 	Inițial, se verifică dacă ambele module senzor nu au trimis comenzi de mai mult de 5 secunde. Dacă nu se respectă prima condiție, se examinează cazul în care primul modul are conexiunea întreruptă, iar cel de-al doilea trimite comandă de oprire a sistemului de încălzire. Iar ultima situație care poate apărea este cea în care conexiunea prin radio frecvență la al doilea modul este inactivă de peste 5 secunde, iar primul modul trimite comandă de întrerupere a funcționării centralei. Toate aceste situații apar în cazuri de avarie, iar principala cauză este comunicația precară între modulele senzor și modulul de control. Pentru a preveni defectarea centralei termice, este concepută o măsură de siguranță ce constă în oprirea acesteia.  
 
@@ -621,7 +631,7 @@ if user_to_login:
 \end{lstlisting}
 \vspace{1em} 	
 
-	Funcția \textit{\texttt{bcrypt.check\_password\_hash}} criptează parola din formular și face si o comparație cu parola din baza de date. În cazul în care corespondența este verificată, utilizatorul devine înregistrat în aplicația web și dobândește drepturi de acces.
+	Funcția \textit{\texttt{bcrypt.check\_password\_hash}} criptează parola din formular și face și o comparație cu parola din baza de date. În cazul în care parolele coincid, utilizatorul este conectat la aplicație.
   
 \vspace{2em}
 
@@ -647,7 +657,7 @@ def home():
 
 	 Se utilizează la setarea temperaturii în baza de date, dar și la citirea câmpului \textit{SwitchInvtervalsOn/Value}, ce conține informații referitoare la modul de programare al temperaturilor dorite. 
 
-	Reprezintă o legătură între partea de interfață și logica din spatele aplicației web. Cu alte cuvinte, valoarea introdusă de către utilizator prin intermediul elementelor de intrare din \textit{html}, este transferată în partea responsabilă cu procesarea informațiilor. Prin intermediul funcțiilor puse la dispoziție de un modul implementat în \textit{python}, valorile introduse se transmit mai departe în baza de date.
+	Reprezintă o legătură între partea de interfață și logica din spatele aplicației web. Cu alte cuvinte, valoarea introdusă de către utilizator prin intermediul elementelor de intrare din \textit{html} este transferată în partea responsabilă cu procesarea informațiilor. Prin intermediul funcțiilor puse la dispoziție de un modul implementat în \textit{python}, valorile introduse se transmit mai departe în baza de date.
 
 	Apelul \textit{\texttt{render\_template}} este util pentru a prelucra paginile \textit{html}. Acestea pot conține diverse variabile trimise ca si parametri și pot executa structuri de control, toate acestea pentru a facilita felul în care se construiește interfața cu utilizatorul. Variabila \textit{status} este transmisă mai departe paginii intitulate \textit{controlPage} și este utilizată pentru a seta poziția butonului ce indică modul de funcționare al sistemului.
 
@@ -688,7 +698,7 @@ def home():
 
 	După ce utilizatorul completează toate câmpurile, aceste valori urmează să fie transmise mai departe parții, din cadrul aplicației web, responsabile cu procesarea informațiilor. Transferul datelor se face prin metode de tip \textit{POST}.
 
-	Înainte de salvarea informațiilor în baza de date, este necesară o verificare a acestora. Valorile temperaturilor trebuie să se încadreze în intervalul 15 °C și 32 °C, iar orice depășire a acestor limite nu poate fi stocată. De asemenea, ordinea intervalelor orare trebuie să fie setată într-un mod cronologic. În cazul în care aceste condiții nu sunt respectate, se va afișa un mesaj de eroare adaptat contextului, iar utilizatorului i se oferă posibilitatea reintroducerii datelor.
+	Înainte de salvarea informațiilor în baza de date, este necesară o verificare a acestora. Valorile temperaturilor trebuie să se încadreze în intervalul 15 °C și 32 °C, iar orice valoare ce depășește aceste limite nu poate fi stocată. De asemenea, ordinea intervalelor orare trebuie să fie setată într-un mod cronologic. În cazul în care aceste condiții nu sunt respectate, se va afișa un mesaj de eroare adaptat contextului, iar utilizatorului i se oferă posibilitatea reintroducerii datelor.
 
 
 \vspace{1em}
@@ -723,7 +733,7 @@ return render_template('schedulingPage.html')
 \end{lstlisting}
 \vspace{2em} 
 
-	Prima instrucțiune condițională utilizată în codul prezentat anterior, are rolul de a determina dacă valorile temperaturilor introduse se încadrează în intervalul acceptat de sistem și de aplicația web.  
+	Prima instrucțiune condițională utilizată în codul prezentat anterior are rolul de a determina dacă valorile temperaturilor introduse se încadrează în intervalul acceptat de sistem și de aplicația web.  
 
 	Pe de altă parte, pentru a putea stabili dacă există o ordine cronologică, se apelează funcția \textit{getTime} cu datele pe care le citim de la intrarea pentru formatul de tip timp. Se creează obiecte ce conțin data, ora și minutul curent pentru fiecare interval în parte. Datorită faptului că aceste obiecte sunt predefinite in \textit{python}, se pot aplica operații de comparație asupra lor. 
 
@@ -757,15 +767,15 @@ def getTime(timeFormat):
 
 \subsubsection{Forța contraelectromotoare a bobinei}
 
-	Electrovalvele sunt formate dintr-un solenoid. Aplicarea tensiunii la bornele acestuia duce la generarea unui câmp electromagnetic, care la rândul său acționează un obturator. Astfel, se realizează închiderea/deschiderea circuitului de apă. Este important de menționat faptul că solenoidul înmagazinează curent, iar întreruperea alimentarii electrice a acestuia produce o descărcare, ce se manifestă prin apariția unor fluctuații de tensiune în circuit. Prezența acestor fluctuații poate duce la arderea celorlalte componente electronice, dar și la o uzură accentuată a releelor de comandă. De asemenea, descărcarea solenoidului produce apariția unor scântei între contactele releului, determinând perturbații în intreg sistemul. Un exemplu de disfuncționalitate cu care m-am confruntat din aceasă cauză, a fost dereglarea temperaturii setate, în momentul în care modulul ESP8266 trimitea comandă de inchidere a elevtrovalvei.   
+	Electrovalvele sunt formate dintr-un solenoid. Aplicarea tensiunii la bornele acestuia duce la generarea unui câmp electromagnetic, care la rândul său acționează un obturator. Astfel, se realizează închiderea/deschiderea circuitului de apă. Este important de menționat faptul că solenoidul înmagazinează curent, iar întreruperea alimentarii electrice a acestuia produce o descărcare, ce se manifestă prin apariția unor fluctuații de tensiune în circuit. Prezența acestor fluctuații poate duce la arderea celorlalte componente electronice, dar și la o uzură accentuată a releelor de comandă. De asemenea, descărcarea solenoidului produce apariția unor scântei între contactele releului, determinând perturbații în intreg sistemul. Un exemplu de disfuncționalitate cu care m-am confruntat din aceasă cauză, a fost dereglarea temperaturii setate, în momentul în care modulul ESP8266 trimitea comandă de închidere a electrovalvei.   
 
 \subsubsection{Vibrațiile contactelor metalice ale întrerupătoarelor}
 
-	Pentru a putea modifica valoarea temperaturii setate a fi menținute în imobil, se utilizează butoane fizice, legate prin conductori eletrici la modulele WiFi. Din punct de vedere funcțional, acestea pot avea comportament neașteptat, cauzat de vibrațiile fine care se produc între contactele metalice ale întrerupătorului. Frecvența cu care microcontrolerul citește semnalul provenit de la buton este suficient de mare, astfel încât, să poată sesiza inclusiv o vibrație ca fiind o apăsare distinctă. Prin urmare, se întâmpla ocazional ca intenția utilizatorului de a incrementa sau decrementa cu o unitate temperatura setată, să se traducă în modificarea acesteia cu mai multe unități. Soluția pe care am implementat-o în această situație, a fost realizarea și montarea unor filtre trece jos pentru fiecare buton în parte. Rolul acestora este de a permite trecerea doar a semnalelor cu frecvențe mici, iar cele de frecvențe mari, perturbațiile, fiind oprite. Capturile de ecran din cadrul capitolului 3, prezintă semnalul înainte de filtrare \ref{fig:InainteDeFiltru}, dar și după aceasta \ref{fig:DupaFiltru}.
+	Pentru a putea modifica valoarea temperaturii setate a fi menținute în imobil, se utilizează butoane fizice, legate prin conductori eletrici la modulele WiFi. Din punct de vedere funcțional, acestea pot avea comportament neașteptat, cauzat de vibrațiile fine care se produc între contactele metalice ale întrerupătorului. Frecvența cu care microcontrolerul citește semnalul provenit de la buton este suficient de mare, astfel încât, să poată sesiza inclusiv o vibrație ca fiind o apăsare distinctă. Prin urmare, se întâmpla ocazional ca intenția utilizatorului de a incrementa sau decrementa cu o unitate temperatura setată, să se traducă în modificarea acesteia cu mai multe unități. Soluția pe care am implementat-o în această situație, a fost realizarea și montarea unor filtre trece - jos pentru fiecare buton în parte. Rolul acestora este de a permite trecerea doar a semnalelor cu frecvențe mici, iar cele de frecvențe mari, perturbațiile, fiind oprite. Capturile de ecran din cadrul capitolului 3, prezintă semnalul înainte de filtrare \ref{fig:InainteDeFiltru}, dar și după aceasta \ref{fig:DupaFiltru}.
 
 \subsubsection{Amorsarea instalației cu apă}
 
-	Pompa de apă pe care am utilizat-o în circuit, nu prezintă funcționalitate de autoamorsare. Prin urmare, prima tentativă de umplere a circuitului cu apă, a constat în desfacerea unei îmbinări a circuitului și introducerea apei cu o seringă prin aceasta. Din cauza faptului că instalația prezintă multe coturi, iar introducerea apei nu o faceam din punctul cel mai înalt, procentajul de umplere al circuitului nu era satisfăcător. Ca și disfuncționalitate, se manifesta prin faptul că pompa de apă de dezamorsa în timpul funcționării. Într-un final, am decis să montez un aerisitor în punctul cel mai înalt al instalației, iar introducerea apei să se facă prin acesta. Astfel, volumul de aer din circuit a fost redus considerabil, ducând la eliminarea situațiilor de dezamorsare a pompei.
+	Pompa de apă pe care am utilizat-o în circuit nu prezintă funcționalitate de autoamorsare. Prin urmare, prima tentativă de umplere a circuitului cu apă a constat în desfacerea unei îmbinări a circuitului și introducerea apei cu o seringă prin aceasta. Din cauza faptului că instalația prezintă multe coturi, iar introducerea apei nu o făceam din punctul cel mai înalt, procentajul de umplere al circuitului nu era satisfăcător. Ca și disfuncționalitate, se manifesta prin faptul că pompa de apă se dezamorsa în timpul funcționării. Într-un final, am decis să montez un aerisitor în punctul cel mai înalt al instalației, iar introducerea apei să se facă prin acesta. Astfel, volumul de aer din circuit a fost redus considerabil, ducând la eliminarea situațiilor de dezamorsare a pompei.
 
 \subsubsection{Conflict de date apărut la transferul prin radio - frecvență}
 
@@ -773,11 +783,11 @@ def getTime(timeFormat):
 
 \section{Testarea soluției}
 
-	În orice proces ce implică dezvoltare de proiecte de o complexitate mai mare, etapa de testare este una esențială. Aceasta presupune identificarea erorilor sistemului, înainte de a fi pus în producție. Cazurile de test trebuie proiectate astfel încât să cuprindă toate situațiile care pot produce abateri de la comportamentul standard. 
+	În orice proces ce implică dezvoltare de proiecte de o complexitate mai mare, etapa de testare este una esențială. Aceasta presupune identificarea erorilor sistemului înainte de a fi pus în producție. Cazurile de test trebuie proiectate astfel încât să cuprindă toate situațiile care pot produce abateri de la comportamentul standard. 
 
-	În ceea ce privește proiectul prezentat, testarea a vizat două mari componente: aplicația web și instalația pentru circuitul de apă. \textit{Flask} oferă posibilitatea de creare de teste unitare pentru proiectele realizate prin intermediul lui. Pe lângă aceasta, permite și analiza procentului de acoperire al întregii aplicații prin testele scrise.
+	În ceea ce privește proiectul prezentat, testarea a vizat două mari componente: aplicația web și instalația pentru circuitul de apă. \textit{Flask} oferă posibilitatea creării de teste unitare. Pe lângă aceasta, permite și analiza procentului de acoperire al întregii aplicații prin testele scrise.
 
-	Voi începe prin a prezenta partea de validare a aplicației web. Am realizat o suită de 50 de teste, pe care am împărțit-o în 3 mari categorii. Prima categorie conține cazurile de test comune pentru toți utilizatorii, funcționalități care sunt valabile indiferent de rolul persoanei autentificate aplicației. Am încercat să abordez o manieră exhaustivă, prin simularea tuturor situațiilor de eroare, dar și de reușită. Printre cazurile mai importante de test care se încadrează în această categorie sunt:
+	Voi începe prin a prezenta partea de validare a aplicației web. Am realizat o suită de 50 de teste, pe care am împărțit-o în 3 mari categorii. Prima categorie conține cazurile de test comune pentru toți utilizatorii, funcționalități care sunt valabile indiferent de rolul persoanei conectate la aplicație. Am încercat să abordez o manieră exhaustivă, prin simularea tuturor situațiilor de eroare, dar și de reușită. Printre cazurile mai importante de test care se încadrează în această categorie sunt:
 
 	\begin{itemize}
 			\setlength{\itemindent}{2em}
