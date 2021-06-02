@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.4.22)  31 MAY 2021 16:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.4.22)  2 JUN 2021 15:41
 entering extended mode
 **./main.tex
 (main.tex
@@ -727,31 +727,31 @@ Package pdftex.def Info: ./fig//Torelectric.png  used on input line 18.
 <./fig//Honeywell.png, id=389, 492.33937pt x 364.36125pt>
 File: ./fig//Honeywell.png Graphic file (type png)
 <use ./fig//Honeywell.png>
-Package pdftex.def Info: ./fig//Honeywell.png  used on input line 37.
+Package pdftex.def Info: ./fig//Honeywell.png  used on input line 38.
 (pdftex.def)             Requested size: 209.12683pt x 154.7653pt.
 
-Underfull \hbox (badness 1215) in paragraph at lines 41--42
+Underfull \hbox (badness 1215) in paragraph at lines 42--43
 \T1/ptm/m/n/12 se diferen[]iaz  fa[]  de cel pro-dus
  []
 
 
-Underfull \hbox (badness 2556) in paragraph at lines 41--42
+Underfull \hbox (badness 2556) in paragraph at lines 42--43
 \T1/ptm/m/n/12 de To-re-lec-tric prin prezen[]a unor
  []
 
 
-Underfull \hbox (badness 1642) in paragraph at lines 41--42
+Underfull \hbox (badness 1642) in paragraph at lines 42--43
 \T1/ptm/m/n/12 func[]ionalit []i ino-va-toare. Prin-tre
  []
 
 [7 <./fig//Honeywell.png>]
-<./fig//Nest.png, id=404, 289.08pt x 224.84pt>
+<./fig//Nest.png, id=403, 289.08pt x 224.84pt>
 File: ./fig//Nest.png Graphic file (type png)
 <use ./fig//Nest.png>
 Package pdftex.def Info: ./fig//Nest.png  used on input line 89.
 (pdftex.def)             Requested size: 146.39133pt x 113.85721pt.
  [8 <./fig//Nest.png>]
-<./fig//Ecobee.png, id=417, 292.59312pt x 211.79124pt>
+<./fig//Ecobee.png, id=416, 292.59312pt x 211.79124pt>
 File: ./fig//Ecobee.png Graphic file (type png)
 <use ./fig//Ecobee.png>
 Package pdftex.def Info: ./fig//Ecobee.png  used on input line 125.
@@ -851,7 +851,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 177--188
 
  []
 
-<./fig//InainteDeFiltru.jpg, id=497, 803.0pt x 602.25pt>
+<./fig//InainteDeFiltru.jpg, id=496, 803.0pt x 602.25pt>
 File: ./fig//InainteDeFiltru.jpg Graphic file (type jpg)
 <use ./fig//InainteDeFiltru.jpg>
 Package pdftex.def Info: ./fig//InainteDeFiltru.jpg  used on input line 194.
@@ -1278,7 +1278,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  13270 strings out of 479618
  183536 string characters out of 2879619
- 795812 words of memory out of 3000000
+ 794812 words of memory out of 3000000
  29648 multiletter control sequences out of 15000+200000
  510163 words of font info for 188 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1291,7 +1291,7 @@ ype1/urw/courier/ucrr8a.pfb><D:/New folder/fonts/type1/urw/courier/ucrro8a.pfb>
 ymbol/usyr.pfb><D:/New folder/fonts/type1/urw/times/utmb8a.pfb><D:/New folder/f
 onts/type1/urw/times/utmr8a.pfb><D:/New folder/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on main.pdf (63 pages, 5795715 bytes).
+Output written on main.pdf (63 pages, 5795537 bytes).
 PDF statistics:
  1216 PDF objects out of 1440 (max. 8388607)
  449 named destinations out of 1000 (max. 500000)
