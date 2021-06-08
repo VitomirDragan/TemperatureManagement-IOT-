@@ -43,7 +43,7 @@ idna==2.10
 importlib-metadata==1.7.0
 incremental==17.5.0
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 Js2Py==0.70
 jwcrypto==0.7
 jws==0.1.3
