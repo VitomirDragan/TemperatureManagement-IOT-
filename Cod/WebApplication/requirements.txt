@@ -64,7 +64,7 @@ python-jwt==3.2.6
 pytz==2020.1
 requests==2.24.0
 requests-toolbelt==0.9.1
-rsa==4.6
+rsa==4.7
 semantic-version==2.8.5
 setuptools-rust==0.11.6
 six==1.15.0
