@@ -1,0 +1,38 @@
+.loginForm-design {
+    position: relative; /* Set position of log in form to relative */
+    height: 58vh; /* Set the height of log in form to 58% of viewport */
+    top: 20%; /* Distance at the top of the container */
+
+    /* Set padding for the log in form */
+    padding-top: 10vh;
+    padding-left: 10%;
+    padding-right: 10%;
+
+
+    background-color: #e6e6e6; /* Set log in form background color */
+    border-style: solid; /* Set border style to solid */
+    border-width: medium; /* Set border width */
+    border-radius: 15px; /* Set border radius */
+    box-shadow: 0 0 30px black; /* Configure shadow for div containing log in form */
+    border-color: #a6a6a6; /* Set border color */
+    overflow: scroll; /* Make the overflow scrollable */
+    overflow-x: hidden; /* Do not show the overflow on the x axis */
+    align-content: center; /* Align content to center */
+
+}
+
+::-webkit-scrollbar {
+    width: 0; /* Hide the scrollbar, but keep the functionality */
+}
+
+#loginContainer-design {
+    background: url('/static/pictures/loginRegisterBackground.jpg'); /* Include background picture */
+    background-size: cover; /* Make the picture cover entire div */
+    width: 100%; /* Set width of parent div */
+    height: 100vh; /* Set height of parent div */
+    background-repeat: no-repeat; /* Background image should not repeat */
+}
+
+#flashedMessages-design{
+    text-align: center; /* Align text from flashed messages to center */
+}

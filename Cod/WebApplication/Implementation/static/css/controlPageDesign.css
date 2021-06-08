@@ -1,0 +1,44 @@
+#monitorFirstRoom {
+    /* Set padding for div that displays temperature and humidity from the first room */
+    padding-top: 7%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+
+    /* Align text to center */
+    text-align: center;
+}
+
+#monitorSecondRoom {
+    /* Set padding for div that displays temperature and humidity from the second room */
+    padding-top: 7%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+
+    /* Align text to center */
+    text-align: center;
+}
+
+#submitButtonRoom1 {
+    margin-top: 3%; /* Set top margin for submit button corresponding for first room */
+}
+
+#submitButtonRoom2 {
+    margin-top: 3%; /* Set top margin for submit button corresponding for second room */
+}
+
+#scheduleRow {
+    padding-top: 5%; /* Set top margin for row that contains Schedule button */
+}
+
+.p-design {
+    margin-bottom: 10%; /* Set bottom margin for displayed values */
+}
+
+.dataToDisplay {
+    /* Format subtitle text */
+    font-style: italic; /* Set the font style to italic */
+    text-decoration: underline; /* underline text */
+    font-weight: 500; /* Set the font weight of the text */
+}

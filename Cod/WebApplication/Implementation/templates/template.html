@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head of the page -->
+<head>
+    {% block head %}{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Import corresponding css files -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/generalDesign.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/templateDesign.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+    <!-- Import corresponding javascript files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+</head>
+
+<!-- Body of the page -->
+<body id="body-design">
+<div class="container-fluid" id="containerFluid-design"> <!-- Define parent div -->
+    <div class="row"> <!-- Define div for header -->
+        <div class="col-md-12" id="header"> <!-- Set header size -->
+            <h1 class="h1-design">All for your comfort</h1> <!-- Add motto -->
+        </div>
+    </div>
+
+    <div class="row"> <!-- Define div for navigation bar -->
+        <div class="col-md-12"> <!-- Set div size -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> <!-- Define button that will expand in a list containing rest o buttons -->
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"> <!-- Create list of buttons -->
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <!-- Register and view accounts buttons are available only for administrators -->
+                        {% if current_user.admin_role %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/viewAccounts">View accounts</a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/changePassword">Change password</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12" id="flashedMessages-design">  <!-- Define div that contain flashed messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, msg in messages %}
+            <div class="alert alert-{{category}}">
+                {{msg}} <!-- Display flashed messages -->
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+
+    <div class="content"> <!-- Define div for content -->
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+#containerFluid-design {
+    overflow: hidden; /* The overflow is ignored */
+    padding: 0; /* Set padding for parent div. This div contains all other divs */
+    margin: 0; /* Set margin to 0 */
+}
+
+#body-design {
+    font-style: italic; /* Make all text from the body italic */
+}

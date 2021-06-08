@@ -1,0 +1,25 @@
+#registerForm-design {
+    /* Set padding for register form */
+    padding-top: 5%;
+    padding-bottom: 15%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+#explanation {
+    /* Format text added as explanation */
+    font-family: Papyrus, serif; /* Set font */
+    padding: 10vh; /* Set padding to 10% of viewport height */
+}
+
+.h3-design {
+    /* Center and underline subtitle text */
+    text-align: center;
+    text-decoration: underline;
+}
+
+.p-design {
+    /* Align and indent explanation text */
+    text-align: justify;
+    text-indent: 20%;
+}

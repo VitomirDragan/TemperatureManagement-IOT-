@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head of the page -->
+<head>
+    <title>Login</title> <!-- Set title of the page -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Import corresponding css files -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/generalDesign.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loginPageDesign.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Import corresponding javascript files -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+    <script src="../static/javascript/databaseListeners.js"></script>
+    <script>Login('{{username}}', '{{password}}')</script>
+</head>
+
+<!-- Body of the page -->
+<body id="body-design">
+<div class="container-fluid" id="loginContainer-design">
+    <div class="row">
+        <div class="col-md-12" id="flashedMessages-design"> <!-- Div used to display flashed messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %} <!-- Get messages and categories -->
+            {% if messages %}
+
+            {% for category, msg in messages %}
+            <div class="alert alert-{{category}}">
+                {{msg}} <!-- Display message and adapt background color depending on message category -->
+            </div>
+            {% endfor %}
+
+            {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+    <div class="row justify-content-center"> <!-- Here I am positioning the form at the center of the screen -->
+        <div class="col-md-4 col-sm-6 col-8"> <!-- Setting sizes for different types of screens -->
+            <form class="loginForm-design" method="POST" action="/"> <!-- Create log in form -->
+                <!-- CSRF token needed for preventing cross site request forgery -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter username"
+                           name="username" required> <!-- Field used to enter username -->
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password"
+                           name="password" required> <!-- Field used to enter password -->
+                </div>
+                <!-- Button used to submit data -->
+                <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

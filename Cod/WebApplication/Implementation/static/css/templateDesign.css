@@ -1,0 +1,23 @@
+#flashedMessages-design {
+    text-align: center; /* Center text in flashed messages */
+    background-color: whitesmoke; /* Set background color of div containing flashed messages */
+}
+
+.h1-design {
+    padding: 10vh; /* Set padding for motto text */
+}
+
+#header {
+    background-image: url("/static/pictures/headerImage.jpg"); /* Include header background image */
+    background-size: cover; /* Make the picture cover entire div */
+    color: #b3b3b3; /* Set color for motto text */
+    width: 100%; /* Set header's width */
+    height: 35vh; /* Set the height of header */
+    margin-bottom: 0; /* Set bottom margin of header */
+    border-radius: 0; /* Set border radius */
+    font-family: Papyrus, serif; /* Set font style for motto */
+}
+
+.content {
+    background-color: whitesmoke; /* Set background color for content div */
+}

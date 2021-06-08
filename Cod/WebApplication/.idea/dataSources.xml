@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="users" uuid="655991b5-b6da-4f7d-a189-17916b06cf9a">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\IOTProject_Firebase\WebApplication\users.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="" uuid="81540cf2-cae3-47fc-b9a9-5799775e780c">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\IOTProject_Firebase\WebApplication\.coverage</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="[2]" uuid="69d06c20-5d00-4e20-b774-2715e9fcffae">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\IOTProject_Firebase\WebApplication\Implementation\.coverage</jdbc-url>
+    </data-source>
+  </component>
+</project>
