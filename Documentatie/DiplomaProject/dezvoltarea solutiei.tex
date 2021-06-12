@@ -26,8 +26,8 @@
 	\begin{itemize}
 		\setlength{\itemindent}{2em}
 		\itemsep0em
-		\item Sistemul trebuie să ruleze într-un regim continuu, zi și noapte.
-		\item Pentru a facilita montajul sistemului, trebuie ca transferul comenzilor între modulele senzor și modulul de control să se facă prin radio-frecvență.
+		\item Sistemul trebuie să ruleze într-un regim continuu, zi și noapte;
+		\item Pentru a facilita montajul sistemului, trebuie ca transferul comenzilor între modulele senzor și modulul de control să se facă prin radio-frecvență;
 		\item Distanța maximă de transfer între modulele senzor și modulul de control trebuie să fie de 200 de metri, în spațiu deschis. 
 	\end{itemize} 
 
@@ -46,7 +46,7 @@
 	\begin{itemize}
 		\setlength{\itemindent}{2em}
 		\itemsep0em
-		\item Sistemul trebuie să poată funcționa și în cazul întreruperii conexiunii la internet.
+		\item Sistemul trebuie să poată funcționa și în cazul întreruperii conexiunii la internet;
 		\item Pentru a evita situațiile în care o comandă nu este recepționată, transferul datelor între modulele senzor și modulul de control trebuie să se facă ciclic.
 	\end{itemize}
 
@@ -80,8 +80,8 @@
 	\begin{itemize}
 		\setlength{\itemindent}{2em}
 		\itemsep0em
-		\item Permisiunile de acces pot fi modificate doar de administratori.
-		\item Toate parolele trebuie să fie criptate.
+		\item Permisiunile de acces pot fi modificate doar de administratori;
+		\item Toate parolele trebuie să fie criptate;
 		\item Parolele trebuie să fie complexe. 
 	\end{itemize} 
 
@@ -91,7 +91,7 @@
 	\begin{itemize}
 		\setlength{\itemindent}{2em}
 		\itemsep0em
-		\item Aplicația web trebuie să poată monitoriza parametrii ambientali și seta temperatura într-un imobil cu două camere.
+		\item Aplicația web trebuie să poată monitoriza parametrii ambientali și seta temperatura într-un imobil cu două camere;
 		\item Valorile afișate pe pagina principală trebuie actualizate doar în momentul în care acestea se modifică în baza de date. Nu se acceptă ca actualizările să se execute la anumite intervale de timp prestabilite. 
 	\end{itemize} 
  
@@ -124,18 +124,18 @@
 	\begin{itemize}
 		\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item Modul WiFi NodeMCU
-			\item Placă de bază pentru NodeMCU
-			\item LCD
-			\item Senzor de temperatură și umiditate
-			\item Releu
-			\item Butoane
-			\item Transmițător RF
-			\item Electrovalvă
-			\item Circuit integrat Schmitt-Trigger
-			\item Rezistență
-			\item Condensator
-			\item Alimentator 12 volți
+			\item Modul WiFi NodeMCU;
+			\item Placă de bază pentru NodeMCU;
+			\item LCD;
+			\item Senzor de temperatură și umiditate;
+			\item Releu;
+			\item Butoane;
+			\item Transmițător RF;
+			\item Electrovalvă;
+			\item Circuit integrat Schmitt-Trigger;
+			\item Rezistență;
+			\item Condensator;
+			\item Alimentator 12 volți.
 	\end{itemize}
 
 	Componenta principală din acest ansamblu este modulul wireless. Se conectează prin WiFi la un punct de acces al rețelei, router-ul în cazul proiectului prezentat, și face transfer de date cu baza de date utilizată. Acesta pune la dispoziție o serie de pini pentru a putea conecta diverse componente auxiliare. 
@@ -192,10 +192,10 @@ Este format din următoarele componente:
 	\begin{itemize}
 		\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item Arduino Uno
-			\item Releu
-			\item Receptor RF
-			\item Alimentator 12 volți
+			\item Arduino Uno;
+			\item Releu;
+			\item Receptor RF;
+			\item Alimentator 12 volți.
 	\end{itemize}
 
 	Acesta nu prezintă conexiune la internet. Modulul wireless este înlocuit cu o plăcuță Arduino Uno, care se ocupă de partea de procesare a datelor primite de la modulele din camere. Prezintă o serie de intrări și ieșiri analogice, dar si digitale. 
@@ -273,7 +273,7 @@ Este format din următoarele componente:
 	\begin{itemize}
 		\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item \textit{templates} - alcătuit din fișiere de tip \textit{html}.
+			\item \textit{templates} - alcătuit din fișiere de tip \textit{html};
 			\item \textit{static} - format din poze ce vor fi afișate în cadrul aplicației, fișiere \textit{javascript} și \textit{css}.
 	\end{itemize}
 
@@ -287,7 +287,7 @@ Este format din următoarele componente:
 	\begin{itemize}
 		\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item \textit{softwareForESP8266} - conține implementarea tuturor funcționalităților oferite de modulul WiFi.
+			\item \textit{softwareForESP8266} - conține implementarea tuturor funcționalităților oferite de modulul WiFi;
 			\item \textit{softwareForArduino} - prezintă logica din spatele modulului de control al centralei termice.
 	\end{itemize}
 
@@ -659,11 +659,11 @@ def home():
 
 	Reprezintă o legătură între partea de interfață și logica din spatele aplicației web. Cu alte cuvinte, valoarea introdusă de către utilizator prin intermediul elementelor de intrare din \textit{html} este transferată în partea responsabilă cu procesarea informațiilor. Prin intermediul funcțiilor puse la dispoziție de un modul implementat în \textit{python}, valorile introduse se transmit mai departe în baza de date.
 
-	Apelul \textit{\texttt{render\_template}} este util pentru a prelucra paginile \textit{html}. Acestea pot conține diverse variabile trimise ca si parametri și pot executa structuri de control, toate acestea pentru a facilita felul în care se construiește interfața cu utilizatorul. Variabila \textit{status} este transmisă mai departe paginii intitulate \textit{controlPage} și este utilizată pentru a seta poziția butonului ce indică modul de funcționare al sistemului.
+	Apelul \textit{\texttt{render\_template}} este util pentru a prelucra paginile \textit{html}. Acestea pot conține diverse variabile trimise ca și parametri și pot executa structuri de control, toate acestea pentru a facilita felul în care se construiește interfața cu utilizatorul. Variabila \textit{status} este transmisă mai departe paginii intitulate \textit{controlPage} și este utilizată pentru a seta poziția butonului ce indică modul de funcționare al sistemului.
 
 \vspace{2em}
 
-	În cele ce urmează, voi ilustra modul în care se face o programare a temperaturilor pentru mai multe zile. Voi prezenta traseul pe care informațiile il parcurg, de la introducerea acestora de către utilizator, până la prelucrarea și salvarea lor în baza de date.
+	În cele ce urmează, voi ilustra modul în care se face o programare a temperaturilor pentru mai multe zile. Voi prezenta traseul pe care informațiile îl parcurg, de la introducerea acestora de către utilizator, până la prelucrarea și salvarea lor în baza de date.
 
 	Voi începe prin a expune codul ce face posibilă crearea formularelor utilizate pentru introducerea valorilor temperaturilor și a intervalelor orare. Acestea sunt esențiale pentru interacțiunea între sistem și utilizator.  
 
@@ -688,7 +688,7 @@ def home():
 	\caption{Intrare HTML pentru formatul timp}
 \end{figure}
 
-	Cel de-al doilea tip de intrare prezentat, cel de tip numeric, este utilizat pentru setarea valorii temperaturii. Formatul intrarii este creat în așa natură încât să permită un reglaj al valorii, la nivel de unitate.
+	Cel de-al doilea tip de intrare prezentat, cel de tip numeric, este utilizat pentru setarea valorii temperaturii. Formatul intrării este creat în așa natură încât să permită un reglaj al valorii, la nivel de unitate.
 
 \begin{figure}[H]
    	\centering
@@ -767,11 +767,11 @@ def getTime(timeFormat):
 
 \subsubsection{Forța contraelectromotoare a bobinei}
 
-	Electrovalvele sunt formate dintr-un solenoid. Aplicarea tensiunii la bornele acestuia duce la generarea unui câmp electromagnetic, care la rândul său acționează un obturator. Astfel, se realizează închiderea/deschiderea circuitului de apă. Este important de menționat faptul că solenoidul înmagazinează curent, iar întreruperea alimentarii electrice a acestuia produce o descărcare, ce se manifestă prin apariția unor fluctuații de tensiune în circuit. Prezența acestor fluctuații poate duce la arderea celorlalte componente electronice, dar și la o uzură accentuată a releelor de comandă. De asemenea, descărcarea solenoidului produce apariția unor scântei între contactele releului, determinând perturbații în intreg sistemul. Un exemplu de disfuncționalitate cu care m-am confruntat din aceasă cauză, a fost dereglarea temperaturii setate, în momentul în care modulul ESP8266 trimitea comandă de închidere a electrovalvei.   
+	Electrovalvele sunt formate dintr-un solenoid. Aplicarea tensiunii la bornele acestuia duce la generarea unui câmp electromagnetic, care la rândul său acționează un obturator. Astfel, se realizează închiderea/deschiderea circuitului de apă. Este important de menționat faptul că solenoidul înmagazinează curent, iar întreruperea alimentării electrice a acestuia produce o descărcare, ce se manifestă prin apariția unor fluctuații de tensiune în circuit. Prezența acestor fluctuații poate duce la arderea celorlalte componente electronice, dar și la o uzură accentuată a releelor de comandă. De asemenea, descărcarea solenoidului produce apariția unor scântei între contactele releului, determinând perturbații în întreg sistemul. Un exemplu de disfuncționalitate cu care m-am confruntat din aceasă cauză, a fost dereglarea temperaturii setate, în momentul în care modulul ESP8266 trimitea comandă de închidere a electrovalvei. Pentru a contracara aceste probleme, se conectează o diodă, între contactele electrovalvei, ce va crea o cale alternativă pentru descărcarea bobinei. Polul pozitiv al sursei ce alimentează electrovalva se va conecta la catodul diodei.  
 
 \subsubsection{Vibrațiile contactelor metalice ale întrerupătoarelor}
 
-	Pentru a putea modifica valoarea temperaturii setate a fi menținute în imobil, se utilizează butoane fizice, legate prin conductori eletrici la modulele WiFi. Din punct de vedere funcțional, acestea pot avea comportament neașteptat, cauzat de vibrațiile fine care se produc între contactele metalice ale întrerupătorului. Frecvența cu care microcontrolerul citește semnalul provenit de la buton este suficient de mare, astfel încât, să poată sesiza inclusiv o vibrație ca fiind o apăsare distinctă. Prin urmare, se întâmpla ocazional ca intenția utilizatorului de a incrementa sau decrementa cu o unitate temperatura setată, să se traducă în modificarea acesteia cu mai multe unități. Soluția pe care am implementat-o în această situație, a fost realizarea și montarea unor filtre trece - jos pentru fiecare buton în parte. Rolul acestora este de a permite trecerea doar a semnalelor cu frecvențe mici, iar cele de frecvențe mari, perturbațiile, fiind oprite. Capturile de ecran din cadrul capitolului 3, prezintă semnalul înainte de filtrare \ref{fig:InainteDeFiltru}, dar și după aceasta \ref{fig:DupaFiltru}.
+	Pentru a putea modifica valoarea temperaturii setate a fi menținute în imobil, se utilizează butoane fizice, legate prin conductori electrici la modulele WiFi. Din punct de vedere funcțional, acestea pot avea comportament neașteptat, cauzat de vibrațiile fine care se produc între contactele metalice ale întrerupătorului. Frecvența cu care microcontrolerul citește semnalul provenit de la buton este suficient de mare, astfel încât, să poată sesiza inclusiv o vibrație ca fiind o apăsare distinctă. Prin urmare, se întâmpla ocazional ca intenția utilizatorului de a incrementa sau decrementa cu o unitate temperatura setată, să se traducă în modificarea acesteia cu mai multe unități. Soluția pe care am implementat-o în această situație, a fost realizarea și montarea unor filtre trece - jos pentru fiecare buton în parte. Rolul acestora este de a permite trecerea doar a semnalelor cu frecvențe mici, iar cele de frecvențe mari, perturbațiile, fiind oprite. Capturile de ecran din cadrul capitolului 3, prezintă semnalul înainte de filtrare \ref{fig:InainteDeFiltru}, dar și după aceasta \ref{fig:DupaFiltru}.
 
 \subsubsection{Amorsarea instalației cu apă}
 
@@ -792,15 +792,15 @@ def getTime(timeFormat):
 	\begin{itemize}
 			\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item Verificarea faptului că pentru a putea realiza orice funcționalitate din aplicația web, trebuie să existe un utilizator conectat. Altfel, accesul este obligatoriu să fie interzis.
-			\item Încercarea de conectare utilizând un cont inexistent, trebuie interzisă și avertizată printr-un mesaj de eroare.
-			\item Verificarea funcției de criptare a parolei utilizatorului.
-			\item Verificarea posibilității de conectare la aplicația web.
-			\item Introducerea parolei greșite în momentul conectării.
-			\item Testarea funcționalității de deconectare.
-			\item Acitvare/Dezactivare mod de lucru cu intervale orare
-			\item Controlul posibilității de setare a intervalelor pentru zile lucrătoare, dar si pentru cele de la sfârșitul săptămânii. De asemenea, cazurile acestea de test se împart în mai multe. Situația în care acestea nu sunt setate în ordine cronologică și situația în care vreo valoare a temperaturii nu se încadrează în intervalul 15 °C - 32 °C.
-			\item Funcția de schimbare a parolei, implică verificarea situațiilor în care: parola curentă nu este validă, parolele introduse nu se potrivesc, noua parolă este prea scurtă, noua parolă nu conține majusculă și situația în care noua parolă nu conține cifră.
+			\item Verificarea faptului că pentru a putea realiza orice funcționalitate din aplicația web, trebuie să existe un utilizator conectat. Altfel, accesul este obligatoriu să fie interzis;
+			\item Încercarea de conectare utilizând un cont inexistent, trebuie interzisă și avertizată printr-un mesaj de eroare;
+			\item Verificarea funcției de criptare a parolei utilizatorului;
+			\item Verificarea posibilității de conectare la aplicația web;
+			\item Introducerea parolei greșite în momentul conectării;
+			\item Testarea funcționalității de deconectare;
+			\item Activare/Dezactivare mod de lucru cu intervale orare;
+			\item Controlul posibilității de setare a intervalelor pentru zile lucrătoare, dar si pentru cele de la sfârșitul săptămânii. De asemenea, cazurile acestea de test se împart în mai multe. Situația în care acestea nu sunt setate în ordine cronologică și situația în care vreo valoare a temperaturii nu se încadrează în intervalul 15 °C - 32 °C;
+			\item Funcția de schimbare a parolei, implică verificarea situațiilor în care: parola curentă nu este validă, parolele introduse nu se potrivesc, noua parolă este prea scurtă, noua parolă nu conține majusculă și situația în care noua parolă nu conține cifră;
 			\item Verificarea funcției de setare a temperaturii pentru ambele camere.
 	\end{itemize} 
 
@@ -811,7 +811,7 @@ def getTime(timeFormat):
 	\begin{itemize}
 			\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item Un cont fără drept de aministrator nu este autorizat pentru crearea de alte conturi.
+			\item Un cont fără drept de aministrator nu este autorizat pentru crearea de alte conturi;
 			\item Nu este permis accesul pentru a vedea lista de conturi, a șterge un cont, a oferi drepturi de administrator sau a șterge drepturi de aministrator.
 	\end{itemize} 
 
@@ -822,13 +822,13 @@ def getTime(timeFormat):
 	\begin{itemize}
 			\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item Posibilitatea de creare de conturi noi.
-			\item Interzicerea accesului de a crea un cont nou dacă: parolele nu se potrivesc, parola introdusă este prea scurtă, nu conține majusculă sau nu conține cel puțin o cifră.
-			\item Ștergerea unui cont.
-			\item Incercarea de ștergere a unui cont inexistent.
-			\item Acordarea drepturilor de administrator unui anumit cont.
-			\item Acordarea drepturilor de administrator unui cont inexistent.
-			\item Retragerea drepturilor de administrator.
+			\item Posibilitatea de creare de conturi noi;
+			\item Interzicerea accesului de a crea un cont nou dacă: parolele nu se potrivesc, parola introdusă este prea scurtă, nu conține majusculă sau nu conține cel puțin o cifră;
+			\item Ștergerea unui cont;
+			\item Incercarea de ștergere a unui cont inexistent;
+			\item Acordarea drepturilor de administrator unui anumit cont;
+			\item Acordarea drepturilor de administrator unui cont inexistent;
+			\item Retragerea drepturilor de administrator;
 			\item Retragerea drepturilor de administrator pentru un cont inexistent.
 	\end{itemize} 
 

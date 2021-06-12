@@ -72,5 +72,6 @@
 \contentsline {section}{\numberline {4.5}Testarea solu\IeC {{\textcommabelow t}}iei}{48}{section.4.5}%
 \contentsline {chapter}{\numberline {5}Ghidul utilizatorului}{51}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Interfa\IeC {{\textcommabelow t}}a cu utilizatorul}{51}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Optimizare}{54}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Concluzii \IeC {{\textcommabelow s}}i direc\IeC {{\textcommabelow t}}ii de dezvoltare}{56}{chapter.6}%
+\contentsline {section}{\numberline {5.2}Descriere \IeC {{\textcommabelow s}}i utilizare sistem}{55}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Optimizare}{56}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Concluzii \IeC {{\textcommabelow s}}i direc\IeC {{\textcommabelow t}}ii de dezvoltare}{58}{chapter.6}%

@@ -12,10 +12,10 @@
 		\begin{itemize}
 			\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item Arduino Uno
-			\item Arduino Mega
-			\item Arduino Leonardo
-			\item Arduino Micro
+			\item Arduino Uno;
+			\item Arduino Mega;
+			\item Arduino Leonardo;
+			\item Arduino Micro.
 		\end{itemize} 
 
 	Arduino IDE îndeplinește atât rolul de editor de text, cât și rolul de compilator. Editorul de text reprezintă un suport pentru redactarea codului, iar compilatorul este responsabil de transformarea codului sursă în cod obiect și încărcarea acestuia pe microcontroler \cite{arduinoIDE}.
@@ -26,8 +26,8 @@
 	\begin{itemize}
 		\setlength{\itemindent}{2em}
 		\itemsep0em
-		\item Completare automată de cod.
-		\item Refactorizare rapidă și sigură de cod.
+		\item Completare automată de cod;
+		\item Refactorizare rapidă și sigură de cod;
 		\item Posibilitatea de a crea teste și de a le rula utilizând interfața cu utilizatorul pusă la dispoziție. 
 	\end{itemize}
 	
@@ -39,8 +39,8 @@
 	\begin{itemize}
 	\setlength{\itemindent}{2em}
 	\itemsep0em
-	\item Flexibilitatea, poate fi utilizat într-un număr vast de domenii, de la programare web, până la programare pe plăcuțe. Funcționează pe o multitudine de platforme, printre care se enumeră: Windows, Mac, Linux și Raspberry Pi. 
-	\item În ceea ce privește sintaxa acestui limbaj de programare, este una simplă, care permite scrierea de programe utilizând un număr mai mic de linii de cod. 
+	\item Flexibilitatea, poate fi utilizat într-un număr vast de domenii, de la programare web, până la programare pe plăcuțe. Funcționează pe o multitudine de platforme, printre care se enumeră: Windows, Mac, Linux și Raspberry Pi;
+	\item În ceea ce privește sintaxa acestui limbaj de programare, este una simplă, care permite scrierea de programe utilizând un număr mai mic de linii de cod; 
 	\item Poate fi folosit atât pentru programare procedurală, funcțională, dar și orientată pe obiecte.
 	\end{itemize}
 
@@ -48,7 +48,7 @@
 
 	C++ este un limbaj de programare bazat pe C. Motivele pentru care creatorul acestui limbaj de programare, Bjarne Stroustrup, a decis să folosească limbajul C ca punct de plecare sunt: flexibilitatea si faptul că este un limbaj apropiat de partea hardware, rulează pe multe platforme și se potrivește cu mediul de programare UNIX \cite{c++}.
 
-	Ceea ce aduce nou este posibilitatea de a programa orientat pe obiecte, o programare de tip generic și face posibil conceptul de abstractizare al datelor \cite{c++}. Numărul de domenii în care C++ poate fi aplicat crește considerabil datorită introducerii noțunii de programare orientată pe obiecte. Aceasta implică modelarea unor entități din lumea reală, și interacțiunile acestora, prin intermediul claselor. 
+	Ceea ce aduce nou este posibilitatea de a programa orientat pe obiecte, o programare de tip generic și face posibil conceptul de abstractizare al datelor \cite{c++}. Numărul de domenii în care C++ poate fi aplicat crește considerabil datorită introducerii noțiunii de programare orientată pe obiecte. Aceasta implică modelarea unor entități din lumea reală, și interacțiunile acestora, prin intermediul claselor. 
 
 \subsection{HTML}
 
@@ -106,8 +106,8 @@
  		\begin{itemize}
 			\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item Tensiune de alimentare: 5 volți 
-			\item Luminozitatea ecranului se poate regla printr-un potențiometru integrat
+			\item Tensiune de alimentare: 5 volți; 
+			\item Luminozitatea ecranului se poate regla printr-un potențiometru integrat.
 		\end{itemize} 
 	
 \subsection{Senzor DHT11}
@@ -122,10 +122,10 @@
  		\begin{itemize}
 			\setlength{\itemindent}{2em}
 			\itemsep0em
-			\item Distanța de transfer: 20 - 200 metri
-			\item Tensiune de alimentare transmițător: 3.5 - 12 volți
-			\item Rată de transfer: 4 KB/S
-			\item Tensiune de alimentare a receptorului: 5 volți
+			\item Distanța de transfer: 20 - 200 metri;
+			\item Tensiune de alimentare transmițător: 3.5 - 12 volți;
+			\item Rată de transfer: 4 KB/S;
+			\item Tensiune de alimentare a receptorului: 5 volți.
 		\end{itemize} 
 
 \subsection{Releu}
@@ -162,7 +162,7 @@
 
 \section{Filtrarea semnalelor}
 
-	Butoanele pe care le-am folosit, pentru setarea temperaturii dorite, sunt formate din contacte metalice. În momentul în care acestea se ating, produc o vibrație pe care microcontrolerul o percepe ca o apăsare multiplă a butonului. Pentru a rezolva această problemă este necesară crearea unor filtre trece - jos \cite{buttonDebouncing} pentru fiecare buton în parte. Rolul acestor filtre este de a permite trecerea semnalelor cu frecvență mică si de a opri semnalele cu frecvențe mari. Pentru aceasta, am utilizat circuite RC serie, iar valorile rezistenței si condesatorului au fost calculate utilizând ecuația de încărcare și de descărcare a condensatorului. De asemenea, pentru a obține o filtrare cât mai bună, am utilizat un circuit integrat Schmitt-Trigger. Caracteristica datorită căreia acesta îmbunătățește filtrarea semnalului este histereza pe care o are între pragul superior, declanșează trecerea pe nivel logic 0, și pragul inferior, declanșează trecerea pe nivel logic 1.  
+	Butoanele pe care le-am folosit, pentru setarea temperaturii dorite, sunt formate din contacte metalice. În momentul în care acestea se ating, produc o vibrație pe care microcontrolerul o percepe ca o apăsare multiplă a butonului. Pentru a rezolva această problemă este necesară crearea unor filtre trece - jos \cite{buttonDebouncing} pentru fiecare buton în parte. Rolul acestor filtre este de a permite trecerea semnalelor cu frecvență mică și de a opri semnalele cu frecvențe mari. Pentru aceasta, am utilizat circuite RC serie, iar valorile rezistenței și condesatorului au fost calculate utilizând ecuația de încărcare și de descărcare a condensatorului. De asemenea, pentru a obține o filtrare cât mai bună, am utilizat un circuit integrat Schmitt-Trigger. Caracteristica datorită căreia acesta îmbunătățește filtrarea semnalului este histereza pe care o are între pragul superior, declanșează trecerea pe nivel logic 0, și pragul inferior, declanșează trecerea pe nivel logic 1.  
 \vspace{1em}\\
 Conform \cite{buttonDebouncing}, ecuația de încărcare a condensatorului este:
 
@@ -176,15 +176,15 @@ Conform \cite{buttonDebouncing}, ecuația de descărcare a condensatorului este:
 V_{cap} = V_{in}(e^{\frac{-t}{RC}})                 
 \end{equation}
 \vspace{1em}\\
-$V_{cap}$ - tensiunea stocată în condensator la momentul t
+$V_{cap}$ - tensiunea stocată în condensator la momentul t;
 \vspace{0.7em}\\
-$V_{in}$ - tensiune de alimentare a circuitului
+$V_{in}$ - tensiune de alimentare a circuitului;
 \vspace{0.7em}\\
-t - timpul măsurat din momentul aplicării tensiunii de alimentare la bornele circuitului, în cazul ecuației de încărcare a condensatorului. Pentru ecuația de descărcare a condensatorului, reprezintă timpul măsurat din momentul întreruperii alimentării circuitului
+t - timpul măsurat din momentul aplicării tensiunii de alimentare la bornele circuitului, în cazul ecuației de încărcare a condensatorului. Pentru ecuația de descărcare a condensatorului, reprezintă timpul măsurat din momentul întreruperii alimentării circuitului;
 \vspace{0.7em}\\
-R - valoarea în ohmi a rezistenței utilizate
+R - valoarea în ohmi a rezistenței utilizate;
 \vspace{0.7em}\\
-C - valoarea în farazi a condensatorului utilizat\\ 
+C - valoarea în farazi a condensatorului utilizat.\\ 
 
 \vspace{1em}
 	În continuare, pentru a putea aplica formulele, este necesară aflarea timpului cât durează oscilația semnalului. Pentru aceasta, am utilizat un osciloscop ce permite analiza semnalului provenit de la buton.
@@ -203,7 +203,7 @@ C - valoarea în farazi a condensatorului utilizat\\
 	\label{fig:DupaFiltru}
 \end{figure}
 	
-	În urma analizei mai multor semnale de la push buton, cea mai mare perturbație a durat aproximativ 8 ms. În calculul valorii rezistențelor si condensatorului care trebuie folosite în filtrele trece - jos, voi folosi un timp de 10 ms. Cele 2 ms în plus reprezintă o marjă de siguranță pentru situațiile în care apar perturbații mai mari decât cele măsurate. 
+	În urma analizei mai multor semnale de la push buton, cea mai mare perturbație a durat aproximativ 8 ms. În calculul valorii rezistențelor și condensatorului care trebuie folosite în filtrele trece - jos, voi folosi un timp de 10 ms. Cele 2 ms în plus reprezintă o marjă de siguranță pentru situațiile în care apar perturbații mai mari decât cele măsurate. 
 
 \vspace{1em}
 
@@ -235,7 +235,7 @@ C - valoarea în farazi a condensatorului utilizat\\
 	
 \section{Histereza}
 
-	Pentru a evita crearea unui lanț de porniri si opriri repetate, pe perioade scurte de timp, cauzate de fluctuațiile rapide de temperatură, este necesară implementarea conceptului de histereză. Acesta constă în stabilirea unei valori de toleranță la temperatura setată, astfel încât diferența de temperatură din momentul în care se trimite comandă pentru oprirea sistemului de încălzire, până la următoarea pornire a acestuia, să fie egală cu dublul valorii histerezei. Cu alte cuvinte, comanda de pornire a încalzirii se va da când temperatura în cameră ajunge să fie mai mică sau egală cu valoare temperaturii setate, din care se sustrage valoarea histerezei. Comanda de oprire va fi declanșată când temperatura ambientală este mai mare sau egală cu valoarea temperaturii setate, la care se adaugă valoare histerezei. În acest fel, timpul între comenzi este mai mare și numărul de cicluri pornit/oprit este mai mic, măsură ce este menită să protejeze sistemele de încălzire.
+	Pentru a evita crearea unui lanț de porniri și opriri repetate, pe perioade scurte de timp, cauzate de fluctuațiile rapide de temperatură, este necesară implementarea conceptului de histereză. Acesta constă în stabilirea unei valori de toleranță la temperatura setată, astfel încât diferența de temperatură din momentul în care se trimite comandă pentru oprirea sistemului de încălzire, până la următoarea pornire a acestuia, să fie egală cu dublul valorii histerezei. Cu alte cuvinte, comanda de pornire a încălzirii se va da când temperatura în cameră ajunge să fie mai mică sau egală cu valoare temperaturii setate, din care se sustrage valoarea histerezei. Comanda de oprire va fi declanșată când temperatura ambientală este mai mare sau egală cu valoarea temperaturii setate, la care se adaugă valoare histerezei. În acest fel, timpul între comenzi este mai mare și numărul de cicluri pornit/oprit este mai mic, măsură ce este menită să protejeze sistemele de încălzire.
 
 
 	 

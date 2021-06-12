@@ -1,6 +1,6 @@
 \chapter{Ghidul utilizatorului}\label{ch:5interfataUtilizator}
 
-	În acest capitol voi descrie felul în care utilizatorul poate să interacționeze cu aplicația web, iar în cele din urmă voi prezenta una dintre optimizările esențiale aduse sistemului.
+	În acest capitol voi descrie felul în care utilizatorul poate să interacționeze cu aplicația web și cu macheta ce simulează circuitul de încălzire dintr-un imobil, iar în cele din urmă voi prezenta una dintre optimizările esențiale aduse sistemului.
 
 \section{Interfața cu utilizatorul}
 
@@ -9,7 +9,7 @@
 	Bara de navigare se adaptează în funcție de rolul utilizatorului, unele butoane devin, sau nu, disponibile.
 	Secțiunea de conținut este diferită la fiecare pagină în parte.
 	
-\vspace{1em}
+\vspace{0.5em}
 
 	Pagina \textit{Login} – structura acestei pagini este diferită față de celelalte. Conține un div cu imagine de fundal și un formular care face posibilă conectarea la aplicația web. Se vor introduce credențialele în câmpurile puse la dispoziție, iar după validarea acestora, se face redirecționarea la pagina principală.
 
@@ -58,6 +58,38 @@
     	\includegraphics[width=0.8\textwidth]{ChangePassword.png}
 	\caption{Pagina schimbare parolă}
 \end{figure}
+
+\vspace{5em}
+
+\section{Descriere și utilizare sistem}
+
+	Pentru fiecare cameră în parte există un LCD ce va afișa, pe primul rând, temperatura ambientală, iar pe cel de-al doilea, temperatura setată de utilizator. Setarea temperaturii se face prin intermediul butoanelor situate în dreptul LCD-ului. Butonul poziționat în partea de sus este responsabil cu creșterea valorii temperaturii, pe când cel de jos va decrementa temperatura setată.
+
+	Pompa de apă simulează funcționalitatea centralei termice, iar electrovalvele închid sau deschid circuitul de apă prin calorifer.
+	
+	Pentru a putea umple circuitul cu apă, se va utiliza aerisitorul. Acesta este montat în cel mai înalt punct al instalației.  
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=1\textwidth]{Macheta-instalatie.png}
+	\caption{Circuitul de apă al machetei}
+\end{figure}
+
+	În interiorul machetei se află plăcuțele cu microcontroler. Acestea îndeplinesc diverse funcționalități și transmit informații între ele pentru a face posibil managementul temperaturii. 
+
+	Transferul informațiilor cu baza de date se realizează prin intermediul modulului ESP8266. 
+	
+	Arduino Uno controlează pompa de apă în funcție de comenzile primite de la modulele wireless. Comunicația între modulele WiFi și plăcuța Arduino este posibilă datorită transmițătoarelor și receptorului ce funcționează prin radio - frecvență.
+
+	Sunt utilizate transformatoare de 12 volți pentru alimentarea componentelor electronice.
+
+\begin{figure}[H]
+   	\centering
+    	\includegraphics[width=1\textwidth]{Macheta-hardware.png}
+	\caption{Partea hardware a machetei}
+\end{figure}
+
+
 
 \section{Optimizare}
 
